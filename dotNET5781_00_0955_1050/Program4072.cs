@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace dotNET5781_00_0955_1050
 {
+   
     partial class Program
     {
         static void Main(string[] args)
@@ -17,6 +18,7 @@ namespace dotNET5781_00_0955_1050
         static partial void welcome_5426();
         private static void welcome_4072()
         {
+            int a = 45;
             Console.WriteLine("enter your name:");
             string name = Console.ReadLine();
             Console.WriteLine("{0}, welcome to my first console application", name);
