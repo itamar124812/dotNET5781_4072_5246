@@ -10,6 +10,7 @@ namespace dotNET5781_00_0955_1050
     {
         static partial void welcome_5426()
         {
+            int x;
             Console.WriteLine("I am here");
         }
     }
