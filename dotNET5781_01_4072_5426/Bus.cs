@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Management.Instrumentation;
 using System.Net.NetworkInformation;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
@@ -10,10 +11,46 @@ namespace dotNET5781_01_4072_5426
 {
     class bus
     {
-        public int Mileage { set { if (value >= 0) Mileage = value; else Mileage = -value; } }
-        public DateTime Dateofstart;
-        //private DateTime last_treatment { set { last_treatment = Dateofstart; } }
+        //The length of trips made since the last refueling
+        private int refull;
+        //The time since the last refueling
+        private DateTime last_treatment;
+        // the public version for the time since the last refueling
+        public DateTime l_t{   set { last_treatment = Dateofstart; }get { return last_treatment; } }
+        //the private and  the puclic version for the mailage
+        private int Mileage;
+        public int mailage { set { if (value >= 0) Mileage = value; else Mileage = -value; }get { return Mileage; }}
+       //date of start activity
+        private DateTime Dateofstart;
+       // the licence number private version 
         private string license_number;
+        //The length of trips made since the last treatment
+        private int from_last_treatment;
+        //constructor without Parameters
+        public bus ()
+        {
+            Console.WriteLine("Enter the start date of the activity:");
+            string input = Console.ReadLine();
+            DateTime.TryParse(input, out Dateofstart);
+            input = null;
+            try
+            {
+                Console.WriteLine("Enter the license number as follows 00-000-00 or 000-00-000 :");
+                l_n = Console.ReadLine();
+            }
+            catch (Exception e) { Console.WriteLine(e);return; }
+            Console.WriteLine("Entar the milage number:");
+            input = Console.ReadLine();
+            int a = 0;
+            int.TryParse(input, out a);
+            mailage = a;
+            input = null;
+            from_last_treatment = 0;
+            refull = 0;
+        }
+        // fake constructor for set Default Parameters
+        public bus(int a) {}
+        //the public and the call for the check for the license number
         public string l_n
         {
             set
@@ -26,12 +63,29 @@ namespace dotNET5781_01_4072_5426
             }
             get { return license_number; }
         }
-        private bool cheke_General_treatment(int mileage,DateTime last_treatment)
+        //general treatment test
+        public bool check_General_treatment(int mileage)
         {
-            if (mileage >= 20000) return true;
+            if ((from_last_treatment + mileage) >= 20000) return true;
             else if ((DateTime.Now.Year - last_treatment.Year) == 1) return true;
             else return false;
         }
+        //make a trip
+        public void make_a_trip(int len)
+        {
+           Mileage +=len;
+           from_last_treatment += len;
+           refull += len;
+            Console.WriteLine("The trip was successful");
+        }
+        //Fuel test
+        public bool Refull(int len)
+        {
+            if ((len + refull) > 1200)
+                return false;
+            else return true;
+        }
+        // Confirmation of the correctness of the license number
         private bool cheke_l_num(DateTime date,string l_n)
         {
             if (date <= Dateofstart)
@@ -83,5 +137,6 @@ namespace dotNET5781_01_4072_5426
                 return true;
             }
         }
+        
     }
 }
