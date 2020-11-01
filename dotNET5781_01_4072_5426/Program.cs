@@ -60,7 +60,31 @@ namespace dotNET5781_01_4072_5426
                         else Console.WriteLine("The bus does not exist in the system");
                         break;
                     case 3:
-
+                        Console.WriteLine("Please enter the license number that you want to select as follows 00-000-00 or 000-00-000 :");
+                        Input = Console.ReadLine();
+                        if (Find_license_num(Input, Buses))
+                        {
+                            bus returbnus = find_a_bus(Input, Buses);
+                            Console.WriteLine("Choose 1 for treatment or 2 for  refueling:");
+                            input = null;
+                            int temp = 0;
+                            input = Console.ReadLine();
+                            int.TryParse(input, out temp);
+                            if (temp > 2 || temp < 1)
+                            {
+                                Console.WriteLine("The input was incorrect.");
+                                break;
+                            }
+                            else if (temp == 1)
+                            {
+                                returbnus.make_a_treatment();
+                            }
+                            else
+                            {
+                                returbnus.make_a_refull();
+                            }
+                        }
+                        else Console.WriteLine("The bus does not exist in the system. ");
                         break;
                     case 4:
                        

@@ -137,6 +137,16 @@ namespace dotNET5781_01_4072_5426
                 return true;
             }
         }
-        
+        public void make_a_refull()
+        {
+            refull = 0;
+        }
+        public void make_a_treatment()
+        {
+            last_treatment = DateTime.Now;
+            from_last_treatment = 0;
+        }
+
+
     }
 }
