@@ -90,7 +90,8 @@ namespace dotNET5781_01_4072_5426
                     case 4:
                         foreach( bus a in Buses)
                         {
-                          
+                            Console.Write(a.l_n);
+                            Console.WriteLine(":    {0}" , a.f_l_t);
                            
                         }
 
