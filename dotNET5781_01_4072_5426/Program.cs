@@ -12,7 +12,6 @@ namespace dotNET5781_01_4072_5426
     {
         static void Main(string[] args)
         {
-            int counter = -1;//כדי לדעת מה גודל הרשימה
             List<bus> Buses= new List<bus> ();
             bool flag = true;
             int Choice = 0;
@@ -37,7 +36,7 @@ namespace dotNET5781_01_4072_5426
                         //create a new bus and add to buses
                         bus A = new bus();
                         Buses.Add(A);
-                        counter++;//כדי לדעת מה גודל הרשימה
+                        
                         break;
                     case 2:
                         //make a  trip
@@ -89,13 +88,10 @@ namespace dotNET5781_01_4072_5426
                         else Console.WriteLine("The bus does not exist in the system. ");
                         break;
                     case 4:
-                        int i = 0;
-                        while(i<=counter)
+                        foreach( bus a in Buses)
                         {
-                            Console.Write(Buses[counter].l_n);
-                            Console.Write("  ");
-                            Console.WriteLine(Buses[counter].mailage);
-                            i++;
+                            Console.Write(a.l_n);
+                            Console.WriteLine(":    {0}" , a.f_l_t);
                            
                         }
 

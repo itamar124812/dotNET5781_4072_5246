@@ -26,6 +26,7 @@ namespace dotNET5781_01_4072_5426
         private string license_number;
         //The length of trips made since the last treatment
         private int from_last_treatment;
+        public int f_l_t { get { return from_last_treatment; } }
         //constructor without Parameters
         public bus ()
         {
