@@ -17,13 +17,13 @@ namespace dotNET5781_02_4072_5246
         public double longitude { set { if (Math.Abs(value) > 180) throw new ArgumentException("The Input was invalid"); } get { return Longitude; } }
         public void set_latritude()
         {
-            Random r = new Random();
+            Random r = new Random(DateTime.Now.Millisecond);
             double temp = r.NextDouble();
             latritude= (temp * 2.1 + 31);
         }
         public void set_longitude()
         {
-            Random r = new Random();
+            Random r = new Random(DateTime.Now.Millisecond);
             double temp = r.NextDouble();
             longitude = (temp * 1.2 + 34.3);
         }
@@ -43,6 +43,13 @@ namespace dotNET5781_02_4072_5246
             BusStopkey = bus;
             latritude = a;
             longitude = b;
+        }
+        protected BusStop()
+        {
+            Random r = new Random(DateTime.Now.Millisecond);
+            BusStopkey= r.Next(0, 1000000);
+            set_latritude();
+            set_longitude();
         }
     }
 }

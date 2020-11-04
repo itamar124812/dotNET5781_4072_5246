@@ -15,12 +15,26 @@ namespace dotNET5781_02_4072_5246
             bool flag = true;
             while(flag)
             {
+                int secondchoice;
                 Console.WriteLine("enter 1 for addition, 2 for Deletion, 3 for search, 4 for exit:");
                 string input = Console.ReadLine();
                 int.TryParse(input, out choice);
                 switch(choice)
                 {
                     case 1:
+                        Console.WriteLine("Select 1 to add a new bus line or 2 for add a new station");
+                        input = null;
+                        input = Console.ReadLine();
+                        int.TryParse(input, out secondchoice);
+                        if (secondchoice == 1)
+                        {
+
+                        }
+                        else if (secondchoice == 2)
+                        {
+
+                        }
+                        else Console.WriteLine("The input was invalid");
                         break;
                     case 2:
                         break;
