@@ -187,7 +187,7 @@ namespace dotNET5781_02_4072_5246
             input = Console.ReadLine();
             int.TryParse(input, out temp);
             BusLineStation b = new BusLineStation(temp);
-            if (otherLine != null)
+            if (otherLine != null && cheke_station(A) && cheke_station(b))
             {
                 return this.time_from_station(A,b).CompareTo(otherLine.time_from_station(A,b));
                     
