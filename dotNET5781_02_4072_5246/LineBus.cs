@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Runtime.Remoting.Services;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 namespace dotNET5781_02_4072_5246
 {
    enum area { General,North,South,Center,Jerusalem}
-    class LineBus
+    class LineBus:IComparable
     {
         List<BusLineStation> The_line_bus = new List<BusLineStation>();
        private  BusLineStation final_stop;
@@ -94,5 +95,107 @@ namespace dotNET5781_02_4072_5246
             The_line_bus.Insert(0,b);
             start_station = The_line_bus.First();
         }
+       public double distance_between_station(BusLineStation A,BusLineStation B)
+        {
+            if (cheke_station(A) && cheke_station(B))
+            {
+                double result = 0;
+                int index1 = Search_Starion(A);
+                int index2 = Search_Starion(B);
+                if (index1<index2)
+                {
+                    for (int i = index1;i<index2;i++)
+                    {
+                        result += The_line_bus[i].Distance_from_last_s;
+                    }
+                }
+                else if(index1 == index2)
+                {
+                    return 0;
+                }
+                else
+                {
+                    for (int i = index2; i < index1; i--)
+                    {
+                        result += The_line_bus[i].Distance_from_last_s;
+                    }
+                }
+                return result;
+            }
+            else throw new ArgumentException("The stations didn't found");
+        }
+        public TimeSpan time_from_station(BusLineStation A, BusLineStation B)
+        {
+            if (cheke_station(A) && cheke_station(B))
+            {
+                TimeSpan result=new TimeSpan(0);
+                int index1 = Search_Starion(A);
+                int index2 = Search_Starion(B);
+                if (index1 < index2)
+                {
+                    for (int i = index1; i < index2; i++)
+                    {
+                        result += The_line_bus[index1].Time_from_last_s;
+                    }
+                }
+                else if (index1 == index2)
+                {
+                    return result;
+                }
+                else
+                {
+                    for (int i = index2; i < index1; i--)
+                    {
+                        result += The_line_bus[i].Time_from_last_s;
+                    }
+                }
+                return result;
+            }
+            else throw new ArgumentException("The stations didn't found");
+        }
+        public LineBus Sub_route(BusLineStation A, BusLineStation B)
+        {
+            LineBus return_Bus = new LineBus();
+            if (cheke_station(A) && cheke_station(B))
+            {
+                int index1 = Search_Starion(A);
+                int index2 = Search_Starion(B);
+                if (index1 < index2)
+                {
+                    for (int i = index1; i < index2; i++)
+                    {
+                        return_Bus.The_line_bus[i - index1] = The_line_bus[i];
+                    }
+                }
+                else if (index1 == index2)
+                    throw new ArgumentException("Not funny! The two stations are identical");
+                else throw new ArgumentException("Sorry, the bus is not traveling in this direction");
+            }
+            else throw new ArgumentException("The stations didn't found");
+            return return_Bus;
+        }
+       public int CompareTo(object obj)
+        {
+            int temp;
+            if (obj == null) return 0;
+            LineBus otherLine = obj as LineBus;
+            Console.WriteLine("What is the number of the station where you are?");
+            string input = Console.ReadLine();
+            int.TryParse(input, out temp);
+            BusLineStation A=new BusLineStation(temp);
+            Console.WriteLine("What number your destination station?");
+            input = Console.ReadLine();
+            int.TryParse(input, out temp);
+            BusLineStation b = new BusLineStation(temp);
+            if (otherLine != null)
+            {
+                return this.time_from_station(A,b).CompareTo(otherLine.time_from_station(A,b));
+                    
+            }
+            else throw new ArgumentException("The comparison cannot exist");
+        }
+
+       
+
     }
 }
