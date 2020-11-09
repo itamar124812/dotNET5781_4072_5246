@@ -37,5 +37,15 @@ namespace dotNET5781_02_4072_5246
             double temp= r.NextDouble();
             temp *= Math.Pow(1.1, minute) + hour * 270;
         }
+        public BusLineStation(int bus):base(bus)
+        {
+            Random r = new Random(DateTime.Now.Millisecond);
+            int hour = r.Next(0, 2);
+            int minute = r.Next(0, 60);
+            int second = r.Next(0, 60);
+            time_from_last_s = new TimeSpan(hour, minute, second);
+            double temp = r.NextDouble();
+            temp *= Math.Pow(1.1, minute) + hour * 270;
+        }
     }
 }
