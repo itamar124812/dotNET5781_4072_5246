@@ -31,7 +31,7 @@ namespace dotNET5781_02_4072_5246
                     b.Add(i);//צריך תיקון
                     flag = true;
                 }
-
+                
             }
             if(flag == false)
             {
@@ -40,8 +40,8 @@ namespace dotNET5781_02_4072_5246
             return b; 
         }
 
-
-
+        //צריך לעשות מיון וצריך לשאול מה זה זמן נסיעה
+        //מקבל את מספר הקו ומחזיר את המופע
 
         public IEnumerator GetEnumerator()
         {
