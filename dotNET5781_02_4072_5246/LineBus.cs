@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace dotNET5781_02_4072_5246
    enum area { General,North,South,Center,Jerusalem}
     class LineBus:IComparable
     {
-        List<BusLineStation> The_line_bus = new List<BusLineStation>();
+       public List<BusLineStation> The_line_bus = new List<BusLineStation>();
        private  BusLineStation final_stop;
         public BusLineStation Final_stop { set{ if (value == The_line_bus.Last()) final_stop = value; else final_stop = The_line_bus.Last(); } get { return final_stop; } }
         private BusLineStation start_station;
@@ -28,7 +29,7 @@ namespace dotNET5781_02_4072_5246
             }
             return result;
         }
-        private bool cheke_station(BusLineStation A)
+        public bool cheke_station(BusLineStation A)
         {
             foreach (BusLineStation a in The_line_bus)
             {
@@ -53,8 +54,7 @@ namespace dotNET5781_02_4072_5246
         
         public void enter_a_new_stop(BusLineStation A)
         {
-            if (cheke_station(A))
-            {
+            
                 TimeSpan time;
                 int temp=0;
                 double distance;
@@ -70,11 +70,19 @@ namespace dotNET5781_02_4072_5246
                 double.TryParse(input, out distance);
                 BusLineStation b = new BusLineStation(temp, time, distance);
                 int index = Search_Starion(A);
+            if (index > 0)
+            {
                 The_line_bus.Insert(index, b);
                 if (final_stop == A)
-                    final_stop = The_line_bus.Last();    
+                    final_stop = The_line_bus.Last();
             }
-            else throw new ArgumentException("There is no such station");
+            else
+            {
+                index = The_line_bus.Count-1;
+                The_line_bus.Insert(index, b);
+                if (final_stop == A)
+                    final_stop = The_line_bus.Last();
+            }
         }
         public void enter_head()
         {
@@ -194,8 +202,50 @@ namespace dotNET5781_02_4072_5246
             }
             else throw new ArgumentException("The comparison cannot exist");
         }
-
-       
+     
+        public LineBus (int A)
+        {
+            bus_line_key = A;
+            BusLineStation parmter1 = new BusLineStation();
+            BusLineStation parmter2 = new BusLineStation();
+            The_line_bus.Add(parmter1);
+            The_line_bus.Add(parmter2);
+        }
+       public LineBus()
+        { 
+            Console.WriteLine("What is the bus line number you would like to add?");
+            string input = Console.ReadLine();
+            int temp;
+            int.TryParse(input, out temp);
+            bus_line_key = temp;
+            Console.WriteLine("pleae select area:0 for  general,1 for North,2 for South, 3 for Center,4 for Jerusalem");
+            input = Console.ReadLine();
+            int.TryParse(input, out temp);
+            AREA = temp;
+            enter_head();
+            BusLineStation A = new BusLineStation();
+            enter_a_new_stop(A);
+        }
+        public void remove_station(int station_code)
+        {
+            if (cheke_minimum_stations())
+            {
+                BusLineStation A = new BusLineStation(station_code);
+                int index = Search_Starion(A);
+                if (index >= 0)
+                {
+                    The_line_bus.Remove(The_line_bus[index]);
+                }
+                else throw new ArgumentOutOfRangeException("There is no such station in the line.");
+            }
+            else throw new InvalidOperationException("There must be at least 2 stations");
+        }
+        private bool cheke_minimum_stations()
+        {
+            if (The_line_bus.Count >= 2)
+                return true;
+            return false;
+        }
 
     }
 }
