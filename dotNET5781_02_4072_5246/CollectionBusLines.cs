@@ -6,40 +6,42 @@ using System.Threading.Tasks;
 using System.Collections;//כדי לממש את הממשק IEnumerable
 using System.Runtime.Remoting.Services;
 using System.Runtime.InteropServices;
+using System.CodeDom;
 
 namespace dotNET5781_02_4072_5246
 {
     
-    class CollectionBusLines : IEnumerable
+    class CollectionBusLines :  IEnumerable 
     {
         
-        List<LineBus> collectin_of_lines = new List<LineBus>();//יצירת אוסף של קווי האוטובוסים
-        public List<int> keys_for_stations=new List<int>();
+         public  List<LineBus> collectin_of_lines = new List<LineBus>();//יצירת אוסף של קווי האוטובוסים
+         public bool[] existind_stations = new bool[1000000];
+         public BusLineStation return_station(int bus_code)
+        {
+            foreach(LineBus A in collectin_of_lines)
+            {
+                for (int i = 0; i < A.The_line_bus.Count; i++)
+                {
+                    if (A.The_line_bus[i].BusStopkey == bus_code)
+                        return A.The_line_bus[i];
+                }
+            }
+            throw new ArgumentException("the station did'nt exists.");
+        }
         
         public void add()
         {
-            station_key();
             LineBus A = new LineBus();
             collectin_of_lines.Add(A);
+         
         }
 
-        private void station_key()
-        {
-            int counter = 0;
-            foreach (LineBus B in collectin_of_lines)
-            {
-                for (int i = 0; i < B.The_line_bus.Count; i++)
-                {
-                    keys_for_stations.Insert (counter ,B.The_line_bus[i].BusStopkey);
-                    counter++;
-                }
-            }
-        }
+        
 
         public void add(LineBus A)
         {
-            station_key();
             collectin_of_lines.Add(A);
+            
         }
         public void remove(LineBus a)
         {
@@ -49,10 +51,12 @@ namespace dotNET5781_02_4072_5246
         {
             if(check_line(bus_code))
             {
+                LineBus B=new LineBus(0);
                 foreach(LineBus A in collectin_of_lines)
                 {
-                    collectin_of_lines.Remove(A);
+                     B = A;
                 }
+                collectin_of_lines.Remove(B);
             }
         }
          public List <LineBus> passing_through(int bus_code)

@@ -17,11 +17,11 @@ namespace dotNET5781_02_4072_5246
 
             int choice = 0;
             CollectionBusLines Bus_system_manager = new CollectionBusLines();
-            start_push(Bus_system_manager);
+            //start_push(Bus_system_manager);
             bool flag = true;
             while (flag)
             {
-                int secondchoice;
+                int secondchoice,another_variable;
                 Console.WriteLine("enter 1 for addition, 2 for Deletion, 3 for search, 4 for print, 5 for exit:");
                 string input = Console.ReadLine();
                 int.TryParse(input, out choice);
@@ -36,13 +36,13 @@ namespace dotNET5781_02_4072_5246
                         {
                             try
                             {
-                                Bus_system_manager.add();
-                                Treatment_duplication_station(Bus_system_manager);
+                                addline(Bus_system_manager, out secondchoice, out another_variable, out input);
                             }
                             catch (ArgumentException ex)
                             {
                                 Console.WriteLine(ex.Message);
                             }
+                            
                         }
                         else if (secondchoice == 2)
                         {
@@ -60,18 +60,17 @@ namespace dotNET5781_02_4072_5246
                                 LineBus Auxiliary_variable = Bus_system_manager.find(temp);
                                 if (secondchoice == 1)
                                 {
-                                    Auxiliary_variable.enter_head();
-                                    Treatment_duplication_station(Bus_system_manager);
+                                    Auxiliary_variable.enter_head(0);                               
                                     Bus_system_manager.remove(secondchoice);
                                     Bus_system_manager.add(Auxiliary_variable);
                                 }
                                 else if (secondchoice == 2)
                                 {
                                     BusLineStation A = new BusLineStation();
-                                    Auxiliary_variable.enter_a_new_stop(A);
+                                    Auxiliary_variable.enter_a_new_stop(A,0);
                                     Bus_system_manager.remove(secondchoice);
                                     Bus_system_manager.add(Auxiliary_variable);
-                                    Treatment_duplication_station(Bus_system_manager);
+                                  
                                 }
                                 else Console.WriteLine("The input was invalid.");
                             }
@@ -196,14 +195,7 @@ namespace dotNET5781_02_4072_5246
                         }
                         else if (secondchoice == 2)
                         {
-                            for (int i = 0; i < Bus_system_manager.keys_for_stations.Count; i++)
-                            {
-                                List<LineBus> result = Bus_system_manager.passing_through(Bus_system_manager.keys_for_stations[i]);
-                                for (int j = 0; j < result.Count; j++)
-                                {
-                                    Console.WriteLine(result[j].ToString());
-                                }
-                            }
+                           
                         }
                         else Console.WriteLine("The input was invalid");
                         break;
@@ -218,6 +210,75 @@ namespace dotNET5781_02_4072_5246
             Console.ReadKey();
         }
 
+        private static void addline(CollectionBusLines Bus_system_manager, out int secondchoice, out int another_variable, out string input)
+        {
+            Console.WriteLine("What is the bus line number you would like to add?");
+            input = Console.ReadLine();
+            int temp, temp1;
+            int.TryParse(input, out temp);
+            Console.WriteLine("pleae select area:0 for  general,1 for North,2 for South, 3 for Center,4 for Jerusalem");
+            input = Console.ReadLine();
+            int.TryParse(input, out temp1);
+            LineBus A = new LineBus(temp, temp1);
+            Console.WriteLine("If it's a new station Press 1 If the station already exists Press 2:");
+            input = null;
+            input = Console.ReadLine(); int.TryParse(input, out another_variable);
+            if (another_variable == 1)
+            {
+                do
+                {
+                    Console.WriteLine("Enter the number of the first station where the line will pass:");
+                    input = null;
+                    input = Console.ReadLine(); secondchoice = 0;
+                    int.TryParse(input, out secondchoice);
+                    if (!Bus_system_manager.existind_stations[secondchoice])
+                    {
+                        A.enter_head(secondchoice);
+                        Bus_system_manager.existind_stations[secondchoice] = true;
+                    }
+                    else Console.WriteLine("The station already exists. Try again.");
+                } while (!Bus_system_manager.existind_stations[secondchoice]);
+            }
+            else if (another_variable == 2)
+            {
+                Console.WriteLine("Enter the number of the first station where the line will pass:");
+                input = null;
+                input = Console.ReadLine(); secondchoice = 0;
+                int.TryParse(input, out secondchoice);
+                if (Check_station(Bus_system_manager, secondchoice))
+                {
+                    A.enter_head(Bus_system_manager.return_station(secondchoice));
+                }
+            }
+            else Console.WriteLine("The input was invalid");
+            Console.WriteLine("Please enter the number of the second stop:");
+            input = null;
+            input = Console.ReadLine();
+            int.TryParse(input, out another_variable);
+            Console.WriteLine(" If the station is new press 1 if not press 2:");
+            input = null;
+            input = Console.ReadLine();
+            int.TryParse(input, out secondchoice);
+            if (secondchoice == 1)
+            {
+                if (Bus_system_manager.existind_stations[another_variable] == false)
+                {
+                    A.enter_a_new_stop(A.The_line_bus[0], another_variable);
+                    Bus_system_manager.existind_stations[another_variable] = true;
+                }
+                else Console.WriteLine("There is already such a station.");
+            }
+            else if (secondchoice == 2)
+            {
+                if (Check_station(Bus_system_manager, secondchoice))
+                {
+                    A.enter_a_new_stop(Bus_system_manager.return_station(secondchoice), another_variable);
+                }
+            }
+            else Console.WriteLine("The input was invalid");
+            Bus_system_manager.add(A);
+        }
+
         private static void start_push(CollectionBusLines Bus_system_manager)
         {
             for (int i = 0; i < 10; i++)
@@ -229,26 +290,25 @@ namespace dotNET5781_02_4072_5246
             }
         }
 
-        private static void Treatment_duplication_station(CollectionBusLines Bus_system_manager)
+        private static void Treatment_duplication_station(CollectionBusLines Bus_system_manager, LineBus A)
         {
-            for (int i = 0; i < Bus_system_manager.keys_for_stations.Count; i++)
+        }
+
+
+       
+
+       private static bool Check_station(CollectionBusLines Bus_system_manager, int bus_code)
+        {
+            if (bus_code < 1000000 && bus_code > 0)
             {
-                for (int j = i + 1; j < Bus_system_manager.keys_for_stations.Count; j++)
+                if (Bus_system_manager.existind_stations[bus_code] == true)
                 {
-                    if (Bus_system_manager.keys_for_stations[i] == Bus_system_manager.keys_for_stations[j])
-                        Bus_system_manager.remove(Bus_system_manager.keys_for_stations[j]);
-                }
-            }
-        }
-        private static bool Check_station(CollectionBusLines Bus_system_manager, int bus_code)
-        {
-            for (int i = 0; i < Bus_system_manager.keys_for_stations.Count; i++)
-            {
-                if (Bus_system_manager.keys_for_stations[i] == bus_code)
                     return true;
+                }
+                else return false;
             }
-            return false;
-        }
+            else return false;
+       }
     }
 
        

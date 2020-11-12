@@ -52,23 +52,17 @@ namespace dotNET5781_02_4072_5246
             else return -1;
         }
         
-        public void enter_a_new_stop(BusLineStation A)
-        {
-            
+        public void enter_a_new_stop(BusLineStation A,int  bus_code)
+        { 
                 TimeSpan time;
-                int temp=0;
                 double distance;
-                Console.WriteLine("enter the station num:");
-                string input = Console.ReadLine();
-                int.TryParse(input,out temp);
-                input = null;
                 Console.WriteLine("Enter the travel time from the last stop");
-                input  = Console.ReadLine();
+                string input  = Console.ReadLine();
                 TimeSpan.TryParse(input, out time);
                 Console.WriteLine("Enter the distance from the last stop");
                 input = Console.ReadLine();
                 double.TryParse(input, out distance);
-                BusLineStation b = new BusLineStation(temp, time, distance);
+                BusLineStation b = new BusLineStation(bus_code, time, distance);
                 int index = Search_Starion(A);
             if (index > 0)
             {
@@ -84,17 +78,12 @@ namespace dotNET5781_02_4072_5246
                     final_stop = The_line_bus.Last();
             }
         }
-        public void enter_head()
+        public void enter_head(int temp)
         {
             TimeSpan time;
-            int temp = 0;
             double distance;
-            Console.WriteLine("enter the station num:");
-            string input = Console.ReadLine();
-            int.TryParse(input, out temp);
-            input = null;
             Console.WriteLine("Enter the travel time from the last stop");
-            input = Console.ReadLine();
+            string input = Console.ReadLine();
             TimeSpan.TryParse(input, out time);
             Console.WriteLine("Enter the distance from the last stop");
             input = Console.ReadLine();
@@ -206,11 +195,15 @@ namespace dotNET5781_02_4072_5246
         public LineBus (int A)
         {
             bus_line_key = A;
-            BusLineStation parmter1 = new BusLineStation();
-            BusLineStation parmter2 = new BusLineStation();
-            The_line_bus.Add(parmter1);
-            The_line_bus.Add(parmter2);
+            Random rnd = new Random(DateTime.Now.Millisecond);
+            AREA= rnd.Next(0, 4);
         }
+        public LineBus (int A,int AREa)
+        {
+            bus_line_key = A;
+            AREA = AREa;
+        }
+
        public LineBus()
         { 
             Console.WriteLine("What is the bus line number you would like to add?");
@@ -222,9 +215,12 @@ namespace dotNET5781_02_4072_5246
             input = Console.ReadLine();
             int.TryParse(input, out temp);
             AREA = temp;
-            enter_head();
-            BusLineStation A = new BusLineStation();
-            enter_a_new_stop(A);
+            
+        }
+        public void enter_head(BusLineStation A)
+        {
+            The_line_bus.Insert(0, A);
+            start_station = A;
         }
         public void remove_station(int station_code)
         {
