@@ -28,6 +28,7 @@ namespace dotNET5781_02_4072_5246
             {
                 if(i.bus_line_key==code)//פה צריך מזהה )קוד( של תחנת אוטובוס
                 {
+
                     b.Add(i);//צריך תיקון
                     flag = true;
                 }
