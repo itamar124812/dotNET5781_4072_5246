@@ -353,7 +353,12 @@ namespace dotNET5781_02_4072_5246
             for (int i = 0; i < 10; i++)
             {
                 LineBus temp = new LineBus(i);
-                
+                Bus_system_manager.add(temp);
+                for (int s=0;s<4;s++)
+                {
+                    BusStop temp1 = new BusStop(s);
+                    Bus_system_manager.add(temp1);
+                }
 
             }
         }
