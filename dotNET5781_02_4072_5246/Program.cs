@@ -17,7 +17,7 @@ namespace dotNET5781_02_4072_5246
 
             int choice = 0;
             CollectionBusLines Bus_system_manager = new CollectionBusLines();
-            //start_push(Bus_system_manager);
+            start_push(Bus_system_manager);
             bool flag = true;
             while (flag)
             {
