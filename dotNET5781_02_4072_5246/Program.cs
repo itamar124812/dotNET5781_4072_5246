@@ -70,22 +70,20 @@ namespace dotNET5781_02_4072_5246
                                     int.TryParse(input, out secondchoice);
                                     if (!Check_station(Bus_system_manager, staion_num))
                                     {
-                                        if  (secondchoice == 1){ Bus_system_manager.collectin_of_lines[line_num].enter_head(staion_num); Bus_system_manager.existind_stations[staion_num] = true; }
-                                        else if (secondchoice == 2)
-                                        {
-                                            Console.WriteLine(Bus_system_manager.collectin_of_lines[line_num].ToString(), "/n These are the line stations. Select one of the stations and enter the station number to enter the new station after it.");
-                                            input = null;
-                                            input = Console.ReadLine();
-                                            int.TryParse(input, out secondchoice);
-                                            BusLineStation A = new BusLineStation(secondchoice);
-                                            if (Bus_system_manager.collectin_of_lines[line_num].cheke_station(A)) {
-                                                int index = Bus_system_manager.collectin_of_lines[line_num].Search_Starion(A);
-                                                Bus_system_manager.collectin_of_lines[line_num].enter_a_new_stop(Bus_system_manager.collectin_of_lines[line_num].);
-                                            }
-                                        }
+                                        Add_station(Bus_system_manager, ref secondchoice, ref input, staion_num, line_num);
+                                        Bus_system_manager.existind_stations[staion_num] = true;
                                     }
                                     else Console.WriteLine("There is already such a station.");
                                 }
+                                else if (secondchoice == 2)
+                                {
+                                    if (Check_station(Bus_system_manager, staion_num))
+                                    {
+                                        Add_station(Bus_system_manager, ref secondchoice, ref input, staion_num, line_num);
+                                    }
+                                    else Console.WriteLine("The station does not exist.");
+                                }
+                                else Console.WriteLine("the input was invalid");
                             }
                             else Console.WriteLine("The line does not exist.");
                         }
@@ -234,6 +232,30 @@ namespace dotNET5781_02_4072_5246
                 }
             }
             Console.ReadKey();
+        }
+
+        private static void Add_station(CollectionBusLines Bus_system_manager, ref int secondchoice, ref string input, int staion_num, int line_num)
+        {
+            if (Check_station(Bus_system_manager, staion_num))
+            {
+                if (secondchoice == 1) { Bus_system_manager.collectin_of_lines[line_num].enter_head(staion_num); }
+                else if (secondchoice == 2)
+                {
+                    Console.WriteLine(Bus_system_manager.collectin_of_lines[line_num].ToString(), "/n These are the line stations. Select one of the stations and enter the station number to enter the new station after it.");
+                    input = null;
+                    input = Console.ReadLine();
+                    int.TryParse(input, out secondchoice);
+                    BusLineStation A = new BusLineStation(secondchoice);
+                    if (Bus_system_manager.collectin_of_lines[line_num].cheke_station(A))
+                    {
+                        int index = Bus_system_manager.collectin_of_lines[line_num].Search_Starion(A);
+                        Bus_system_manager.collectin_of_lines[line_num].enter_a_new_stop(Bus_system_manager.collectin_of_lines[line_num].The_line_bus[index], staion_num);
+
+                    }
+                    else Console.WriteLine("The station does not exist on the requested line.");
+                }
+                else Console.WriteLine("The input was invalid.");
+            }
         }
 
         private static void addline(CollectionBusLines Bus_system_manager, out int secondchoice, out int another_variable, out string input)
