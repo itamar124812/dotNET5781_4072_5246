@@ -241,39 +241,51 @@ namespace dotNET5781_02_4072_5246
             }
             else if (another_variable == 2)
             {
-                Console.WriteLine("Enter the number of the first station where the line will pass:");
-                input = null;
-                input = Console.ReadLine(); secondchoice = 0;
-                int.TryParse(input, out secondchoice);
-                if (Check_station(Bus_system_manager, secondchoice))
+                do
                 {
-                    A.enter_head(Bus_system_manager.return_station(secondchoice));
-                }
+                    Console.WriteLine("Enter the number of the first station where the line will pass:");
+                    input = null;
+                    input = Console.ReadLine(); secondchoice = 0;
+                    int.TryParse(input, out secondchoice);
+                    if (Check_station(Bus_system_manager, secondchoice))
+                    {
+                        A.enter_head(Bus_system_manager.return_station(secondchoice));
+                    }
+                    else
+                    {
+                        Console.WriteLine("No such station was found. Please try again:");
+                    }
+                } while (!(Check_station(Bus_system_manager, secondchoice)));
             }
-            else Console.WriteLine("The input was invalid");
-            Console.WriteLine("Please enter the number of the second stop:");
-            input = null;
-            input = Console.ReadLine();
-            int.TryParse(input, out another_variable);
+            else { Console.WriteLine("The input was invalid"); secondchoice=0; return; }
             Console.WriteLine(" If the station is new press 1 if not press 2:");
             input = null;
             input = Console.ReadLine();
             int.TryParse(input, out secondchoice);
             if (secondchoice == 1)
             {
-                if (Bus_system_manager.existind_stations[another_variable] == false)
+                Console.WriteLine("Please enter the number of the second stop:");
+                input = null;
+                input = Console.ReadLine();
+                int.TryParse(input, out another_variable);
+                do
                 {
-                    A.enter_a_new_stop(A.The_line_bus[0], another_variable);
-                    Bus_system_manager.existind_stations[another_variable] = true;
-                }
-                else Console.WriteLine("There is already such a station.");
+                    if (Bus_system_manager.existind_stations[another_variable] == false)
+                    {
+                        A.enter_a_new_stop(A.The_line_bus[0], another_variable);
+                        Bus_system_manager.existind_stations[another_variable] = true;
+                    }
+                    else Console.WriteLine("There is already such a station.");
+                } while (Bus_system_manager.existind_stations[another_variable] == true);
             }
             else if (secondchoice == 2)
             {
+                do
                 if (Check_station(Bus_system_manager, secondchoice))
                 {
                     A.enter_a_new_stop(Bus_system_manager.return_station(secondchoice), another_variable);
                 }
+                else Console.WriteLine("No such station was found. Please try again");
             }
             else Console.WriteLine("The input was invalid");
             Bus_system_manager.add(A);
