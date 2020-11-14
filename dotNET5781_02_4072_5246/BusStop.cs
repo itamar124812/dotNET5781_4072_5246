@@ -9,12 +9,13 @@ namespace dotNET5781_02_4072_5246
     class BusStop
     {
         private int BusStationKey;
-
-        public int BusStopkey { set { if (value >= 1000000 || value < 0) throw new ArgumentException("The Input was invalid"); else BusStationKey = value; } get { return BusStationKey; } }
+       
+        public int BusStopkey { set { if (value >= 1000000 || value < 0) throw new ArgumentException("The Input was invalid");
+                else BusStationKey = value;} get { return BusStationKey; } }
         private double Latitude;
         private double Longitude;
-        public double latritude { set { if (Math.Abs(value) > 90) throw new ArgumentException("The Input was invalid"); } get { return Latitude; } }
-        public double longitude { set { if (Math.Abs(value) > 180) throw new ArgumentException("The Input was invalid"); } get { return Longitude; } }
+        public double latritude { set { if (Math.Abs(value) > 90) throw new ArgumentException("The Input was invalid"); Latitude = value; } get { return Latitude; } }
+        public double longitude { set { if (Math.Abs(value) > 180) throw new ArgumentException("The Input was invalid"); Longitude = value; } get { return Longitude; } }
         public void set_latritude()
         {
             Random r = new Random(DateTime.Now.Millisecond);
@@ -51,5 +52,7 @@ namespace dotNET5781_02_4072_5246
             set_latritude();
             set_longitude();
         }
+        
+        
     }
 }
