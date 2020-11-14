@@ -104,9 +104,11 @@ namespace dotNET5781_02_4072_5246
                                 int.TryParse(input, out secondchoice);
                                 if (Bus_system_manager.check_line(secondchoice))
                                 {
+                                    
                                     Bus_system_manager.remove(secondchoice);
                                 }
                                 else Console.WriteLine("There is no such line in the system.");
+
                             }
                             catch (InvalidOperationException ex)
                             {
@@ -236,7 +238,7 @@ namespace dotNET5781_02_4072_5246
 
         private static void Add_station(CollectionBusLines Bus_system_manager, ref int secondchoice, ref string input, int staion_num, int line_num)
         {
-            if (Check_station(Bus_system_manager, staion_num))
+            if (!Check_station(Bus_system_manager, staion_num))
             {
                 if (secondchoice == 1) { Bus_system_manager.collectin_of_lines[line_num].enter_head(staion_num); }
                 else if (secondchoice == 2)
@@ -255,6 +257,28 @@ namespace dotNET5781_02_4072_5246
                     else Console.WriteLine("The station does not exist on the requested line.");
                 }
                 else Console.WriteLine("The input was invalid.");
+            }
+            else
+            {
+                if(secondchoice==1)
+                {
+                    Bus_system_manager.collectin_of_lines[line_num].enter_head(Bus_system_manager.return_station(staion_num));
+                }
+                else if(secondchoice==2)
+                {
+                    Console.WriteLine(Bus_system_manager.collectin_of_lines[line_num].ToString(), "/n These are the line stations. Select one of the stations and enter the station number to enter the new station after it.");
+                    input = null;
+                    input = Console.ReadLine();
+                    int.TryParse(input, out secondchoice);
+                    BusLineStation A = new BusLineStation(secondchoice);
+                    if (Bus_system_manager.collectin_of_lines[line_num].cheke_station(A))
+                    {
+                         BusLineStation B=  Bus_system_manager.return_station(staion_num);
+                        int index = Bus_system_manager.collectin_of_lines[line_num].Search_Starion(A);
+                        Bus_system_manager.collectin_of_lines[line_num].enter_a_new_stop(Bus_system_manager.collectin_of_lines[line_num].The_line_bus[index], staion_num);
+                        Bus_system_manager.collectin_of_lines[line_num].The_line_bus[index + 1] = B;
+                    }
+                }
             }
         }
 
