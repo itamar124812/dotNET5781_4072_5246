@@ -104,9 +104,11 @@ namespace dotNET5781_02_4072_5246
                                 int.TryParse(input, out secondchoice);
                                 if (Bus_system_manager.check_line(secondchoice))
                                 {
+                                    
                                     Bus_system_manager.remove(secondchoice);
                                 }
                                 else Console.WriteLine("There is no such line in the system.");
+
                             }
                             catch (InvalidOperationException ex)
                             {

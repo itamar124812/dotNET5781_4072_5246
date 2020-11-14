@@ -49,14 +49,33 @@ namespace dotNET5781_02_4072_5246
         }
         public void remove(int bus_code)
         {
+            bool flag = false;
             if(check_line(bus_code))
             {
                 LineBus B=new LineBus(0);
                 foreach(LineBus A in collectin_of_lines)
                 {
-                     B = A;
+                    if (A.bus_line_key == bus_code)
+                    {
+                        B = A; 
+                    }
                 }
                 collectin_of_lines.Remove(B);
+                for (int i = 0; i < B.The_line_bus.Count;i++ )
+                {
+                    flag = false;
+                    foreach (LineBus A in collectin_of_lines)
+                    {
+                        if(A.cheke_station(B.The_line_bus[i]))
+                        {
+                            flag = true;
+                        }
+                    }
+                    if (flag == false)
+                    { 
+                        existind_stations[B.The_line_bus[i].BusStopkey] = false;
+                    }
+                }
             }
         }
          public List <LineBus> passing_through(int bus_code)
