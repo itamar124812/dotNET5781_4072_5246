@@ -138,6 +138,9 @@ namespace dotNET5781_02_4072_5246
                                 Console.WriteLine(ex.Message);
                             }
 
+                            if (Bus_system_manager.existind_stations[temp] == true)
+                                Bus_system_manager.existind_stations[temp] = false;
+
                         }
                         break;
                     case 3:
