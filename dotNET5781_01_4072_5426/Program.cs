@@ -37,9 +37,9 @@ namespace dotNET5781_01_4072_5426
                         bus A = new bus();
                         Buses.Add(A);
                         
-                        break;
-                    case 2:
-                        //make a  trip
+                        break; 
+                    case 2:  
+                        //make a  trip 
                         Console.WriteLine("Please enter the license number that you want to select as follows 00-000-00 or 000-00-000 :");
                         string Input = Console.ReadLine();
                         if (Find_license_num(Input, Buses))

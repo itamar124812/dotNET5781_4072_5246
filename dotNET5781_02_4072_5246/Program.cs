@@ -127,6 +127,7 @@ namespace dotNET5781_02_4072_5246
                             {
                                 Console.WriteLine(ex.Message);
                             }
+
                         }
                         break;
                     case 3:
@@ -181,6 +182,7 @@ namespace dotNET5781_02_4072_5246
 
                         break;
                     case 4:
+                        int g;
                         Console.WriteLine("What would you like to print? Select 1 to print all buses and 2 to see which stations cross which lines:");
                         input = null;
                         input = Console.ReadLine();
@@ -195,7 +197,18 @@ namespace dotNET5781_02_4072_5246
                         }
                         else if (secondchoice == 2)
                         {
-                           
+                            foreach (BusStop i in Bus_system_manager)
+                            {
+                                Console.WriteLine(i);
+                                foreach(BusLineStation j in Bus_system_manager)
+                                {
+                                    if(j.BusStopkey == i.BusStopkey)
+                                    {
+                                        Console.WriteLine(j.BusStopkey);
+                                    }
+                                }
+
+                            }
                         }
                         else Console.WriteLine("The input was invalid");
                         break;
