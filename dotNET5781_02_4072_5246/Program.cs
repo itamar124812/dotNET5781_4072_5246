@@ -46,38 +46,48 @@ namespace dotNET5781_02_4072_5246
                         }
                         else if (secondchoice == 2)
                         {
+                            int staion_num;
                             Console.WriteLine("Which line would you like to add a station to? Enter the line number:");
                             input = null;
                             input = Console.ReadLine();
                             int.TryParse(input, out secondchoice);
-                            int temp = secondchoice;
-                            Console.WriteLine("If the additional station is the first station Press 1 If not press 2:");
-                            input = null;
-                            input = Console.ReadLine();
-                            int.TryParse(input, out secondchoice);
-                            try
+                            int line_num = secondchoice;
+                            if (Bus_system_manager.check_line(line_num))
                             {
-                                LineBus Auxiliary_variable = Bus_system_manager.find(temp);
+                                Console.WriteLine("Enter the station number:");
+                                input = null;
+                                input = Console.ReadLine();
+                                int.TryParse(input, out staion_num);
+                                Console.WriteLine("If the additional station is new to the entire system, press 1 If the station already exists in the system, press 2:");
+                                input = null;
+                                input = Console.ReadLine();
+                                int.TryParse(input, out secondchoice);
                                 if (secondchoice == 1)
                                 {
-                                    Auxiliary_variable.enter_head(0);                               
-                                    Bus_system_manager.remove(secondchoice);
-                                    Bus_system_manager.add(Auxiliary_variable);
+                                    Console.WriteLine("If the new station is at the top of the line Press 1 If the station is in the middle or end of the line Press 2:");
+                                    input = null;
+                                    input = Console.ReadLine();
+                                    int.TryParse(input, out secondchoice);
+                                    if (!Check_station(Bus_system_manager, staion_num))
+                                    {
+                                        if  (secondchoice == 1){ Bus_system_manager.collectin_of_lines[line_num].enter_head(staion_num); Bus_system_manager.existind_stations[staion_num] = true; }
+                                        else if (secondchoice == 2)
+                                        {
+                                            Console.WriteLine(Bus_system_manager.collectin_of_lines[line_num].ToString(), "/n These are the line stations. Select one of the stations and enter the station number to enter the new station after it.");
+                                            input = null;
+                                            input = Console.ReadLine();
+                                            int.TryParse(input, out secondchoice);
+                                            BusLineStation A = new BusLineStation(secondchoice);
+                                            if (Bus_system_manager.collectin_of_lines[line_num].cheke_station(A)) {
+                                                int index = Bus_system_manager.collectin_of_lines[line_num].Search_Starion(A);
+                                                Bus_system_manager.collectin_of_lines[line_num].enter_a_new_stop(Bus_system_manager.collectin_of_lines[line_num].);
+                                            }
+                                        }
+                                    }
+                                    else Console.WriteLine("There is already such a station.");
                                 }
-                                else if (secondchoice == 2)
-                                {
-                                    BusLineStation A = new BusLineStation();
-                                    Auxiliary_variable.enter_a_new_stop(A,0);
-                                    Bus_system_manager.remove(secondchoice);
-                                    Bus_system_manager.add(Auxiliary_variable);
-                                  
-                                }
-                                else Console.WriteLine("The input was invalid.");
                             }
-                            catch (ArgumentOutOfRangeException ex)
-                            {
-                                Console.WriteLine(ex.Message);
-                            }
+                            else Console.WriteLine("The line does not exist.");
                         }
                         else Console.WriteLine("The input was invalid");
                         break;
@@ -235,9 +245,11 @@ namespace dotNET5781_02_4072_5246
                     {
                         A.enter_head(secondchoice);
                         Bus_system_manager.existind_stations[secondchoice] = true;
+                        another_variable = 10;
                     }
                     else Console.WriteLine("The station already exists. Try again.");
-                } while (!Bus_system_manager.existind_stations[secondchoice]);
+                } while (another_variable == 1);
+                another_variable = 1;
             }
             else if (another_variable == 2)
             {
@@ -274,20 +286,27 @@ namespace dotNET5781_02_4072_5246
                     {
                         A.enter_a_new_stop(A.The_line_bus[0], another_variable);
                         Bus_system_manager.existind_stations[another_variable] = true;
+                        secondchoice = 10;
                     }
                     else Console.WriteLine("There is already such a station.");
-                } while (Bus_system_manager.existind_stations[another_variable] == true);
+                } while (secondchoice==1);
+                secondchoice = 1;
             }
             else if (secondchoice == 2)
             {
-                do
-                if (Check_station(Bus_system_manager, secondchoice))
-                {
-                    A.enter_a_new_stop(Bus_system_manager.return_station(secondchoice), another_variable);
-                }
-                else Console.WriteLine("No such station was found. Please try again");
+                do {
+                    Console.WriteLine("Please enter the number of the second stop:");
+                    input = null;
+                    input = Console.ReadLine();
+                    int.TryParse(input, out secondchoice);
+                    if (Check_station(Bus_system_manager, secondchoice))
+                    {
+                        A.enter_a_new_stop(Bus_system_manager.return_station(secondchoice), another_variable);
+                    }
+                    else Console.WriteLine("No such station was found. Please try again");
+                } while (!(Check_station(Bus_system_manager, secondchoice)));
             }
-            else Console.WriteLine("The input was invalid");
+            else Console.WriteLine("The input was invalid"); 
             Bus_system_manager.add(A);
         }
 

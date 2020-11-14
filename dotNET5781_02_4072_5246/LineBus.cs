@@ -37,7 +37,8 @@ namespace dotNET5781_02_4072_5246
             }
             return false;
         }
-        private int Search_Starion(BusLineStation A)
+        
+        public int Search_Starion(BusLineStation A)
         {
             if (cheke_station(A))
             {
