@@ -353,9 +353,8 @@ namespace dotNET5781_02_4072_5246
             for (int i = 0; i < 10; i++)
             {
                 LineBus temp = new LineBus(i);
-                BusLineStation B = new BusLineStation();
-                temp.The_line_bus.Add(B);
-                Bus_system_manager.add(temp);
+                
+
             }
         }
 
