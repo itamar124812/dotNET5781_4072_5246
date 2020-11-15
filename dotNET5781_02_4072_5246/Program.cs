@@ -195,7 +195,6 @@ namespace dotNET5781_02_4072_5246
 
                         break;
                     case 4:
-                        int g;
                         Console.WriteLine("What would you like to print? Select 1 to print all buses and 2 to see which stations cross which lines:");
                         input = null;
                         input = Console.ReadLine();
@@ -374,14 +373,43 @@ namespace dotNET5781_02_4072_5246
 
         private static void start_push(CollectionBusLines Bus_system_manager)
         {
-            for (int i = 0; i < 10; i++)
-            {
-                LineBus temp = new LineBus(i);
+            
+            
+
+                for (int i = 1; i <= 40; i++)
+                {
+                    LineBus temp3 = new LineBus(i);
+                    Bus_system_manager.add(temp3);
+
+                    BusLineStation temp4 = new BusLineStation(i);
+                    Bus_system_manager.collectin_of_lines[i - 1].enter_head(temp4);
+                    Bus_system_manager.existind_stations[i] = true;
+
+
+                }
+                for (int z = 0; z < 10; z++)
+                {
+                    BusLineStation a = Bus_system_manager.return_station(z);
+                    Bus_system_manager.collectin_of_lines[z + 30].enter_head(a);
+                }
+
+               
                 
                
 
-            }
-        }   
+
+
+            
+
+        }
+
+   
+
+
+       
+
+           
+
 
        private static bool Check_station(CollectionBusLines Bus_system_manager, int bus_code)
         {
