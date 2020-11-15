@@ -32,6 +32,11 @@ namespace dotNET5781_02_4072_5246
         public void add()
         {
             LineBus A = new LineBus();
+            foreach (LineBus B in collectin_of_lines)
+            {
+                if (B.bus_line_key == A.bus_line_key)
+                    throw new ArgumentException("This line is already exits.");
+            }
             collectin_of_lines.Add(A);
          
         }
@@ -40,6 +45,11 @@ namespace dotNET5781_02_4072_5246
 
         public void add(LineBus A)
         {
+            foreach (LineBus B in collectin_of_lines)
+            {
+                if (B.bus_line_key == A.bus_line_key)
+                    throw new ArgumentException("This line is already exits.");
+            }
             collectin_of_lines.Add(A);
             
         }

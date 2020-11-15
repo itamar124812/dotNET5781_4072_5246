@@ -210,17 +210,9 @@ namespace dotNET5781_02_4072_5246
                         }
                         else if (secondchoice == 2)
                         {
-                            foreach (BusStop i in Bus_system_manager)
+                            foreach (LineBus i in Bus_system_manager)
                             {
-                                Console.WriteLine(i);
-                                foreach(BusLineStation j in Bus_system_manager)
-                                {
-                                    if(j.BusStopkey == i.BusStopkey)
-                                    {
-                                        Console.WriteLine(j.BusStopkey);
-                                    }
-                                }
-
+                                Console.WriteLine(i.ToString());
                             }
                         }
                         else Console.WriteLine("The input was invalid");
@@ -374,7 +366,7 @@ namespace dotNET5781_02_4072_5246
 
         private static void start_push(CollectionBusLines Bus_system_manager)
         {
-            for (int i = 1; i < 11; i++)
+            for (int i = 1; i <= 40; i++)
             {
                 LineBus temp = new LineBus(i);
                 Bus_system_manager.add(temp);
@@ -385,10 +377,10 @@ namespace dotNET5781_02_4072_5246
 
 
             }
-            for (int z = 0; 1 < 10; z++)
+            for (int z = 1; z <= 10; z++)
             {
                 BusLineStation a = Bus_system_manager.return_station(z);
-                Bus_system_manager.collectin_of_lines[z + 30].enter_head(a);
+                Bus_system_manager.collectin_of_lines[z+29].enter_head(a);
             }
         }   
 
