@@ -58,7 +58,7 @@ namespace dotNET5781_02_4072_5246
                                 input = null;
                                 input = Console.ReadLine();
                                 int.TryParse(input, out staion_num);
-                                Console.WriteLine("If the additional station is new to the entire system, press 1 If the station already exists in the system, press 2:");
+                                Console.WriteLine("If the additional station is new to the entire system press 1. If the station already exists in the system press 2:");
                                 input = null;
                                 input = Console.ReadLine();
                                 int.TryParse(input, out secondchoice);
@@ -144,7 +144,7 @@ namespace dotNET5781_02_4072_5246
                         }
                         break;
                     case 3:
-                        Console.WriteLine("Choose which search you want to perform? To check which buses pass through the station, click 1 To search for the route to a specific destination, click 2:");
+                        Console.WriteLine("Choose which search you want to perform? To check which buses pass through the station press 1. To search for the route to a specific destination press 2:");
                         input = null;
                         input = Console.ReadLine();
                         int.TryParse(input, out secondchoice);
@@ -154,15 +154,23 @@ namespace dotNET5781_02_4072_5246
                             input = null;
                             input = Console.ReadLine();
                             int.TryParse(input, out secondchoice);
-                            try
+                            if (Bus_system_manager.existind_stations[secondchoice])
                             {
-                                List<LineBus> result = Bus_system_manager.passing_through(secondchoice);
-                                Console.WriteLine(result.ToString());
+                                try
+                                {
+                                    List<LineBus> result = Bus_system_manager.passing_through(secondchoice);
+                                    foreach (LineBus item in result)
+                                    {
+                                        Console.WriteLine(item.ToString());
+                                    }
+                                }
+                                catch (ArgumentException ex)
+                                {
+
+                                    Console.WriteLine(ex.Message);
+                                }
                             }
-                            catch (ArgumentException ex)
-                            {
-                                Console.WriteLine(ex.Message);
-                            }
+                            else Console.WriteLine("There isn't such station in the system");
                         }
                         else if (secondchoice == 2)
                         {
@@ -172,18 +180,18 @@ namespace dotNET5781_02_4072_5246
                             int.TryParse(input, out secondchoice);
                             if (Check_station(Bus_system_manager, secondchoice))
                             {
-                                BusLineStation departure = new BusLineStation(secondchoice);
+                                BusLineStation departure = Bus_system_manager.return_station(secondchoice);
                                 Console.WriteLine("Enter your destination  number station:");
                                 input = null;
                                 input = Console.ReadLine();
                                 int.TryParse(input, out secondchoice);
                                 if (Check_station(Bus_system_manager, secondchoice))
                                 {
-                                    BusLineStation destination = new BusLineStation(secondchoice);
+                                    BusLineStation destination = Bus_system_manager.return_station(secondchoice);
                                     List<LineBus> result = Bus_system_manager.Finding_an_optimal_route(departure, destination);
                                     for (int i = 0; i < result.Count; i++)
                                     {
-                                        result[i].ToString();
+                                      Console.WriteLine(result[i].ToString());
                                     }
                                 }
                                 else Console.WriteLine("There is no such station");
@@ -258,17 +266,16 @@ namespace dotNET5781_02_4072_5246
                 }
                 else if(secondchoice==2)
                 {
-                    Console.WriteLine(Bus_system_manager.collectin_of_lines[line_num].ToString(), "/n These are the line stations. Select one of the stations and enter the station number to enter the new station after it.");
+                    Console.WriteLine(Bus_system_manager.collectin_of_lines[line_num-1].ToString()+ "\n These are the line stations. Select one of the stations and enter the station number to enter the new station after it.");
                     input = null;
                     input = Console.ReadLine();
                     int.TryParse(input, out secondchoice);
                     BusLineStation A = new BusLineStation(secondchoice);
-                    if (Bus_system_manager.collectin_of_lines[line_num].cheke_station(A))
+                    if (Bus_system_manager.collectin_of_lines[line_num-1].cheke_station(A))
                     {
                          BusLineStation B=  Bus_system_manager.return_station(staion_num);
-                        int index = Bus_system_manager.collectin_of_lines[line_num].Search_Starion(A);
-                        Bus_system_manager.collectin_of_lines[line_num].enter_a_new_stop(Bus_system_manager.collectin_of_lines[line_num].The_line_bus[index], staion_num);
-                        Bus_system_manager.collectin_of_lines[line_num].The_line_bus[index + 1] = B;
+                        int index = Bus_system_manager.collectin_of_lines[line_num-1].Search_Starion(A);
+                        Bus_system_manager.collectin_of_lines[line_num - 1].The_line_bus.Insert(index, B);
                     }
                 }
             }
@@ -355,7 +362,7 @@ namespace dotNET5781_02_4072_5246
                     int.TryParse(input, out secondchoice);
                     if (Check_station(Bus_system_manager, secondchoice))
                     {
-                        A.enter_a_new_stop(Bus_system_manager.return_station(secondchoice), another_variable);
+                        A.The_line_bus.Add(Bus_system_manager.return_station(secondchoice));
                     }
                     else Console.WriteLine("No such station was found. Please try again");
                 } while (!(Check_station(Bus_system_manager, secondchoice)));

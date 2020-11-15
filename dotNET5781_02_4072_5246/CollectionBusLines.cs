@@ -132,10 +132,8 @@ namespace dotNET5781_02_4072_5246
         public List<LineBus> Finding_an_optimal_route(BusLineStation Current, BusLineStation destination)
         {
             List<LineBus> result = new List<LineBus>();
-            foreach(LineBus a in collectin_of_lines)
-            {
-                result=passing_through(destination.BusStopkey);
-            }
+            result=passing_through(destination.BusStopkey);
+            
             result.Sort();
             return result;
         }
