@@ -377,21 +377,11 @@ namespace dotNET5781_02_4072_5246
             for (int i = 0; i < 10; i++)
             {
                 LineBus temp = new LineBus(i);
-                Bus_system_manager.add(temp);
-                for (int s=0;s<4;s++)
-                {
-                    
-                }
+                
+               
 
             }
-        }
-
-        private static void Treatment_duplication_station(CollectionBusLines Bus_system_manager, LineBus A)
-        {
-        }
-
-
-       
+        }   
 
        private static bool Check_station(CollectionBusLines Bus_system_manager, int bus_code)
         {
