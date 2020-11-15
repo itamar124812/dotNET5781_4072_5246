@@ -189,10 +189,15 @@ namespace dotNET5781_02_4072_5246
                                 {
                                     BusLineStation destination = Bus_system_manager.return_station(secondchoice);
                                     List<LineBus> result = Bus_system_manager.Finding_an_optimal_route(departure, destination);
-                                    for (int i = 0; i < result.Count; i++)
+                                    if (result.Count > 0)
                                     {
-                                      Console.WriteLine(result[i].ToString());
+                                        for (int i = 0; i < result.Count; i++)
+                                        {
+                                            Console.WriteLine(result[i].ToString() + "{0}",
+                                              result[i].time_from_station(departure, destination));
+                                        }
                                     }
+                                    else Console.WriteLine("There is no direct line between the stations.");
                                 }
                                 else Console.WriteLine("There is no such station");
                             }
@@ -235,7 +240,7 @@ namespace dotNET5781_02_4072_5246
             }
             Console.ReadKey();
         }
-
+        //Add a station from the user
         private static void Add_station(CollectionBusLines Bus_system_manager, ref int secondchoice, ref string input, int staion_num, int line_num)
         {
             if (!Check_station(Bus_system_manager, staion_num))
@@ -280,7 +285,7 @@ namespace dotNET5781_02_4072_5246
                 }
             }
         }
-
+        //Introducing a new line from the user
         private static void addline(CollectionBusLines Bus_system_manager, out int secondchoice, out int another_variable, out string input)
         {
             Console.WriteLine("What is the bus line number you would like to add?");
@@ -370,7 +375,7 @@ namespace dotNET5781_02_4072_5246
             else Console.WriteLine("The input was invalid"); 
             Bus_system_manager.add(A);
         }
-
+        //A function that initializes 40 lines with 2 stations in each line and adds to the lines 40-30 ten existing stations
         private static void start_push(CollectionBusLines Bus_system_manager)
         {
             for (int i = 1; i <= 40; i++)
@@ -379,8 +384,11 @@ namespace dotNET5781_02_4072_5246
                 Bus_system_manager.add(temp);
 
                 BusLineStation temp1 = new BusLineStation(i);
+                BusLineStation temp2 = new BusLineStation(i+40);
                 Bus_system_manager.collectin_of_lines[i - 1].enter_head(temp1);
+                Bus_system_manager.collectin_of_lines[i - 1].The_line_bus.Insert(1, temp2);
                 Bus_system_manager.existind_stations[i] = true;
+                Bus_system_manager.existind_stations[i+40] = true;
 
 
             }
@@ -389,9 +397,9 @@ namespace dotNET5781_02_4072_5246
                 BusLineStation a = Bus_system_manager.return_station(z);
                 Bus_system_manager.collectin_of_lines[z+29].enter_head(a);
             }
-        }   
-
-       private static bool Check_station(CollectionBusLines Bus_system_manager, int bus_code)
+        }
+        //A function that checks whether a particular station exists in the system
+        private static bool Check_station(CollectionBusLines Bus_system_manager, int bus_code)
         {
             if (bus_code < 1000000 && bus_code > 0)
             {

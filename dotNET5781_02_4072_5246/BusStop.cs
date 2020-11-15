@@ -8,6 +8,7 @@ namespace dotNET5781_02_4072_5246
 {
     class BusStop
     {
+        //constructors and requested parameters
         private int BusStationKey;
        
         public int BusStopkey { set { if (value >= 1000000 || value < 0) throw new ArgumentException("The Input was invalid");

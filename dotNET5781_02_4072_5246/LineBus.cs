@@ -13,13 +13,15 @@ namespace dotNET5781_02_4072_5246
    enum area { General,North,South,Center,Jerusalem}
     class LineBus:IComparable
     {
-       public List<BusLineStation> The_line_bus = new List<BusLineStation>();
+        //List of line stations and other required parameters
+        public List<BusLineStation> The_line_bus = new List<BusLineStation>();
        private  BusLineStation final_stop;
         public BusLineStation Final_stop { set{ if (value == The_line_bus.Last()) final_stop = value; else final_stop = The_line_bus.Last(); } get { return final_stop; } }
         private BusLineStation start_station;
         public int bus_line_key;
         private area Area;
         public int  AREA { set{ if (value < 0 || value > 4) throw new ArgumentException("There are only five areas. The first starts at 0 and the last ends at 4"); else Area = (area)value; } get { return (int)Area; } }
+        //to string requested
         public override string ToString()
         {
             string result = string.Format("Bus line key:{0} ,The area: {1} ,Station numbers:", bus_line_key,Area);
@@ -29,6 +31,7 @@ namespace dotNET5781_02_4072_5246
             }
             return result;
         }
+        //A function that checks if a particular station exists on the line
         public bool cheke_station(BusLineStation A)
         {
             foreach (BusLineStation a in The_line_bus)
@@ -37,7 +40,7 @@ namespace dotNET5781_02_4072_5246
             }
             return false;
         }
-        
+        //A function that checks if a particular station exists on the line and returns its index
         public int Search_Starion(BusLineStation A)
         {
             if (cheke_station(A))
@@ -52,7 +55,7 @@ namespace dotNET5781_02_4072_5246
             }
             else return -1;
         }
-        
+        //A function that receives a station and a station number and inserts a new station immediately after the requested station
         public void enter_a_new_stop(BusLineStation A,int  bus_code)
         { 
                 TimeSpan time;
@@ -79,6 +82,7 @@ namespace dotNET5781_02_4072_5246
                     final_stop = The_line_bus.Last();
             }
         }
+        //A function that receives a station number and pushes it to the top of the list
         public void enter_head(int temp)
         {
             TimeSpan time;
@@ -93,7 +97,8 @@ namespace dotNET5781_02_4072_5246
             The_line_bus.Insert(0,b);
             start_station = The_line_bus.First();
         }
-       public double distance_between_station(BusLineStation A,BusLineStation B)
+        //Unnecessary function that should return the distance between the stations
+        public double distance_between_station(BusLineStation A,BusLineStation B)
         {
             if (cheke_station(A) && cheke_station(B))
             {
@@ -122,6 +127,7 @@ namespace dotNET5781_02_4072_5246
             }
             else throw new ArgumentException("The stations didn't found");
         }
+        //A function that returns the time between two stations
         public TimeSpan time_from_station(BusLineStation A, BusLineStation B)
         {
             if (cheke_station(A) && cheke_station(B))
@@ -131,9 +137,9 @@ namespace dotNET5781_02_4072_5246
                 int index2 = Search_Starion(B);
                 if (index1 < index2)
                 {
-                    for (int i = index1; i < index2; i++)
+                    for (int i = index1+1; i < index2; i++)
                     {
-                        result += The_line_bus[index1].Time_from_last_s;
+                        result += The_line_bus[i].Time_from_last_s;
                     }
                 }
                 else if (index1 == index2)
@@ -142,7 +148,7 @@ namespace dotNET5781_02_4072_5246
                 }
                 else
                 {
-                    for (int i = index2; i < index1; i--)
+                    for (int i = index2-1; i < index1; i--)
                     {
                         result += The_line_bus[i].Time_from_last_s;
                     }
@@ -151,6 +157,7 @@ namespace dotNET5781_02_4072_5246
             }
             else throw new ArgumentException("The stations didn't found");
         }
+        //A function that returns a route between stations and turns out to be unnecessary
         public LineBus Sub_route(BusLineStation A, BusLineStation B)
         {
             LineBus return_Bus = new LineBus();
@@ -218,11 +225,13 @@ namespace dotNET5781_02_4072_5246
             AREA = temp;
             
         }
+        //Pushes a certain station to the top of the line
         public void enter_head(BusLineStation A)
         {
             The_line_bus.Insert(0, A);
             start_station = A;
         }
+        //remove station by her number
         public void remove_station(int station_code)
         {
             if (cheke_minimum_stations())
@@ -237,6 +246,7 @@ namespace dotNET5781_02_4072_5246
             }
             else throw new InvalidOperationException("There must be at least 2 stations");
         }
+        //Prevents deleting a station from a line that has less than two stations
         private bool cheke_minimum_stations()
         {
             if (The_line_bus.Count >= 2)

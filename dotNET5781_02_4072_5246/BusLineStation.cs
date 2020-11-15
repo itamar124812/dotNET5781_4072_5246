@@ -9,6 +9,7 @@ namespace dotNET5781_02_4072_5246
 {
     class BusLineStation:BusStop
     {
+        //constructors and requested parameters
         private double distance_from_last_s;
         public double Distance_from_last_s { set{ distance_from_last_s = value;  } get { return distance_from_last_s; } }
         private TimeSpan time_from_last_s;
