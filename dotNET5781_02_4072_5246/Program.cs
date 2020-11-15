@@ -376,19 +376,28 @@ namespace dotNET5781_02_4072_5246
         {
             for (int i = 0; i < 10; i++)
             {
-                LineBus temp = new LineBus(i);
-                Bus_system_manager.add(temp);
-                for (int s=0;s<4;s++)
+                for (int i = 1; i <= 40; i++)
                 {
-                    
+                    LineBus temp = new LineBus(i);
+                    Bus_system_manager.add(temp);
+
+                    BusLineStation temp1 = new BusLineStation(i);
+                    Bus_system_manager.collectin_of_lines[i - 1].enter_head(temp1);
+                    Bus_system_manager.existind_stations[i] = true;
+
+
                 }
+                for (int z = 0; z < 10; z++)
+                {
+                    BusLineStation a = Bus_system_manager.return_station(z);
+                    Bus_system_manager.collectin_of_lines[z + 30].enter_head(a);
+                }
+
 
             }
         }
 
-        private static void Treatment_duplication_station(CollectionBusLines Bus_system_manager, LineBus A)
-        {
-        }
+   
 
 
        
