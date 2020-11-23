@@ -5,8 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:dotNET5781_3A_4072_5246"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="BusLine" Height="400" Width="1000">
+    <Grid Name="MainGrid" Margin="-400,-57,0,0" RenderTransformOrigin="0.5,0.5">
+        <Grid Name="UpGrid" HorizontalAlignment="Stretch" Height="auto" Grid.Row="1"
+VerticalAlignment="Stretch" Width="auto" Grid.ColumnSpan="2" Margin="409,10,276,322">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions >
+            <TextBox Name ="tbArea" HorizontalAlignment="Stretch" Height="37"   TextWrapping="Wrap" Text="Bus Line Number:" VerticalAlignment="Stretch" Width="120" Margin="19,10,0,0" RenderTransformOrigin="-2.431,-0.661" Grid.Column="3"  />
+            <Label Content="erea:" Grid.Column="2" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top"/>
+            <Label Content="Bus Line Number:" Height="37" VerticalAlignment="Top" Width="120" Margin="47,0,0,0" RenderTransformOrigin="-2.431,-0.661" />
+            <ComboBox HorizontalAlignment="Stretch" Margin="20,0,0,0" Grid.Row="1"  Width="120" Name="cbBusLines"  VerticalAlignment="Stretch" Grid.Column="1"/>
+        </Grid>
+        <ListBox Name="lbBusLineStations" ItemsSource="{Binding}" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="478,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
+
+
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="-0.027"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.RenderTransform>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="400*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="67*"/>
+            <ColumnDefinition Width="65*"/>
+        </Grid.ColumnDefinitions>
+
+
     </Grid>
 </Window>
