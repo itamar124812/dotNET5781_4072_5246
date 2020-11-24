@@ -37,7 +37,7 @@ namespace dotNET5781_02_4072_5246
             LineBus A = new LineBus();
             foreach (LineBus B in collectin_of_lines)
             {
-                if (B.bus_line_key == A.bus_line_key)
+                if (B._Bus_Number == A._Bus_Number)
                     throw new ArgumentException("This line is already exits.");
             }
             collectin_of_lines.Add(A);
@@ -50,7 +50,7 @@ namespace dotNET5781_02_4072_5246
         {
             foreach (LineBus B in collectin_of_lines)
             {
-                if (B.bus_line_key == A.bus_line_key)
+                if (B._Bus_Number == A._Bus_Number)
                     throw new ArgumentException("This line is already exits.");
             }
             collectin_of_lines.Add(A);
@@ -66,7 +66,7 @@ namespace dotNET5781_02_4072_5246
                 LineBus B=new LineBus(0);
                 foreach(LineBus A in collectin_of_lines)
                 {
-                    if (A.bus_line_key == bus_code)
+                    if (A._Bus_Number == bus_code)
                     {
                         B = A; 
                     }
@@ -116,7 +116,7 @@ namespace dotNET5781_02_4072_5246
         {
             foreach(LineBus A in collectin_of_lines)
             {
-                if (temp == A.bus_line_key)
+                if (temp == A._Bus_Number)
                     return true;
             }
             return false;
@@ -126,7 +126,7 @@ namespace dotNET5781_02_4072_5246
         {    
                 foreach(LineBus A in collectin_of_lines)
                 {
-                   if (A.bus_line_key == temp)
+                   if (A._Bus_Number == temp)
                     return A;
                 }
             throw new ArgumentOutOfRangeException("There is no such line in the system");

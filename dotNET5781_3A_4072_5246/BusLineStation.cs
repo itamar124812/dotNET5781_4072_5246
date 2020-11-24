@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace dotNET5781_02_4072_5246
 {
-      class BusLineStation :  BusStop
+     class BusLineStation:BusStop
     {
         //constructors and requested parameters
         private double distance_from_last_s;
