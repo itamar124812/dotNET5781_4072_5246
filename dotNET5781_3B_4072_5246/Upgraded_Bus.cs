@@ -12,6 +12,10 @@ namespace dotNET5781_3B_4072_5246
     {
         public int status { get { return (int)Status; } set { if (value > 4 || value < 1) throw new ArgumentException("There are only four statuses."); else { Status = (Bus_status)(value-1); } } }
         private Bus_status Status;
+        public Upgraded_Bus ():base()
+        {
+            status = 1;
+        }
         public Upgraded_Bus(string lisence_bus, int REfull, int Mailage, int f_lt, DateTime StartDate, int STatus) : base(lisence_bus, REfull, Mailage, f_lt, StartDate)
         {
             status = STatus;
@@ -44,6 +48,11 @@ namespace dotNET5781_3B_4072_5246
         {
             status = 3;
             new Thread(() => { make_a_refull(); Thread.Sleep(12000); status = 1; });
+        }
+        public void Make_a_treatment()
+        {
+            status = 4;
+            new Thread(() => { make_a_treatment(); Thread.Sleep(144000); status = 1; });
         }
     }
     
