@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 
 namespace dotNET5781_3B_4072_5246
 {
+    using Bus = dotNET5781_01_4072_5426.bus;
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -23,6 +24,12 @@ namespace dotNET5781_3B_4072_5246
         public MainWindow()
         {
             InitializeComponent();
+            DateTime a = new DateTime(2019,1,1);
+            Upgraded_Bus A = new Upgraded_Bus("123-45-678",0,0,0,a,1);
+            A.Make_a_trip(500);
+            
+           
+            
         }
     }
 }
