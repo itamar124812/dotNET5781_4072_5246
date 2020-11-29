@@ -7,6 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="200"  >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Content="licence number" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="0" Background="AliceBlue"/>
+            <ListBox Name="List_Bus" HorizontalAlignment="Left" Height="390" Margin="0,0,0,0" VerticalAlignment="Top" Width="200" ItemsSource="{Binding}" MouseDoubleClick="Showing_Details" Grid.Row="2" Background="AliceBlue"  />
+        </Grid>
+
+       
+        <Button Content="add a new bus" HorizontalAlignment="Left" Margin="349,24,0,0" VerticalAlignment="Top" Width="100" Background="Yellow" Click="Button_Add_click"/>
+       
+
+
     </Grid>
 </Window>

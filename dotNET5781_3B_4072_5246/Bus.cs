@@ -18,7 +18,7 @@ namespace dotNET5781_01_4072_5426
         //The time since the last refueling
         private DateTime last_treatment;
         // the public version for the time since the last refueling
-        public DateTime l_t{   set { last_treatment = Dateofstart; }get { return last_treatment; } }
+        public DateTime l_t{   set { if (value != null&&Dateofstart<=value) last_treatment = value; else last_treatment = Dateofstart; }get { return last_treatment; } }
         //the private and  the puclic version for the mailage
         private int Mileage;
         public int mailage { set { if (value >= 0) Mileage = value; else Mileage = -value; }get { return Mileage; }}
@@ -52,7 +52,7 @@ namespace dotNET5781_01_4072_5426
             refull = 0;
         }
         //  constructor for set  Parameters
-        public bus(string lisence_bus,int REfull,int Mailage,int f_lt ,DateTime startDate) 
+        public bus(string lisence_bus,int REfull,int Mailage,int f_lt ,DateTime startDate,DateTime flt) 
         {
             Dateofstart = startDate;
             DateTime A = new DateTime(2019, 1, 1);
@@ -62,6 +62,7 @@ namespace dotNET5781_01_4072_5426
                 refull = REfull;
                 mailage = Mailage;
                 from_last_treatment = f_lt;
+                last_treatment = flt;
             }
             else throw new ArgumentException("The lisence number was invalid.");
         }
