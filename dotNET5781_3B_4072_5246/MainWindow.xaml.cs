@@ -43,7 +43,7 @@ namespace dotNET5781_3B_4072_5246
             }
             List_Bus.ItemsSource = Bus_manager_system;
             List_Bus.DisplayMemberPath = "l_n";
-
+            
         }
         
 
@@ -55,7 +55,7 @@ namespace dotNET5781_3B_4072_5246
 
         private void Showing_Details(object sender, MouseButtonEventArgs e)
         {
-            
+           
         }
     }
 }

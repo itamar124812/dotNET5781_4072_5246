@@ -24,6 +24,30 @@ namespace dotNET5781_3B_4072_5246
             InitializeComponent();
         }
 
-       
+       void canceld_click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void add_bus_click(object sender, RoutedEventArgs e)
+        {
+            string lisence_number = LisenceNumber.Text;
+            int refull = (int)refull_num.Value;
+            string Mailage = kilometrash.Text;
+            int mailage = 0;
+            int.TryParse(Mailage, out mailage);
+            //Upgraded_Bus NewBus = new Upgraded_Bus(lisence_number, refull,mailage,);
+        }
+
+        private void Mailage_chenge(object sender, TextChangedEventArgs e)
+        {
+            
+            if (System.Text.RegularExpressions.Regex.IsMatch(kilometrash.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers.");
+                kilometrash.Text = kilometrash.Text.Remove(kilometrash.Text.Length - 1);
+            }
+
+        }
     }
 }

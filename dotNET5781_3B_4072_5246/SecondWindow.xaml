@@ -12,7 +12,16 @@
         <Label Content="The amount of miles from the last refueling:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,40" Width="450" TextElement.FontSize="20" Background="AliceBlue"/>
         <TextBox Text="{Binding ElementName=refull_num, Path=Value, UpdateSourceTrigger=PropertyChanged}" Height="40" Width="40" Margin="600,80,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Gold" />
         <Slider x:Name="refull_num" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,80,0,0" Minimum="0" Orientation="Horizontal" Maximum="1199" Width="600" Height="40"  Value="600" SmallChange="1" LargeChange="10"  IsSnapToTickEnabled="True" TickPlacement="BottomRight" TickFrequency="10"   />
+        <Label Content="What is your mileage?" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Width="251" TextElement.FontSize="20" />
+        <TextBox Name="kilometrash" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Margin="450,120,0,0" FontSize="20"  TextAlignment="Center" TextChanged="Mailage_chenge"/>
+
+
+
+
+        <Button Content="add the new bus" Margin="575,367,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="151" Height="40" Background="SkyBlue" TextElement.FontSize="20"  FontStyle="Normal" Click="add_bus_click"  />
+        <Button Content="cancel" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="0,367,0,0" Width="100" Height="40" Background="Gray"  TextElement.Foreground="Red" TextElement.FontSize="20" Click="canceld_click"/>
         
+
 
 
     </Grid>
