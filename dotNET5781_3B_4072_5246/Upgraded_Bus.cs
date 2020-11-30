@@ -60,6 +60,11 @@ namespace dotNET5781_3B_4072_5246
             status = 4;
             new Thread(() => { make_a_treatment(); Thread.Sleep(144000); status = 1; }).Start();
         }
+        public override string ToString()
+        {
+            
+            return base.ToString(); 
+        }
     }
     
 }

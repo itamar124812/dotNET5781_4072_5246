@@ -164,6 +164,9 @@ namespace dotNET5781_01_4072_5426
             from_last_treatment = 0;
         }
 
-          
+        public override string ToString()
+        {
+            return license_number;
+        }
     }
 }

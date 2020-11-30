@@ -19,6 +19,7 @@ namespace dotNET5781_3B_4072_5246
     /// </summary>
     public partial class Window1 : Window
     {
+        public bool enter_bus_successful;
         public Window1()
         {
             InitializeComponent();
@@ -36,8 +37,38 @@ namespace dotNET5781_3B_4072_5246
             string Mailage = kilometrash.Text;
             int mailage = 0;
             int.TryParse(Mailage, out mailage);
-            //Upgraded_Bus NewBus = new Upgraded_Bus(lisence_number, refull,mailage,);
+            int km_last_treatment = (int)km_from_treatment.Value;
+             if(start_date.SelectedDate == null)
+            { 
+                MessageBox.Show("You need to enter a date for the start date. The default is today");
+                start_date.SelectedDate = DateTime.Now;
+            }
+            DateTime startDate = (DateTime)start_date.SelectedDate;
+            if (last_treatment.SelectedDate == null)
+            {
+                MessageBox.Show("You need to enter a date for the start date. The default is today");
+                last_treatment.SelectedDate = DateTime.Now;
+            }
+            DateTime last_t = (DateTime)last_treatment.SelectedDate;
+            Upgraded_Bus NewBus;
+            Upgraded_Bus temp = new Upgraded_Bus("00-000-00", 0, 0, 0, DateTime.Parse("1/1/0001"), DateTime.Parse("1/1/0001"));
+            try
+            {
+                NewBus = new Upgraded_Bus(lisence_number, refull, mailage, km_last_treatment, startDate, last_t);
+                temp = NewBus;
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
+                enter_bus_successful = false;
+                this.Close();
+            }
+            enter_bus_successful = true;
+            this.Tag = temp;
+            this.Close();
         }
+
+       
 
         private void Mailage_chenge(object sender, TextChangedEventArgs e)
         {

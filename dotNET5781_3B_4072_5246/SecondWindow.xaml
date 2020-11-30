@@ -6,23 +6,44 @@
         xmlns:local="clr-namespace:dotNET5781_3B_4072_5246"
         mc:Ignorable="d"
         Title="SecondWindow" Height="450" Width="800">
-    <Grid>
-        <Label Content="Bus lisence number as 00-000-00 or 000-00-000:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="450" Height="40" TextElement.FontSize="20" Background="AliceBlue"/>
-        <TextBox Name="LisenceNumber" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" Text="the text should come in" VerticalAlignment="Top" Width="200" Margin="450,0,0,0" TextAlignment="Center"/>
-        <Label Content="The amount of miles from the last refueling:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,40" Width="450" TextElement.FontSize="20" Background="AliceBlue"/>
-        <TextBox Text="{Binding ElementName=refull_num, Path=Value, UpdateSourceTrigger=PropertyChanged}" Height="40" Width="40" Margin="600,80,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Gold" />
-        <Slider x:Name="refull_num" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,80,0,0" Minimum="0" Orientation="Horizontal" Maximum="1199" Width="600" Height="40"  Value="600" SmallChange="1" LargeChange="10"  IsSnapToTickEnabled="True" TickPlacement="BottomRight" TickFrequency="10"   />
-        <Label Content="What is your mileage?" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Width="251" TextElement.FontSize="20" />
-        <TextBox Name="kilometrash" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Margin="450,120,0,0" FontSize="20"  TextAlignment="Center" TextChanged="Mailage_chenge"/>
+    <Grid Background="LightBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40  "></RowDefinition>
+            <RowDefinition Height="40 "></RowDefinition>
+            <RowDefinition Height="40 "></RowDefinition>
+            <RowDefinition Height="40 "></RowDefinition>
+            <RowDefinition Height="40 "></RowDefinition>
+            <RowDefinition Height="40 "></RowDefinition>
+            <RowDefinition Height="40 "></RowDefinition>
+            <RowDefinition Height="40 "></RowDefinition>
+            <RowDefinition Height="40 "></RowDefinition>
+            <RowDefinition Height="40 "></RowDefinition>
+            <RowDefinition Height="40 "></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Content="Bus lisence number as 00-000-00 or 000-00-000:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="450" Height="40" TextElement.FontSize="20" Grid.Row="0" />
+        <TextBox Name="LisenceNumber" Grid.Row="0" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" Text="the text should come in" VerticalAlignment="Top" Width="200" Margin="450,0,0,0" TextAlignment="Center"/>
+        <Label Content="The amount of miles from the last refueling:" Grid.Row="1"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0" Width="450" TextElement.FontSize="20" />
+        <TextBox Text="{Binding ElementName=refull_num, Path=Value, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" Height="40" Width="40" Margin="600,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Gold" />
+        <Slider x:Name="refull_num" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="2" Margin="0,0,0,0" Minimum="0" Orientation="Horizontal" Maximum="1199" Width="600" Height="40"  Value="600" SmallChange="1" LargeChange="10"  IsSnapToTickEnabled="True" TickPlacement="BottomRight" TickFrequency="10"   />
+        <Label Content="What is your mileage?" Grid.Row="3"  HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="251" Height="40" TextElement.FontSize="20" />
+        <TextBox Name="kilometrash" Grid.Row="3" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Margin="450,0,0,0" FontSize="20"  TextAlignment="Center" TextChanged="Mailage_chenge"/>
+        <Label Content="How many miles have you traveled from the last treatment?" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0" Width="Auto" Height="40" TextElement.FontSize="20"/>
+        <Slider x:Name="km_from_treatment" Grid.Row="5" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="0,0" Height="40" Width="600" Maximum="19999" Orientation="Horizontal" Minimum="0" Value="10000"   SmallChange="1" LargeChange="100"  IsSnapToTickEnabled="True" TickPlacement="BottomRight"  TickFrequency="100"/>
+        <TextBox Text="{Binding ElementName=km_from_treatment, Path=Value, UpdateSourceTrigger=PropertyChanged}" Grid.Row="5" Height="40" Width="40" Margin="600,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Gold" />
+
+        <Button Content="add the new bus" Grid.Row="9" Margin="575,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="151" Height="40" Background="LightSeaGreen" TextElement.FontSize="20"  FontStyle="Normal" Click="add_bus_click"  />
+        <Button Content="cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="9"  Margin="0,0,0,0" Width="100" Height="40" Background="Gray"  TextElement.Foreground="Red" TextElement.FontSize="20" Click="canceld_click"/>
+        <Label Content="What is the date on which the bus first hit the road:" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="6" VerticalAlignment="Top" Height="40" TextElement.FontSize="20" MaxWidth="500"/>
+        <DatePicker Name="start_date"  Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="550,0,0,0" Height="40"  />
+        <Label Content="What is the last date on which the bus underwent general treatment:" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="7" VerticalAlignment="Top" Height="40" TextElement.FontSize="20" MaxWidth="650"/>
+        <DatePicker Name="last_treatment" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="680,0,0,0" Height="40" />
 
 
 
 
-        <Button Content="add the new bus" Margin="575,367,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="151" Height="40" Background="SkyBlue" TextElement.FontSize="20"  FontStyle="Normal" Click="add_bus_click"  />
-        <Button Content="cancel" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="0,367,0,0" Width="100" Height="40" Background="Gray"  TextElement.Foreground="Red" TextElement.FontSize="20" Click="canceld_click"/>
-        
 
 
 
     </Grid>
+    
 </Window>
