@@ -10,10 +10,11 @@ namespace dotNET5781_3B_4072_5246
 {
     
     enum Bus_status { ready_for_travel, on_the_road, refueling, in_treatment }
-    class Upgraded_Bus : dotNET5781_01_4072_5426.bus
+    public delegate void statos_c (Upgraded_Bus A);
+   public  class Upgraded_Bus : dotNET5781_01_4072_5426.bus
     {
-
-        public int status { get { return (int)Status; } set { if (value > 4 || value < 1) throw new ArgumentException("There are only four statuses."); else { Status = (Bus_status)(value-1); } } }
+        public event statos_c statos_changed;
+        public int status { get { return (int)Status; } set { if (value > 4 || value < 1) throw new ArgumentException("There are only four statuses."); else { Status = (Bus_status)(value-1);if (statos_changed != null) statos_changed(this); } } }
         private Bus_status Status;
         public Upgraded_Bus ():base()
         {

@@ -10,7 +10,7 @@ using System.Threading;
 
 namespace dotNET5781_01_4072_5426
 {
-    class bus
+    public class bus
     {
         
         //The length of trips made since the last refueling
@@ -95,7 +95,7 @@ namespace dotNET5781_01_4072_5426
             
         }
         //Fuel test
-        public bool Refull(int len)
+        protected bool Refull(int len)
         {
             if ((len + refull) > 1200)
                 return false;

@@ -24,8 +24,10 @@ namespace dotNET5781_3B_4072_5246
     public partial class MainWindow : Window
     {
         private ObservableCollection<Upgraded_Bus> Bus_manager_system = new ObservableCollection<Upgraded_Bus>();
+       // private Upgraded_Bus current_bus;
         public MainWindow()
         {
+            
             InitializeComponent();
             Random r = new Random(DateTime.Now.Millisecond);
             DateTime a = new DateTime(2019,1,1);
@@ -44,6 +46,11 @@ namespace dotNET5781_3B_4072_5246
                 Bus_manager_system.Add(F);
             }
             DataContext = Bus_manager_system;
+            foreach (var item in List_Bus.Items)
+            {
+                (item as Upgraded_Bus).statos_changed += (statos_changed);
+            }
+            
             //List_Bus.ItemsSource = Bus_manager_system;
         }
         
@@ -59,6 +66,7 @@ namespace dotNET5781_3B_4072_5246
         {
             if ((sender as Window1).enter_bus_successful)
             {
+               (( sender as Window1).Tag as Upgraded_Bus).statos_changed+= (statos_changed);
                 Bus_manager_system.Add((sender as Window1).Tag as Upgraded_Bus);
                 Bus_manager_system_CollectionChanged();
             }
@@ -74,7 +82,51 @@ namespace dotNET5781_3B_4072_5246
         {
            
         }
+        private void statos_changed(Upgraded_Bus A)
+        {
+            if (A.status == 1)
+            {
+                (List_Bus.SelectedItem as ListBoxItem).Background = Brushes.Green;
+              }              
+            else if(A.status == 2)
+                (List_Bus.SelectedItem as ListBoxItem).Background = Brushes.Yellow;
+            else if (A.status == 3)
+                (List_Bus.SelectedItem as ListBoxItem).Background = Brushes.Orange;
+            else if (A.status == 4)
+                (List_Bus.SelectedItem as ListBoxItem).Background = Brushes.LightPink;
 
-        
+        }
+
+        private void refull_Click(object sender, RoutedEventArgs e)
+        {
+            (List_Bus.SelectedItem as Upgraded_Bus).Make_a_refull();
+            (List_Bus.SelectedItem as Upgraded_Bus).statos_changed += (statos_changed);
+
+        }
+
+        private void Make_New_Drive(object sender, RoutedEventArgs e)
+        {
+            drive_window Drive_w = new drive_window();
+            Drive_w.Show();
+            Drive_w.Closed += Drive_w_Closed;
+        }
+
+        private void Drive_w_Closed(object sender, EventArgs e)
+        {
+            try
+            {
+                (List_Bus.SelectedItem as Upgraded_Bus).Make_a_trip((sender as drive_window).Distance_for_drive);
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void treatment_click(object sender, RoutedEventArgs e)
+        {
+            (List_Bus.SelectedItem as Upgraded_Bus).Make_a_refull();
+        }
     }
 }
