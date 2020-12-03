@@ -46,11 +46,7 @@ namespace dotNET5781_3B_4072_5246
                 Bus_manager_system.Add(F);
             }
             DataContext = Bus_manager_system;
-            foreach (var item in List_Bus.Items)
-            {
-                (item as Upgraded_Bus).statos_changed += (statos_changed);
-            }
-            
+           
             //List_Bus.ItemsSource = Bus_manager_system;
         }
         
@@ -66,7 +62,6 @@ namespace dotNET5781_3B_4072_5246
         {
             if ((sender as Window1).enter_bus_successful)
             {
-               (( sender as Window1).Tag as Upgraded_Bus).statos_changed+= (statos_changed);
                 Bus_manager_system.Add((sender as Window1).Tag as Upgraded_Bus);
                 Bus_manager_system_CollectionChanged();
             }
@@ -78,29 +73,12 @@ namespace dotNET5781_3B_4072_5246
             List_Bus.Items.Refresh();
         }
 
-        private void Showing_Details(object sender, MouseButtonEventArgs e)
-        {
-           
-        }
-        private void statos_changed(Upgraded_Bus A)
-        {
-            if (A.status == 1)
-            {
-                (List_Bus.SelectedItem as ListBoxItem).Background = Brushes.Green;
-              }              
-            else if(A.status == 2)
-                (List_Bus.SelectedItem as ListBoxItem).Background = Brushes.Yellow;
-            else if (A.status == 3)
-                (List_Bus.SelectedItem as ListBoxItem).Background = Brushes.Orange;
-            else if (A.status == 4)
-                (List_Bus.SelectedItem as ListBoxItem).Background = Brushes.LightPink;
 
-        }
-
+      
         private void refull_Click(object sender, RoutedEventArgs e)
         {
             (List_Bus.SelectedItem as Upgraded_Bus).Make_a_refull();
-            (List_Bus.SelectedItem as Upgraded_Bus).statos_changed += (statos_changed);
+            
 
         }
 
@@ -126,7 +104,15 @@ namespace dotNET5781_3B_4072_5246
 
         private void treatment_click(object sender, RoutedEventArgs e)
         {
-            (List_Bus.SelectedItem as Upgraded_Bus).Make_a_refull();
+            (List_Bus.SelectedItem as Upgraded_Bus).Make_a_treatment();
         }
+
+        //private void Itam_double_click(object sender, MouseButtonEventArgs e)
+        //{
+        //    //Window2 Showing_Details = new Window2();
+        //    //Showing_Details.CurrentBus = (List_Bus.SelectedItem as Upgraded_Bus);
+        //    //Showing_Details.Show();
+
+        //}
     }
 }

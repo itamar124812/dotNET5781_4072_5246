@@ -23,7 +23,7 @@ namespace dotNET5781_01_4072_5426
         private int Mileage;
         public int mailage { set { if (value >= 0) Mileage = value; else Mileage = -value; }get { return Mileage; }}
        //date of start activity
-        private DateTime Dateofstart;
+        public DateTime Dateofstart;
        // the licence number private version 
         private string license_number;
         //The length of trips made since the last treatment
@@ -158,7 +158,7 @@ namespace dotNET5781_01_4072_5426
             refull = 0;
             
         }
-        public void make_a_treatment()
+        protected void make_a_treatment()
         {
             last_treatment = DateTime.Now;
             from_last_treatment = 0;

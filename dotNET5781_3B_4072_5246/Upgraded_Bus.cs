@@ -14,7 +14,7 @@ namespace dotNET5781_3B_4072_5246
    public  class Upgraded_Bus : dotNET5781_01_4072_5426.bus
     {
         public event statos_c statos_changed;
-        public int status { get { return (int)Status; } set { if (value > 4 || value < 1) throw new ArgumentException("There are only four statuses."); else { Status = (Bus_status)(value-1);if (statos_changed != null) statos_changed(this); } } }
+        public int status { get { return (int)Status; } set{ if (value > 4 || value < 1) throw new ArgumentException("There are only four statuses."); else {  Status = (Bus_status)(value-1); if (statos_changed != null) statos_changed(this); } } }
         private Bus_status Status;
         public Upgraded_Bus ():base()
         {
@@ -26,30 +26,33 @@ namespace dotNET5781_3B_4072_5246
         }
         public void Make_a_trip(int distance)
         {
-            if (!check_General_treatment(distance) && Status != (Bus_status)3)
+            if (!check_General_treatment(distance) && Status != Bus_status.in_treatment)
             {
-                if (Refull(distance) && Status != (Bus_status)2)
+                if (Refull(distance) && Status != Bus_status.refueling)
                 {
-                    if (Status == (Bus_status)1)
+                    if (Status == Bus_status.on_the_road)
                     {
                         throw new InvalidOperationException("It is not possible to travel. The bus in the middle of one like that");
                     }
                     else
                     {
                         Status = (Bus_status)1;
-                        new Thread(() => {
-                           // Console.WriteLine("start_thread");
-                             make_a_trip(distance); Random rnd = new Random(DateTime.Now.Millisecond);
+                        new Thread(() =>
+                        {
+                            // Console.WriteLine("start_thread");
+                            make_a_trip(distance); Random rnd = new Random(DateTime.Now.Millisecond);
                             int average_speed = rnd.Next(20, 50);
-                            int time = (distance / average_speed) * 6000 + (distance%average_speed) * 100;
-                            Thread.Sleep(time);  Status = (Bus_status)0;
-                           
+                            int time = (distance / average_speed) * 6000 + (distance % average_speed) * 100;
+                            Thread.Sleep(time); Status = (Bus_status)0;
+
                         }).Start();
                     }
                 }
-                else throw new InvalidOperationException("There is not enough fuel to make the trip.");
+                else if (Refull(distance)) throw new InvalidOperationException("There is not enough fuel to make the trip.");
+                else throw new InvalidOperationException("The bus is in general treatment at the moment so it is not possible to travel");
             }
-            else throw new InvalidOperationException("It is not possible to travel the bus needs to undergo treatment"); 
+            else if (check_General_treatment(distance)) throw new InvalidOperationException("It is not possible to travel the bus needs to undergo treatment");
+            else throw new InvalidOperationException("The bus is currently refueling so it is not possible to travel");
         }
         public void Make_a_refull()
         {
