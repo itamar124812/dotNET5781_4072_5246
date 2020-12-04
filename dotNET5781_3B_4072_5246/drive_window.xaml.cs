@@ -20,6 +20,7 @@ namespace dotNET5781_3B_4072_5246
     public partial class drive_window : Window
     {
         public int Distance_for_drive;
+        
         public drive_window()
         {
             InitializeComponent();

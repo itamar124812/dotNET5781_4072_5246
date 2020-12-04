@@ -7,12 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
-        <DataTemplate x:Key="buses" >
-            <WrapPanel  >
-                <TextBlock Name="LicenseNum"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Path=l_n}" VerticalAlignment="Top"   />
-                <Button Name="traveling" Padding="5" Content="Make a new drive" HorizontalAlignment="Left" Click="Make_New_Drive" Background="Yellow" />
-                <Button Name="refull" Padding="5"  Content="Refull" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="75" Click="refull_Click" Background="LightGreen"/>
-                <Button  Name="treatment" Padding="5" Content="treatment" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="75" Click="treatment_click" Background="LightSalmon"  />
+        <DataTemplate x:Key="buses">
+            <WrapPanel  Tag="{Binding  ElementName=LicenseNum, Path=Text}" >
+                <ContentControl MouseDoubleClick="item_double_click">
+                    <TextBlock Name="LicenseNum"   HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Path=l_n}" VerticalAlignment="Top" />
+                </ContentControl>
+                <Button Name="traveling" Padding="5" Content="Make a new drive" HorizontalAlignment="Left" Click="Make_New_Drive" Background="Yellow" Tag="{Binding  ElementName=LicenseNum, Path=Text}" />
+                <Button Name="refull" Padding="5"  Content="Refull" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="75" Click="refull_Click" Background="LightGreen" Tag="{Binding ElementName=LicenseNum, Path=Text}"/>
+                <Button  Name="treatment" Padding="5" Content="treatment" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="75" Click="treatment_click" Background="LightSalmon" Tag="{Binding Path=l_n}"   />
             </WrapPanel>
         </DataTemplate>
     </Window.Resources>
@@ -26,8 +28,8 @@
                 <RowDefinition Height="30" />
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Label Content="licence number" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="0" Background="AliceBlue" Width="300"/>
-            <ListBox Name="List_Bus" HorizontalAlignment="Left" Height="390" Margin="0,0,-28,-20" VerticalAlignment="Top" Width="328" ItemsSource="{Binding Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="1" Background="AliceBlue" IsSynchronizedWithCurrentItem="true"  ItemTemplate="{StaticResource buses}" />
+            <Label Content="licence number"  HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="0" Background="AliceBlue" Width="300"/>
+            <ListBox Name="List_Bus" HorizontalAlignment="Left" Height="390" Margin="0,0,-28,-20" VerticalAlignment="Top" Width="328" ItemsSource="{Binding Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="1" Background="AliceBlue" IsSynchronizedWithCurrentItem="true"  ItemTemplate="{StaticResource buses}"   />
 
 
 

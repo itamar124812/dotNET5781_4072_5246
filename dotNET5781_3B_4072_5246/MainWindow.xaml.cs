@@ -24,7 +24,8 @@ namespace dotNET5781_3B_4072_5246
     public partial class MainWindow : Window
     {
         private ObservableCollection<Upgraded_Bus> Bus_manager_system = new ObservableCollection<Upgraded_Bus>();
-       // private Upgraded_Bus current_bus;
+       private Upgraded_Bus current_bus;
+       
         public MainWindow()
         {
             
@@ -41,16 +42,30 @@ namespace dotNET5781_3B_4072_5246
             Bus_manager_system.Add(D);
             for (int i = 0; i <= 5; i++)
             {
-                int lisence_num = r.Next(1000000, 10000000);
-                Upgraded_Bus F = new Upgraded_Bus(lisence_num.ToString("00-000-00"), 0, 0, 0, DateTime.Parse("2007.4.3"), DateTime.Parse("2020,01,02"));
-                Bus_manager_system.Add(F);
+                AssignsDate(r);
             }
             DataContext = Bus_manager_system;
            
             //List_Bus.ItemsSource = Bus_manager_system;
         }
-        
-       
+
+        private void AssignsDate(Random r)
+        {
+            int lisence_num = r.Next(1000000, 10000000);
+            DateTime DateForStart = new DateTime(1960, 1, 1);
+            DateForStart = DateForStart.AddYears(r.Next(0, 58));
+            DateForStart = DateForStart.AddMonths(r.Next(0, 12));
+            DateForStart = DateForStart.AddDays(r.Next(0, 30));
+            DateTime Last_treatment = new DateTime(2020, 1, 1);
+            Last_treatment = Last_treatment.AddMonths(r.Next(0, 11));
+            Last_treatment = Last_treatment.AddDays(r.Next(0, 30));
+            int mailge = r.Next(1000000);
+            int fromLastreatment = r.Next(0, 20000);
+            int Refull = r.Next(0, 1200);
+            Upgraded_Bus F = new Upgraded_Bus(lisence_num.ToString("00-000-00"), Refull, mailge, fromLastreatment, DateForStart, Last_treatment);
+            Bus_manager_system.Add(F);
+        }
+
         private void Button_Add_click(object sender, RoutedEventArgs e)
         {
             Window1 secondwindow = new Window1();
@@ -72,19 +87,28 @@ namespace dotNET5781_3B_4072_5246
         {
             List_Bus.Items.Refresh();
         }
-
+         private Upgraded_Bus find(string l_n)
+        {
+            foreach ( Upgraded_Bus A in List_Bus.Items)
+            {
+                if (A.l_n == l_n)
+                    return A;
+            }
+            return null;
+        }
 
       
         private void refull_Click(object sender, RoutedEventArgs e)
         {
-            (List_Bus.SelectedItem as Upgraded_Bus).Make_a_refull();
-            
-
+           current_bus= find((sender as Button).Tag as string);
+            current_bus.Make_a_refull();
         }
 
         private void Make_New_Drive(object sender, RoutedEventArgs e)
         {
             drive_window Drive_w = new drive_window();
+            string bus = (sender as Button).Tag as string;
+            current_bus = find(bus);
             Drive_w.Show();
             Drive_w.Closed += Drive_w_Closed;
         }
@@ -93,7 +117,7 @@ namespace dotNET5781_3B_4072_5246
         {
             try
             {
-                (List_Bus.SelectedItem as Upgraded_Bus).Make_a_trip((sender as drive_window).Distance_for_drive);
+               current_bus.Make_a_trip((sender as drive_window).Distance_for_drive);
             }
             catch (InvalidOperationException ex)
             {
@@ -104,15 +128,16 @@ namespace dotNET5781_3B_4072_5246
 
         private void treatment_click(object sender, RoutedEventArgs e)
         {
-            (List_Bus.SelectedItem as Upgraded_Bus).Make_a_treatment();
+            current_bus = find((sender as Button).Tag as string);
+            current_bus.Make_a_treatment();
         }
 
-        //private void Itam_double_click(object sender, MouseButtonEventArgs e)
-        //{
-        //    //Window2 Showing_Details = new Window2();
-        //    //Showing_Details.CurrentBus = (List_Bus.SelectedItem as Upgraded_Bus);
-        //    //Showing_Details.Show();
+        private void item_double_click(object sender, MouseButtonEventArgs e)
+        {
 
-        //}
+            current_bus = (sender as ContentControl).DataContext as Upgraded_Bus;
+            Window2 showing_ditels = new Window2(current_bus);
+            showing_ditels.Show();
+        }
     }
 }

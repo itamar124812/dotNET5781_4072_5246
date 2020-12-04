@@ -48,7 +48,7 @@ namespace dotNET5781_3B_4072_5246
                         }).Start();
                     }
                 }
-                else if (Refull(distance)) throw new InvalidOperationException("There is not enough fuel to make the trip.");
+                else if (!Refull(distance)) throw new InvalidOperationException("There is not enough fuel to make the trip.");
                 else throw new InvalidOperationException("The bus is in general treatment at the moment so it is not possible to travel");
             }
             else if (check_General_treatment(distance)) throw new InvalidOperationException("It is not possible to travel the bus needs to undergo treatment");

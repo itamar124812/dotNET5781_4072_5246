@@ -15,6 +15,7 @@ namespace dotNET5781_01_4072_5426
         
         //The length of trips made since the last refueling
         private int refull;
+        public int REFULL { set { if (value > 1200 && value < 0) throw new ArgumentException("Can only hold values between 0 and 1200"); else refull = value; } get { return refull; } }
         //The time since the last refueling
         private DateTime last_treatment;
         // the public version for the time since the last refueling
@@ -22,8 +23,10 @@ namespace dotNET5781_01_4072_5426
         //the private and  the puclic version for the mailage
         private int Mileage;
         public int mailage { set { if (value >= 0) Mileage = value; else Mileage = -value; }get { return Mileage; }}
-       //date of start activity
-        public DateTime Dateofstart;
+        //date of start activity
+        private DateTime Dateofstart;
+        public DateTime StartDATE { set { Dateofstart = value; } get { return Dateofstart; } }
+        
        // the licence number private version 
         private string license_number;
         //The length of trips made since the last treatment
@@ -49,17 +52,17 @@ namespace dotNET5781_01_4072_5426
             mailage = a;
             input = null;
             from_last_treatment = 0;
-            refull = 0;
+            REFULL = 0;
         }
         //  constructor for set  Parameters
         public bus(string lisence_bus,int REfull,int Mailage,int f_lt ,DateTime startDate,DateTime flt) 
         {
-            Dateofstart = startDate;
+            StartDATE = startDate;
             DateTime A = new DateTime(2019, 1, 1);
             if (cheke_l_num(A, lisence_bus))
             {
                 license_number = lisence_bus;
-                refull = REfull;
+                REFULL= REfull;
                 mailage = Mailage;
                 from_last_treatment = f_lt;
                 last_treatment = flt;
@@ -74,7 +77,7 @@ namespace dotNET5781_01_4072_5426
                 DateTime date = new DateTime(2018, 1, 1);
                 {
                     if (cheke_l_num(date,value)) license_number =value ;
-                    else throw new Exception("The number is invalid.");
+                    else throw new ArgumentException("The number is invalid.");
                 }
             }
             get { return license_number; }
@@ -91,7 +94,7 @@ namespace dotNET5781_01_4072_5426
         {
            Mileage +=len;
            from_last_treatment += len;
-           refull += len;
+           REFULL += len;
             
         }
         //Fuel test
@@ -155,7 +158,7 @@ namespace dotNET5781_01_4072_5426
         }
         protected void make_a_refull()
         {
-            refull = 0;
+            REFULL = 0;
             
         }
         protected void make_a_treatment()

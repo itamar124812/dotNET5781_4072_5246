@@ -9,11 +9,24 @@
     <Grid>
 
 
-        <StackPanel HorizontalAlignment="Left"  VerticalAlignment="Top" Width="400" Height="450">
-            <Label Content="Date of upload to the road:" MaxWidth="200" HorizontalAlignment="Left" TextElement.FontSize="14"/>
-            <TextBlock Name="StartDate" TextWrapping="Wrap" MaxWidth="200" VerticalAlignment="Top"/>
+        <StackPanel HorizontalAlignment="Left"  VerticalAlignment="Top" Width="400" Height="350">
+            <Label Content="Bus statos:"  MaxWidth="200" VerticalAlignment="Center" HorizontalAlignment="Left" TextElement.FontSize="16"/>
+            <TextBlock Name="Status" TextWrapping="Wrap" Tag="{Binding Path=status }" FontSize="16" Loaded="uploadtext" />
+            <Label Content="Date of upload to the road:" MaxWidth="250" HorizontalAlignment="Left" TextElement.FontSize="16"/>
+            <TextBlock Name="StartDate" TextWrapping="Wrap" MaxWidth="200" VerticalAlignment="Center" HorizontalAlignment="Left"  Text="{Binding Path=StartDATE}"/>
+            <Label Content="Mailage:" MaxWidth="200" HorizontalAlignment="Left" TextElement.FontSize="16" />
+            <TextBlock Name="mailage" TextWrapping="Wrap" MaxWidth="200" VerticalAlignment="Center" HorizontalAlignment="Left"  Text="{Binding Path=mailage}"/>
+            <Label Content="kilometers until refull:" MaxWidth="200" HorizontalAlignment="Left" TextElement.FontSize="16"/>
+            <TextBlock Name="Delek" TextWrapping="Wrap" Tag="{Binding Path=REFULL }" FontSize="16" Loaded="UploadtextDelek"  />
+            <Label Content="Last treatment date:" MaxWidth="200" HorizontalAlignment="Left" TextElement.FontSize="16"/>
+            <TextBlock Name="fromLasttreatment" TextWrapping="Wrap" MaxWidth="200" VerticalAlignment="Center" HorizontalAlignment="Left"  Text="{Binding Path=l_t }"/>
+            <Label Content="kilometers until treatment:" MaxWidth="200" HorizontalAlignment="Left" TextElement.FontSize="16"/>
+            <TextBlock Name="treatmentKM" TextWrapping="Wrap" Tag="{Binding Path=f_l_t }" FontSize="16" Loaded="treatmentKM_textload"   />
+
 
         </StackPanel>
+        <Button Name="TreatmentButton" Content="treatment" HorizontalAlignment="Left" Margin="307,368,0,0" VerticalAlignment="Top" Width="75" Click="TreatmentButton_click"/>
+        <Button Content="refull" HorizontalAlignment="Left" Margin="207,368,0,0" VerticalAlignment="Top" Width="75" Click="RefullButton_click"/>
 
     </Grid>
 </Window>

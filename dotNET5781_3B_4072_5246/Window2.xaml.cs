@@ -20,10 +20,53 @@ namespace dotNET5781_3B_4072_5246
     public partial class Window2 : Window
     {
         public Upgraded_Bus CurrentBus;
-        public Window2()
+        public Window2(Upgraded_Bus A)
         {
             InitializeComponent();
-            StartDate.Text = CurrentBus.Dateofstart.ToString(string.Format("00/00/0000"));
+            CurrentBus = A;
+            StartDate.DataContext = CurrentBus;
+            mailage.DataContext = CurrentBus;
+            Status.DataContext = CurrentBus;
+            Delek.DataContext = CurrentBus;
+            fromLasttreatment.DataContext = CurrentBus;
+            treatmentKM.DataContext = CurrentBus;
+        }
+        private void uploadtext(object sender, RoutedEventArgs e)
+        {
+           int a =(int) (sender as TextBlock).Tag;
+            string result;
+            if (a == 0)
+                result = Bus_status.ready_for_travel.ToString();
+            else if (a== 1)
+                result = Bus_status.on_the_road.ToString();
+            else if (a == 2)
+            {
+                result = Bus_status.refueling.ToString();
+            }
+            else result = Bus_status.in_treatment.ToString();
+            (sender as TextBlock).Text = result;
+
+        }
+
+        private void UploadtextDelek(object sender, RoutedEventArgs e)
+        {
+            int result = 1200- (int)(sender as TextBlock).Tag;
+            Delek.Text = result.ToString();
+        }
+
+        private void treatmentKM_textload(object sender, RoutedEventArgs e)
+        {
+            int result = 20000 - (int)(sender as TextBlock).Tag;
+            treatmentKM.Text = result.ToString();
+        }
+
+        private void RefullButton_click(object sender, RoutedEventArgs e)
+        {
+            CurrentBus.Make_a_refull();
+        }
+        private void TreatmentButton_click(object sender, RoutedEventArgs e)
+        {
+                CurrentBus.Make_a_treatment();
         }
     }
 }
