@@ -20,6 +20,10 @@ namespace dotNET5781_3B_4072_5246
     using Bus = dotNET5781_01_4072_5426.bus;
     /// <summary>
     /// Interaction logic for MainWindow.xaml
+    /// The options in the exercise are adding a new bus at the touch of a button,
+    ///  Make a new trip with enter bonus, refueling and treatment at the touch of a button.
+    ///  By double-clicking on the license number, a window opens with the bus details + refueling option + treatment option.
+    ///  When the bus is ready to travel the background color for the license number will be white.When traveling yellow,when refueling green and gray when treatment will be done (additional bonus)
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -28,7 +32,7 @@ namespace dotNET5781_3B_4072_5246
        
         public MainWindow()
         {
-            
+            //We set up 4 "special" buses (they are according to the definitions of the exercise with close treatment or refueling) and added 6 more random buses
             InitializeComponent();
             Random r = new Random(DateTime.Now.Millisecond);
             DateTime a = new DateTime(2019,1,1);
@@ -65,14 +69,14 @@ namespace dotNET5781_3B_4072_5246
             Upgraded_Bus F = new Upgraded_Bus(lisence_num.ToString("00-000-00"), Refull, mailge, fromLastreatment, DateForStart, Last_treatment);
             Bus_manager_system.Add(F);
         }
-
+        //Add new bus button function that opens a new window for adding a bus
         private void Button_Add_click(object sender, RoutedEventArgs e)
         {
             Window1 secondwindow = new Window1();
             secondwindow.Show();
             secondwindow.Closed += Secondwindow_Closed;
         }
-
+        //An event that closes the window for adding a new bus makes sure everything went smoothly and adds it
         private void Secondwindow_Closed(object sender, EventArgs e)
         {
             if ((sender as Window1).enter_bus_successful)
@@ -82,12 +86,13 @@ namespace dotNET5781_3B_4072_5246
             }
             else return;
         }
-
+        //A function that updates the list
         private void Bus_manager_system_CollectionChanged()
         {
             List_Bus.Items.Refresh();
         }
-         private Upgraded_Bus find(string l_n)
+        //A function that finds the selected bus with the license number
+        private Upgraded_Bus find(string l_n)
         {
             foreach ( Upgraded_Bus A in List_Bus.Items)
             {
@@ -97,13 +102,13 @@ namespace dotNET5781_3B_4072_5246
             return null;
         }
 
-      
+        //function that sent bus to refueling
         private void refull_Click(object sender, RoutedEventArgs e)
         {
            current_bus= find((sender as Button).Tag as string);
             current_bus.Make_a_refull();
         }
-
+       
         private void Make_New_Drive(object sender, RoutedEventArgs e)
         {
             drive_window Drive_w = new drive_window();

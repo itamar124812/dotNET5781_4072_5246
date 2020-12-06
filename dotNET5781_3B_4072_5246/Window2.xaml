@@ -11,7 +11,7 @@
 
         <StackPanel HorizontalAlignment="Left"  VerticalAlignment="Top" Width="400" Height="350">
             <Label Content="Bus statos:"  MaxWidth="200" VerticalAlignment="Center" HorizontalAlignment="Left" TextElement.FontSize="16"/>
-            <TextBlock Name="Status" TextWrapping="Wrap" Tag="{Binding Path=status }" FontSize="16" Loaded="uploadtext" />
+            <TextBlock Name="Status" TextWrapping="Wrap" Tag="{Binding Path=status, UpdateSourceTrigger=PropertyChanged}" FontSize="16" Loaded="uploadtext" />
             <Label Content="Date of upload to the road:" MaxWidth="250" HorizontalAlignment="Left" TextElement.FontSize="16"/>
             <TextBlock Name="StartDate" TextWrapping="Wrap" MaxWidth="200" VerticalAlignment="Center" HorizontalAlignment="Left"  Text="{Binding Path=StartDATE}"/>
             <Label Content="Mailage:" MaxWidth="200" HorizontalAlignment="Left" TextElement.FontSize="16" />

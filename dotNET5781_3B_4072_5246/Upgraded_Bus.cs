@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.ComponentModel;
 
-namespace dotNET5781_3B_4072_5246
+namespace dotNET5781_3B_4072_5246 
 {
     
     enum Bus_status { ready_for_travel, on_the_road, refueling, in_treatment }
-    public delegate void statos_c (Upgraded_Bus A);
-   public  class Upgraded_Bus : dotNET5781_01_4072_5426.bus
+ 
+   public  class Upgraded_Bus : dotNET5781_01_4072_5426.bus , INotifyPropertyChanged     
     {
-        public event statos_c statos_changed;
-        public int status { get { return (int)Status; } set{ if (value > 4 || value < 1) throw new ArgumentException("There are only four statuses."); else {  Status = (Bus_status)(value-1); if (statos_changed != null) statos_changed(this); } } }
+        public event PropertyChangedEventHandler PropertyChanged;
+        public int status { get { return (int)Status; } set{ if (value > 4 || value < 1) throw new ArgumentException("There are only four statuses."); else {  Status = (Bus_status)(value-1);if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs("Status")); } } }
         private Bus_status Status;
         public Upgraded_Bus ():base()
         {
@@ -36,14 +36,14 @@ namespace dotNET5781_3B_4072_5246
                     }
                     else
                     {
-                        Status = (Bus_status)1;
+                        status = 2;
                         new Thread(() =>
                         {
                             // Console.WriteLine("start_thread");
                             make_a_trip(distance); Random rnd = new Random(DateTime.Now.Millisecond);
                             int average_speed = rnd.Next(20, 50);
                             int time = (distance / average_speed) * 6000 + (distance % average_speed) * 100;
-                            Thread.Sleep(time); Status = (Bus_status)0;
+                            Thread.Sleep(time); status=1;
 
                         }).Start();
                     }
