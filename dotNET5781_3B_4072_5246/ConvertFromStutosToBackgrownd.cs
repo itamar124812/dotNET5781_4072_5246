@@ -11,7 +11,7 @@ using System.Windows.Media;
 
 namespace dotNET5781_3B_4072_5246
 {
-    class ConvertFromStutosToBackgrownd : IValueConverter
+    class ConvertFromStutosToBackgrownd : IValueConverter 
     {
        public object Convert(object convertint,Type targetType,    object parameter,  CultureInfo culture)
         {
