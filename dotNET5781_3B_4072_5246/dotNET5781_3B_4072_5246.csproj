@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ConvertFromStutosToBackgrownd.cs" />
+    <Compile Include="ConvertTime.cs" />
     <Compile Include="drive_window.xaml.cs">
       <DependentUpon>drive_window.xaml</DependentUpon>
     </Compile>

@@ -16,13 +16,17 @@ namespace dotNET5781_3B_4072_5246
         public event PropertyChangedEventHandler PropertyChanged;
         public int status { get { return (int)Status; } set{ if (value > 4 || value < 1) throw new ArgumentException("There are only four statuses."); else {  Status = (Bus_status)(value-1);if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs("Status")); } } }
         private Bus_status Status;
+        private int timewait;
+        public int Timewait { set { if (value >= 0) timewait = value;if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs("timewait")); } get { return timewait; } }
         public Upgraded_Bus ():base()
         {
             status = 1;
+            Timewait = 0;
         }
         public Upgraded_Bus(string lisence_bus, int REfull, int Mailage, int f_lt, DateTime StartDate,DateTime flt) : base(lisence_bus, REfull, Mailage, f_lt, StartDate,flt)
         {
             status = 1;
+            Timewait = 0;
         }
         public void Make_a_trip(int distance)
         {
@@ -43,9 +47,11 @@ namespace dotNET5781_3B_4072_5246
                             make_a_trip(distance); Random rnd = new Random(DateTime.Now.Millisecond);
                             int average_speed = rnd.Next(20, 50);
                             int time = (distance / average_speed) * 6000 + (distance % average_speed) * 100;
+                            Timewait = time;
                             Thread.Sleep(time); status=1;
 
                         }).Start();
+                        TimeWAITchange();
                     }
                 }
                 else if (!Refull(distance)) throw new InvalidOperationException("There is not enough fuel to make the trip.");
@@ -57,12 +63,27 @@ namespace dotNET5781_3B_4072_5246
         public void Make_a_refull()
         {
             status = 3;
-            new Thread(() => { make_a_refull(); Thread.Sleep(12000); status = 1; }).Start();
+            new Thread(() => { make_a_refull(); Timewait = 12000; Thread.Sleep(12000); status = 1; }).Start();
+            TimeWAITchange();
+
         }
         public void Make_a_treatment()
         {
-            status = 4;
-            new Thread(() => { make_a_treatment(); Thread.Sleep(144000); status = 1; }).Start();
+               status = 4;
+                new Thread(() => { make_a_treatment(); Timewait = 144000; Thread.Sleep(144000); status = 1; }).Start();
+                TimeWAITchange();     
+        }
+        private void TimeWAITchange()
+        {
+                new Thread(() => 
+                {
+                    while (Timewait > 100)
+                    {
+                        Timewait -= 100;
+                        Thread.Sleep(100);
+                    }
+                    Timewait = 0;
+                }).Start();
         }
         public override string ToString()
         {
