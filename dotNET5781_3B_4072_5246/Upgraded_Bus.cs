@@ -73,7 +73,7 @@ namespace dotNET5781_3B_4072_5246
                 new Thread(() => { make_a_treatment(); Timewait = 144000; Thread.Sleep(144000); status = 1; }).Start();
                 TimeWAITchange();     
         }
-        private void TimeWAITchange()
+        private void TimeWAITchange() 
         {
                 new Thread(() => 
                 {
