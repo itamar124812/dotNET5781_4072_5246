@@ -37,7 +37,7 @@ namespace dotNET5781_3B_4072_5246
             Random r = new Random(DateTime.Now.Millisecond);
             DateTime a = new DateTime(2019,1,1);
             Upgraded_Bus A = new Upgraded_Bus("123-45-678",0,0,0,a,DateTime.Parse("2020,01,02"));
-            Upgraded_Bus B = new Upgraded_Bus("237-56-589",0, 19999, 0, a, DateTime.Parse("2020,01,02"));
+            Upgraded_Bus B = new Upgraded_Bus("237-56-589",0, 19999, 19999, a, DateTime.Parse("2020,01,02"));
             Upgraded_Bus C = new Upgraded_Bus("236-86-289",1199, 0, 0, a, DateTime.Parse("2020,01,02"));
             Upgraded_Bus D = new Upgraded_Bus("234-96-780", 0, 0, 0, a, DateTime.Parse("2019,01,02"));
             Bus_manager_system.Add(A);
@@ -75,6 +75,7 @@ namespace dotNET5781_3B_4072_5246
             Window1 secondwindow = new Window1();
             secondwindow.Show();
             secondwindow.Closed += Secondwindow_Closed;
+
         }
         //An event that closes the window for adding a new bus makes sure everything went smoothly and adds it
         private void Secondwindow_Closed(object sender, EventArgs e)
