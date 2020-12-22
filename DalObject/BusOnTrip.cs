@@ -8,6 +8,8 @@ namespace DalObject
 {
     class BusOnTrip
     {
+        private static int counter = 0;
+        int RunningNum => ++counter;
         int LicenseNum { set; get; }
         int Lined { set; get; }
         TimeSpan PlannedTakeOff { set; get; }
