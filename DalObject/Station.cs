@@ -8,9 +8,9 @@ namespace DalObject
 {
     class Station
     {
-        int Code;
-        string Name;
-        int Longitude;
-        int Latitude;
+        int Code { get; set; }
+        string Name { get; set; }
+        int Longitude { get; set; }
+        int Latitude { get; set; }
     }
 }

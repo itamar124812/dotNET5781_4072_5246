@@ -11,7 +11,7 @@ namespace DalObject
         private static int counter = 0;
         int RunningNum => ++counter;
         int LicenseNum { set; get; }
-        int Lined { set; get; }
+        int Lineld { set; get; }
         TimeSpan PlannedTakeOff { set; get; }
         TimeSpan ActualTakeOff { set; get; }
         int PrevStation { set; get; }
