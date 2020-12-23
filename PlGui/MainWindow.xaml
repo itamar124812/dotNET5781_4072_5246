@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-      <PasswordBox Margin="20,10,600,300" MaxHeight="50" MaxWidth="100" />  
+       <TextBlock Margin="100" Text="Enter your user name:" FontSize="20" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <TextBox HorizontalAlignment="Left" Margin="300,100" TextElement.FontSize="20" Height="40" TextWrapping="Wrap" Text="" VerticalAlignment="Top" MinWidth="100" MaxWidth="200"/>
+
     </Grid>
 </Window>
