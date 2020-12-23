@@ -7,8 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-       <TextBlock Margin="100" Text="Enter your user name:" FontSize="20" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <TextBlock Margin="100" Text="Enter your user name:" FontSize="20" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <TextBox HorizontalAlignment="Left" Margin="300,100" TextElement.FontSize="20" Height="40" TextWrapping="Wrap" Text="" VerticalAlignment="Top" MinWidth="100" MaxWidth="200"/>
+        <TextBlock Text="Password please:" Margin="100,150" VerticalAlignment="Top" HorizontalAlignment="Left" TextAlignment="Center" FontSize="20"  Height="40" Width="200"/>
+        <PasswordBox Name="Password" MinWidth="100" TextElement.FontSize="20" HorizontalAlignment="left" Margin="300,150" Height="40" VerticalAlignment="Top"/>
+        <Button Content="sign up it's free" TextElement.FontSize="20" HorizontalAlignment="Left" Background="LightBlue" Margin="200,200,0,0" VerticalAlignment="Top" Width="200" Click="SignUp" />
 
     </Grid>
 </Window>
