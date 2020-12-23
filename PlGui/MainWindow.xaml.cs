@@ -23,6 +23,17 @@ namespace PlGui
         public MainWindow()
         {
             InitializeComponent();
+            this.Closing += MainWindow_Closing;
+        }
+
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            string a = Password.Password;
+        }
+
+        private void SignUp(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
