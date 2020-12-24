@@ -43,7 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bus.cs" />
+    <Compile Include="Bus_stations.cs" />
+    <Compile Include="LineExit.cs" />
+    <Compile Include="TheLineStation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserJourney.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

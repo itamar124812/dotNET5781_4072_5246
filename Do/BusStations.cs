@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DS
+namespace DO
 {
-    class Program
+    class Bus_stations
     {
-        static void Main(string[] args)
-        {
-        }
+        int StationCode { get; set; }
+
+        String stationName { get; set; }
     }
 }
