@@ -6,46 +6,14 @@ using System.Threading.Tasks;
 
 namespace DO
 {
+    enum BusStatus {ReadyForTrip, OnTrip,Refueling, Treatment }
     class Bus
     {
-        private int License_plate;
-        private int Mileage;
-        private int Fueltank;
-        TimeSpan Licensing_date { get; set; }
-        public int L_P
-        {
-            get
-            {
-                return License_plate;
-            }
-            set 
-            {
-                License_plate = value;
-            }
-        }
-        public int Miles//get acsess to the variable Mileage
-        {
-            get
-            {
-                return Mileage;
-            }
-            set
-            {
-                Mileage = value;
-            }
-        }
-        public int F_l//get acsess to the variable Fueltank
-        {
-            get
-            {
-                return Fueltank;
-            }
-            set
-            {
-                Fueltank = value;
-            }
-        }
+        int LicenseNum { get; set; }
+        DateTime FromDate { get; set; }
+        double TotalTrip { get; set; }
+        double FuelRemain { get; set; }
+        BusStatus Status { get; set; }
 
-        //להוסיף סטטוס
     }
 }

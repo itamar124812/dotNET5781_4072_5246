@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace DO
 {
-    class Bus_stations
+    class User
     {
-        int StationCode { get; set; }
-
-        String stationName { get; set; }
+        string UserName { get; set; }
+        string Password  { get; set; }
+        bool Adnmin { get; set; }
     }
 }
