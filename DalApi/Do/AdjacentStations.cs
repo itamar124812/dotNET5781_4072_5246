@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DO
+namespace DalApi.DO
 {
     class AdjacentStations
     {

@@ -54,8 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Do\DalApi.csproj" />
-    <None Include="Do\DalObject.csproj" />
+    <None Include="bin\DalApi.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
