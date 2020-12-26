@@ -4,8 +4,8 @@ using System.Text;
 
 namespace DalApi.DO
 {
-    class AdjacentStations
-    {
+    public class AdjacentStations
+    { 
         int Station1 { get; set; }
         int Station2 { get; set; }
         double distance { get; set; }

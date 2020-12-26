@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DO
 {
-    class LineTrip
+   public class LineTrip
     {
         int Id { get; set; }
         TimeSpan StartAt { get; set; }

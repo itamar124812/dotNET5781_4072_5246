@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DO
+namespace DalApi.DO
 {
-    class User
-    {
+    public class User
+    {     
         string UserName { get; set; }
-        string Password  { get; set; }
+        string Password { get; set; }
         bool Adnmin { get; set; }
     }
 }

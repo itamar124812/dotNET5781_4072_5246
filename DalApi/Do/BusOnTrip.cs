@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DalApi.DO
 {
-    class BusOnTrip
+   public class BusOnTrip
     {
         private static int counter = 0;
         int RunningNum => ++counter;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace DalApi.DO
 {
     enum BusStatus {ReadyForTrip, OnTrip,Refueling, Treatment }
-    class Bus
+   public class Bus
     {
         int LicenseNum { get; set; }
         DateTime FromDate { get; set; }

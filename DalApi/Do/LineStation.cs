@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DalApi.DO
 {
-    class LineStation
+   public class LineStation
     {
         int Id { get; set; }
         String UserName { get; set; }

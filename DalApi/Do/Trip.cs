@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DO
+namespace DalApi.DO
 {
-    class Trip
+   public class Trip
     {
         int Id { get; set; }
         string UserName { get; set; }
