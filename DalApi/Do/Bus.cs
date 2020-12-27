@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace DalApi.DO
 {
-    enum BusStatus {ReadyForTrip, OnTrip,Refueling, Treatment }
+    public enum BusStatus {ReadyForTrip, OnTrip,Refueling, Treatment }
    public class Bus
     {
-        int LicenseNum { get; set; }
-        DateTime FromDate { get; set; }
-        double TotalTrip { get; set; }
-        double FuelRemain { get; set; }
-        BusStatus Status { get; set; }
+     public   int LicenseNum { get; set; }
+        public DateTime FromDate { get; set; }
+        public double TotalTrip { get; set; }
+        public double FuelRemain { get; set; }
+        public BusStatus Status { get; set; }
 
     }
 }

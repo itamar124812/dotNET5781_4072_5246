@@ -5,15 +5,33 @@ using System.Text;
 using System.Threading.Tasks;
 using DalApi;
 using DalApi.DO;
+using DS;
 
 
 namespace DalObject
 {
     class DalObject : IDal
     {
-        public void AddBus(int LicenseNum, DateTime StartDate, double refull, int status)
+        static readonly DalObject instance = new DalObject();
+        static DalObject() { }
+        DalObject() { } 
+        public static DalObject Instance { get => instance; }
+        public void AddBus(int LicenseNum, DateTime StartDate,int Kilometrash, double refull, int status)
         {
-            throw new NotImplementedException();
+            foreach (Bus item in DS.DataSource.ListBuses)
+            {
+                if(LicenseNum==item.LicenseNum)
+                {
+                    
+                }
+            }
+            Bus A = new Bus();
+            A.LicenseNum = LicenseNum;
+            A.FromDate = StartDate;
+            A.FuelRemain = refull;
+            A.TotalTrip = Kilometrash;
+            A.Status = (BusStatus)status;
+            DS.DataSource.ListBuses.Add(A.Clone());
         }
 
         public void AddBusOnTrip(int licenseNum, int Lineld, TimeSpan PlannedTakeOff, TimeSpan ActualTakeOff, int PrevStation, TimeSpan PrevStationA1, TimeSpan NextStationA1)

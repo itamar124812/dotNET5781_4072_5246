@@ -20,7 +20,19 @@ namespace DS
         public static List<AdjacentStations> ListAdjecentStations;
         static DataSource()
         {
-            
+            InitAllLists();
+        }
+        static void InitAllLists()
+        {
+            ListBuses = new List<Bus>();
+            ListAdjecentStations = new List<AdjacentStations>();
+            ListBusOnTrips = new List<BusOnTrip>();
+            UsersManager = new List<User>();
+            ListBusStations = new List<BusStations>();
+            ListLineStation = new List<LineStation>();
+            ListStations = new List<Station>();
+            ListTrip = new List<Trip>();
+            ListLineTrip = new List<LineTrip>();
         }
     }
 }
