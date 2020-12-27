@@ -5,13 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 using DalApi;
 using DalApi.DO;
-using DO;
+
 
 namespace DalObject
 {
     class DalObject : IDal
     {
         public void AddBus(int LicenseNum, DateTime StartDate, double refull, int status)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddBusOnTrip(int licenseNum, int Lineld, TimeSpan PlannedTakeOff, TimeSpan ActualTakeOff, int PrevStation, TimeSpan PrevStationA1, TimeSpan NextStationA1)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddStation(int code, string name, double Longitude, double Latitude)
         {
             throw new NotImplementedException();
         }
@@ -31,12 +41,37 @@ namespace DalObject
             throw new NotImplementedException();
         }
 
+        public void DeleteBusOnTrip(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteStation(int code)
+        {
+            throw new NotImplementedException();
+        }
+
         public void DeleteUser(string user)
         {
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Bus> GetAllBuses()
+        {
+            throw new NotImplementedException();
+        }
+
         public Bus GetBus(int LisenceNum)
+        {
+            throw new NotImplementedException();
+        }
+
+        public BusOnTrip GetBusOnTrip(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Station GetStation(int code)
         {
             throw new NotImplementedException();
         }

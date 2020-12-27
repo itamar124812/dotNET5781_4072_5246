@@ -7,8 +7,20 @@ using DalApi.DO;
 
 namespace DS
 {
-    public class DataSource
+    public static class DataSource
     {
-
+        public static List<Bus> ListBuses;
+        public static List<BusOnTrip> ListBusOnTrips;
+        public static List<BusStations> ListBusStations;
+        public static List<Trip> ListTrip;
+        public static List<Station> ListStations;
+        public static List<User> UsersManager;
+        public static List<LineStation> ListLineStation;
+        public static List<LineTrip> ListLineTrip;
+        public static List<AdjacentStations> ListAdjecentStations;
+        static DataSource()
+        {
+            
+        }
     }
 }

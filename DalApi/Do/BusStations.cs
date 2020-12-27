@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DalApi.DO
 {
-    public class Bus_stations
+    public class BusStations
     {
         int StationCode { get; set; }
 
