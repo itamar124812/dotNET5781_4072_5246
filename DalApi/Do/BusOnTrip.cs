@@ -9,13 +9,13 @@ namespace DalApi.DO
    public class BusOnTrip
     {
         private static int counter = 0;
-        int RunningNum => ++counter;
-        int LicenseNum { set; get; }
-        int Lineld { set; get; }
-        TimeSpan PlannedTakeOff { set; get; }
-        TimeSpan ActualTakeOff { set; get; }
-        int PrevStation { set; get; }
-        TimeSpan PrevStationA1 { set; get; }
-        TimeSpan NextstatinA1 { set; get; }
+       public  int RunningNum => ++counter;
+        public int LicenseNum { set; get; }
+       public int Lineld { set; get; }
+   public      TimeSpan PlannedTakeOff { set; get; }
+    public     TimeSpan ActualTakeOff { set; get; }
+    public    int PrevStation { set; get; }
+     public TimeSpan PrevStationA1 { set; get; }
+    public TimeSpan NextstatinA1 { set; get; }
     }
 }

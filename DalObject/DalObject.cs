@@ -12,96 +12,110 @@ namespace DalObject
 {
     class DalObject : IDal
     {
+        #region Singelton
         static readonly DalObject instance = new DalObject();
         static DalObject() { }
         DalObject() { } 
         public static DalObject Instance { get => instance; }
-        public void AddBus(int LicenseNum, DateTime StartDate,int Kilometrash, double refull, int status)
+        #endregion
+        #region Bus
+        public void AddBus(DalApi.DO.Bus bus)
         {
-            foreach (Bus item in DS.DataSource.ListBuses)
+            if (DS.DataSource.ListBuses.Find(b => b.LicenseNum == bus.LicenseNum) != null)
             {
-                if(LicenseNum==item.LicenseNum)
-                {
-                    
-                }
+                throw new DalApi.DO.BadBusException(bus.LicenseNum, "There is already a bus with the same license number:");
             }
-            Bus A = new Bus();
-            A.LicenseNum = LicenseNum;
-            A.FromDate = StartDate;
-            A.FuelRemain = refull;
-            A.TotalTrip = Kilometrash;
-            A.Status = (BusStatus)status;
-            DS.DataSource.ListBuses.Add(A.Clone());
+            DataSource.ListBuses.Add(bus.Clone());
         }
-
-        public void AddBusOnTrip(int licenseNum, int Lineld, TimeSpan PlannedTakeOff, TimeSpan ActualTakeOff, int PrevStation, TimeSpan PrevStationA1, TimeSpan NextStationA1)
+        public void DeleteBus(int LicenseNum)
         {
-            throw new NotImplementedException();
+            DalApi.DO.Bus RemuveBus = DS.DataSource.ListBuses.Find(b => b.LicenseNum == LicenseNum);
+            if (RemuveBus != null)
+            {
+                DS.DataSource.ListBuses.Remove(RemuveBus);
+            }
+            else throw new DalApi.DO.BadBusException(LicenseNum, "The bus does not exist . license number:");
         }
-
+        public IEnumerable<Bus> GetAllBuses()
+        {
+            return from DalApi.DO.Bus bus in DS.DataSource.ListBuses
+                   select bus.Clone();
+         }
+        public Bus GetBus(int LisenceNum)
+        {
+          DalApi.DO.Bus bus =  DataSource.ListBuses.Find(b => b.LicenseNum == LisenceNum);
+            if (bus != null)
+                return bus.Clone();
+            else throw new DalApi.DO.BadBusException(LisenceNum, "The bus does not exist . license number:");
+        }
+        #endregion
+        #region BusOnTrip
+        public void AddBusOnTrip(DalApi.DO.BusOnTrip trip)
+        {
+            if(DS.DataSource.ListBusOnTrips.Find(BOT=>BOT.RunningNum ==trip.RunningNum)!=null)
+            {
+                throw new DalApi.DO.BadBusOnTripException(trip.RunningNum, "Duplicate BusOnTrip Id:");
+            }
+            DS.DataSource.ListBusOnTrips.Add(trip);
+        }
+        public void DeleteBusOnTrip(int Id)
+        {
+            DalApi.DO.BusOnTrip busOnTrip = DataSource.ListBusOnTrips.Find(BOT => BOT.RunningNum == Id);
+            if (busOnTrip != null)
+                DataSource.ListBusOnTrips.Remove(busOnTrip);
+            else throw new DalApi.DO.BadBusOnTripException(Id, "There is no bus Trip with such an identification number:");
+                
+        }
+        public BusOnTrip GetBusOnTrip(int Id)
+        {
+            DalApi.DO.BusOnTrip busOnTrip= DataSource.ListBusOnTrips.Find(BOT => BOT.RunningNum == Id);
+            if (busOnTrip != null)
+                return busOnTrip;
+            else throw new DalApi.DO.BadBusOnTripException(Id, "There is no bus Trip with such an identification number:");
+        }
+        #endregion
+        #region Station
         public void AddStation(int code, string name, double Longitude, double Latitude)
         {
             throw new NotImplementedException();
         }
-
-        public void AddTrip()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AddUser(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteBus(int LicenseNum)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteBusOnTrip(int Id)
-        {
-            throw new NotImplementedException();
-        }
-
         public void DeleteStation(int code)
         {
             throw new NotImplementedException();
         }
-
-        public void DeleteUser(string user)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Bus> GetAllBuses()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Bus GetBus(int LisenceNum)
-        {
-            throw new NotImplementedException();
-        }
-
-        public BusOnTrip GetBusOnTrip(int Id)
-        {
-            throw new NotImplementedException();
-        }
-
         public Station GetStation(int code)
         {
             throw new NotImplementedException();
         }
-
-        public Trip GetTrip(int ID)
+        #endregion
+        #region User
+        public void AddUser(DalApi.DO.User user)
+        {
+           if(DataSource.UsersManager.Find(User=>user.UserName==User.UserName)!=null)
+            {
+                throw new DalApi.DO.UserExceptions(user.UserName, "Duplicate User UserName:");
+            }
+            DataSource.UsersManager.Add(user);
+        }
+        public void DeleteUser(string user)
         {
             throw new NotImplementedException();
         }
-
         public User GetUser(string user)
         {
             throw new NotImplementedException();
         }
+        #endregion
+#region Trip
+        public void AddTrip()
+        {
+            throw new NotImplementedException();
+        }
+        public Trip GetTrip(int ID)
+        {
+            throw new NotImplementedException();
+        }
+#endregion
+
     }
 }

@@ -46,6 +46,7 @@
     <Compile Include="Do\Bus.cs" />
     <Compile Include="Do\BusOnTrip.cs" />
     <Compile Include="Do\BusStations.cs" />
+    <Compile Include="Do\Exceptions.cs" />
     <Compile Include="Do\LineStation.cs" />
     <Compile Include="Do\LineTrip.cs" />
     <Compile Include="Do\Station.cs" />

@@ -21,7 +21,7 @@ namespace DalApi
         #endregion
         #region Bus
         IEnumerable<DO.Bus> GetAllBuses();
-        void AddBus(int LicenseNum, DateTime StartDate,int KiloMetrash, double refull, int status);
+        void AddBus(DO.Bus bus);
         DO.Bus GetBus(int LicenseNum);
         void DeleteBus(int LicenseNum);
         #endregion
@@ -31,7 +31,7 @@ namespace DalApi
         DO.Station GetStation(int code);
         #endregion
         #region BusOnTrip
-        void AddBusOnTrip(int licenseNum,int Lineld,TimeSpan PlannedTakeOff ,TimeSpan ActualTakeOff,int PrevStation, TimeSpan PrevStationA1, TimeSpan NextStationA1 );
+        void AddBusOnTrip(DO.BusOnTrip Trip );
         void DeleteBusOnTrip(int Id);
         DO.BusOnTrip GetBusOnTrip(int Id);
         #endregion
