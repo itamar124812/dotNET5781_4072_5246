@@ -38,4 +38,22 @@ namespace DalApi.DO
             return base.ToString() + UserName;
         }
     }
+    public class StationException:Exception
+    {
+        int Code;
+       public  StationException(int code, string message) : base(message) => Code = code;
+        public override string ToString()
+        {
+            return base.ToString() + string.Format("The bad code is: {0}", Code);
+        }
+    }
+    public class TripException:Exception
+    {
+        int id;
+        public TripException(int Id, string message) : base(message) => id = Id;
+        public override string ToString()
+        {
+            return base.ToString() + string.Format("The bad trip Id is: {0}", id);
+        }
+    }
 }

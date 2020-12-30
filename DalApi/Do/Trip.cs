@@ -8,12 +8,12 @@ namespace DalApi.DO
 {
    public class Trip
     {
-        int Id { get; set; }
-        string UserName { get; set; }
-        int Lineld {get; set; }
-        int InStaiton { get; set; }
-        TimeSpan InAt { get; set; }
-        int OutStation { get; set; }
-        TimeSpan OutAt { get; set; }
+        public int Id { get; set; }
+        public string UserName { get; set; }
+        public int Lineld {get; set; }
+        public int InStaiton { get; set; }
+        public TimeSpan InAt { get; set; }
+        public int OutStation { get; set; }
+        public TimeSpan OutAt { get; set; }
     }
 }

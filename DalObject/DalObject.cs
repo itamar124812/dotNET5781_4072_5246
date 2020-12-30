@@ -56,7 +56,7 @@ namespace DalObject
             {
                 throw new DalApi.DO.BadBusOnTripException(trip.RunningNum, "Duplicate BusOnTrip Id:");
             }
-            DS.DataSource.ListBusOnTrips.Add(trip);
+            DS.DataSource.ListBusOnTrips.Add(trip.Clone());
         }
         public void DeleteBusOnTrip(int Id)
         {
@@ -70,22 +70,31 @@ namespace DalObject
         {
             DalApi.DO.BusOnTrip busOnTrip= DataSource.ListBusOnTrips.Find(BOT => BOT.RunningNum == Id);
             if (busOnTrip != null)
-                return busOnTrip;
+                return busOnTrip.Clone();
             else throw new DalApi.DO.BadBusOnTripException(Id, "There is no bus Trip with such an identification number:");
         }
         #endregion
         #region Station
-        public void AddStation(int code, string name, double Longitude, double Latitude)
+        public void AddStation(DalApi.DO.Station station)
         {
-            throw new NotImplementedException();
+            if (DataSource.ListStations.Find(s => s.Code == station.Code) != null)
+            {
+                throw new DalApi.DO.StationException(station.Code, "Duplicate Station code.");
+            }
+            else DataSource.ListStations.Add(station.Clone());
+
         }
         public void DeleteStation(int code)
         {
-            throw new NotImplementedException();
+            Station station = DataSource.ListStations.Find(S => S.Code == code);
+            if (station == null) throw new DalApi.DO.StationException(code, "There is no such station.");
+            DataSource.ListStations.Remove(station);
         }
         public Station GetStation(int code)
         {
-            throw new NotImplementedException();
+            Station Result = DataSource.ListStations.Find(S => S.Code == code);
+            if(Result!=null) return Result.Clone();
+            throw new DalApi.DO.StationException(code, "There is no such station.");
         }
         #endregion
         #region User
@@ -97,25 +106,68 @@ namespace DalObject
             }
             DataSource.UsersManager.Add(user);
         }
-        public void DeleteUser(string user)
+        public void DeleteUser(string userName)
+        {
+            DalApi.DO.User user = DataSource.UsersManager.Find(U => U.UserName == userName);
+            if (user == null) throw new DalApi.DO.UserExceptions(userName, "The badUser:");
+            else DataSource.UsersManager.Remove(user.Clone());
+        }
+        public IEnumerable<User> GetAllUsers()
+        {
+          return  from User user in DataSource.UsersManager
+            select user.Clone();
+        }
+        public User GetUser(string userName)
+        {
+            DalApi.DO.User result = DataSource.UsersManager.Find(U => U.UserName == userName);
+            if (result == null) throw new DalApi.DO.UserExceptions(userName, "The badUser:");
+            else return result.Clone();
+        }
+        #endregion
+#region Trip
+        public void AddTrip(DalApi.DO.Trip trip)
+        {
+            if (DataSource.ListTrip.Find(T => T.Id == trip.Id) != null)
+                throw new DalApi.DO.TripException(trip.Id, "Duplicate Trip id.");
+            DataSource.ListTrip.Add(trip.Clone());
+        }
+        public void DeleteTrip(int code)
+        {
+            DalApi.DO.Trip trip = DataSource.ListTrip.Find(T => T.Id == code);
+            if (trip != null)
+                throw new DalApi.DO.TripException(code, "There is no such trip.");
+            DataSource.ListTrip.Remove(trip.Clone());
+        }
+        public Trip GetTrip(int ID)
+        {
+            DalApi.DO.Trip trip = DataSource.ListTrip.Find(T => T.Id == ID);
+            if (trip != null)
+                throw new DalApi.DO.TripException(ID, "There is no such trip.");
+            return trip.Clone();
+        }
+        #endregion
+        #region AdjacentStations
+        public IEnumerable<AdjacentStations> GetALLAdjacentStations()
+        {
+            return from DalApi.DO.AdjacentStations AS in DataSource.ListAdjecentStations
+                   select AS.Clone();
+        }
+
+        public AdjacentStations GetAdjacentStations(Station A, Station B)
         {
             throw new NotImplementedException();
         }
-        public User GetUser(string user)
+
+        public void AddAdjacentStations(AdjacentStations adjacentStations)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteAdjacentStations(Station A, Station B)
         {
             throw new NotImplementedException();
         }
         #endregion
-#region Trip
-        public void AddTrip()
-        {
-            throw new NotImplementedException();
-        }
-        public Trip GetTrip(int ID)
-        {
-            throw new NotImplementedException();
-        }
-#endregion
 
     }
 }

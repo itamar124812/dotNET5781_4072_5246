@@ -14,10 +14,12 @@ namespace DalApi
         DO.User GetUser(string user);
         void AddUser(DO.User user);
         void DeleteUser(string user);
+        IEnumerable<User> GetAllUsers();
         #endregion
         #region Trip
         DO.Trip GetTrip(int ID);
-        void AddTrip();
+        void AddTrip(DO.Trip trip);
+        void DeleteTrip(int Id);
         #endregion
         #region Bus
         IEnumerable<DO.Bus> GetAllBuses();
@@ -26,7 +28,7 @@ namespace DalApi
         void DeleteBus(int LicenseNum);
         #endregion
         #region Station
-        void AddStation(int code,string name,double Longitude, double Latitude);
+        void AddStation(DO.Station station);
         void DeleteStation(int code);
         DO.Station GetStation(int code);
         #endregion
@@ -35,6 +37,11 @@ namespace DalApi
         void DeleteBusOnTrip(int Id);
         DO.BusOnTrip GetBusOnTrip(int Id);
         #endregion
-
+        #region AdjacentStations
+        IEnumerable<AdjacentStations> GetALLAdjacentStations();
+        AdjacentStations GetAdjacentStations(Station A, Station B);
+        void AddAdjacentStations(AdjacentStations adjacentStations);
+        void DeleteAdjacentStations(Station A, Station B);
+        #endregion
     }
 }

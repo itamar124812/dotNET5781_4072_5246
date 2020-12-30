@@ -8,9 +8,9 @@ namespace DalApi.DO
 {
    public  class Station
     {
-        int Code { get; set; }
-        string Name { get; set; }
-        int Longitude { get; set; }
-        int Latitude { get; set; }
+      public int Code { get; set; }
+      public string Name { get; set; }
+      public int Longitude { get; set; }
+      public int Latitude { get; set; }
     }
 }

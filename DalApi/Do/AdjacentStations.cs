@@ -6,9 +6,9 @@ namespace DalApi.DO
 {
     public class AdjacentStations
     { 
-        int Station1 { get; set; }
-        int Station2 { get; set; }
-        double distance { get; set; }
-        TimeSpan Time { get; set; }
+        public  int Station1 { get; set; }
+        public    int Station2 { get; set; }
+        public double distance { get; set; }
+        public TimeSpan Time { get; set; }
     }
 }
