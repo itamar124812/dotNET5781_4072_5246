@@ -38,7 +38,7 @@ namespace DalObject
         }
         public IEnumerable<Bus> GetAllBuses()
         {
-            return from DalApi.DO.Bus bus in DS.DataSource.ListBuses
+            return from  bus in DS.DataSource.ListBuses
                    select bus.Clone();
          }
         public Bus GetBus(int LisenceNum)
@@ -114,7 +114,7 @@ namespace DalObject
         }
         public IEnumerable<User> GetAllUsers()
         {
-          return  from User user in DataSource.UsersManager
+          return  from  user in DataSource.UsersManager
             select user.Clone();
         }
         public User GetUser(string userName)
@@ -149,25 +149,113 @@ namespace DalObject
         #region AdjacentStations
         public IEnumerable<AdjacentStations> GetALLAdjacentStations()
         {
-            return from DalApi.DO.AdjacentStations AS in DataSource.ListAdjecentStations
+            return from  AS in DataSource.ListAdjecentStations
                    select AS.Clone();
         }
 
         public AdjacentStations GetAdjacentStations(Station A, Station B)
         {
-            throw new NotImplementedException();
+            DalApi.DO.AdjacentStations AS = DataSource.ListAdjecentStations.Find(As => As.Station1 == A.Code && As.Station2==B.Code );
+            if (AS == null)
+                throw new DalApi.DO.AdjacentStationsException(A.Code, B.Code, "The AdjacentStations didn't exits");
+            return AS.Clone();
         }
 
         public void AddAdjacentStations(AdjacentStations adjacentStations)
         {
-            throw new NotImplementedException();
+          if(DataSource.ListAdjecentStations.Find(As => As.Station1 == adjacentStations.Station1 && As.Station2 == adjacentStations.Station2) !=null)
+            {
+                throw new DalApi.DO.AdjacentStationsException(adjacentStations.Station1, adjacentStations.Station2, "Duplicate adjacentStations");
+            }
+            DataSource.ListAdjecentStations.Add(adjacentStations.Clone());
         }
 
         public void DeleteAdjacentStations(Station A, Station B)
         {
-            throw new NotImplementedException();
+            AdjacentStations AS = DataSource.ListAdjecentStations.Find(a => a.Station1 == A.Code && a.Station2 == B.Code);
+            if (AS != null) DataSource.ListAdjecentStations.Remove(AS);
+            else throw new DalApi.DO.AdjacentStationsException(A.Code, B.Code, "The AdjacentStations didn't exits");
         }
         #endregion
-
+        #region LineTrip
+        public void AddLineTrip(DalApi.DO.LineTrip lineTrip)
+        {
+            if(DataSource.ListLineTrip.Find(LT=>LT.Lindld==lineTrip.Lindld && LT.StartAt==lineTrip.StartAt )!=null)
+            {
+                throw new DalApi.DO.LineTripException(lineTrip.Lindld, lineTrip.StartAt, "duplicate LineTrip");
+            }
+            DataSource.ListLineTrip.Add(lineTrip.Clone());
+        }
+        public void DeleteLineTrip(int LineNum,TimeSpan startAT)
+        {
+            LineTrip LT = DataSource.ListLineTrip.Find(lt => lt.Lindld.Equals(LineNum) && lt.StartAt.Equals(startAT));
+            if (LT != null) DataSource.ListLineTrip.Remove(LT);
+            else throw new DalApi.DO.LineTripException(LineNum, startAT, "The Line Trip does not exist in the system.");
+        }
+        public LineTrip GetLineTrip(int LineNum, TimeSpan startAT)
+        {
+            LineTrip LT = DataSource.ListLineTrip.Find(lt => lt.Lindld.Equals(LineNum) && lt.StartAt.Equals(startAT));
+            if (LT != null) return LT;
+            else throw new DalApi.DO.LineTripException(LineNum, startAT, "The Line Trip does not exist in the system.");
+        }
+        public IEnumerable<LineTrip> GetsAllTripsForLine(int lineNum)
+        {
+            return from lineTrip in DataSource.ListLineTrip
+                   where lineTrip.Lindld.Equals(lineNum)
+                   select lineTrip.Clone();
+        }
+        #endregion
+        #region Line
+        public void AddLine(DalApi.DO.Line line) 
+        {
+            if (DataSource.ListLines.Find(L => L.Id == line.Id) != null)
+                throw new DalApi.DO.LineException(line.Id, line.Code, "Duplicate Lines.");
+            DataSource.ListLines.Add(line.Clone());
+        }
+        public void DeleteLine(int id)
+        {
+            DalApi.DO.Line line = DataSource.ListLines.Find(L => L.Id == id);
+            if (line == null)
+                throw new DalApi.DO.LineException(id, 0, "The line does not exist in the system.");
+            DataSource.ListLines.Remove(line);
+        }
+        public Line GetLine(int id)
+        {
+            Line result = DataSource.ListLines.Find(L => L.Id == id);
+            if (result == null) throw new DalApi.DO.LineException(id, 0, "The line does not exist in the system.");
+            return result.Clone();
+        }
+        public IEnumerable<Line> GetAllLines()
+        {
+            return from line in DataSource.ListLines
+                   select line.Clone();
+        }
+        #endregion
+        #region LineStation
+        public void AddLineStation(DalApi.DO.LineStation lineStation)
+        {
+            if (DataSource.ListLineStation.Find(LS => LS.Lineld == lineStation.Lineld && LS.Station == lineStation.Station) != null)
+                throw new DalApi.DO.LineStationException(lineStation.Lineld, lineStation.Lineld, "Duplicate LineStation.");
+            DataSource.ListLineStation.Add(lineStation.Clone());
+        }
+        public void DeleteLineStation(int LineNum,int StationNum)
+        {
+            LineStation Ls = DataSource.ListLineStation.Find(LS => LS.Lineld == LineNum && LS.Station == StationNum);
+            if (Ls != null) DataSource.ListLineStation.Remove(Ls);
+            else throw new DalApi.DO.LineStationException(LineNum, StationNum, "Line station does not exist.");
+        }
+        public LineStation GetLineStation(int LineNum, int StationNum)
+        {
+            LineStation Ls = DataSource.ListLineStation.Find(LS => LS.Lineld == LineNum && LS.Station == StationNum);
+            if (Ls != null) return Ls.Clone();
+            else throw new DalApi.DO.LineStationException(LineNum, StationNum, "Line station does not exist.");
+        }
+        public IEnumerable<LineStation> GetsAllStationInLine(int LineNum)
+        {
+            return from lineStation in DataSource.ListLineStation
+                   where lineStation.Lineld == LineNum
+                   select lineStation.Clone();
+        }
+        #endregion
     }
 }

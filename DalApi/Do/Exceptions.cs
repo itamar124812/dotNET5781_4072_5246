@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DalApi.DO
 {
-   public class BadBusException:Exception
+    #region Bus
+    public class BadBusException:Exception
     {
        int LicenseNum;
        public   BadBusException(int licenseNum) : base() => LicenseNum = licenseNum;
@@ -18,6 +19,8 @@ namespace DalApi.DO
             return result;
         }
     }
+    #endregion
+    #region BusOnTrip
     public class BadBusOnTripException:Exception
     {
         int id;
@@ -29,6 +32,8 @@ namespace DalApi.DO
             return result;
         }
     }
+    #endregion
+#region User
     public class UserExceptions:Exception
     {
         string UserName;
@@ -38,6 +43,8 @@ namespace DalApi.DO
             return base.ToString() + UserName;
         }
     }
+    #endregion
+    #region Station
     public class StationException:Exception
     {
         int Code;
@@ -47,6 +54,8 @@ namespace DalApi.DO
             return base.ToString() + string.Format("The bad code is: {0}", Code);
         }
     }
+    #endregion
+    #region Trip
     public class TripException:Exception
     {
         int id;
@@ -56,4 +65,53 @@ namespace DalApi.DO
             return base.ToString() + string.Format("The bad trip Id is: {0}", id);
         }
     }
+    #endregion
+    #region AdjacentStations
+    public class AdjacentStationsException : Exception
+    {
+        int CodeStation1;
+        int CodeStation2;
+        public AdjacentStationsException(int codestation1, int codestation2, string message) : base(message) { CodeStation1 = codestation1; CodeStation2 =codestation2;}
+        public override string ToString()
+        {
+            return base.ToString() + string.Format("Bad AdjacentStations station1 code: {0} station2 code:{1}.", CodeStation1, CodeStation2);
+        }
+    }
+    #endregion
+    #region Line
+    public class LineException:Exception
+    {
+        int Code;
+        int Id;
+        public LineException(int id,int code,string message):base(message) { Code = code;Id = id; }
+        public override string ToString()
+        {
+            return base.ToString() + string.Format("Bad Line Id={0} Code={1}.", Id, Code);
+        }
+    }
+    #endregion
+    #region LineStation
+    public class LineStationException:Exception
+    {
+        int LineNum;
+        int StationNum;
+        public LineStationException(int linenum,int stationnum,string message) : base(message) { LineNum = linenum;StationNum = stationnum; }
+        public override string ToString()
+        {
+            return base.ToString() + String.Format("Bad Line Station in line number{0} station number{1}", LineNum, StationNum);
+        }
+    }
+    #endregion
+    #region LineTrip
+    public class LineTripException:Exception
+    {
+        int LineNum;
+        TimeSpan StartAt;
+        public LineTripException(int busNum,TimeSpan startAt,string message) : base(message) { LineNum= busNum;StartAt = startAt; }
+        public override string ToString()
+        {
+            return base.ToString() + string.Format("Bad Line Trip in Line Number:{0} who StartAt:{1}.",LineNum,StartAt);
+        }
+    }
+    #endregion
 }

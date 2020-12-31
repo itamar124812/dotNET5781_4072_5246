@@ -43,5 +43,23 @@ namespace DalApi
         void AddAdjacentStations(AdjacentStations adjacentStations);
         void DeleteAdjacentStations(Station A, Station B);
         #endregion
+        #region Line
+        void AddLine(Line line);
+        void DeleteLine(int id);
+        Line GetLine(int id);
+        IEnumerable<Line> GetAllLines();
+        #endregion
+        #region LineStation
+        void AddLineStation(LineStation lineStation);
+        void DeleteLineStation(int LineNum, int StationNum);
+        LineStation GetLineStation(int LineNum, int StationNum);
+        IEnumerable<LineStation> GetsAllStationInLine(int LineNum);
+        #endregion
+        #region LineTrip
+        void AddLineTrip(LineTrip lineTrip);
+        void DeleteLineTrip(int LineNumber, TimeSpan startAt);
+        LineTrip GetLineTrip(int LineNumber, TimeSpan startAt);
+        IEnumerable<LineTrip> GetsAllTripsForLine(int LineNumber);
+        #endregion
     }
 }
