@@ -8,7 +8,7 @@ using System.Reflection;
 
 namespace DalApi
 {
-    class DalFactory
+    public class DalFactory
     {
         public static IDal GetDL()
         {

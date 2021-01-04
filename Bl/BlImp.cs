@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using DalApi;
 namespace Bl
 {
-    class BlImp
+    class BlImp:IBl
     {
+        IDal Dl = DalFactory.GetDL();
+
     }
 }
