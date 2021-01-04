@@ -8,6 +8,6 @@ namespace Bl.BO
 {
     class LineBus
     {
-        public List<LineStation> PassingThrough;
+        public IEnumerable<LineStation> PassingThrough;
     }
 }

@@ -8,5 +8,6 @@ namespace DalApi
 {
     public class DalApi
     {
+
     }
 }

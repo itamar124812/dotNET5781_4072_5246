@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DLConfig.cs" />
     <Compile Include="DalApi.cs" />
+    <Compile Include="DalFactory.cs" />
     <Compile Include="Do\AdjacentStations.cs" />
     <Compile Include="Do\Bus.cs" />
     <Compile Include="Do\BusOnTrip.cs" />
@@ -56,6 +58,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="bin\DalApi.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
