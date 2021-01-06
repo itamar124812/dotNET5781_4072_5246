@@ -14,7 +14,7 @@ namespace Bl
         #region Lines
         
        void AddLine(int CodeLine);
-        void AddStationToLine(int LineCode, DalApi.DO.Station station,int index);
+        void AddStationToLine(int LineCode, int Numstation,int index);
         IEnumerable<LineBus> GetsAllLines();
         IEnumerable<LineBus> GetSpecificLines(Predicate<DalApi.DO.LineStation> predicate);
         IEnumerable<LineBus> GetBusFromArea(DalApi.DO.Areas Area);
@@ -22,7 +22,7 @@ namespace Bl
         void DeleteLine(int LineCode);
         #endregion
         #region Stations
-        IEnumerable<BusStation> GetAllStation();
+       void 
        
 
         #endregion
