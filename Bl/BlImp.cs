@@ -64,5 +64,40 @@ namespace Bl
         }
         #endregion
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        #region
+        void DeleteStations(int StationCode)
+        {
+            Dl.DeleteStation(StationCode);
+        }
+        void ADDStation(double latitude, double longitude, int codeStation, String name)
+        {
+            Station a = new Station();
+            a.Code = codeStation;
+            a.Latitude = latitude;
+            a.Longitude = longitude;
+            a.Name = name;
+            Dl.AddStation(a);
+        }
+
+        #endregion
+
     }
 }
+
+
+

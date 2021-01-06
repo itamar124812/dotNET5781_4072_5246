@@ -23,7 +23,7 @@ namespace Bl
         #endregion
         #region Stations
         void DeleteStations(int StationCode);
-        void AddStation(double latitude, double longitude, int codeStation , String name );
+        void ADDStation(double latitude, double longitude, int codeStation , String name );
        
 
         #endregion
