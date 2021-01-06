@@ -12,8 +12,13 @@ namespace Bl
     class BlImp:IBl
     {
         IDal Dl = DalFactory.GetDL();
+
+        public void AddLine(int CodeLine)
+        {
+            throw new NotImplementedException();
+        }
         #region LineBus
-        public void AddStationToLine(int LineCode, int StationCode)
+        public void AddStationToLine(int LineCode, int StationNum,int index)
         {
             
         
@@ -22,13 +27,20 @@ namespace Bl
 
         public void DeleteLine(int LineCode)
         {
+            
             Dl.DeleteLine(LineCode);
         }
 
         public IEnumerable<LineBus> GetBusFromArea(Areas Area)
         {
             IEnumerable<DalApi.DO.Line> lines = Dl.GetAllLines();
-         
+            IEnumerable<DalApi.DO.Line> Selectedlines = from line in lines
+            where line.Area == Area
+            select line;
+            foreach (var item in Selectedlines)
+            {
+
+            }
         }
         
         public LineBus GetLine()
