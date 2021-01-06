@@ -5,13 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using DalApi.DO;
 using DalApi;
+using Bl.BO;
 
 namespace Bl
 {
-    interface IBl
+     public interface IBl
     {
-        #region Person
-        
+        #region LineBus
+         IEnumerable<LineBus> GetAllLines();
+         LineBus GetLineBus();
+
         #endregion
     }
 }
