@@ -17,6 +17,11 @@ namespace Bl
         {
             throw new NotImplementedException();
         }
+
+        public void AddStation(double latitude, double longitude, int codeStation, string name)
+        {
+            throw new NotImplementedException();
+        }
         #region LineBus
         public void AddStationToLine(int LineCode, int StationNum,int index)
         {
@@ -31,15 +36,25 @@ namespace Bl
             Dl.DeleteLine(LineCode);
         }
 
-        public IEnumerable<LineBus> GetBusFromArea(Areas Area)
+        public void DeleteStations(int StationCode)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<LineBus> GetBusFromArea(int Area)
         {
             IEnumerable<DalApi.DO.Line> lines = Dl.GetAllLines();
             IEnumerable<DalApi.DO.Line> Selectedlines = from line in lines
-            where line.Area == Area
+            where line.Area == (DalApi.DO.Areas)Area
             select line;
+            List<LineBus> Lines = new List<LineBus>();
             foreach (var item in Selectedlines)
             {
-
+                LineBus line = new LineBus();
+                line.Code = item.Code;
+                line.Area =(int) item.Area;
+                line.PassingThrough=
+                Lines.Add(line);
             }
         }
         

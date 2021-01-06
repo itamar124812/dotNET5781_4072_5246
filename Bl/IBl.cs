@@ -17,9 +17,10 @@ namespace Bl
         void AddStationToLine(int LineCode, int Numstation,int index);
         IEnumerable<LineBus> GetsAllLines();
         IEnumerable<LineBus> GetSpecificLines(Predicate<DalApi.DO.LineStation> predicate);
-        IEnumerable<LineBus> GetBusFromArea(DalApi.DO.Areas Area);
+        IEnumerable<LineBus> GetBusFromArea(int area);
         LineBus GetLine();
         void DeleteLine(int LineCode);
+        IEnumerable<LineStation> GetStationsInLine(int lineCode);
         #endregion
         #region Stations
         void DeleteStations(int StationCode);
