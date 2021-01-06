@@ -13,8 +13,8 @@ namespace Bl
     {
         #region Lines
         
-        BO.LineBus LineBusDOBOAdapter(DalApi.DO.Line line,IEnumerable<DalApi.DO.LineStation> stations);
-        void AddStationToLine(int LineCode, int StationCode);
+       void AddLine(int CodeLine);
+        void AddStationToLine(int LineCode, DalApi.DO.Station station,int index);
         IEnumerable<LineBus> GetsAllLines();
         IEnumerable<LineBus> GetSpecificLines(Predicate<DalApi.DO.LineStation> predicate);
         IEnumerable<LineBus> GetBusFromArea(DalApi.DO.Areas Area);
