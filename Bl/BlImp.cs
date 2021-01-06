@@ -13,7 +13,7 @@ namespace Bl
     {
         IDal Dl = DalFactory.GetDL();
         #region LineBus
-        public void AddStationToLine(int LineCode, int StationCode)
+        public void AddStationToLine(int LineCode, int StationNum,int index)
         {
             
         
