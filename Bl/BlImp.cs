@@ -15,38 +15,22 @@ namespace Bl
         #region LineBus
         public void AddStationToLine(int LineCode, int StationCode)
         {
-            DalApi.DO.Station station;
-            try
-            {
-                station = Dl.GetStation(StationCode);
-            }
-            catch(Exception ex)
-            {
-                
-            }
-            DalApi.DO.Line line;
-            try
-            {
-                line = Dl.GetLine(LineCode);
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
+            
+        
 
         }
 
         public void DeleteLine(int LineCode)
         {
-            throw new NotImplementedException();
+            Dl.DeleteLine(LineCode);
         }
 
         public IEnumerable<LineBus> GetBusFromArea(Areas Area)
         {
-            throw new NotImplementedException();
+            IEnumerable<DalApi.DO.Line> lines = Dl.GetAllLines();
+         
         }
-
+        
         public LineBus GetLine()
         {
             throw new NotImplementedException();

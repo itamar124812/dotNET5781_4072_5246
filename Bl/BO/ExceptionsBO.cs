@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Bl.BO
 {
-    class ExceptionsBO
+    public class BadLineExceptions:Exception
     {
+        public BadLineExceptions() { }
+    }
+    public class BadStationException:Exception
+    {
+
     }
 }
