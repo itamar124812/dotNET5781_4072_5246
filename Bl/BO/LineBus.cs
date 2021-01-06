@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Bl.BO
 {
-    class LineBus
+   public class LineBus
     {
+        public int Code { get; set; }
         public IEnumerable<LineStation> PassingThrough;
     }
 }
