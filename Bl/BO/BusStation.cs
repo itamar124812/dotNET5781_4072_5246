@@ -9,7 +9,7 @@ namespace Bl.BO
     class BusStation
     {
        List<StationLine> LinesPassingThrough;
-        public int StationNumber { get; set }
+        public int StationNumber { get; set; }
 
     }
 }
