@@ -11,7 +11,7 @@ namespace Bl
 {
      public interface IBl
     {
-        #region LineBus
+        #region Lines
         BO.LineBus LineBusDOBOAdapter(DalApi.DO.Line line,IEnumerable<DalApi.DO.LineStation> stations);
         void AddStationToLine(int LineCode, int StationCode);
         IEnumerable<LineBus> GetsAllLines();
@@ -20,7 +20,7 @@ namespace Bl
         LineBus GetLine();
         void DeleteLine(int LineCode);
         #endregion
-        #region Station
+        #region Stations
         #endregion
 
     }
