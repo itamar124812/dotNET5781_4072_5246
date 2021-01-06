@@ -21,6 +21,9 @@ namespace Bl
         void DeleteLine(int LineCode);
         #endregion
         #region Stations
+        IEnumerable<BusStation> GetAllStation();
+       
+
         #endregion
 
     }
