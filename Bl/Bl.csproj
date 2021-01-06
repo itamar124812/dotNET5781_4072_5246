@@ -45,8 +45,10 @@
   <ItemGroup>
     <Compile Include="BlImp.cs" />
     <Compile Include="Bo.cs" />
+    <Compile Include="BO\BusStation.cs" />
     <Compile Include="BO\LineStation.cs" />
     <Compile Include="BO\LineBus.cs" />
+    <Compile Include="BO\StationLine.cs" />
     <Compile Include="IBl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
