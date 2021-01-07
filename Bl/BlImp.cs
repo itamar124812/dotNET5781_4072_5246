@@ -149,10 +149,10 @@ namespace Bl
                    select line;
         }
 
-        public IEnumerable<LineBus> GetSpecificLines(Predicate<DalApi.DO.LineStation> predicate)
+        public IEnumerable<LineBus> GetSpecificLines(Predicate<LineBus> predicate)
         {
             return from line in GetsAllLines()
-                   where predicate.Equals(true)
+                   where predicate(line)
                    select line;
         }
 
