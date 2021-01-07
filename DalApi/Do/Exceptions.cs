@@ -47,7 +47,7 @@ namespace DalApi.DO
     #region Station
     public class StationException:Exception
     {
-        int Code;
+       public  int Code;
        public  StationException(int code, string message) : base(message) => Code = code;
         public override string ToString()
         {
@@ -81,8 +81,8 @@ namespace DalApi.DO
     #region Line
     public class LineException:Exception
     {
-        int Code;
-        int Id;
+        public int Code;
+        public  int Id;
         public LineException(int id,int code,string message):base(message) { Code = code;Id = id; }
         public override string ToString()
         {

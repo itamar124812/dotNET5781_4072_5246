@@ -254,6 +254,7 @@ namespace DalObject
         {
             return from lineStation in DataSource.ListLineStation
                    where lineStation.Lineld == LineNum
+                   orderby lineStation.LineStationIndex
                    select lineStation.Clone();
         }
         #endregion

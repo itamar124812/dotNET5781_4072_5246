@@ -12,34 +12,92 @@ namespace Bl
     class BlImp:IBl
     {
         IDal Dl = DalFactory.GetDL();
-
-        public void AddLine(int CodeLine)
+        IEnumerable<Bl.BO.LineStation> GetStationsInLine(int lineCode)
         {
-            throw new NotImplementedException();
+
+           IEnumerable<DalApi.DO.LineStation> Stations= Dl.GetsAllStationInLine(lineCode);
+            List<Bl.BO.LineStation> result = new List<BO.LineStation>();
+            DalApi.DO.Station LastStation = new Station();
+            foreach (var item in Stations)
+            {
+                BO.LineStation lineStation = new BO.LineStation();
+                DalApi.DO.Station RealStation = Dl.GetStation(item.Station);
+                lineStation.Code = item.Station;
+                lineStation.Name = RealStation.Name;
+                if (LastStation.Equals(null))
+                {
+                    DalApi.DO.AdjacentStations AS = Dl.GetAdjacentStations(LastStation, RealStation);
+                    lineStation.DistanceFromLastStation = AS.Distance;
+                    lineStation.TimeFromLastStation = AS.Time;                   
+                }
+                result.Add(lineStation);
+                LastStation = Dl.GetStation(item.Station);
+            }
+            return from line in result
+            select line;
+        }
+        public void AddLine(int CodeLine,int area,int LastStation)
+        {
+            DalApi.DO.Line line = new DalApi.DO.Line();
+            line.Code = CodeLine;
+            line.Area = (DalApi.DO.Areas)area;
+            try
+            {
+                if (Dl.GetStation(LastStation) != null)
+                    line.LastStation = LastStation;
+            }
+            catch (DalApi.DO.StationException ex)
+            {
+                throw new Bl.BO.BadStationException("This Station isn't exits.", ex);
+            }
+            try
+            {
+                Dl.AddLine(line);
+            }
+            catch (DalApi.DO.LineException ex)
+            {
+                throw new  Bl.BO.BadLineExceptions("The line already exits.", ex);
+            }          
         }
 
-        public void AddStation(double latitude, double longitude, int codeStation, string name)
-        {
-            throw new NotImplementedException();
-        }
+     
         #region LineBus
         public void AddStationToLine(int LineCode, int StationNum,int index)
         {
-            
-        
-
+            if (index < 0)
+            { 
+                DalApi.DO.LineStation linestation = new DalApi.DO.LineStation();
+                List<Bl.BO.LineStation> Stations = GetStationsInLine(LineCode).ToList();
+                if (Dl.GetLine(LineCode) != null && Dl.GetStation(StationNum) != null)
+                {
+                    linestation.Lineld = LineCode;
+                    linestation.LineStationIndex = index;
+                    linestation.Station = StationNum;
+                }
+                if (index < Stations.Count)
+                {
+                    for (int i = 0; i < Stations.Count; i++)
+                    {
+                        if (index<i)
+                        {
+                            // I need to contnue
+                        }
+                    }
+                }
+                Dl.AddLineStation(linestation);
+            }
+            throw new IndexOutOfRangeException();
         }
 
         public void DeleteLine(int LineCode)
         {
-            
+            foreach (var item in GetStationsInLine(LineCode))
+            {
+                Dl.DeleteLineStation(LineCode, item.Code);
+            }
             Dl.DeleteLine(LineCode);
         }
 
-        public void DeleteStations(int StationCode)
-        {
-            throw new NotImplementedException();
-        }
 
         public IEnumerable<LineBus> GetBusFromArea(int Area)
         {
@@ -47,30 +105,55 @@ namespace Bl
             IEnumerable<DalApi.DO.Line> Selectedlines = from line in lines
             where line.Area == (DalApi.DO.Areas)Area
             select line;
-            List<LineBus> Lines = new List<LineBus>();
+            List<Bl.BO.LineBus> Lines = new List<LineBus>();
             foreach (var item in Selectedlines)
             {
                 LineBus line = new LineBus();
                 line.Code = item.Code;
                 line.Area =(int) item.Area;
-                line.PassingThrough=
+                line.PassingThrough = GetStationsInLine(line.Code);
                 Lines.Add(line);
             }
+            return from line in Lines
+                   select line;
         }
         
-        public LineBus GetLine()
+        public LineBus GetLine(int LineCode)
         {
-            throw new NotImplementedException();
+            LineBus ReturnedLineBus = new LineBus();
+            DalApi.DO.Line line = new Line();
+            try
+            {
+                line = Dl.GetLine(LineCode);
+            }
+            catch (DalApi.DO.LineException ex)
+            {
+                throw new Bl.BO.BadLineExceptions("The line isn't exits", ex);
+            }
+            ReturnedLineBus.Code = line.Code;
+            ReturnedLineBus.Area = (int) line.Area;
+            ReturnedLineBus.PassingThrough = GetStationsInLine(LineCode);
+            return ReturnedLineBus;
         }
 
         public IEnumerable<LineBus> GetsAllLines()
         {
-            throw new NotImplementedException();
+            List<DalApi.DO.Line> Lines =Dl.GetAllLines().ToList();
+            List<Bl.BO.LineBus> lines = new List<Bl.BO.LineBus>();
+            foreach (var item in Lines)
+            {
+                lines.Add(GetLine(item.Id));
+            }
+            return from line in lines
+                   orderby line.Code
+                   select line;
         }
 
         public IEnumerable<LineBus> GetSpecificLines(Predicate<DalApi.DO.LineStation> predicate)
         {
-            throw new NotImplementedException();
+            return from line in GetsAllLines()
+                   where predicate.Equals(true)
+                   select line;
         }
 
         public LineBus LineBusDOBOAdapter(Line line, IEnumerable<DalApi.DO.LineStation> stations)
@@ -95,11 +178,11 @@ namespace Bl
 
 
         #region
-        void DeleteStations(int StationCode)
+       public void DeleteStations(int StationCode)
         {
             Dl.DeleteStation(StationCode);
         }
-        void ADDStation(double latitude, double longitude, int codeStation, String name)
+        public void ADDStation(double latitude, double longitude, int codeStation, String name)
         {
             Station a = new Station();
             a.Code = codeStation;

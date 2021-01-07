@@ -13,14 +13,13 @@ namespace Bl
     {
         #region Lines
         
-       void AddLine(int CodeLine);
+       void AddLine(int CodeLine,int area,int LastStation);
         void AddStationToLine(int LineCode, int Numstation,int index);
         IEnumerable<LineBus> GetsAllLines();
         IEnumerable<LineBus> GetSpecificLines(Predicate<DalApi.DO.LineStation> predicate);
         IEnumerable<LineBus> GetBusFromArea(int area);
-        LineBus GetLine();
+        LineBus GetLine(int LineCode);
         void DeleteLine(int LineCode);
-        IEnumerable<LineStation> GetStationsInLine(int lineCode);
         #endregion
         #region Stations
         void DeleteStations(int StationCode);
