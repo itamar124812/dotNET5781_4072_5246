@@ -77,12 +77,9 @@ namespace Bl
                 }
                 if (index < Stations.Count)
                 {
-                    for (int i = 0; i < Stations.Count; i++)
+                    for (int i = index; i < Stations.Count; i++)
                     {
-                        if (index<i)
-                        {
-                            // I need to contnue
-                        }
+                        
                     }
                 }
                 Dl.AddLineStation(linestation);
