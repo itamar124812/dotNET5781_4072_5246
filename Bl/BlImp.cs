@@ -69,22 +69,38 @@ namespace Bl
             { 
                 DalApi.DO.LineStation linestation = new DalApi.DO.LineStation();
                 List<Bl.BO.LineStation> Stations = GetStationsInLine(LineCode).ToList();
-                if (Dl.GetLine(LineCode) != null && Dl.GetStation(StationNum) != null)
+                try
                 {
-                    linestation.Lineld = LineCode;
-                    linestation.LineStationIndex = index;
-                    linestation.Station = StationNum;
-                }
-                if (index < Stations.Count)
-                {
-                    for (int i = index; i < Stations.Count; i++)
+                    if (Dl.GetLine(LineCode) != null && Dl.GetStation(StationNum) != null)
                     {
-                        
+                        linestation.Lineld = LineCode;
+                        linestation.LineStationIndex = index;
+                        linestation.Station = StationNum;
                     }
                 }
+                catch (DalApi.DO.LineException ex)
+                {
+
+                    throw new BadLineExceptions("The Line does not exists", ex);
+                }
+                catch (DalApi.DO.StationException ex)
+                {
+
+                    throw new BadStationException("The Line does not exists ",ex);
+                }
+
+                if (index < Stations.Count)
+                {
+                    List<DalApi.DO.LineStation> stations = Dl.GetsAllStationInLine(LineCode).ToList();
+                    foreach (var item in stations)
+                    {
+                        Dl.Update(item, true);
+                    }
+                }
+                
                 Dl.AddLineStation(linestation);
             }
-            throw new IndexOutOfRangeException();
+            else throw new IndexOutOfRangeException();
         }
 
         public void DeleteLine(int LineCode)
@@ -158,6 +174,12 @@ namespace Bl
         {
             throw new NotImplementedException();
         }
+        
+
+
+
+
+
         #endregion
 
 
@@ -176,7 +198,7 @@ namespace Bl
 
 
         #region
-       public void DeleteStations(int StationCode)
+        public void DeleteStations(int StationCode)
         {
             Dl.DeleteStation(StationCode);
         }

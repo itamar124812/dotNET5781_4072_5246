@@ -65,6 +65,7 @@
     <Compile Include="BO\LineStation.cs" />
     <Compile Include="BO\LineBus.cs" />
     <Compile Include="BO\StationLine.cs" />
+    <Compile Include="DeepCopy.cs" />
     <Compile Include="IBl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

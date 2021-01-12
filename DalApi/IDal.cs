@@ -54,7 +54,7 @@ namespace DalApi
         void DeleteLineStation(int LineNum, int StationNum);
         LineStation GetLineStation(int LineNum, int StationNum);
         IEnumerable<LineStation> GetsAllStationInLine(int LineNum);
-        void Update(bool PlusOrMinus);
+        void Update(LineStation station , bool PlusOrMinus);
         #endregion
         #region LineTrip
         void AddLineTrip(LineTrip lineTrip);
