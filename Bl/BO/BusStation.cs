@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Bl.BO
 {
-    class BusStation
+    public class BusStation
     {
-       List<StationLine> LinesPassingThrough;
-        public int StationNumber { get; set; }
+      public IEnumerable<StationLine> LinesPassingThrough;
+      public  int StationNumber { get; set; }
 
     }
 }

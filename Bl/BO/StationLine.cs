@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bl.BO
 {
-    class StationLine
+    public class StationLine
     {
         public int IDLine { get; set; }
         public int LineNumber { get; set; }

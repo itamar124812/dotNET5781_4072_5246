@@ -24,7 +24,7 @@ namespace Bl
         #region Stations
         void DeleteStations(int StationCode);
         void ADDStation(double latitude, double longitude, int codeStation , String name );
-       
+        BusStation GetAllLinesForStation(int StationCode);
 
         #endregion
 
