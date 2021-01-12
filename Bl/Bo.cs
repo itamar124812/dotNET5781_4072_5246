@@ -13,6 +13,7 @@ namespace Bl
             BlImp bl = new BlImp();
             bl.ADDStation(12, 12, 19, "bana");
             bl.AddLine(20, 0, 19);
+            Console.ReadKey();
         }
     }
 }

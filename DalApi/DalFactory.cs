@@ -12,6 +12,7 @@ namespace DalApi
     {
         public static IDal GetDL()
         {
+            
             string dlType = DLConfig.DLName;
             DLConfig.DLPackage dlPackage;
             try 
