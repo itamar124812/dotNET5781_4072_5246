@@ -46,7 +46,7 @@ namespace DalApi
         #region Line
         void AddLine(Line line);
         void DeleteLine(int id);
-        Line GetLine(int id);
+        Line GetLine(int id,int code);
         IEnumerable<Line> GetAllLines();
         #endregion
         #region LineStation

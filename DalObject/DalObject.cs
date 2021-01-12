@@ -219,9 +219,9 @@ namespace DalObject
                 throw new DalApi.DO.LineException(id, 0, "The line does not exist in the system.");
             DataSource.ListLines.Remove(line);
         }
-        public Line GetLine(int id)
+        public Line GetLine(int id,int code)
         {
-            Line result = DataSource.ListLines.Find(L => L.Code == id);
+            Line result = DataSource.ListLines.Find(L => L.Id == id &&L.Code==code);
             if (result == null) throw new DalApi.DO.LineException(id, 0, "The line does not exist in the system.");
             return result.Clone();
         }

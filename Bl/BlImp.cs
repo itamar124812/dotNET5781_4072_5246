@@ -12,7 +12,7 @@ namespace Bl
     class BlImp:IBl
     {
         IDal Dl = DalFactory.GetDL();
-        IEnumerable<Bl.BO.LineStation> GetStationsInLine(int lineCode)
+        IEnumerable<Bl.BO.LineStation> GetStationsInLine(int Id,int lineCode)
         {
 
            IEnumerable<DalApi.DO.LineStation> Stations= Dl.GetsAllStationInLine(lineCode);
@@ -58,20 +58,20 @@ namespace Bl
             {
                 throw new  Bl.BO.BadLineExceptions("The line already exits.", ex);
             }
-            AddStationToLine(line.Code, LastStation, 0);
+            AddStationToLine(line.Id,line.Code, LastStation, 0);
         }
 
      
         #region LineBus
-        public void AddStationToLine(int LineCode, int StationNum,int index)
+        public void AddStationToLine(int Id,int LineCode, int StationNum,int index)
         {
             if (index <= 0)
             { 
                 DalApi.DO.LineStation linestation = new DalApi.DO.LineStation();
-                List<Bl.BO.LineStation> Stations = GetStationsInLine(LineCode).ToList();
+                List<Bl.BO.LineStation> Stations = GetStationsInLine(Id,LineCode).ToList();
                 try
                 {
-                    if (Dl.GetLine(LineCode) != null && Dl.GetStation(StationNum) != null)
+                    if (Dl.GetLine(Id,LineCode) != null && Dl.GetStation(StationNum) != null)
                     {
                         linestation.Lineld = LineCode;
                         linestation.LineStationIndex = index;
@@ -103,9 +103,9 @@ namespace Bl
             else throw new IndexOutOfRangeException();
         }
 
-        public void DeleteLine(int LineCode)
+        public void DeleteLine(int Id,int LineCode)
         {
-            foreach (var item in GetStationsInLine(LineCode))
+            foreach (var item in GetStationsInLine(Id,LineCode))
             {
                 Dl.DeleteLineStation(LineCode, item.Code);
             }
@@ -125,20 +125,20 @@ namespace Bl
                 LineBus line = new LineBus();
                 line.Code = item.Code;
                 line.Area =(int) item.Area;
-                line.PassingThrough = GetStationsInLine(line.Code);
+                line.PassingThrough = GetStationsInLine(line.Id,line.Code);
                 Lines.Add(line);
             }
             return from line in Lines
                    select line;
         }
         
-        public LineBus GetLine(int LineCode)
+        public LineBus GetLine(int ID,int LineCode)
         {
             LineBus ReturnedLineBus = new LineBus();
             DalApi.DO.Line line = new Line();
             try
             {
-                line = Dl.GetLine(LineCode);
+                line = Dl.GetLine(ID,LineCode);
             }
             catch (DalApi.DO.LineException ex)
             {
@@ -146,7 +146,7 @@ namespace Bl
             }
             ReturnedLineBus.Code = line.Code;
             ReturnedLineBus.Area = (int) line.Area;
-            ReturnedLineBus.PassingThrough = GetStationsInLine(LineCode);
+            ReturnedLineBus.PassingThrough = GetStationsInLine(ID,LineCode);
             return ReturnedLineBus;
         }
 
@@ -156,7 +156,7 @@ namespace Bl
             List<Bl.BO.LineBus> lines = new List<Bl.BO.LineBus>();
             foreach (var item in Lines)
             {
-                lines.Add(GetLine(item.Id));
+                lines.Add(GetLine(item.Id,item.Code));
             }
             return from line in lines
                    orderby line.Code
@@ -219,7 +219,15 @@ namespace Bl
                 if (Dl.GetStation(StationCode) != null)
                 {
                     result.StationNumber = StationCode;
-                  
+                    List<LineBus> lines = GetsAllLines().Where(L => LinePassStation(StationCode, L)).ToList();
+                    foreach (var item in lines)
+                    {
+                        StationLine line = new StationLine();
+                        line.IDLine = item.Id;
+                        line.LineNumber = item.Code;
+                        line.LastStop = item.PassingThrough.Last().Name;
+                        line.Arrivaltimes = TimeUntilStation(item, StationCode);
+                    }
                 }
             }
             catch (DalApi.DO.StationException ex)
@@ -229,6 +237,25 @@ namespace Bl
 
            
             return result;
+        }
+       private bool LinePassStation(int station,LineBus line)
+        {
+            foreach (var item in line.PassingThrough)
+            {
+                if (item.Code == station) return true;
+            }
+            return false;
+        }
+        private TimeSpan TimeUntilStation(LineBus line,int station)
+        {
+            TimeSpan result = new TimeSpan();
+            foreach (var item in line.PassingThrough)
+            {
+                if (item.Code == station) continue;
+                result += item.TimeFromLastStation;
+            }
+            return result;
+
         }
         #endregion
 
