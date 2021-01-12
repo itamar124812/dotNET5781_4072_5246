@@ -257,6 +257,10 @@ namespace DalObject
                    orderby lineStation.LineStationIndex
                    select lineStation.Clone();
         }
+        public void Update(bool PlusOrMinus)
+        {
+
+        }
         #endregion
     }
 }
