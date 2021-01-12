@@ -12,5 +12,9 @@ namespace Bl.BO
         public string Name { get; set; }
         public double DistanceFromLastStation { get; set; }
         public TimeSpan TimeFromLastStation { get; set; }
+        public override string ToString()
+        {
+            return Code.ToString();
+        }
     }
 }

@@ -57,14 +57,15 @@ namespace Bl
             catch (DalApi.DO.LineException ex)
             {
                 throw new  Bl.BO.BadLineExceptions("The line already exits.", ex);
-            }          
+            }
+            AddStationToLine(line.Code, LastStation, 0);
         }
 
      
         #region LineBus
         public void AddStationToLine(int LineCode, int StationNum,int index)
         {
-            if (index < 0)
+            if (index <= 0)
             { 
                 DalApi.DO.LineStation linestation = new DalApi.DO.LineStation();
                 List<Bl.BO.LineStation> Stations = GetStationsInLine(LineCode).ToList();

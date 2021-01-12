@@ -13,6 +13,11 @@ namespace Bl
             BlImp bl = new BlImp();
             bl.ADDStation(12, 12, 19, "bana");
             bl.AddLine(20, 0, 19);
+           IEnumerable<Bl.BO.LineBus> lines= bl.GetBusFromArea(0);
+            foreach (var item in lines)
+            {
+                Console.WriteLine(item);
+            }
             Console.ReadKey();
         }
     }

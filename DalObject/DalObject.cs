@@ -221,7 +221,7 @@ namespace DalObject
         }
         public Line GetLine(int id)
         {
-            Line result = DataSource.ListLines.Find(L => L.Id == id);
+            Line result = DataSource.ListLines.Find(L => L.Code == id);
             if (result == null) throw new DalApi.DO.LineException(id, 0, "The line does not exist in the system.");
             return result.Clone();
         }
