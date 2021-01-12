@@ -197,7 +197,7 @@ namespace Bl
 
 
 
-        #region
+        #region Stations
         public void DeleteStations(int StationCode)
         {
             Dl.DeleteStation(StationCode);
@@ -211,7 +211,25 @@ namespace Bl
             a.Name = name;
             Dl.AddStation(a);
         }
+       public BusStation GetAllLinesForStation(int StationCode)
+        {
+            BusStation result = new BusStation();
+            try
+            {
+                if (Dl.GetStation(StationCode) != null)
+                {
+                    result.StationNumber = StationCode;
+                  
+                }
+            }
+            catch (DalApi.DO.StationException ex)
+            {
+                throw new BadStationException("The Station does not exits.", ex);  
+            }
 
+           
+            return result;
+        }
         #endregion
 
     }
