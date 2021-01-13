@@ -210,7 +210,7 @@ namespace DalObject
         {
             if (DataSource.ListLines.Find(L => L.Id == line.Id) != null)
                 throw new DalApi.DO.LineException(line.Id, line.Code, "Duplicate Lines.");
-            DataSource.ListLines.Add(line.Clone());
+            DataSource.ListLines.Add(line.Clone()); 
         }
         public void DeleteLine(int id)
         {

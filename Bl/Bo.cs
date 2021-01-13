@@ -13,7 +13,7 @@ namespace Bl
             BlImp bl = new BlImp();
             bl.ADDStation(12, 12, 19, "bana");
             bl.AddLine(20, 0, 19);
-            bl.GetAllLinesForStation(20);
+            bl.GetAllLinesForStation(19);
            IEnumerable<Bl.BO.LineBus> lines= bl.GetBusFromArea(0);
             foreach (var item in lines)
             {

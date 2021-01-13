@@ -16,7 +16,7 @@ namespace DalObject
 
             foreach (PropertyInfo propertyInfo in typeof(T).GetProperties())
                 propertyInfo.SetValue(copyToObject, propertyInfo.GetValue(original, null), null);
-
+         
             return copyToObject;
         }
     }
