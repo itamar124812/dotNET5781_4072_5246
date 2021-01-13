@@ -7,7 +7,7 @@ using DalApi.DO;
 using DalApi;
 using Bl.BO;
 
-namespace Bl
+namespace BlApi
 {
      public interface IBl
     {

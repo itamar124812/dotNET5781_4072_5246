@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlFactory.cs" />
     <Compile Include="BlImp.cs" />
     <Compile Include="Bo.cs" />
     <Compile Include="BO\BusStation.cs" />

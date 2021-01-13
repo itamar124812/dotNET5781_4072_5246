@@ -18,6 +18,7 @@ namespace Bl
             foreach (var item in lines)
             {
                 Console.WriteLine(item);
+
             }
             Console.ReadKey();
         }

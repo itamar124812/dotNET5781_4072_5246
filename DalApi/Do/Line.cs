@@ -10,7 +10,7 @@ namespace DalApi.DO
     public class Line
     {
         private static int RunningStation = 0;
-        public int  Id = ++RunningStation;
+        public int Id =  ++RunningStation;
         public int Code { get; set; }
         public Areas Area { get; set; }
         public int FirstStation { get; set; }

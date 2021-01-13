@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DalApi;
 using Bl.BO;
 using DalApi.DO;
+using BlApi;
 
 namespace Bl
 {
@@ -195,6 +196,7 @@ namespace Bl
                 {
                     result.StationNumber = StationCode;
                     List<LineBus> lines = GetsAllLines().Where(L => LinePassStation(StationCode, L)).ToList();
+                    List<StationLine> AllLines = new List<StationLine>();
                     foreach (var item in lines)
                     {
                         StationLine line = new StationLine();
@@ -202,8 +204,9 @@ namespace Bl
                         line.LineNumber = item.Code;
                         line.LastStop = item.PassingThrough.Last().Name;
                         line.Arrivaltimes = TimeUntilStation(item, StationCode);
-                        result.LinesPassingThrough.ToList().Add(line);
+                        AllLines.Add(line);
                     }
+                    result.LinesPassingThrough = AllLines;
                 }
             }
             catch (DalApi.DO.StationException ex)

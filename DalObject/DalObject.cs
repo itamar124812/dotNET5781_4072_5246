@@ -210,25 +210,25 @@ namespace DalObject
         {
             if (DataSource.ListLines.Find(L => L.Id == line.Id) != null)
                 throw new DalApi.DO.LineException(line.Id, line.Code, "Duplicate Lines.");
-            DataSource.ListLines.Add(line.Clone()); 
+            DataSource.ListLines.Add(Cloning.CloneLine(line)); 
         }
         public void DeleteLine(int id)
         {
             DalApi.DO.Line line = DataSource.ListLines.Find(L => L.Id == id);
             if (line == null)
                 throw new DalApi.DO.LineException(id, 0, "The line does not exist in the system.");
-            DataSource.ListLines.Remove(line);
+            DataSource.ListLines.Remove(Cloning.CloneLine(line));
         }
         public Line GetLine(int id)
         {
             Line result = DataSource.ListLines.Find(L => L.Id == id );
             if (result == null) throw new DalApi.DO.LineException(id, 0, "The line does not exist in the system.");
-            return result.Clone();
+            return Cloning.CloneLine(result);
         }
         public IEnumerable<Line> GetAllLines()
         {
             return from line in DataSource.ListLines
-                   select line.Clone();
+                   select Cloning.CloneLine(line);
         }
         #endregion
         #region LineStation
