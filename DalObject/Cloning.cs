@@ -9,6 +9,7 @@ namespace DalObject
 {
     public static  class Cloning
     {
+       
         public static T Clone<T>(this T original) where T : new()
         {
             T copyToObject = new T();
@@ -16,6 +17,10 @@ namespace DalObject
 
             foreach (PropertyInfo propertyInfo in typeof(T).GetProperties())
                 propertyInfo.SetValue(copyToObject, propertyInfo.GetValue(original, null), null);
+            foreach (var item in typeof(T).GetFields())
+            {
+                item.SetValue(original, item.GetValue(original));
+            }
          
             return copyToObject;
         }
