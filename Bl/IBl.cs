@@ -14,12 +14,12 @@ namespace Bl
         #region Lines
         
        void AddLine(int CodeLine,int area,int LastStation);
-        void AddStationToLine(int Id,int LineCode, int Numstation,int index);
+        void AddStationToLine(int Id, int Numstation,int index);
         IEnumerable<LineBus> GetsAllLines();
         IEnumerable<LineBus> GetSpecificLines(Predicate<LineBus> predicate);
         IEnumerable<LineBus> GetBusFromArea(int area);
-        LineBus GetLine(int Id,int LineCode);
-        void DeleteLine(int Id,int LineCode);
+        LineBus GetLine(int Id);
+        void DeleteLine(int Id);
         #endregion
         #region Stations
         void DeleteStations(int StationCode);
