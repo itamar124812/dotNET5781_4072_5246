@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+using Bl.BO;
+using BlApi;
 
 namespace PlGui
 {
@@ -19,9 +22,16 @@ namespace PlGui
     /// </summary>
     public partial class StationsPresentationWindow : Window
     {
+        ObservableCollection<BusStation> busStations = new ObservableCollection<BusStation>();
+        IBl Bl = BlFactory.GetBl();
+        public ObservableCollection<T> Convert<T>(IEnumerable<T> original)
+        {
+            return new ObservableCollection<T>(original);
+        }
         public StationsPresentationWindow()
         {
             InitializeComponent();
+            busStations = Convert(Bl.GetAllStations());
         }
     }
 }

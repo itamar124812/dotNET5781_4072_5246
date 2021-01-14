@@ -25,7 +25,7 @@ namespace BlApi
         void DeleteStations(int StationCode);
         void ADDStation(double latitude, double longitude, int codeStation , String name );
         BusStation GetAllLinesForStation(int StationCode);
-
+        IEnumerable<BusStation> GetAllStations();
         #endregion
         //Need to Imp
         #region Users

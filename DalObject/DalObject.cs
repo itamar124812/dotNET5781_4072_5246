@@ -75,6 +75,13 @@ namespace DalObject
         }
         #endregion
         #region Station
+        public IEnumerable<Station> GetAllStations()
+        {
+            return from station in DataSource.ListStations
+                   orderby station.Code
+                   select station.Clone();
+
+        } 
         public void AddStation(DalApi.DO.Station station)
         {
             if (DataSource.ListStations.Find(s => s.Code == station.Code) != null)

@@ -31,6 +31,7 @@ namespace DalApi
         void AddStation(DO.Station station);
         void DeleteStation(int code);
         DO.Station GetStation(int code);
+        IEnumerable<Station> GetAllStations();
         #endregion
         #region BusOnTrip
         void AddBusOnTrip(DO.BusOnTrip Trip );

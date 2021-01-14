@@ -49,7 +49,7 @@ namespace PlGui
         private void AddLineWindow_Closed(object sender, EventArgs e)
         {
             Lines = Convert(Bl.GetsAllLines());
-
+            
             
         }
     }

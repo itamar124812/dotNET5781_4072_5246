@@ -21,8 +21,10 @@ namespace PlGui
     /// </summary>
     public partial class MainWindow : Window
     {
+        IBl Bl = BlApi.BlFactory.GetBl();
         public MainWindow()
         {
+            
             InitializeComponent();
             LinesPresentationWindow lpw = new LinesPresentationWindow();
             lpw.Show();

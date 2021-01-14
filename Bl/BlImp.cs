@@ -13,7 +13,10 @@ namespace Bl
     class BlImp:IBl
     {
         IDal Dl = DalFactory.GetDL();
-
+        //static readonly BlImp  instance = new BlImp();
+        //static BlImp() { }
+        //BlImp() { }
+        //public static BlImp Instance { get => instance; }
 
         #region LineBus
         public IEnumerable<Bl.BO.LineStation> GetStationsInLine(int Id)
@@ -238,6 +241,12 @@ namespace Bl
             }
             return result;
 
+        }
+       public  IEnumerable<BusStation> GetAllStations()
+        {
+            List<DalApi.DO.Station>Lines = Dl.GetAllStations().ToList();
+            return from station in Lines
+                   select GetAllLinesForStation(station.Code);
         }
         #endregion
 
