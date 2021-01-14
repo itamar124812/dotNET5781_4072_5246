@@ -16,7 +16,7 @@ namespace Bl
 
 
         #region LineBus
-        IEnumerable<Bl.BO.LineStation> GetStationsInLine(int Id)
+        public IEnumerable<Bl.BO.LineStation> GetStationsInLine(int Id)
         {
 
             IEnumerable<DalApi.DO.LineStation> Stations = Dl.GetsAllStationInLine(Id);
@@ -43,6 +43,8 @@ namespace Bl
         public void AddLine(int CodeLine, int area, int LastStation)
         {
             DalApi.DO.Line line = new DalApi.DO.Line();
+            if (area > 4 || area < 0)
+                throw new ArgumentException("There is only five areas: North, South, Central, Jerusalem, General.");
             line.Code = CodeLine;
             line.Area = (DalApi.DO.Areas)area;
             try
@@ -67,8 +69,9 @@ namespace Bl
 
         public void AddStationToLine(int Id, int StationNum,int index)
         {
-            if (index <= 0)
+            if (index >= 0)
             { 
+               
                 DalApi.DO.LineStation linestation = new DalApi.DO.LineStation();
                 List<Bl.BO.LineStation> Stations = GetStationsInLine(Id).ToList();
                 try
@@ -78,6 +81,7 @@ namespace Bl
                         linestation.Lineld = Id;
                         linestation.LineStationIndex = index;
                         linestation.Station = StationNum;
+                        GetLine(Id).PassingThrough = GetStationsInLine(StationNum);
                     }
                 }
                 catch (DalApi.DO.LineException ex)
@@ -88,7 +92,7 @@ namespace Bl
                 catch (DalApi.DO.StationException ex)
                 {
 
-                    throw new BadStationException("The Line does not exists ",ex);
+                    throw new BadStationException("The Station does not exists ",ex);
                 }
 
                 if (index < Stations.Count)
@@ -97,6 +101,7 @@ namespace Bl
                     foreach (var item in stations)
                     {
                         Dl.Update(item, true);
+                        GetLine(Id).PassingThrough = GetStationsInLine(StationNum);
                     }
                 }
                 

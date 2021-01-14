@@ -31,8 +31,6 @@ namespace BlApi
         #region Users
 
         #endregion
-        #region Buses
-        #endregion
         #region Trips
         #endregion
     }

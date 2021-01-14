@@ -24,6 +24,8 @@ namespace PlGui
         public MainWindow()
         {
             InitializeComponent();
+            LinesPresentationWindow lpw = new LinesPresentationWindow();
+            lpw.Show();
             this.Closing += MainWindow_Closing;
         }
 
