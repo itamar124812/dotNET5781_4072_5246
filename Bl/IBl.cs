@@ -27,6 +27,13 @@ namespace BlApi
         BusStation GetAllLinesForStation(int StationCode);
 
         #endregion
+        //Need to Imp
+        #region Users
 
+        #endregion
+        #region Buses
+        #endregion
+        #region Trips
+        #endregion
     }
 }
