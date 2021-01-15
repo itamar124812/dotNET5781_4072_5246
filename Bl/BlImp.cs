@@ -57,7 +57,13 @@ namespace Bl
             }
             catch (DalApi.DO.StationException ex)
             {
-                throw new Bl.BO.BadStationException("This Station isn't exits.", ex);
+                Random random = new Random();
+                DalApi.DO.Station station = new Station();
+                station.Code = LastStation;
+                station.Name = "LastStation";
+                station.Latitude=random.NextDouble() * 2.1 + 31;
+                station.Longitude = random.NextDouble() * 1.2 + 34.3;
+                Dl.AddStation(station);
             }
             try
             {

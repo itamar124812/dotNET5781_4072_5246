@@ -17,11 +17,13 @@ using Bl.BO;
 
 namespace PlGui
 {
+    public delegate void DataTransferDelegate(int Linenum, int area, int laststation);
     /// <summary>
     /// Interaction logic for LinesPresentationWindow.xaml
     /// </summary>
     public partial class LinesPresentationWindow : Window
     {
+        public DataTransferDelegate del;
         public ObservableCollection<T> Convert<T>(IEnumerable<T> original)
         {
             return new ObservableCollection<T>(original);
@@ -37,11 +39,12 @@ namespace PlGui
             Bl.AddStationToLine(1, 70, 0);
             Lines = Convert(Bl.GetsAllLines());
             ListLines.DataContext = Lines;
+            del += PassDataFromAddLine;
         }
 
         private void AddLineButton_Click(object sender, RoutedEventArgs e)
         {
-            AddLineWindow addLineWindow = new AddLineWindow();
+            AddLineWindow addLineWindow = new AddLineWindow(del);
             addLineWindow.Show();
             addLineWindow.Closed += AddLineWindow_Closed;
         }
@@ -49,7 +52,22 @@ namespace PlGui
         private void AddLineWindow_Closed(object sender, EventArgs e)
         {
             Lines = Convert(Bl.GetsAllLines());
-            
+            ListLines.Items.Refresh();
+        }
+
+     
+
+        public void PassDataFromAddLine(int Linenum, int area, int laststation)
+        {
+            try
+            {
+                Bl.AddLine(Linenum, area, laststation);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             
         }
     }

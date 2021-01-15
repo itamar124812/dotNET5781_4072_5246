@@ -16,6 +16,7 @@ using BlApi;
 
 namespace PlGui
 {
+    
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -28,6 +29,7 @@ namespace PlGui
             InitializeComponent();
             LinesPresentationWindow lpw = new LinesPresentationWindow();
             lpw.Show();
+
             this.Closing += MainWindow_Closing;
         }
 
@@ -35,7 +37,7 @@ namespace PlGui
         {
             string a = Password.Password;
         }
-
+       
         private void SignUp(object sender, RoutedEventArgs e)
         {
             
