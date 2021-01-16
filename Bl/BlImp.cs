@@ -121,11 +121,19 @@ namespace Bl
 
         public void DeleteLine(int Id)
         {
-            foreach (var item in GetStationsInLine(Id))
+            try
             {
-                Dl.DeleteLineStation(Id, item.Code);
+                foreach (var item in GetStationsInLine(Id))
+                {
+                    Dl.DeleteLineStation(Id, item.Code);
+                }
+                Dl.DeleteLine(Id);
             }
-            Dl.DeleteLine(Id);
+            catch (DalApi.DO.LineException ex)
+            {
+                throw new BadLineExceptions(string.Format("The line with the ID number {0} does not exist.",Id), ex);
+            }
+           
         }
 
 
@@ -161,6 +169,7 @@ namespace Bl
             {
                 throw new Bl.BO.BadLineExceptions("The line isn't exits", ex);
             }
+            ReturnedLineBus.Id = line.Id;
             ReturnedLineBus.Code = line.Code;
             ReturnedLineBus.Area = (int) line.Area;
             ReturnedLineBus.PassingThrough = GetStationsInLine(ID);

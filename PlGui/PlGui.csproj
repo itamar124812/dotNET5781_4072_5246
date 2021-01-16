@@ -60,6 +60,9 @@
     <Compile Include="AddLineWindow.xaml.cs">
       <DependentUpon>AddLineWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DeleteLineWindoe.xaml.cs">
+      <DependentUpon>DeleteLineWindoe.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ManagementPresntationWindow.xaml.cs">
       <DependentUpon>ManagementPresntationWindow.xaml</DependentUpon>
     </Compile>
@@ -71,6 +74,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="BusPresentationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeleteLineWindoe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

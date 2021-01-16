@@ -17,13 +17,16 @@ using Bl.BO;
 
 namespace PlGui
 {
-    public delegate void DataTransferDelegate(int Linenum, int area, int laststation);
+    public delegate void DataTransferAddWindow(int Linenum, int area, int laststation);
+    public delegate void DataTransferDeleteWindoe(int id);
+
     /// <summary>
     /// Interaction logic for LinesPresentationWindow.xaml
     /// </summary>
     public partial class LinesPresentationWindow : Window
     {
-        public DataTransferDelegate del;
+        public DataTransferAddWindow del;
+        public DataTransferDeleteWindoe DWDateTransfer;
         public ObservableCollection<T> Convert<T>(IEnumerable<T> original)
         {
             return new ObservableCollection<T>(original);
@@ -40,19 +43,20 @@ namespace PlGui
             Lines = Convert(Bl.GetsAllLines());
             ListLines.DataContext = Lines;
             del += PassDataFromAddLine;
+            DWDateTransfer += DeleteLine;
         }
 
         private void AddLineButton_Click(object sender, RoutedEventArgs e)
         {
             AddLineWindow addLineWindow = new AddLineWindow(del);
             addLineWindow.Show();
-            addLineWindow.Closed += AddLineWindow_Closed;
+            addLineWindow.Closed += UpdateCollection;
         }
 
-        private void AddLineWindow_Closed(object sender, EventArgs e)
+        private void UpdateCollection(object sender, EventArgs e)
         {
             Lines = Convert(Bl.GetsAllLines());
-            ListLines.Items.Refresh();
+            ListLines.DataContext = Lines;
         }
 
      
@@ -63,12 +67,34 @@ namespace PlGui
             {
                 Bl.AddLine(Linenum, area, laststation);
             }
-            catch (Exception)
-            {
-
-                throw;
+            catch (Bl.BO.BadLineExceptions ex)
+            { 
+                MessageBox.Show(ex.Message);
             }
             
         }
+        void DeleteLine(int id)
+        {
+            if (id != 0)
+            {
+                try
+                {
+                    Bl.DeleteLine(id);
+                }
+                catch (Bl.BO.BadLineExceptions ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+   
+        private void DeleteLine_Click(object sender, RoutedEventArgs e)
+        {
+            DeleteLineWindoe Deletewindoe = new DeleteLineWindoe(DWDateTransfer);
+            Deletewindoe.Show();
+            Deletewindoe.Closed += UpdateCollection;
+        }
+
+       
     }
 }

@@ -19,8 +19,8 @@ namespace PlGui
     /// </summary>
     public partial class AddLineWindow : Window
     {
-        public DataTransferDelegate dataTransferDelegate;
-        public AddLineWindow(DataTransferDelegate del)
+        public DataTransferAddWindow dataTransferDelegate;
+        public AddLineWindow(DataTransferAddWindow del)
         {
             InitializeComponent();
             dataTransferDelegate = del;
@@ -43,11 +43,11 @@ namespace PlGui
         private int ConvertArea()
         {
             //North, South, Central, Jerusalem, General.
-            if (Area.SelectedItem.ToString() == "North")
+            if (Area.SelectedItem  == Area.Items[0])
                 return 0;
-            else if (Area.SelectedItem.ToString() == "South") return 1;
-            else if (Area.SelectedItem.ToString() == "Central") return 2;
-            else if (Area.SelectedItem.ToString() == "Jerusalem") return 3;
+            else if (Area.SelectedItem == Area.Items[1]) return 1;
+            else if (Area.SelectedItem == Area.Items[2]) return 2;
+            else if (Area.SelectedItem == Area.Items[3]) return 3;
             return 4;
         }
     }
