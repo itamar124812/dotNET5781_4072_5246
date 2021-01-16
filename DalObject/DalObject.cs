@@ -215,9 +215,10 @@ namespace DalObject
         #region Line
         public void AddLine(DalApi.DO.Line line) 
         {
+            line.Id = ++Line.RunningNum;
             if (DataSource.ListLines.Find(L => L.Id == line.Id) != null)
                 throw new DalApi.DO.LineException(line.Id, line.Code, "Duplicate Lines.");
-            DataSource.ListLines.Add(Cloning.CloneLine(line)); 
+            DataSource.ListLines.Add(line.Clone()); 
         }
         public void DeleteLine(int id)
         {
@@ -230,12 +231,12 @@ namespace DalObject
         {
             Line result = DataSource.ListLines.Find(L => L.Id == id );
             if (result == null) throw new DalApi.DO.LineException(id, 0, "The line does not exist in the system.");
-            return Cloning.CloneLine(result);
+            return result.Clone();
         }
         public IEnumerable<Line> GetAllLines()
         {
             return from line in DataSource.ListLines
-                   select Cloning.CloneLine(line);
+                   select line.Clone();
         }
         #endregion
         #region LineStation
