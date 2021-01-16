@@ -28,7 +28,7 @@
         <TextBox Name="NewUserName"  Grid.Row="0" Grid.Column="1" MaxWidth="150" Text="Name" FontSize="20" TextAlignment="Center" TextWrapping="Wrap"  />
         <Label Content="Enter your new password:" Style="{StaticResource ResourceKey=1}" Grid.Row="1" Grid.Column="0" />
         <PasswordBox Name="NewPasssword" Grid.Row="1" Grid.Column="1" Width="120" FontSize="20"/>
-        <Label Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource ResourceKey=1}" Content="If you are added as a manger enter a key:"/>
+        <Label Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource ResourceKey=1}" Content="If you are join as a manager enter a key:"/>
         <TextBox Name="key" Height="50" Text="key space" VerticalAlignment="Top" Grid.Column="0" Grid.Row="2" TextWrapping="Wrap" TextAlignment="Center" FontSize="20"  Margin="0,50,50,-30"/>
         <Button Name="Join" Background="Aqua" FontSize="20" Grid.Column="1" Grid.Row="2" Margin="0,80,0,-60" Content="Join Us" Click="Join_Click" />
     </Grid>
