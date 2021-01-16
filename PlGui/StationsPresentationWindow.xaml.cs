@@ -32,6 +32,8 @@ namespace PlGui
         {
             InitializeComponent();
             busStations = Convert(Bl.GetAllStations());
+            DataContext = busStations;
+
         }
     }
 }
