@@ -37,7 +37,7 @@ namespace Bl
                     lineStation.DistanceFromLastStation = AS.Distance;
                     lineStation.TimeFromLastStation = AS.Time;
                 }
-                result.Add(lineStation);
+                result.Add(lineStation);               
                 LastStation = Dl.GetStation(item.Station);
             }
             return from line in result
@@ -79,8 +79,7 @@ namespace Bl
         public void AddStationToLine(int Id, int StationNum,int index)
         {
             if (index >= 0)
-            { 
-               
+            {               
                 DalApi.DO.LineStation linestation = new DalApi.DO.LineStation();
                 List<Bl.BO.LineStation> Stations = GetStationsInLine(Id).ToList();
                 try

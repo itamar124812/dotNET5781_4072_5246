@@ -95,6 +95,14 @@ namespace PlGui
             Deletewindoe.Closed += UpdateCollection;
         }
 
-       
+        private void DeleteStationFromLine_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddStatinToLine_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
