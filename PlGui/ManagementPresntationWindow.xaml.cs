@@ -35,5 +35,12 @@ namespace PlGui
             StationsPresentationWindow stationsPresentationWindow = new StationsPresentationWindow();
             stationsPresentationWindow.Show();
         }
+
+        private void LogOut_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
     }
 }
