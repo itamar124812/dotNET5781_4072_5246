@@ -57,10 +57,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddLineWindow.xaml.cs">
+    <Compile Include="Lines\AddLineWindow.xaml.cs">
       <DependentUpon>AddLineWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DeleteLineWindoe.xaml.cs">
+    <Compile Include="Lines\DeleteLineWindoe.xaml.cs">
       <DependentUpon>DeleteLineWindoe.xaml</DependentUpon>
     </Compile>
     <Compile Include="ManagementPresntationWindow.xaml.cs">
@@ -69,7 +69,10 @@
     <Compile Include="StationsPresentationWindow.xaml.cs">
       <DependentUpon>StationsPresentationWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="AddLineWindow.xaml">
+    <Compile Include="Users\SignUpWindow.xaml.cs">
+      <DependentUpon>SignUpWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Lines\AddLineWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -77,11 +80,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DeleteLineWindoe.xaml">
+    <Page Include="Lines\DeleteLineWindoe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LinesPresentationWindow.xaml">
+    <Page Include="Lines\LinesPresentationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -96,7 +99,7 @@
     <Compile Include="BusPresentationWindow.xaml.cs">
       <DependentUpon>BusPresentationWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LinesPresentationWindow.xaml.cs">
+    <Compile Include="Lines\LinesPresentationWindow.xaml.cs">
       <DependentUpon>LinesPresentationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
@@ -108,6 +111,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StationsPresentationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Users\SignUpWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -144,8 +151,6 @@
       <Name>Bl</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Po\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

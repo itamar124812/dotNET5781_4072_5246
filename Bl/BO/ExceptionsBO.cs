@@ -25,4 +25,10 @@ namespace Bl.BO
             return base.ToString() + string.Format("Bad StationCode: {0}",Code);
         }
     }
+    public class UserException:Exception
+    {
+        public UserException(string message, Exception innerException) : base(message, innerException) { }
+        public UserException(string message) : base(message) { }
+        
+    }
 }

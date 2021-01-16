@@ -29,7 +29,11 @@ namespace BlApi
         #endregion
         //Need to Imp
         #region Users
-
+        bool IsExists(string UserName);
+        bool CheckPassword(string UserName, string password);
+        void AddUser(string Name, string Password, bool Admin);
+        void DeleteUser(string Name);
+        bool IsAdmin(string Name);
         #endregion
         #region Trips
         #endregion

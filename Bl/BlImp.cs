@@ -263,7 +263,76 @@ namespace Bl
                    select GetAllLinesForStation(station.Code);
         }
         #endregion
+        #region Users
+       public void AddUser(string name, string password, bool Admin) 
+        {
+            DalApi.DO.User NewUser = new DalApi.DO.User();
+            NewUser.UserName = name;
+            NewUser.Password = password;
+            NewUser.Adnmin = Admin;
+            try
+            {
+                Dl.AddUser(NewUser);
+            }
+            catch (DalApi.DO.UserExceptions ex)
+            {
+                throw new UserException(string.Format("The name {0} is already taken. Choose another name:", name), ex);
+            }
+           
+        }
+        public bool IsAdmin(string UserName)
+        {
+            try
+            {
+                DalApi.DO.User user = Dl.GetUser(UserName);
+                if (user.Adnmin)
+                    return true;
+            }
+            catch (DalApi.DO.UserExceptions ex)
+            {
+                throw new UserException(string.Format("There is no user named {0}.",UserName), ex);
+            }
+            return false;
+        }
+        public void DeleteUser(string name) 
+        {
+            try
+            {
+                Dl.DeleteUser(name);
+            }
+            catch (DalApi.DO.UserExceptions ex)
+            {
 
+                throw new UserException(string.Format("There is no user named {0}.", name), ex);
+            }
+        }
+        public bool IsExists(string UserName)
+        {
+            try
+            {
+                if (Dl.GetUser(UserName) != null)
+                    return true;
+            }
+            catch (DalApi.DO.UserExceptions)
+            {
+              
+            }
+            return false;
+        }
+        public bool CheckPassword(string UserName,string password)
+        {
+            if (IsExists(UserName))
+            {
+                DalApi.DO.User user = Dl.GetUser(UserName);
+                if (user.Password == password)
+                    return true;
+                return false;
+            }
+            throw new UserException((string.Format("There is no user named {0}.", UserName)));
+
+
+        }
+        #endregion
     }
 }
 
