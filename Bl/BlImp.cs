@@ -12,13 +12,26 @@ namespace Bl
 {
     class BlImp:IBl
     {
+        #region Singalton
         IDal Dl = DalFactory.GetDL();
-        //static readonly BlImp  instance = new BlImp();
-        //static BlImp() { }
-        //BlImp() { }
-        //public static BlImp Instance { get => instance; }
-
+        static readonly BlImp instance = new BlImp();
+        static BlImp() { }
+        BlImp() { }
+        public static BlImp Instance { get => instance; }
+        #endregion
         #region LineBus
+        public void UpdateLineCode(int ID,int NewCode)
+        {
+            try
+            {
+                Dl.UpdateCode(ID, NewCode);
+            }
+            catch (DalApi.DO.LineException ex)
+            {
+
+                throw new BadLineExceptions(string.Format("The Line {0} does not exists",ID), ex);
+            }        
+        }
         public IEnumerable<Bl.BO.LineStation> GetStationsInLine(int Id)
         {
 
@@ -331,6 +344,44 @@ namespace Bl
             throw new UserException((string.Format("There is no user named {0}.", UserName)));
 
 
+        }
+        #endregion
+        #region LineTrips
+        public void AddLineTrip(int Id,TimeSpan StartTime)
+        {
+            DalApi.DO.LineTrip trip = new LineTrip();
+            trip.LindId = Id;
+            trip.StartAt = StartTime;
+            try
+            {
+                Dl.AddLineTrip(trip);
+            }
+            catch (DalApi.DO.LineTripException ex)
+            {
+                throw new LineTripsException(string.Format("There is already a line trip with a similar Id: {0} who StartAt: {1}.",Id,StartTime), ex);
+            }           
+        }
+        public void DeleteLineTrip(int Id,TimeSpan StartAt)
+        {
+            try
+            {
+                Dl.DeleteLineTrip(Id, StartAt);
+            }
+            catch (DalApi.DO.LineTripException ex)
+            {
+                throw new LineTripsException(string.Format("There is not line trip with a similar Id: {0} who StartAt: {1}.", Id, StartAt), ex);
+            }
+        }
+        public void UpdateStartTime(int Id,TimeSpan time)
+        {
+            try
+            {
+                Dl.UpdateStartTime(Id, time);
+            }
+            catch (DalApi.DO.LineTripException ex)
+            {
+                throw new LineTripsException(string.Format("There is already a line trip with a similar Id: {0} who StartAt: {1}.", Id, time), ex);
+            }          
         }
         #endregion
     }

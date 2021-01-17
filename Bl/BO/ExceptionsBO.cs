@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Bl.BO
 {
+    public class LineTripsException:Exception
+    { 
+        public LineTripsException(string message,Exception innerException) : base(message, innerException) { }
+    }
     public class BadLineExceptions:Exception
     {
        public int Id;

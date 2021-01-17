@@ -49,6 +49,7 @@ namespace DalApi
         void DeleteLine(int id);
         Line GetLine(int id);
         IEnumerable<Line> GetAllLines();
+        void UpdateCode(int id, int newcode);
         #endregion
         #region LineStation
         void AddLineStation(LineStation lineStation);
@@ -58,6 +59,7 @@ namespace DalApi
         void Update(LineStation station , bool PlusOrMinus);
         #endregion
         #region LineTrip
+        void UpdateStartTime(int Id, TimeSpan time);
         void AddLineTrip(LineTrip lineTrip);
         void DeleteLineTrip(int LineNumber, TimeSpan startAt);
         LineTrip GetLineTrip(int LineNumber, TimeSpan startAt);

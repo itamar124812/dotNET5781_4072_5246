@@ -187,36 +187,52 @@ namespace DalObject
         #region LineTrip
         public void AddLineTrip(DalApi.DO.LineTrip lineTrip)
         {
-            if(DataSource.ListLineTrip.Find(LT=>LT.Lindld==lineTrip.Lindld && LT.StartAt==lineTrip.StartAt )!=null)
+            if(DataSource.ListLineTrip.Find(LT=>LT.LindId==lineTrip.LindId && LT.StartAt==lineTrip.StartAt )!=null)
             {
-                throw new DalApi.DO.LineTripException(lineTrip.Lindld, lineTrip.StartAt, "duplicate LineTrip");
+                throw new DalApi.DO.LineTripException(lineTrip.LindId, lineTrip.StartAt, "duplicate LineTrip");
             }
             DataSource.ListLineTrip.Add(lineTrip.Clone());
         }
         public void DeleteLineTrip(int LineNum,TimeSpan startAT)
         {
-            LineTrip LT = DataSource.ListLineTrip.Find(lt => lt.Lindld.Equals(LineNum) && lt.StartAt.Equals(startAT));
+            LineTrip LT = DataSource.ListLineTrip.Find(lt => lt.LindId.Equals(LineNum) && lt.StartAt.Equals(startAT));
             if (LT != null) DataSource.ListLineTrip.Remove(LT);
             else throw new DalApi.DO.LineTripException(LineNum, startAT, "The Line Trip does not exist in the system.");
         }
         public LineTrip GetLineTrip(int LineNum, TimeSpan startAT)
         {
-            LineTrip LT = DataSource.ListLineTrip.Find(lt => lt.Lindld.Equals(LineNum) && lt.StartAt.Equals(startAT));
+            LineTrip LT = DataSource.ListLineTrip.Find(lt => lt.LindId.Equals(LineNum) && lt.StartAt.Equals(startAT));
             if (LT != null) return LT;
             else throw new DalApi.DO.LineTripException(LineNum, startAT, "The Line Trip does not exist in the system.");
         }
         public IEnumerable<LineTrip> GetsAllTripsForLine(int lineNum)
         {
             return from lineTrip in DataSource.ListLineTrip
-                   where lineTrip.Lindld.Equals(lineNum)
+                   where lineTrip.LindId.Equals(lineNum)
                    select lineTrip.Clone();
+        }
+        public void UpdateStartTime(int Id,TimeSpan time)
+        {
+            if(GetLineTrip(Id,time) !=null)
+            {
+                DataSource.ListLineTrip.Find(LT => LT.LindId == Id && LT.StartAt == time).StartAt = time;
+            }
+            else throw new  DalApi.DO.LineTripException(Id, time, "duplicate LineTrip");
         }
         #endregion
         #region Line
+       public void UpdateCode(int id, int newcode)
+        {
+            if (GetLine(id) != null)
+            {
+                DataSource.ListLines.Find(L => L.Id == id).Code = newcode; 
+            }
+            else throw new DalApi.DO.LineException(id, 0, "The line does not exist in the system.");
+        }
         public void AddLine(DalApi.DO.Line line) 
         {
             line.Id = ++Line.RunningNum;
-            if (DataSource.ListLines.Find(L => L.Id == line.Id) != null)
+            if (DataSource.ListLines.Find(L => L.Id == line.Id) != null) 
                 throw new DalApi.DO.LineException(line.Id, line.Code, "Duplicate Lines.");
             DataSource.ListLines.Add(line.Clone()); 
         }
@@ -240,6 +256,7 @@ namespace DalObject
         }
         #endregion
         #region LineStation
+
         public void AddLineStation(DalApi.DO.LineStation lineStation)
         {
             if (DataSource.ListLineStation.Find(LS => LS.Lineld == lineStation.Lineld && LS.Station == lineStation.Station) != null)

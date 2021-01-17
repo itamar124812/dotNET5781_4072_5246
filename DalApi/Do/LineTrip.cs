@@ -9,8 +9,8 @@ namespace DalApi.DO
    public class LineTrip
     {
         public TimeSpan StartAt { get; set; }
-        public int Lindld { get; set; }
-        public TimeSpan Frequency { get; set; }
-        public TimeSpan FinishAt { get; set; }
+        public int LindId { get; set; }
+        //public TimeSpan Frequency { get; set; }
+        //public TimeSpan FinishAt { get; set; }
     }
 }

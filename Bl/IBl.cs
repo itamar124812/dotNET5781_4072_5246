@@ -12,7 +12,7 @@ namespace BlApi
      public interface IBl
     {
         #region Lines
-        
+        void UpdateLineCode(int id, int NewCode);
        void AddLine(int CodeLine,int area,int LastStation);
         void AddStationToLine(int Id, int Numstation,int index);
         IEnumerable<LineBus> GetsAllLines();
@@ -35,8 +35,11 @@ namespace BlApi
         void DeleteUser(string Name);
         bool IsAdmin(string Name);
         #endregion
-        //Need to Imp
-        #region Trips
+       
+        #region LinesTrips
+        void AddLineTrip(int id, TimeSpan StartTime);
+        void DeleteLineTrip(int id, TimeSpan StartTime);
+        void UpdateStartTime(int Id, TimeSpan StartTime);
         #endregion
     }
 }
