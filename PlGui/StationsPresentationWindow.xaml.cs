@@ -37,6 +37,7 @@ namespace PlGui
             {
                 busStations.Add(item);
             }
+            int bla;
         }
 
     }
