@@ -33,7 +33,11 @@ namespace PlGui
             InitializeComponent();
             busStations = Convert(Bl.GetAllStations());
             DataContext = busStations;
-
+            foreach (var item in busStations)
+            {
+                busStations.Add(item);
+            }
         }
+
     }
 }
