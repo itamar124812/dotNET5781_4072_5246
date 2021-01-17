@@ -27,7 +27,7 @@ namespace BlApi
         BusStation GetAllLinesForStation(int StationCode);
         IEnumerable<BusStation> GetAllStations();
         #endregion
-        //Need to Imp
+     
         #region Users
         bool IsExists(string UserName);
         bool CheckPassword(string UserName, string password);
@@ -35,6 +35,7 @@ namespace BlApi
         void DeleteUser(string Name);
         bool IsAdmin(string Name);
         #endregion
+        //Need to Imp
         #region Trips
         #endregion
     }
