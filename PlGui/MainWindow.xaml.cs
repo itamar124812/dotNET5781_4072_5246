@@ -16,29 +16,55 @@ using BlApi;
 
 namespace PlGui
 {
+   
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
         IBl Bl = BlApi.BlFactory.GetBl();
+       
+
         public MainWindow()
         {
             
             InitializeComponent();
-            LinesPresentationWindow lpw = new LinesPresentationWindow();
-            lpw.Show();
-            this.Closing += MainWindow_Closing;
         }
 
-        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+      
+       
+        private void SignIn(object sender, RoutedEventArgs e)
         {
-            string a = Password.Password;
+            if(Bl.IsExists(this.UserNameText.Text))
+            {
+                if(Bl.CheckPassword(this.UserNameText.Text, Password.Password))
+                {
+                    if (Bl.IsAdmin(this.UserNameText.Text))
+                    {
+                        ManagementPresntationWindow managementPresntation = new ManagementPresntationWindow();
+                        managementPresntation.Show();
+                        this.Close();
+                    }
+                    else throw new NotImplementedException();
+                }
+                else
+                {
+                    MessageBox.Show("You got the password wrong.", "Password wrong");
+                    Password.Clear();
+                }
+            }
+            else
+            {
+                MessageBox.Show(string.Format("There is no user named {0}. Try again", this.UserNameText.Text));
+                Password.Clear();
+                this.UserNameText.Clear();
+            }
         }
 
-        private void SignUp(object sender, RoutedEventArgs e)
+        private void SignUp_Click(object sender, RoutedEventArgs e)
         {
-            
+            PlGui.Users.SignUpWindow signUpWindow = new Users.SignUpWindow();
+            signUpWindow.Show();
         }
     }
 }

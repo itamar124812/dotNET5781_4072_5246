@@ -18,8 +18,9 @@ namespace Bl.BO
             foreach (var item in PassingThrough)
             {
                 stations += item.ToString() + " ";
+
             }
-            return string.Format("The line: {0} at area: {1} passing throuth: ", Code, (DalApi.DO.Areas)Area) + stations;
+            return string.Format("The line ID: {0} Number: {1} at area: {2} passing throuth: ",Id, Code, (DalApi.DO.Areas)Area) + stations;
 
             
         }

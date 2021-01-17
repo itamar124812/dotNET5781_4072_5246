@@ -14,7 +14,7 @@ namespace Bl.BO
         public TimeSpan TimeFromLastStation { get; set; }
         public override string ToString()
         {
-            return Code.ToString();
+            return Code.ToString() + " " + Name + "  ";
         }
     }
 }

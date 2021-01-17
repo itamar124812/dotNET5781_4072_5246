@@ -85,8 +85,10 @@ namespace dotNET5781_01_4072_5426
         //general treatment test
         public bool check_General_treatment(int mileage)
         {
-            if ((from_last_treatment + mileage) >= 20000) return true;
-            else if ((DateTime.Now.Year - last_treatment.Year) == 1) return true;
+            TimeSpan A = new TimeSpan();
+            A = DateTime.Now - last_treatment;
+            if ((from_last_treatment + mileage) >= 20000) return true;           
+            else if ( A.TotalDays>=365 ) return true;
             else return false;
         }
         //make a trip
