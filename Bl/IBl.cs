@@ -39,7 +39,7 @@ namespace BlApi
         #region LinesTrips
         void AddLineTrip(int id, TimeSpan StartTime);
         void DeleteLineTrip(int id, TimeSpan StartTime);
-        void UpdateStartTime(int Id, TimeSpan StartTime);
+        void UpdateStartTime(int Id,TimeSpan key, TimeSpan StartTime);
         #endregion
     }
 }

@@ -99,7 +99,7 @@ namespace Bl
                 {
                     if (Dl.GetLine(Id) != null && Dl.GetStation(StationNum) != null)
                     {
-                        linestation.Lineld = Id;
+                        linestation.LineId = Id;
                         linestation.LineStationIndex = index;
                         linestation.Station = StationNum;
                         GetLine(Id).PassingThrough = GetStationsInLine(StationNum);
@@ -372,11 +372,11 @@ namespace Bl
                 throw new LineTripsException(string.Format("There is not line trip with a similar Id: {0} who StartAt: {1}.", Id, StartAt), ex);
             }
         }
-        public void UpdateStartTime(int Id,TimeSpan time)
+        public void UpdateStartTime(int Id,TimeSpan key,TimeSpan time)
         {
             try
             {
-                Dl.UpdateStartTime(Id, time);
+                Dl.UpdateStartTime(Id, key,time);
             }
             catch (DalApi.DO.LineTripException ex)
             {

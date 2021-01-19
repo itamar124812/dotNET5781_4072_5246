@@ -1,0 +1,872 @@
+﻿<?xml version="1.0" encoding="utf-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x2="urn:schemas-microsoft-com:office:excel2" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+ <x:ExcelWorkbook>
+  <x:ActiveSheet>0</x:ActiveSheet>
+ </x:ExcelWorkbook>
+ <o:DocumentProperties>
+  <o:Author>USER</o:Author>
+  <o:Created>2020-11-10T19:26:12Z</o:Created>
+  <o:LastSaved>2021-01-18T22:33:10Z</o:LastSaved>
+ </o:DocumentProperties>
+ <ss:Names>
+  <ss:NamedRange ss:Name="Code" ss:RefersTo="=stops!R1C1" />
+  <ss:NamedRange ss:Name="Latitude" ss:RefersTo="=stops!R1C3" />
+  <ss:NamedRange ss:Name="Longitude" ss:RefersTo="=stops!R1C2" />
+  <ss:NamedRange ss:Name="Name" ss:RefersTo="=stops!R1C4" />
+ </ss:Names>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <ss:Alignment ss:Vertical="Bottom" />
+   <ss:Font ss:Color="#000000" ss:FontName="Arial" ss:Size="11" />
+  </Style>
+  <Style ss:ID="S62" ss:Name="היפר-קישור">
+   <ss:Alignment ss:Vertical="Bottom" />
+   <ss:Font ss:Color="#0563C1" ss:FontName="Arial" ss:Size="11" ss:Underline="Single" />
+  </Style>
+  <Style ss:ID="S63" ss:Parent="S62">
+   <ss:Alignment ss:Vertical="Bottom" />
+   <ss:Font ss:Color="#0563C1" ss:FontName="Arial" ss:Size="11" ss:Underline="Single" />
+  </Style>
+  <Style ss:ID="S64">
+   <ss:Alignment ss:Vertical="Top" ss:WrapText="1" />
+   <ss:Font ss:Color="#000000" ss:FontName="Source Sans Pro" ss:Size="12" />
+   <ss:Interior ss:Color="#FFFFFF" ss:Pattern="Solid" />
+  </Style>
+  <Style ss:ID="S65" ss:Parent="S62">
+   <ss:Alignment ss:Vertical="Top" ss:WrapText="1" />
+   <ss:Font ss:Color="#0563C1" ss:FontName="Arial" ss:Size="11" ss:Underline="Single" />
+   <ss:Interior ss:Color="#FFFFFF" ss:Pattern="Solid" />
+  </Style>
+  <Style ss:ID="S66">
+   <ss:Alignment ss:Vertical="Bottom" />
+   <ss:Font ss:Color="#000000" ss:FontName="Arial" ss:Size="9" />
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="stops">
+  <ss:Names />
+  <ss:Table ss:DefaultRowHeight="14.25" ss:DefaultColumnWidth="54" ss:ExpandedRowCount="80" ss:ExpandedColumnCount="5">
+   <Column ss:Index="1" ss:AutoFitWidth="0" ss:Width="45.75" />
+   <Column ss:Index="2" ss:Span="1" ss:AutoFitWidth="0" ss:Width="60" />
+   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="84.75" />
+   <Row ss:Index="1">
+    <Cell><Data ss:Type="String">Code</Data>
+    </Cell>
+    <Cell><Data ss:Type="String"> Longitude</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Latitude </Data>
+    </Cell>
+    <Cell><Data ss:Type="String">name</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="2">
+    <Cell><Data ss:Type="Number">1</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">32.183920999999998</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.917805999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">TelAviv</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="3">
+    <Cell><Data ss:Type="Number">2</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.870034</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.819541000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">BnieBrak</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="4">
+    <Cell><Data ss:Type="Number">3</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.984552999999998</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.782828000000002</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Afula</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="5">
+    <Cell><Data ss:Type="Number">4</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.888549999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.790903999999998</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Metula</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="6">
+    <Cell><Data ss:Type="Number">6</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.956392000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.898097999999997</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">KryatGat</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="7">
+    <Cell><Data ss:Type="Number">7</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.892166</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.796070999999998</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Dan</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="8">
+    <Cell><Data ss:Type="Number">8</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.857565000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.824106</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Be'erSheva</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="9">
+    <Cell><Data ss:Type="Number">9</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.862304999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.821857000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Panma</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="10">
+    <Cell><Data ss:Type="Number">10</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.865085000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.822237000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">USA</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="11">
+    <Cell><Data ss:Type="Number">11</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.865221999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.818956999999997</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Rutshild</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="12">
+    <Cell><Data ss:Type="Number">12</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.867597</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.818392000000003</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">FMacbiTA</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="13">
+    <Cell><Data ss:Type="Number">14</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.862439999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.827022999999997</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">HBS</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="14">
+    <Cell><Data ss:Type="Number">15</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.863500999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.828702</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Holon</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="15">
+    <Cell><Data ss:Type="Number">16</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.865348000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.827101999999996</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Ofakim</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="16">
+    <Cell><Data ss:Type="Number">17</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.977409000000002</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.763896000000003</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Akko</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="17">
+    <Cell><Data ss:Type="Number">18</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">32.300345</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.912708000000002</Data>
+    </Cell>
+    <Cell ss:StyleID="S63" ss:HRef="https://www.arad.muni.il/"><Data ss:Type="String">Arad</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="18">
+    <Cell><Data ss:Type="Number">19</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">32.301347</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.912602</Data>
+    </Cell>
+    <Cell ss:StyleID="S65" ss:HRef="http://www.yoqneam.org.il/"><Data ss:Type="String">Yokneam</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="19">
+    <Cell><Data ss:Type="Number">22</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.914255000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.807943999999999</Data>
+    </Cell>
+    <Cell ss:StyleID="S63" ss:HRef="http://www.yehud-monosson.muni.il/"><Data ss:Type="String">Yehud-Monosson</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="20">
+    <Cell><Data ss:Type="Number">24</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.963667999999998</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.836362999999999</Data>
+    </Cell>
+    <Cell ss:StyleID="S63" ss:HRef="https://www.yavne.muni.il/"><Data ss:Type="String">Yavne</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="21">
+    <Cell><Data ss:Type="Number">25</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.856114999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.825248999999999</Data>
+    </Cell>
+    <Cell ss:StyleID="S63" ss:HRef="http://he.umelfahem.org/"><Data ss:Type="String">Umm al-Fahm</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="22">
+    <Cell><Data ss:Type="Number">26</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.874963000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.812489999999997</Data>
+    </Cell>
+    <Cell ss:StyleID="S65" ss:HRef="https://www.zefat.muni.il/"><Data ss:Type="String">Tsfat (Safed)</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="23" ss:Height="15.75">
+    <Cell><Data ss:Type="Number">29</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">32.300035000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.910842000000002</Data>
+    </Cell>
+    <Cell ss:StyleID="S64"><Data ss:Type="String">Bethlehem</Data>
+    </Cell>
+    <Cell ss:StyleID="S65" />
+   </Row>
+   <Row ss:Index="24">
+    <Cell><Data ss:Type="Number">30</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">32.305233999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.948647000000001</Data>
+    </Cell>
+    <Cell ss:StyleID="S66"><Data ss:Type="String">Jericho</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="25">
+    <Cell><Data ss:Type="Number">31</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">32.304022000000003</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.943393</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">HBS</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="26">
+    <Cell><Data ss:Type="Number">32</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">32.302956999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.940528999999998</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Holon</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="27">
+    <Cell><Data ss:Type="Number">33</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">32.300263999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.939512000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Ofakim</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="28">
+    <Cell><Data ss:Type="Number">34</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">32.298171000000004</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.938704999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Akko</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="29">
+    <Cell><Data ss:Type="Number">35</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.990876</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.897599999999997</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Arad</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="30">
+    <Cell><Data ss:Type="Number">36</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.998767000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.879725000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Yokneam</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="31">
+    <Cell><Data ss:Type="Number">37</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.883019000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.818708000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Yehud-Monosson</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="32">
+    <Cell><Data ss:Type="Number">39</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">32.349775999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.926836999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Yavne</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="33">
+    <Cell><Data ss:Type="Number">40</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">32.352952999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.899464999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Umm al-Fahm</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="34">
+    <Cell><Data ss:Type="Number">42</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.897286000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.775083000000002</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Tsfat (Safed)</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="35">
+    <Cell><Data ss:Type="Number">43</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.883941</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.807039000000003</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Bethlehem</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="36">
+    <Cell><Data ss:Type="Number">45</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.896761999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.816752000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Jericho</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="37">
+    <Cell><Data ss:Type="Number">46</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.898463</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.823461000000002</Data>
+    </Cell>
+    <Cell ss:StyleID="S66"><Data ss:Type="String">Netania</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="38">
+    <Cell><Data ss:Type="Number">47</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">32.076535</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.904907000000001</Data>
+    </Cell>
+    <Cell ss:StyleID="S66"><Data ss:Type="String">Haifa</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="39">
+    <Cell><Data ss:Type="Number">48</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">32.299993999999998</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.878765000000001</Data>
+    </Cell>
+    <Cell ss:StyleID="S66"><Data ss:Type="String">Petah Tiqva</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="40">
+    <Cell><Data ss:Type="Number">49</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.865456999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.859437</Data>
+    </Cell>
+    <Cell ss:StyleID="S66"><Data ss:Type="String">Herzliya</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="41">
+    <Cell><Data ss:Type="Number">50</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.866772000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.864555000000003</Data>
+    </Cell>
+    <Cell ss:StyleID="S66"><Data ss:Type="String">Rosh Pina</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="42">
+    <Cell><Data ss:Type="Number">51</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.809325000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.784346999999997</Data>
+    </Cell>
+    <Cell ss:StyleID="S66"><Data ss:Type="String">Kfar Sava</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="43">
+    <Cell><Data ss:Type="Number">53</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.800370000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.778238999999999</Data>
+    </Cell>
+    <Cell ss:StyleID="S66"><Data ss:Type="String">Ashdod</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="44">
+    <Cell><Data ss:Type="Number">54</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.799223999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.782984999999996</Data>
+    </Cell>
+    <Cell ss:StyleID="S66"><Data ss:Type="String">Hebron</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="45">
+    <Cell><Data ss:Type="Number">55</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.800333999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.785069</Data>
+    </Cell>
+    <Cell ss:StyleID="S66"><Data ss:Type="String">Jerusalem</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="46">
+    <Cell><Data ss:Type="Number">56</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.802319000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.786735</Data>
+    </Cell>
+    <Cell ss:StyleID="S66"><Data ss:Type="String">Lod</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="47">
+    <Cell><Data ss:Type="Number">57</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.804594999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.786622999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Yokneam</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="48">
+    <Cell><Data ss:Type="Number">58</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.805040999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.785097999999998</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Yehud-Monosson</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="49">
+    <Cell><Data ss:Type="Number">59</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.816751</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.782252</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Yavne</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="50">
+    <Cell><Data ss:Type="Number">60</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.816579000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.779752999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Umm al-Fahm</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="51">
+    <Cell><Data ss:Type="Number">61</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.801182000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.787199000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Tsfat (Safed)</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="52">
+    <Cell><Data ss:Type="Number">62</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.802278999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.786054999999998</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Bethlehem</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="53">
+    <Cell><Data ss:Type="Number">63</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.814675999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.777574000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Jericho</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="54">
+    <Cell><Data ss:Type="Number">64</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.813285</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.775928</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Netania</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="55">
+    <Cell><Data ss:Type="Number">65</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.806958999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.773504000000003</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Haifa</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="56">
+    <Cell><Data ss:Type="Number">68</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.884187000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.805494000000003</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Petah Tiqva</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="57">
+    <Cell><Data ss:Type="Number">69</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.910118000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.805809000000004</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Herzliya</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="58">
+    <Cell><Data ss:Type="Number">71</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.882473999999998</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.805059999999997</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Rosh Pina</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="59">
+    <Cell><Data ss:Type="Number">73</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.878667</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.81138</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Kfar Sava</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="60">
+    <Cell><Data ss:Type="Number">74</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.975479</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.813355000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Ashdod</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="61">
+    <Cell><Data ss:Type="Number">75</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.982177</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.789445000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Hebron</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="62">
+    <Cell><Data ss:Type="Number">76</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.948551999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.822422000000003</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Jerusalem</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="63">
+    <Cell><Data ss:Type="Number">77</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.967732000000002</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.816338999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Lod</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="64">
+    <Cell><Data ss:Type="Number">78</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.893823000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.824617000000003</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Yokneam</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="65">
+    <Cell><Data ss:Type="Number">79</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.854168999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.824714</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Yehud-Monosson</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="66">
+    <Cell><Data ss:Type="Number">80</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.811907000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.900793</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Yavne</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="67">
+    <Cell><Data ss:Type="Number">81</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.956842000000002</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.814838999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Umm al-Fahm</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="68">
+    <Cell><Data ss:Type="Number">82</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.959821000000002</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.814746999999997</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Tsfat (Safed)</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="69">
+    <Cell><Data ss:Type="Number">83</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.992305999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.756909999999998</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Bethlehem</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="70">
+    <Cell><Data ss:Type="Number">84</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.984970000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.782620000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Jericho</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="71">
+    <Cell><Data ss:Type="Number">86</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.968049000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.818098999999997</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Netania</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="72">
+    <Cell><Data ss:Type="Number">87</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.968935999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.820042999999998</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Haifa</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="73">
+    <Cell><Data ss:Type="Number">89</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.923041000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.798032999999997</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Petah Tiqva</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="74">
+    <Cell><Data ss:Type="Number">90</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.985679999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.764014000000003</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Herzliya</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="75">
+    <Cell><Data ss:Type="Number">91</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.992583</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.751998999999998</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Rosh Pina</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="76">
+    <Cell><Data ss:Type="Number">92</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.990756999999999</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.755682999999998</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Kfar Sava</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="77">
+    <Cell><Data ss:Type="Number">94</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.950254000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.819243999999998</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Ashdod</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="78">
+    <Cell><Data ss:Type="Number">95</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.95111</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.819766000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Hebron</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="79">
+    <Cell><Data ss:Type="Number">97</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.905052000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.818908999999998</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Jerusalem</Data>
+    </Cell>
+   </Row>
+   <Row ss:Index="80">
+    <Cell><Data ss:Type="Number">98</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">31.901879000000001</Data>
+    </Cell>
+    <Cell><Data ss:Type="Number">34.819443</Data>
+    </Cell>
+    <Cell><Data ss:Type="String">Lod</Data>
+    </Cell>
+   </Row>
+  </ss:Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3" />
+    <Footer x:Margin="0.3" />
+    <PageMargins x:Top="0.75" x:Bottom="0.75" x:Left="0.7" x:Right="0.7" />
+   </PageSetup>
+   <Print>
+    <ValidPrinterInfo />
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <RangeSelection>R1:R1</RangeSelection>
+    </Pane>
+   </Panes>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>

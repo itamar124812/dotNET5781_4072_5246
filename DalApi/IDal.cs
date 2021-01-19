@@ -59,7 +59,7 @@ namespace DalApi
         void Update(LineStation station , bool PlusOrMinus);
         #endregion
         #region LineTrip
-        void UpdateStartTime(int Id, TimeSpan time);
+        void UpdateStartTime(int Id,TimeSpan OldTime ,TimeSpan NewTime);
         void AddLineTrip(LineTrip lineTrip);
         void DeleteLineTrip(int LineNumber, TimeSpan startAt);
         LineTrip GetLineTrip(int LineNumber, TimeSpan startAt);
