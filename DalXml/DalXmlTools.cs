@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 
+
 namespace DalXml
 {
     class XMLTools
     {
-        static string dir = @"xml\";
+        static string dir = @"..\Data";
+        //static string dir = Directory.GetParent(Directory.GetCurrentDirectory())+ @"\Data";
         static XMLTools()
         {
             if (!Directory.Exists(dir))

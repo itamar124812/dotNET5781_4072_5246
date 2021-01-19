@@ -86,10 +86,10 @@ namespace Bl
             {
                 throw new Bl.BO.BadLineExceptions("The line already exits.", ex);
             }
-            AddStationToLine(line.Id, LastStation, 0);
+            AddStationToLine(line.Id, LastStation, 0,0,TimeSpan.Parse("00:00:00"));
         }
 
-        public void AddStationToLine(int Id, int StationNum,int index)
+        public void AddStationToLine(int Id, int StationNum,int index, double distanceFromLastStation, TimeSpan timeFromLastStation)
         {
             if (index >= 0)
             {               
@@ -97,12 +97,34 @@ namespace Bl
                 List<Bl.BO.LineStation> Stations = GetStationsInLine(Id).ToList();
                 try
                 {
-                    if (Dl.GetLine(Id) != null && Dl.GetStation(StationNum) != null)
+                    Line line = Dl.GetLine(Id);
+                    if ( line != null && Dl.GetStation(StationNum) != null)
                     {
                         linestation.LineId = Id;
                         linestation.LineStationIndex = index;
                         linestation.Station = StationNum;
-                        GetLine(Id).PassingThrough = GetStationsInLine(StationNum);
+                        List<DalApi.DO.LineStation> lineStations = Dl.GetsAllStationInLine(Id).ToList();
+                        if (index > 0 && index < lineStations.Count)
+                        {
+                            linestation.PrevStation = lineStations[index - 1].Station;
+                            //AdjacentStations adjacentStations = new AdjacentStations();
+                            //adjacentStations.Station1 = lineStations[index - 1].Station;
+                            //adjacentStations.Station2 = linestation.Station;
+                            //adjacentStations.Distance = distanceFromLastStation;
+                            //adjacentStations.Time = timeFromLastStation;
+                            //Dl.AddAdjacentStations(adjacentStations);
+                        }
+                        if (index >= 0 && index < lineStations.Count-1)
+                        {
+                            //linestation.NextStation = lineStations[index + 1].Station;
+                            //AdjacentStations adjacentStations = new AdjacentStations();
+                            //adjacentStations.Station1 = lineStations[index + 1].Station;
+                            //adjacentStations.Station2 = linestation.Station;
+                            //adjacentStations.Distance = distanceFromLastStation;
+                            //adjacentStations.Time = timeFromLastStation;
+                            //Dl.AddAdjacentStations(adjacentStations);
+                        }
+                            GetLine(Id).PassingThrough = GetStationsInLine(StationNum);
                     }
                 }
                 catch (DalApi.DO.LineException ex)

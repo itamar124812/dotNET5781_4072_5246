@@ -14,7 +14,7 @@ namespace BlApi
         #region Lines
         void UpdateLineCode(int id, int NewCode);
        void AddLine(int CodeLine,int area,int LastStation);
-        void AddStationToLine(int Id, int Numstation,int index);
+        void AddStationToLine(int Id, int Numstation,int index,double distanceFromLastStation,TimeSpan timeFromLastStation);
         IEnumerable<LineBus> GetsAllLines();
         IEnumerable<LineBus> GetSpecificLines(Predicate<LineBus> predicate);
         IEnumerable<LineBus> GetBusFromArea(int area);

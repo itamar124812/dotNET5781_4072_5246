@@ -10,7 +10,7 @@ namespace Bl
     {
         static void Main(string[] args)
         {
-            BlImp bl = new BlImp();
+            BlImp bl = Bl.BlImp.Instance;
             bl.ADDStation(12, 12, 19, "bana");
             bl.AddLine(20, 0, 19);
             bl.GetAllLinesForStation(19);

@@ -26,13 +26,48 @@ namespace PlGui
        
 
         public MainWindow()
-        {
-            
+        {         
             InitializeComponent();
+            //BootVariablesRandomly();
+        }
+        void BootVariablesRandomly()
+        {
+            Random random = new Random(DateTime.Now.Millisecond);
+            //stations
+            string[] names = { "TelAviv", "BnieBrak", "Afula", "Acre", "Eilat", "Ashdod", "Afula", "Petah Tiqva", "Rishon le Zion", "הרצליה-Herzliya", "Rosh Pina", "Kfar Sava", "Rehovot", "Rosh Ha'ayin", "Bethlehem", "Safed", "Jerusalem", "Haifa", "Beer-Sheva" };
+            for (int i = 0; i < 100; i++)
+            {
+                double Latitude = random.NextDouble() * 2.3 + 31;
+                double Longitude = random.NextDouble() * 1.2 + 34.3;
+                int index = random.Next(0, names.Length);
+                Bl.ADDStation(Latitude, Longitude, i, names[index]);
+            }
+            //Lines
+            for (int i = 0; i < 10; i++)
+            {
+                int area = random.Next(0, 4);
+                int lastStation = random.Next(0, 100);
+                Bl.AddLine(i, area, lastStation);
+            }
+            //LineStations
+            for (int i = 1; i < 10; i++)
+            {
+                for (int j = 1; j < Bl.GetsAllLines().Count()+1; j++)
+                {
+                    int stationnum = random.Next(0, 100);
+                    double distance= random.Next(0, 100000);
+                    int minute = random.Next(0, 60);
+                    int second= random.Next(0, 60);
+                    int hour= random.Next(0, 24);
+                    if (Bl.GetLine(j).PassingThrough.ToList().Find(s => s.Code == stationnum) == null)
+                        Bl.AddStationToLine(j, stationnum, i,distance,TimeSpan.Parse(string.Format("{0}:{1}:{2}",hour,minute,second)));
+                    else --i;
+                }
+                
+            }
         }
 
-      
-       
+
         private void SignIn(object sender, RoutedEventArgs e)
         {
             if(Bl.IsExists(this.UserNameText.Text))

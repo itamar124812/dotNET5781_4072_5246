@@ -1,872 +1,603 @@
-﻿<?xml version="1.0" encoding="utf-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x2="urn:schemas-microsoft-com:office:excel2" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
- <x:ExcelWorkbook>
-  <x:ActiveSheet>0</x:ActiveSheet>
- </x:ExcelWorkbook>
- <o:DocumentProperties>
-  <o:Author>USER</o:Author>
-  <o:Created>2020-11-10T19:26:12Z</o:Created>
-  <o:LastSaved>2021-01-18T22:33:10Z</o:LastSaved>
- </o:DocumentProperties>
- <ss:Names>
-  <ss:NamedRange ss:Name="Code" ss:RefersTo="=stops!R1C1" />
-  <ss:NamedRange ss:Name="Latitude" ss:RefersTo="=stops!R1C3" />
-  <ss:NamedRange ss:Name="Longitude" ss:RefersTo="=stops!R1C2" />
-  <ss:NamedRange ss:Name="Name" ss:RefersTo="=stops!R1C4" />
- </ss:Names>
- <Styles>
-  <Style ss:ID="Default" ss:Name="Normal">
-   <ss:Alignment ss:Vertical="Bottom" />
-   <ss:Font ss:Color="#000000" ss:FontName="Arial" ss:Size="11" />
-  </Style>
-  <Style ss:ID="S62" ss:Name="היפר-קישור">
-   <ss:Alignment ss:Vertical="Bottom" />
-   <ss:Font ss:Color="#0563C1" ss:FontName="Arial" ss:Size="11" ss:Underline="Single" />
-  </Style>
-  <Style ss:ID="S63" ss:Parent="S62">
-   <ss:Alignment ss:Vertical="Bottom" />
-   <ss:Font ss:Color="#0563C1" ss:FontName="Arial" ss:Size="11" ss:Underline="Single" />
-  </Style>
-  <Style ss:ID="S64">
-   <ss:Alignment ss:Vertical="Top" ss:WrapText="1" />
-   <ss:Font ss:Color="#000000" ss:FontName="Source Sans Pro" ss:Size="12" />
-   <ss:Interior ss:Color="#FFFFFF" ss:Pattern="Solid" />
-  </Style>
-  <Style ss:ID="S65" ss:Parent="S62">
-   <ss:Alignment ss:Vertical="Top" ss:WrapText="1" />
-   <ss:Font ss:Color="#0563C1" ss:FontName="Arial" ss:Size="11" ss:Underline="Single" />
-   <ss:Interior ss:Color="#FFFFFF" ss:Pattern="Solid" />
-  </Style>
-  <Style ss:ID="S66">
-   <ss:Alignment ss:Vertical="Bottom" />
-   <ss:Font ss:Color="#000000" ss:FontName="Arial" ss:Size="9" />
-  </Style>
- </Styles>
- <Worksheet ss:Name="stops">
-  <ss:Names />
-  <ss:Table ss:DefaultRowHeight="14.25" ss:DefaultColumnWidth="54" ss:ExpandedRowCount="80" ss:ExpandedColumnCount="5">
-   <Column ss:Index="1" ss:AutoFitWidth="0" ss:Width="45.75" />
-   <Column ss:Index="2" ss:Span="1" ss:AutoFitWidth="0" ss:Width="60" />
-   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="84.75" />
-   <Row ss:Index="1">
-    <Cell><Data ss:Type="String">Code</Data>
-    </Cell>
-    <Cell><Data ss:Type="String"> Longitude</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Latitude </Data>
-    </Cell>
-    <Cell><Data ss:Type="String">name</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="2">
-    <Cell><Data ss:Type="Number">1</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">32.183920999999998</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.917805999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">TelAviv</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="3">
-    <Cell><Data ss:Type="Number">2</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.870034</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.819541000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">BnieBrak</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="4">
-    <Cell><Data ss:Type="Number">3</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.984552999999998</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.782828000000002</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Afula</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="5">
-    <Cell><Data ss:Type="Number">4</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.888549999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.790903999999998</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Metula</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="6">
-    <Cell><Data ss:Type="Number">6</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.956392000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.898097999999997</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">KryatGat</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="7">
-    <Cell><Data ss:Type="Number">7</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.892166</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.796070999999998</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Dan</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="8">
-    <Cell><Data ss:Type="Number">8</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.857565000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.824106</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Be'erSheva</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="9">
-    <Cell><Data ss:Type="Number">9</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.862304999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.821857000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Panma</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="10">
-    <Cell><Data ss:Type="Number">10</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.865085000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.822237000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">USA</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="11">
-    <Cell><Data ss:Type="Number">11</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.865221999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.818956999999997</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Rutshild</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="12">
-    <Cell><Data ss:Type="Number">12</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.867597</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.818392000000003</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">FMacbiTA</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="13">
-    <Cell><Data ss:Type="Number">14</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.862439999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.827022999999997</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">HBS</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="14">
-    <Cell><Data ss:Type="Number">15</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.863500999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.828702</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Holon</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="15">
-    <Cell><Data ss:Type="Number">16</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.865348000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.827101999999996</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Ofakim</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="16">
-    <Cell><Data ss:Type="Number">17</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.977409000000002</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.763896000000003</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Akko</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="17">
-    <Cell><Data ss:Type="Number">18</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">32.300345</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.912708000000002</Data>
-    </Cell>
-    <Cell ss:StyleID="S63" ss:HRef="https://www.arad.muni.il/"><Data ss:Type="String">Arad</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="18">
-    <Cell><Data ss:Type="Number">19</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">32.301347</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.912602</Data>
-    </Cell>
-    <Cell ss:StyleID="S65" ss:HRef="http://www.yoqneam.org.il/"><Data ss:Type="String">Yokneam</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="19">
-    <Cell><Data ss:Type="Number">22</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.914255000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.807943999999999</Data>
-    </Cell>
-    <Cell ss:StyleID="S63" ss:HRef="http://www.yehud-monosson.muni.il/"><Data ss:Type="String">Yehud-Monosson</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="20">
-    <Cell><Data ss:Type="Number">24</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.963667999999998</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.836362999999999</Data>
-    </Cell>
-    <Cell ss:StyleID="S63" ss:HRef="https://www.yavne.muni.il/"><Data ss:Type="String">Yavne</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="21">
-    <Cell><Data ss:Type="Number">25</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.856114999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.825248999999999</Data>
-    </Cell>
-    <Cell ss:StyleID="S63" ss:HRef="http://he.umelfahem.org/"><Data ss:Type="String">Umm al-Fahm</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="22">
-    <Cell><Data ss:Type="Number">26</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.874963000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.812489999999997</Data>
-    </Cell>
-    <Cell ss:StyleID="S65" ss:HRef="https://www.zefat.muni.il/"><Data ss:Type="String">Tsfat (Safed)</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="23" ss:Height="15.75">
-    <Cell><Data ss:Type="Number">29</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">32.300035000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.910842000000002</Data>
-    </Cell>
-    <Cell ss:StyleID="S64"><Data ss:Type="String">Bethlehem</Data>
-    </Cell>
-    <Cell ss:StyleID="S65" />
-   </Row>
-   <Row ss:Index="24">
-    <Cell><Data ss:Type="Number">30</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">32.305233999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.948647000000001</Data>
-    </Cell>
-    <Cell ss:StyleID="S66"><Data ss:Type="String">Jericho</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="25">
-    <Cell><Data ss:Type="Number">31</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">32.304022000000003</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.943393</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">HBS</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="26">
-    <Cell><Data ss:Type="Number">32</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">32.302956999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.940528999999998</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Holon</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="27">
-    <Cell><Data ss:Type="Number">33</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">32.300263999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.939512000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Ofakim</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="28">
-    <Cell><Data ss:Type="Number">34</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">32.298171000000004</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.938704999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Akko</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="29">
-    <Cell><Data ss:Type="Number">35</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.990876</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.897599999999997</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Arad</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="30">
-    <Cell><Data ss:Type="Number">36</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.998767000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.879725000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Yokneam</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="31">
-    <Cell><Data ss:Type="Number">37</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.883019000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.818708000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Yehud-Monosson</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="32">
-    <Cell><Data ss:Type="Number">39</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">32.349775999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.926836999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Yavne</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="33">
-    <Cell><Data ss:Type="Number">40</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">32.352952999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.899464999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Umm al-Fahm</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="34">
-    <Cell><Data ss:Type="Number">42</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.897286000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.775083000000002</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Tsfat (Safed)</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="35">
-    <Cell><Data ss:Type="Number">43</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.883941</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.807039000000003</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Bethlehem</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="36">
-    <Cell><Data ss:Type="Number">45</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.896761999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.816752000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Jericho</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="37">
-    <Cell><Data ss:Type="Number">46</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.898463</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.823461000000002</Data>
-    </Cell>
-    <Cell ss:StyleID="S66"><Data ss:Type="String">Netania</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="38">
-    <Cell><Data ss:Type="Number">47</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">32.076535</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.904907000000001</Data>
-    </Cell>
-    <Cell ss:StyleID="S66"><Data ss:Type="String">Haifa</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="39">
-    <Cell><Data ss:Type="Number">48</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">32.299993999999998</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.878765000000001</Data>
-    </Cell>
-    <Cell ss:StyleID="S66"><Data ss:Type="String">Petah Tiqva</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="40">
-    <Cell><Data ss:Type="Number">49</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.865456999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.859437</Data>
-    </Cell>
-    <Cell ss:StyleID="S66"><Data ss:Type="String">Herzliya</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="41">
-    <Cell><Data ss:Type="Number">50</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.866772000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.864555000000003</Data>
-    </Cell>
-    <Cell ss:StyleID="S66"><Data ss:Type="String">Rosh Pina</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="42">
-    <Cell><Data ss:Type="Number">51</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.809325000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.784346999999997</Data>
-    </Cell>
-    <Cell ss:StyleID="S66"><Data ss:Type="String">Kfar Sava</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="43">
-    <Cell><Data ss:Type="Number">53</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.800370000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.778238999999999</Data>
-    </Cell>
-    <Cell ss:StyleID="S66"><Data ss:Type="String">Ashdod</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="44">
-    <Cell><Data ss:Type="Number">54</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.799223999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.782984999999996</Data>
-    </Cell>
-    <Cell ss:StyleID="S66"><Data ss:Type="String">Hebron</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="45">
-    <Cell><Data ss:Type="Number">55</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.800333999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.785069</Data>
-    </Cell>
-    <Cell ss:StyleID="S66"><Data ss:Type="String">Jerusalem</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="46">
-    <Cell><Data ss:Type="Number">56</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.802319000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.786735</Data>
-    </Cell>
-    <Cell ss:StyleID="S66"><Data ss:Type="String">Lod</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="47">
-    <Cell><Data ss:Type="Number">57</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.804594999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.786622999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Yokneam</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="48">
-    <Cell><Data ss:Type="Number">58</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.805040999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.785097999999998</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Yehud-Monosson</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="49">
-    <Cell><Data ss:Type="Number">59</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.816751</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.782252</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Yavne</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="50">
-    <Cell><Data ss:Type="Number">60</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.816579000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.779752999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Umm al-Fahm</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="51">
-    <Cell><Data ss:Type="Number">61</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.801182000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.787199000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Tsfat (Safed)</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="52">
-    <Cell><Data ss:Type="Number">62</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.802278999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.786054999999998</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Bethlehem</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="53">
-    <Cell><Data ss:Type="Number">63</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.814675999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.777574000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Jericho</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="54">
-    <Cell><Data ss:Type="Number">64</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.813285</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.775928</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Netania</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="55">
-    <Cell><Data ss:Type="Number">65</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.806958999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.773504000000003</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Haifa</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="56">
-    <Cell><Data ss:Type="Number">68</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.884187000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.805494000000003</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Petah Tiqva</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="57">
-    <Cell><Data ss:Type="Number">69</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.910118000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.805809000000004</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Herzliya</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="58">
-    <Cell><Data ss:Type="Number">71</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.882473999999998</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.805059999999997</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Rosh Pina</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="59">
-    <Cell><Data ss:Type="Number">73</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.878667</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.81138</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Kfar Sava</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="60">
-    <Cell><Data ss:Type="Number">74</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.975479</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.813355000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Ashdod</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="61">
-    <Cell><Data ss:Type="Number">75</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.982177</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.789445000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Hebron</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="62">
-    <Cell><Data ss:Type="Number">76</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.948551999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.822422000000003</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Jerusalem</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="63">
-    <Cell><Data ss:Type="Number">77</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.967732000000002</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.816338999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Lod</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="64">
-    <Cell><Data ss:Type="Number">78</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.893823000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.824617000000003</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Yokneam</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="65">
-    <Cell><Data ss:Type="Number">79</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.854168999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.824714</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Yehud-Monosson</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="66">
-    <Cell><Data ss:Type="Number">80</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.811907000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.900793</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Yavne</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="67">
-    <Cell><Data ss:Type="Number">81</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.956842000000002</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.814838999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Umm al-Fahm</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="68">
-    <Cell><Data ss:Type="Number">82</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.959821000000002</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.814746999999997</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Tsfat (Safed)</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="69">
-    <Cell><Data ss:Type="Number">83</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.992305999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.756909999999998</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Bethlehem</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="70">
-    <Cell><Data ss:Type="Number">84</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.984970000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.782620000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Jericho</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="71">
-    <Cell><Data ss:Type="Number">86</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.968049000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.818098999999997</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Netania</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="72">
-    <Cell><Data ss:Type="Number">87</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.968935999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.820042999999998</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Haifa</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="73">
-    <Cell><Data ss:Type="Number">89</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.923041000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.798032999999997</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Petah Tiqva</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="74">
-    <Cell><Data ss:Type="Number">90</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.985679999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.764014000000003</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Herzliya</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="75">
-    <Cell><Data ss:Type="Number">91</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.992583</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.751998999999998</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Rosh Pina</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="76">
-    <Cell><Data ss:Type="Number">92</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.990756999999999</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.755682999999998</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Kfar Sava</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="77">
-    <Cell><Data ss:Type="Number">94</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.950254000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.819243999999998</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Ashdod</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="78">
-    <Cell><Data ss:Type="Number">95</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.95111</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.819766000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Hebron</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="79">
-    <Cell><Data ss:Type="Number">97</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.905052000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.818908999999998</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Jerusalem</Data>
-    </Cell>
-   </Row>
-   <Row ss:Index="80">
-    <Cell><Data ss:Type="Number">98</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">31.901879000000001</Data>
-    </Cell>
-    <Cell><Data ss:Type="Number">34.819443</Data>
-    </Cell>
-    <Cell><Data ss:Type="String">Lod</Data>
-    </Cell>
-   </Row>
-  </ss:Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <PageSetup>
-    <Header x:Margin="0.3" />
-    <Footer x:Margin="0.3" />
-    <PageMargins x:Top="0.75" x:Bottom="0.75" x:Left="0.7" x:Right="0.7" />
-   </PageSetup>
-   <Print>
-    <ValidPrinterInfo />
-    <PaperSizeIndex>9</PaperSizeIndex>
-    <HorizontalResolution>600</HorizontalResolution>
-    <VerticalResolution>600</VerticalResolution>
-   </Print>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <RangeSelection>R1:R1</RangeSelection>
-    </Pane>
-   </Panes>
-  </WorksheetOptions>
- </Worksheet>
-</Workbook>
+<?xml version="1.0"?>
+<ArrayOfStation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Station>
+    <Code>0</Code>
+    <Name>TelAviv</Name>
+    <Longitude>34.690628530825776</Longitude>
+    <Latitude>31.379140359991762</Latitude>
+  </Station>
+  <Station>
+    <Code>1</Code>
+    <Name>TelAviv</Name>
+    <Longitude>35.291680443748682</Longitude>
+    <Latitude>32.402086511581246</Latitude>
+  </Station>
+  <Station>
+    <Code>2</Code>
+    <Name>Eilat</Name>
+    <Longitude>34.3629603572483</Longitude>
+    <Latitude>31.570928909290082</Latitude>
+  </Station>
+  <Station>
+    <Code>3</Code>
+    <Name>Safed</Name>
+    <Longitude>35.027549196187195</Longitude>
+    <Latitude>32.8394337484331</Latitude>
+  </Station>
+  <Station>
+    <Code>4</Code>
+    <Name>Afula</Name>
+    <Longitude>35.300259148422747</Longitude>
+    <Latitude>32.922504073811</Latitude>
+  </Station>
+  <Station>
+    <Code>5</Code>
+    <Name>Rosh Ha'ayin</Name>
+    <Longitude>35.170769452522862</Longitude>
+    <Latitude>31.1663908487495</Latitude>
+  </Station>
+  <Station>
+    <Code>6</Code>
+    <Name>Safed</Name>
+    <Longitude>34.878951244884611</Longitude>
+    <Latitude>32.279882144872047</Latitude>
+  </Station>
+  <Station>
+    <Code>7</Code>
+    <Name>TelAviv</Name>
+    <Longitude>34.972830490522469</Longitude>
+    <Latitude>31.896849676499539</Latitude>
+  </Station>
+  <Station>
+    <Code>8</Code>
+    <Name>Jerusalem</Name>
+    <Longitude>34.791090575648049</Longitude>
+    <Latitude>31.904829351373404</Latitude>
+  </Station>
+  <Station>
+    <Code>9</Code>
+    <Name>TelAviv</Name>
+    <Longitude>35.027727532911918</Longitude>
+    <Latitude>31.075508431147554</Latitude>
+  </Station>
+  <Station>
+    <Code>10</Code>
+    <Name>Rosh Ha'ayin</Name>
+    <Longitude>34.624298952484637</Longitude>
+    <Latitude>31.278404830153288</Latitude>
+  </Station>
+  <Station>
+    <Code>11</Code>
+    <Name>Acre</Name>
+    <Longitude>34.848953927750209</Longitude>
+    <Latitude>33.198937657754371</Latitude>
+  </Station>
+  <Station>
+    <Code>12</Code>
+    <Name>BnieBrak</Name>
+    <Longitude>35.372649361878935</Longitude>
+    <Latitude>33.144361276339907</Latitude>
+  </Station>
+  <Station>
+    <Code>13</Code>
+    <Name>Ashdod</Name>
+    <Longitude>34.806943824005749</Longitude>
+    <Latitude>32.787556096719371</Latitude>
+  </Station>
+  <Station>
+    <Code>14</Code>
+    <Name>Haifa</Name>
+    <Longitude>34.849883419345076</Longitude>
+    <Latitude>31.209763731858583</Latitude>
+  </Station>
+  <Station>
+    <Code>15</Code>
+    <Name>Rishon le Zion</Name>
+    <Longitude>35.006507239074679</Longitude>
+    <Latitude>32.579052700558236</Latitude>
+  </Station>
+  <Station>
+    <Code>16</Code>
+    <Name>הרצליה-Herzliya</Name>
+    <Longitude>34.990280175157949</Longitude>
+    <Latitude>32.246625461730467</Latitude>
+  </Station>
+  <Station>
+    <Code>17</Code>
+    <Name>Eilat</Name>
+    <Longitude>34.780033148862437</Longitude>
+    <Latitude>32.353230318172479</Latitude>
+  </Station>
+  <Station>
+    <Code>18</Code>
+    <Name>Bethlehem</Name>
+    <Longitude>35.229890791387241</Longitude>
+    <Latitude>32.413283973612486</Latitude>
+  </Station>
+  <Station>
+    <Code>19</Code>
+    <Name>Petah Tiqva</Name>
+    <Longitude>34.559438518369305</Longitude>
+    <Latitude>33.284488228840978</Latitude>
+  </Station>
+  <Station>
+    <Code>20</Code>
+    <Name>Rishon le Zion</Name>
+    <Longitude>34.558480249465667</Longitude>
+    <Latitude>31.312487066962053</Latitude>
+  </Station>
+  <Station>
+    <Code>21</Code>
+    <Name>Afula</Name>
+    <Longitude>35.114449870406858</Longitude>
+    <Latitude>31.565424369212902</Latitude>
+  </Station>
+  <Station>
+    <Code>22</Code>
+    <Name>Petah Tiqva</Name>
+    <Longitude>35.355773782290413</Longitude>
+    <Latitude>31.236073168989304</Latitude>
+  </Station>
+  <Station>
+    <Code>23</Code>
+    <Name>Safed</Name>
+    <Longitude>34.468015429083259</Longitude>
+    <Latitude>33.210639021224637</Latitude>
+  </Station>
+  <Station>
+    <Code>24</Code>
+    <Name>BnieBrak</Name>
+    <Longitude>35.23512663381878</Longitude>
+    <Latitude>32.505894959068812</Latitude>
+  </Station>
+  <Station>
+    <Code>25</Code>
+    <Name>BnieBrak</Name>
+    <Longitude>34.65847962329093</Longitude>
+    <Latitude>32.2088367319707</Latitude>
+  </Station>
+  <Station>
+    <Code>26</Code>
+    <Name>Safed</Name>
+    <Longitude>35.148231296077476</Longitude>
+    <Latitude>31.143964593039808</Latitude>
+  </Station>
+  <Station>
+    <Code>27</Code>
+    <Name>TelAviv</Name>
+    <Longitude>34.8889824188263</Longitude>
+    <Latitude>32.001695492398781</Latitude>
+  </Station>
+  <Station>
+    <Code>28</Code>
+    <Name>Jerusalem</Name>
+    <Longitude>34.939221484511727</Longitude>
+    <Latitude>32.212861000053984</Latitude>
+  </Station>
+  <Station>
+    <Code>29</Code>
+    <Name>Rehovot</Name>
+    <Longitude>34.709906269987066</Longitude>
+    <Latitude>32.096612049684211</Latitude>
+  </Station>
+  <Station>
+    <Code>30</Code>
+    <Name>Rehovot</Name>
+    <Longitude>35.426890285651609</Longitude>
+    <Latitude>31.987334301922161</Latitude>
+  </Station>
+  <Station>
+    <Code>31</Code>
+    <Name>Acre</Name>
+    <Longitude>35.06960123291686</Longitude>
+    <Latitude>32.478459740746047</Latitude>
+  </Station>
+  <Station>
+    <Code>32</Code>
+    <Name>Bethlehem</Name>
+    <Longitude>35.314437928336872</Longitude>
+    <Latitude>32.9999279873911</Latitude>
+  </Station>
+  <Station>
+    <Code>33</Code>
+    <Name>Rosh Ha'ayin</Name>
+    <Longitude>35.000684972992481</Longitude>
+    <Latitude>32.399896525405296</Latitude>
+  </Station>
+  <Station>
+    <Code>34</Code>
+    <Name>Rishon le Zion</Name>
+    <Longitude>34.997036403742165</Longitude>
+    <Latitude>31.13274812895467</Latitude>
+  </Station>
+  <Station>
+    <Code>35</Code>
+    <Name>Kfar Sava</Name>
+    <Longitude>35.420348883010604</Longitude>
+    <Latitude>32.485296426334088</Latitude>
+  </Station>
+  <Station>
+    <Code>36</Code>
+    <Name>הרצליה-Herzliya</Name>
+    <Longitude>34.406668126073974</Longitude>
+    <Latitude>31.439046429814326</Latitude>
+  </Station>
+  <Station>
+    <Code>37</Code>
+    <Name>הרצליה-Herzliya</Name>
+    <Longitude>35.416794940418</Longitude>
+    <Latitude>32.523464357491335</Latitude>
+  </Station>
+  <Station>
+    <Code>38</Code>
+    <Name>Rosh Ha'ayin</Name>
+    <Longitude>35.140412995424313</Longitude>
+    <Latitude>32.372345852093929</Latitude>
+  </Station>
+  <Station>
+    <Code>39</Code>
+    <Name>Afula</Name>
+    <Longitude>35.162206975213344</Longitude>
+    <Latitude>31.954088810949628</Latitude>
+  </Station>
+  <Station>
+    <Code>40</Code>
+    <Name>Rosh Pina</Name>
+    <Longitude>35.051023192680915</Longitude>
+    <Latitude>32.071386843487332</Latitude>
+  </Station>
+  <Station>
+    <Code>41</Code>
+    <Name>Acre</Name>
+    <Longitude>34.938245940505638</Longitude>
+    <Latitude>32.595130661593345</Latitude>
+  </Station>
+  <Station>
+    <Code>42</Code>
+    <Name>Afula</Name>
+    <Longitude>34.314314026951</Longitude>
+    <Latitude>31.354409390340749</Latitude>
+  </Station>
+  <Station>
+    <Code>43</Code>
+    <Name>Rishon le Zion</Name>
+    <Longitude>35.0872567363024</Longitude>
+    <Latitude>32.961792372149318</Latitude>
+  </Station>
+  <Station>
+    <Code>44</Code>
+    <Name>Afula</Name>
+    <Longitude>34.844731165722351</Longitude>
+    <Latitude>31.742734250958421</Latitude>
+  </Station>
+  <Station>
+    <Code>45</Code>
+    <Name>Haifa</Name>
+    <Longitude>34.753363841796926</Longitude>
+    <Latitude>31.2565456029291</Latitude>
+  </Station>
+  <Station>
+    <Code>46</Code>
+    <Name>Kfar Sava</Name>
+    <Longitude>35.357859777592985</Longitude>
+    <Latitude>32.37076667238528</Latitude>
+  </Station>
+  <Station>
+    <Code>47</Code>
+    <Name>Eilat</Name>
+    <Longitude>34.643077714714721</Longitude>
+    <Latitude>31.573771969775564</Latitude>
+  </Station>
+  <Station>
+    <Code>48</Code>
+    <Name>TelAviv</Name>
+    <Longitude>35.220279971007386</Longitude>
+    <Latitude>31.474666272511083</Latitude>
+  </Station>
+  <Station>
+    <Code>49</Code>
+    <Name>Haifa</Name>
+    <Longitude>34.355363767992408</Longitude>
+    <Latitude>31.387173607334109</Latitude>
+  </Station>
+  <Station>
+    <Code>50</Code>
+    <Name>Afula</Name>
+    <Longitude>34.845655222491196</Longitude>
+    <Latitude>32.109684342476392</Latitude>
+  </Station>
+  <Station>
+    <Code>51</Code>
+    <Name>Beer-Sheva</Name>
+    <Longitude>34.471396355783284</Longitude>
+    <Latitude>32.457059895832586</Latitude>
+  </Station>
+  <Station>
+    <Code>52</Code>
+    <Name>TelAviv</Name>
+    <Longitude>34.737017809058081</Longitude>
+    <Latitude>31.392659726921778</Latitude>
+  </Station>
+  <Station>
+    <Code>53</Code>
+    <Name>Haifa</Name>
+    <Longitude>34.890028018779134</Longitude>
+    <Latitude>31.538850905065821</Latitude>
+  </Station>
+  <Station>
+    <Code>54</Code>
+    <Name>Rishon le Zion</Name>
+    <Longitude>34.705523856173045</Longitude>
+    <Latitude>32.110480468771641</Latitude>
+  </Station>
+  <Station>
+    <Code>55</Code>
+    <Name>הרצליה-Herzliya</Name>
+    <Longitude>34.707337446886733</Longitude>
+    <Latitude>31.052458156855991</Latitude>
+  </Station>
+  <Station>
+    <Code>56</Code>
+    <Name>Afula</Name>
+    <Longitude>34.882156651738171</Longitude>
+    <Latitude>31.88868339014644</Latitude>
+  </Station>
+  <Station>
+    <Code>57</Code>
+    <Name>Safed</Name>
+    <Longitude>35.282602854903132</Longitude>
+    <Latitude>32.873640979814176</Latitude>
+  </Station>
+  <Station>
+    <Code>58</Code>
+    <Name>Afula</Name>
+    <Longitude>34.559625151501791</Longitude>
+    <Latitude>32.25801525342186</Latitude>
+  </Station>
+  <Station>
+    <Code>59</Code>
+    <Name>Bethlehem</Name>
+    <Longitude>34.884590116042915</Longitude>
+    <Latitude>31.656706289414647</Latitude>
+  </Station>
+  <Station>
+    <Code>60</Code>
+    <Name>Beer-Sheva</Name>
+    <Longitude>35.4829056259165</Longitude>
+    <Latitude>31.442807113212908</Latitude>
+  </Station>
+  <Station>
+    <Code>61</Code>
+    <Name>Acre</Name>
+    <Longitude>34.744578102438048</Longitude>
+    <Latitude>31.452979563201303</Latitude>
+  </Station>
+  <Station>
+    <Code>62</Code>
+    <Name>Ashdod</Name>
+    <Longitude>35.127308359196086</Longitude>
+    <Latitude>31.750970588508515</Latitude>
+  </Station>
+  <Station>
+    <Code>63</Code>
+    <Name>TelAviv</Name>
+    <Longitude>35.428983935308167</Longitude>
+    <Latitude>31.379278706982397</Latitude>
+  </Station>
+  <Station>
+    <Code>64</Code>
+    <Name>Petah Tiqva</Name>
+    <Longitude>34.734043009036235</Longitude>
+    <Latitude>32.980214807707917</Latitude>
+  </Station>
+  <Station>
+    <Code>65</Code>
+    <Name>Beer-Sheva</Name>
+    <Longitude>35.219978174436825</Longitude>
+    <Latitude>32.557939012096234</Latitude>
+  </Station>
+  <Station>
+    <Code>66</Code>
+    <Name>Rishon le Zion</Name>
+    <Longitude>34.520282495124391</Longitude>
+    <Latitude>32.885667945437909</Latitude>
+  </Station>
+  <Station>
+    <Code>67</Code>
+    <Name>Rosh Pina</Name>
+    <Longitude>35.238342722010955</Longitude>
+    <Latitude>32.2228938435311</Latitude>
+  </Station>
+  <Station>
+    <Code>68</Code>
+    <Name>Rehovot</Name>
+    <Longitude>35.1014139283455</Longitude>
+    <Latitude>32.422433244074895</Latitude>
+  </Station>
+  <Station>
+    <Code>69</Code>
+    <Name>Haifa</Name>
+    <Longitude>34.40384937864907</Longitude>
+    <Latitude>31.66677719804774</Latitude>
+  </Station>
+  <Station>
+    <Code>70</Code>
+    <Name>Jerusalem</Name>
+    <Longitude>35.362236576090673</Longitude>
+    <Latitude>32.421622912828632</Latitude>
+  </Station>
+  <Station>
+    <Code>71</Code>
+    <Name>הרצליה-Herzliya</Name>
+    <Longitude>34.350109804445</Longitude>
+    <Latitude>31.653246946331695</Latitude>
+  </Station>
+  <Station>
+    <Code>72</Code>
+    <Name>Beer-Sheva</Name>
+    <Longitude>34.643043950732348</Longitude>
+    <Latitude>33.198578811110266</Latitude>
+  </Station>
+  <Station>
+    <Code>73</Code>
+    <Name>Rehovot</Name>
+    <Longitude>35.135558731311725</Longitude>
+    <Latitude>31.53246892892405</Latitude>
+  </Station>
+  <Station>
+    <Code>74</Code>
+    <Name>Rosh Pina</Name>
+    <Longitude>34.56577635643341</Longitude>
+    <Latitude>31.380897182450116</Latitude>
+  </Station>
+  <Station>
+    <Code>75</Code>
+    <Name>Rishon le Zion</Name>
+    <Longitude>35.44439626370761</Longitude>
+    <Latitude>31.710514315036367</Latitude>
+  </Station>
+  <Station>
+    <Code>76</Code>
+    <Name>Rishon le Zion</Name>
+    <Longitude>35.343518038952496</Longitude>
+    <Latitude>32.02832125771247</Latitude>
+  </Station>
+  <Station>
+    <Code>77</Code>
+    <Name>Ashdod</Name>
+    <Longitude>34.858802614248731</Longitude>
+    <Latitude>31.901583937230328</Latitude>
+  </Station>
+  <Station>
+    <Code>78</Code>
+    <Name>Acre</Name>
+    <Longitude>35.092998227660075</Longitude>
+    <Latitude>31.776294936973738</Latitude>
+  </Station>
+  <Station>
+    <Code>79</Code>
+    <Name>Rosh Ha'ayin</Name>
+    <Longitude>34.994198079544212</Longitude>
+    <Latitude>31.931007690183357</Latitude>
+  </Station>
+  <Station>
+    <Code>80</Code>
+    <Name>Kfar Sava</Name>
+    <Longitude>34.343926986327361</Longitude>
+    <Latitude>32.300552530261015</Latitude>
+  </Station>
+  <Station>
+    <Code>81</Code>
+    <Name>BnieBrak</Name>
+    <Longitude>34.956168240428049</Longitude>
+    <Latitude>31.884663577510352</Latitude>
+  </Station>
+  <Station>
+    <Code>82</Code>
+    <Name>Afula</Name>
+    <Longitude>34.992331058109329</Longitude>
+    <Latitude>31.314176817803727</Latitude>
+  </Station>
+  <Station>
+    <Code>83</Code>
+    <Name>הרצליה-Herzliya</Name>
+    <Longitude>35.1657531483405</Longitude>
+    <Latitude>33.033026284739854</Latitude>
+  </Station>
+  <Station>
+    <Code>84</Code>
+    <Name>הרצליה-Herzliya</Name>
+    <Longitude>35.006016878181143</Longitude>
+    <Latitude>33.255165534212793</Latitude>
+  </Station>
+  <Station>
+    <Code>85</Code>
+    <Name>Rosh Pina</Name>
+    <Longitude>34.739302605781376</Longitude>
+    <Latitude>32.788084086490834</Latitude>
+  </Station>
+  <Station>
+    <Code>86</Code>
+    <Name>Rosh Ha'ayin</Name>
+    <Longitude>34.671435962976624</Longitude>
+    <Latitude>31.03839926632978</Latitude>
+  </Station>
+  <Station>
+    <Code>87</Code>
+    <Name>Eilat</Name>
+    <Longitude>35.311368316696658</Longitude>
+    <Latitude>31.411110666632236</Latitude>
+  </Station>
+  <Station>
+    <Code>88</Code>
+    <Name>Petah Tiqva</Name>
+    <Longitude>34.571324682920853</Longitude>
+    <Latitude>32.09657143549834</Latitude>
+  </Station>
+  <Station>
+    <Code>89</Code>
+    <Name>Petah Tiqva</Name>
+    <Longitude>35.435801048360666</Longitude>
+    <Latitude>32.318896804851896</Latitude>
+  </Station>
+  <Station>
+    <Code>90</Code>
+    <Name>Rosh Ha'ayin</Name>
+    <Longitude>34.961341454396646</Longitude>
+    <Latitude>31.694905687167729</Latitude>
+  </Station>
+  <Station>
+    <Code>91</Code>
+    <Name>Rehovot</Name>
+    <Longitude>35.099260729737232</Longitude>
+    <Latitude>31.609081360981371</Latitude>
+  </Station>
+  <Station>
+    <Code>92</Code>
+    <Name>Rehovot</Name>
+    <Longitude>35.237165359099</Longitude>
+    <Latitude>31.108426038691974</Latitude>
+  </Station>
+  <Station>
+    <Code>93</Code>
+    <Name>Petah Tiqva</Name>
+    <Longitude>34.506784781164853</Longitude>
+    <Latitude>32.123981934657309</Latitude>
+  </Station>
+  <Station>
+    <Code>94</Code>
+    <Name>Afula</Name>
+    <Longitude>34.975806072855278</Longitude>
+    <Latitude>31.315534395778336</Latitude>
+  </Station>
+  <Station>
+    <Code>95</Code>
+    <Name>Jerusalem</Name>
+    <Longitude>34.793783514617836</Longitude>
+    <Latitude>33.228532777274275</Latitude>
+  </Station>
+  <Station>
+    <Code>96</Code>
+    <Name>Ashdod</Name>
+    <Longitude>34.9721100089476</Longitude>
+    <Latitude>32.877535726119547</Latitude>
+  </Station>
+  <Station>
+    <Code>97</Code>
+    <Name>Ashdod</Name>
+    <Longitude>34.765708742880122</Longitude>
+    <Latitude>32.479660031795341</Latitude>
+  </Station>
+  <Station>
+    <Code>98</Code>
+    <Name>Acre</Name>
+    <Longitude>34.764056624501968</Longitude>
+    <Latitude>33.273447476454756</Latitude>
+  </Station>
+  <Station>
+    <Code>99</Code>
+    <Name>Afula</Name>
+    <Longitude>35.389439378441047</Longitude>
+    <Latitude>31.88766131163</Latitude>
+  </Station>
+</ArrayOfStation>

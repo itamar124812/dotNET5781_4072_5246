@@ -36,10 +36,6 @@ namespace PlGui
         public LinesPresentationWindow()
         {
             InitializeComponent();
-            Bl.ADDStation(33, 33, 89, "Itamar");
-            Bl.ADDStation(33, 33, 70, "Itamar");
-            Bl.AddLine(5, 2, 89);
-            Bl.AddStationToLine(1, 70, 0);
             Lines = Convert(Bl.GetsAllLines());
             ListLines.DataContext = Lines;
             del += PassDataFromAddLine;
