@@ -18,12 +18,27 @@
             <Setter Property="FontStretch" Value="Expanded"></Setter>
             <Setter Property="FontStyle" Value="Italic"></Setter>
         </Style>
+        <Style x:Key="2" TargetType="Label">
+            <Setter Property="VerticalAlignment" Value="Top"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        <DataTemplate x:Key="3">
+            <Label Style="{StaticResource ResourceKey=2}" Content="{Binding Path=Code}"></Label>
+        </DataTemplate>
         <DataTemplate x:Key="10">
-            
+            <WrapPanel>
+                <Label VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="20" Content="Id:"/>
+                <Label Content="{Binding Path=Id}" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20"   />
+                <Label Content=" LineNumber:" Style="{StaticResource ResourceKey=2}"/>
+                <Label Style="{StaticResource ResourceKey=2}" Content="{Binding Path=Code}"/>
+                <Label Content=" PassingThrough:" Style="{StaticResource ResourceKey=2}"/>
+                <ListBox Name="StationListBox" ItemsSource="{Binding Path=PassingThrough}" ItemTemplate="{Binding Path=Code}"/>
+            </WrapPanel>
         </DataTemplate>
     </Window.Resources>
     <Grid>
-        <ListBox Name="ListLines" HorizontalAlignment="Left" ItemsSource="{Binding  Mode=OneWay, UpdateSourceTrigger=PropertyChanged }"  Height="400" Margin="0,0,0,0" VerticalAlignment="Top" Width="300" Background="LightSeaGreen" />
+        <ListBox Name="ListLines" HorizontalAlignment="Left" ItemsSource="{Binding  Mode=OneWay, UpdateSourceTrigger=PropertyChanged }" ItemTemplate="{StaticResource ResourceKey=10}"  Height="400" Margin="0,0,0,0" VerticalAlignment="Top" Width="300" Background="LightSeaGreen" />
         <Button Name="DeleteLineButton" Content="Delete Line"   Margin="450,140,0,0" Style="{StaticResource ResourceKey = 1 }" Click="DeleteLine_Click" />
         <Button Name="AddLineButton" Content="Add Line"  Margin="450,70,0,0" Style="{StaticResource ResourceKey = 1}" Click="AddLineButton_Click"/>
         <Button Name="AddStatinToLine" Content="Add station to line"  Margin="450,210,0,0" Style="{StaticResource ResourceKey=1}" MaxWidth="200" Click="AddStatinToLine_Click"/>

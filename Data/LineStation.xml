@@ -1456,4 +1456,18 @@
     <PrevStation>35</PrevStation>
     <NextStation>0</NextStation>
   </LineStation>
+  <LineStation>
+    <LineId>1</LineId>
+    <Station>50</Station>
+    <LineStationIndex>0</LineStationIndex>
+    <PrevStation>0</PrevStation>
+    <NextStation>0</NextStation>
+  </LineStation>
+  <LineStation>
+    <LineId>2</LineId>
+    <Station>50</Station>
+    <LineStationIndex>0</LineStationIndex>
+    <PrevStation>0</PrevStation>
+    <NextStation>0</NextStation>
+  </LineStation>
 </ArrayOfLineStation>

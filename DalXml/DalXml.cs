@@ -125,8 +125,9 @@ namespace DalXml
         }
         public void AddLine(Line line)
         {
+            List<Line> Lines = XMLTools.LoadListFromXMLSerializer<Line>(LinesPath).OrderBy(l => l.Id).ToList();
+            Line.RunningNum=Lines[Lines.Count-1].Id;
             line.Id = ++Line.RunningNum;
-            List<Line> Lines = XMLTools.LoadListFromXMLSerializer<Line>(LinesPath);
             Lines.Add(line);
             XMLTools.SaveListToXMLSerializer<Line>(Lines, LinesPath);
         }
