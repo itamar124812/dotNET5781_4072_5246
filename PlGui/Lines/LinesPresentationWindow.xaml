@@ -24,7 +24,7 @@
             <Setter Property="FontSize" Value="20"/>
         </Style>
         <DataTemplate x:Key="3">
-            <Label Style="{StaticResource ResourceKey=2}" Content="{Binding Path=Code}"></Label>
+            <Label Style="{StaticResource ResourceKey=2}" Content="Banana"></Label>
         </DataTemplate>
         <DataTemplate x:Key="10">
             <WrapPanel>
@@ -33,7 +33,16 @@
                 <Label Content=" LineNumber:" Style="{StaticResource ResourceKey=2}"/>
                 <Label Style="{StaticResource ResourceKey=2}" Content="{Binding Path=Code}"/>
                 <Label Content=" PassingThrough:" Style="{StaticResource ResourceKey=2}"/>
-                <ListBox Name="StationListBox" ItemsSource="{Binding Path=PassingThrough}" ItemTemplate="{Binding Path=Code}"/>
+                <ListBox Name="StationListBox" ItemsSource="{Binding Path=PassingThrough}" >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <Label Name="Code"  Style="{StaticResource ResourceKey=2}" Content="{Binding Path=Code}"/>
+                                <Label Content="{Binding Path=Name}" Style="{StaticResource ResourceKey=2}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </WrapPanel>
         </DataTemplate>
     </Window.Resources>
