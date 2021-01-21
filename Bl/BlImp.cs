@@ -116,7 +116,7 @@ namespace Bl
                         }
                         if (index >= 0 && index < lineStations.Count-1)
                         {
-                            //linestation.NextStation = lineStations[index + 1].Station;
+                            linestation.NextStation = lineStations[index + 1].Station;
                             //AdjacentStations adjacentStations = new AdjacentStations();
                             //adjacentStations.Station1 = lineStations[index + 1].Station;
                             //adjacentStations.Station2 = linestation.Station;

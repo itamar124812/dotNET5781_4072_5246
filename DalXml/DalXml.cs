@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using DalApi;
+using System.IO;
 using DalApi.DO;
 
 namespace DalXml
@@ -18,7 +19,7 @@ namespace DalXml
         public static DalXml Instance { get => instance; }// The public Instance property to use
         #endregion
         #region DS XML Files
-        string StationPath = @".\StopsAfterChange.xml";
+        string StationPath =  @".\StopsAfterChange.xml";
         string LinesPath = @".\Lines.xml";
         string LineStationPath = @".\LineStation.xml";
         string LinesTripPath = @".\LinesTrip.xml";
@@ -126,7 +127,9 @@ namespace DalXml
         public void AddLine(Line line)
         {
             List<Line> Lines = XMLTools.LoadListFromXMLSerializer<Line>(LinesPath).OrderBy(l => l.Id).ToList();
-            Line.RunningNum=Lines[Lines.Count-1].Id;
+            if (Lines.Count > 0)
+            { Line.RunningNum = Lines[Lines.Count - 1].Id; }
+            else Line.RunningNum = 0;
             line.Id = ++Line.RunningNum;
             Lines.Add(line);
             XMLTools.SaveListToXMLSerializer<Line>(Lines, LinesPath);
@@ -226,6 +229,8 @@ namespace DalXml
         {
             List<LineTrip> lineTrips = XMLTools.LoadListFromXMLSerializer<LineTrip>(LinesTripPath);
             if (lineTrips.Find(l => l.LindId == lineTrip.LindId && l.StartAt == lineTrip.StartAt) != null) throw new LineTripException(lineTrip.LindId, lineTrip.StartAt, "Duplicate Line Trip");
+            lineTrips.Add(lineTrip);
+            XMLTools.SaveListToXMLSerializer<LineTrip>(lineTrips, LinesTripPath);
         }
         public void DeleteLineTrip(int LineNumber, TimeSpan startAt)
         {
