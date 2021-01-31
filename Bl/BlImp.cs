@@ -231,6 +231,11 @@ namespace Bl
         }
         #endregion
         #region Stations
+        public bool ExistsStation(int NumStation)
+        {
+            if (Dl.GetAllStations().Where(t => t.Code == NumStation) != null) return true;
+            else return false;
+        }
         public void DeleteStations(int StationCode)
         {
             Dl.DeleteStation(StationCode);

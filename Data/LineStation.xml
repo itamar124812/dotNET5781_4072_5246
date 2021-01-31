@@ -987,4 +987,11 @@
     <PrevStation>78</PrevStation>
     <NextStation>27</NextStation>
   </LineStation>
+  <LineStation>
+    <LineId>3</LineId>
+    <Station>2</Station>
+    <LineStationIndex>8</LineStationIndex>
+    <PrevStation>53</PrevStation>
+    <NextStation>83</NextStation>
+  </LineStation>
 </ArrayOfLineStation>

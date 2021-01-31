@@ -22,6 +22,7 @@ namespace BlApi
         void DeleteLine(int Id);
         #endregion
         #region Stations
+        bool ExistsStation(int NumStation);
         void DeleteStations(int StationCode);
         void ADDStation(double latitude, double longitude, int codeStation , String name );
         BusStation GetAllLinesForStation(int StationCode);

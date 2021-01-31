@@ -99,7 +99,8 @@ namespace PlGui
 
         private void AddStatinToLine_Click(object sender, RoutedEventArgs e)
         {
-
+            AddStationToLineWindow addStationWindow = new AddStationToLineWindow(Bl);
+            addStationWindow.Show();
         }
 
         private void Stations_Click(object sender, RoutedEventArgs e)
