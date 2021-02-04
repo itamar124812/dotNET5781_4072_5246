@@ -10,6 +10,10 @@ namespace Bl.BO
     {
       public IEnumerable<StationLine> LinesPassingThrough;
       public  int StationNumber { get; set; }
+        public override string ToString()
+        {
+            return "station number: " + StationNumber;
+        }
 
     }
 }

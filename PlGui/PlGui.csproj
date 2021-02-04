@@ -60,6 +60,9 @@
     <Compile Include="AddStation.xaml.cs">
       <DependentUpon>AddStation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LineForStation.xaml.cs">
+      <DependentUpon>LineForStation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LineStatins.xaml.cs">
       <DependentUpon>LineStatins.xaml</DependentUpon>
     </Compile>
@@ -82,6 +85,10 @@
       <DependentUpon>SignUpWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="AddStation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LineForStation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

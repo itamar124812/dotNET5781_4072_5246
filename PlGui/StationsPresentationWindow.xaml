@@ -6,9 +6,22 @@
         xmlns:local="clr-namespace:PlGui"
         mc:Ignorable="d"
         Title="StationsPresentationWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="20" TargetType="Label">
+            <Setter Property="VerticalAlignment" Value="Top"></Setter>
+        </Style>
+        <DataTemplate x:Key="12">
+            <ContentControl MouseDoubleClick="ContentControl_MouseDoubleClick" >
+            <WrapPanel>
+            <Label  Content="Station Id:" FontSize="20" />
+             <Label Content="{Binding Path=StationNumber}" FontSize="20"  />
+            </WrapPanel>
+            </ContentControl>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
         <StackPanel>
-            <ListBox ItemsSource="{Binding}"/>
+            <ListBox ItemsSource="{Binding}" ItemTemplate="{StaticResource ResourceKey=12 }" HorizontalAlignment="Left" VerticalAlignment="Top" Width="350"/>
         </StackPanel>
     </Grid>
 </Window>

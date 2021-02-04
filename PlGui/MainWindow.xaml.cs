@@ -28,8 +28,8 @@ namespace PlGui
         public MainWindow()
         {         
             InitializeComponent();
-            Simulation simulation = new Simulation();
-            simulation.Show();
+            //Simulation simulation = new Simulation();
+            //simulation.Show();
             //BootVariablesRandomly();
         }
         void BootVariablesRandomly()

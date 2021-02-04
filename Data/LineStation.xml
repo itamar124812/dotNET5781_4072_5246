@@ -1,13 +1,6 @@
 <?xml version="1.0"?>
 <ArrayOfLineStation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <LineStation>
-    <LineId>1</LineId>
-    <Station>44</Station>
-    <LineStationIndex>0</LineStationIndex>
-    <PrevStation>0</PrevStation>
-    <NextStation>0</NextStation>
-  </LineStation>
-  <LineStation>
     <LineId>2</LineId>
     <Station>76</Station>
     <LineStationIndex>0</LineStationIndex>
@@ -71,13 +64,6 @@
     <NextStation>0</NextStation>
   </LineStation>
   <LineStation>
-    <LineId>1</LineId>
-    <Station>51</Station>
-    <LineStationIndex>1</LineStationIndex>
-    <PrevStation>0</PrevStation>
-    <NextStation>0</NextStation>
-  </LineStation>
-  <LineStation>
     <LineId>2</LineId>
     <Station>84</Station>
     <LineStationIndex>1</LineStationIndex>
@@ -131,13 +117,6 @@
     <Station>0</Station>
     <LineStationIndex>0</LineStationIndex>
     <PrevStation>0</PrevStation>
-    <NextStation>0</NextStation>
-  </LineStation>
-  <LineStation>
-    <LineId>1</LineId>
-    <Station>60</Station>
-    <LineStationIndex>1</LineStationIndex>
-    <PrevStation>44</PrevStation>
     <NextStation>0</NextStation>
   </LineStation>
   <LineStation>
@@ -195,13 +174,6 @@
     <LineStationIndex>0</LineStationIndex>
     <PrevStation>0</PrevStation>
     <NextStation>0</NextStation>
-  </LineStation>
-  <LineStation>
-    <LineId>1</LineId>
-    <Station>67</Station>
-    <LineStationIndex>1</LineStationIndex>
-    <PrevStation>44</PrevStation>
-    <NextStation>60</NextStation>
   </LineStation>
   <LineStation>
     <LineId>2</LineId>
@@ -267,13 +239,6 @@
     <NextStation>21</NextStation>
   </LineStation>
   <LineStation>
-    <LineId>1</LineId>
-    <Station>45</Station>
-    <LineStationIndex>2</LineStationIndex>
-    <PrevStation>51</PrevStation>
-    <NextStation>67</NextStation>
-  </LineStation>
-  <LineStation>
     <LineId>2</LineId>
     <Station>81</Station>
     <LineStationIndex>2</LineStationIndex>
@@ -337,13 +302,6 @@
     <NextStation>95</NextStation>
   </LineStation>
   <LineStation>
-    <LineId>1</LineId>
-    <Station>11</Station>
-    <LineStationIndex>3</LineStationIndex>
-    <PrevStation>60</PrevStation>
-    <NextStation>45</NextStation>
-  </LineStation>
-  <LineStation>
     <LineId>2</LineId>
     <Station>98</Station>
     <LineStationIndex>3</LineStationIndex>
@@ -398,13 +356,6 @@
     <LineStationIndex>2</LineStationIndex>
     <PrevStation>0</PrevStation>
     <NextStation>95</NextStation>
-  </LineStation>
-  <LineStation>
-    <LineId>1</LineId>
-    <Station>43</Station>
-    <LineStationIndex>3</LineStationIndex>
-    <PrevStation>60</PrevStation>
-    <NextStation>45</NextStation>
   </LineStation>
   <LineStation>
     <LineId>2</LineId>
@@ -470,13 +421,6 @@
     <NextStation>53</NextStation>
   </LineStation>
   <LineStation>
-    <LineId>1</LineId>
-    <Station>0</Station>
-    <LineStationIndex>4</LineStationIndex>
-    <PrevStation>67</PrevStation>
-    <NextStation>11</NextStation>
-  </LineStation>
-  <LineStation>
     <LineId>2</LineId>
     <Station>50</Station>
     <LineStationIndex>4</LineStationIndex>
@@ -540,13 +484,6 @@
     <NextStation>23</NextStation>
   </LineStation>
   <LineStation>
-    <LineId>1</LineId>
-    <Station>17</Station>
-    <LineStationIndex>5</LineStationIndex>
-    <PrevStation>45</PrevStation>
-    <NextStation>43</NextStation>
-  </LineStation>
-  <LineStation>
     <LineId>2</LineId>
     <Station>42</Station>
     <LineStationIndex>5</LineStationIndex>
@@ -601,13 +538,6 @@
     <LineStationIndex>4</LineStationIndex>
     <PrevStation>95</PrevStation>
     <NextStation>23</NextStation>
-  </LineStation>
-  <LineStation>
-    <LineId>1</LineId>
-    <Station>78</Station>
-    <LineStationIndex>5</LineStationIndex>
-    <PrevStation>45</PrevStation>
-    <NextStation>43</NextStation>
   </LineStation>
   <LineStation>
     <LineId>2</LineId>
@@ -722,13 +652,6 @@
     <NextStation>53</NextStation>
   </LineStation>
   <LineStation>
-    <LineId>1</LineId>
-    <Station>96</Station>
-    <LineStationIndex>4</LineStationIndex>
-    <PrevStation>67</PrevStation>
-    <NextStation>11</NextStation>
-  </LineStation>
-  <LineStation>
     <LineId>2</LineId>
     <Station>80</Station>
     <LineStationIndex>4</LineStationIndex>
@@ -769,13 +692,6 @@
     <LineStationIndex>1</LineStationIndex>
     <PrevStation>65</PrevStation>
     <NextStation>21</NextStation>
-  </LineStation>
-  <LineStation>
-    <LineId>1</LineId>
-    <Station>93</Station>
-    <LineStationIndex>2</LineStationIndex>
-    <PrevStation>51</PrevStation>
-    <NextStation>67</NextStation>
   </LineStation>
   <LineStation>
     <LineId>2</LineId>
@@ -904,13 +820,6 @@
     <NextStation>95</NextStation>
   </LineStation>
   <LineStation>
-    <LineId>1</LineId>
-    <Station>84</Station>
-    <LineStationIndex>3</LineStationIndex>
-    <PrevStation>60</PrevStation>
-    <NextStation>45</NextStation>
-  </LineStation>
-  <LineStation>
     <LineId>2</LineId>
     <Station>64</Station>
     <LineStationIndex>3</LineStationIndex>
@@ -960,13 +869,6 @@
     <NextStation>21</NextStation>
   </LineStation>
   <LineStation>
-    <LineId>1</LineId>
-    <Station>9</Station>
-    <LineStationIndex>2</LineStationIndex>
-    <PrevStation>51</PrevStation>
-    <NextStation>67</NextStation>
-  </LineStation>
-  <LineStation>
     <LineId>2</LineId>
     <Station>53</Station>
     <LineStationIndex>2</LineStationIndex>
@@ -993,5 +895,12 @@
     <LineStationIndex>8</LineStationIndex>
     <PrevStation>53</PrevStation>
     <NextStation>83</NextStation>
+  </LineStation>
+  <LineStation>
+    <LineId>11</LineId>
+    <Station>34</Station>
+    <LineStationIndex>0</LineStationIndex>
+    <PrevStation>0</PrevStation>
+    <NextStation>0</NextStation>
   </LineStation>
 </ArrayOfLineStation>
