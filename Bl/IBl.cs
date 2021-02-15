@@ -36,7 +36,10 @@ namespace BlApi
         void DeleteUser(string Name);
         bool IsAdmin(string Name);
         #endregion
-       
+        #region Clock
+        void StartSimulator(TimeSpan startTime, int Rate, Action<TimeSpan> updateTime);
+        void StopSimulator();
+        #endregion
         #region LinesTrips
         void AddLineTrip(int id, TimeSpan StartTime);
         void DeleteLineTrip(int id, TimeSpan StartTime);

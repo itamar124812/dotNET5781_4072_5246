@@ -7,6 +7,7 @@ using DalApi;
 using Bl.BO;
 using DalApi.DO;
 using BlApi;
+using System.Diagnostics;
 
 namespace Bl
 {
@@ -409,6 +410,16 @@ namespace Bl
             {
                 throw new LineTripsException(string.Format("There is already a line trip with a similar Id: {0} who StartAt: {1}.", Id, time), ex);
             }          
+        }
+        #endregion
+        #region Clock
+        public void StartSimulator(TimeSpan startTime, int Rate, Action<TimeSpan> updateTime)
+        {
+            Stopwatch stopwatch = new Stopwatch();
+        }
+        public void StopSimulator()
+        {
+
         }
         #endregion
     }
