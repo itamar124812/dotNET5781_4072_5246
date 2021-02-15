@@ -33,12 +33,12 @@ namespace PlGui
             InitializeComponent();
             busStations = Convert(Bl.GetAllStations());
             DataContext = busStations;
-            foreach (var item in busStations)
-            {
-                busStations.Add(item);
-            }
-            int bla;
         }
 
+        private void ContentControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            LineForStation lineForStation = new LineForStation((sender as ContentControl).DataContext as BusStation);
+            lineForStation.Show();
+        }
     }
 }

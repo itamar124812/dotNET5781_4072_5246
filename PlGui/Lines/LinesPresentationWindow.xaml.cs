@@ -27,6 +27,7 @@ namespace PlGui
     {
         public DataTransferAddWindow del;
         public DataTransferDeleteWindoe DWDateTransfer;
+        
         public ObservableCollection<T> Convert<T>(IEnumerable<T> original)
         {
             return new ObservableCollection<T>(original);
@@ -98,7 +99,14 @@ namespace PlGui
 
         private void AddStatinToLine_Click(object sender, RoutedEventArgs e)
         {
+            AddStationToLineWindow addStationWindow = new AddStationToLineWindow(Bl);
+            addStationWindow.Show();
+        }
 
+        private void Stations_Click(object sender, RoutedEventArgs e)
+        {           
+            LineStatinsWindow statinsWindow = new LineStatinsWindow(Bl.GetLine((int)(sender as Button).Tag).PassingThrough.ToList());
+            statinsWindow.Show();
         }
     }
 }

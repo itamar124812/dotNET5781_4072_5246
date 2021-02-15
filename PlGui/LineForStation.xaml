@@ -1,0 +1,27 @@
+﻿<Window x:Class="PlGui.LineForStation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlGui"
+        mc:Ignorable="d"
+        Title="LineForStation" Height="450" Width="800">
+    <Grid>
+        <ListView Name="Lines" ItemsSource="{Binding}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                <WrapPanel>
+                    <Label Content="Id:" FontSize="20"/>
+                    <Label Content="{Binding Path=IDLine}" FontSize="20"></Label>
+                    <Label Content="Line Number" FontSize="20"></Label>
+                    <Label Content="{Binding Path=LineNumber}" FontSize="20"></Label>
+                    <Label Content="Last Stop: " FontSize="20"/>
+                    <Label Content="{Binding Path=LastStop}" FontSize="20"/>
+                        <Label Content="Arrival times:" FontSize="20"/>
+                        <Label Content="{Binding Path=Arrivaltimes}" FontSize="20"></Label>
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>

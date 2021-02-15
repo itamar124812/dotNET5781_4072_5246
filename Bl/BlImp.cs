@@ -116,7 +116,7 @@ namespace Bl
                         }
                         if (index >= 0 && index < lineStations.Count-1)
                         {
-                            //linestation.NextStation = lineStations[index + 1].Station;
+                            linestation.NextStation = lineStations[index + 1].Station;
                             //AdjacentStations adjacentStations = new AdjacentStations();
                             //adjacentStations.Station1 = lineStations[index + 1].Station;
                             //adjacentStations.Station2 = linestation.Station;
@@ -231,6 +231,11 @@ namespace Bl
         }
         #endregion
         #region Stations
+        public bool ExistsStation(int NumStation)
+        {
+            if (Dl.GetAllStations().Where(t => t.Code == NumStation) != null) return true;
+            else return false;
+        }
         public void DeleteStations(int StationCode)
         {
             Dl.DeleteStation(StationCode);
