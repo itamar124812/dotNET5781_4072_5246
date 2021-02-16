@@ -1,73 +1,73 @@
 <?xml version="1.0"?>
 <ArrayOfLine xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Line>
+    <Id>1</Id>
+    <Code>0</Code>
+    <Area>North</Area>
+    <FirstStation>0</FirstStation>
+    <LastStation>70</LastStation>
+  </Line>
+  <Line>
     <Id>2</Id>
     <Code>1</Code>
     <Area>Central</Area>
     <FirstStation>0</FirstStation>
-    <LastStation>76</LastStation>
+    <LastStation>39</LastStation>
   </Line>
   <Line>
     <Id>3</Id>
     <Code>2</Code>
-    <Area>Jerusalem</Area>
+    <Area>Central</Area>
     <FirstStation>0</FirstStation>
-    <LastStation>14</LastStation>
+    <LastStation>89</LastStation>
   </Line>
   <Line>
     <Id>4</Id>
     <Code>3</Code>
-    <Area>Central</Area>
+    <Area>Jerusalem</Area>
     <FirstStation>0</FirstStation>
-    <LastStation>1</LastStation>
+    <LastStation>54</LastStation>
   </Line>
   <Line>
     <Id>5</Id>
     <Code>4</Code>
-    <Area>Central</Area>
+    <Area>South</Area>
     <FirstStation>0</FirstStation>
-    <LastStation>97</LastStation>
+    <LastStation>73</LastStation>
   </Line>
   <Line>
     <Id>6</Id>
     <Code>5</Code>
-    <Area>Jerusalem</Area>
+    <Area>North</Area>
     <FirstStation>0</FirstStation>
-    <LastStation>38</LastStation>
+    <LastStation>18</LastStation>
   </Line>
   <Line>
     <Id>7</Id>
     <Code>6</Code>
-    <Area>Central</Area>
+    <Area>North</Area>
     <FirstStation>0</FirstStation>
-    <LastStation>91</LastStation>
+    <LastStation>73</LastStation>
   </Line>
   <Line>
     <Id>8</Id>
     <Code>7</Code>
-    <Area>Jerusalem</Area>
+    <Area>North</Area>
     <FirstStation>0</FirstStation>
-    <LastStation>21</LastStation>
+    <LastStation>39</LastStation>
   </Line>
   <Line>
     <Id>9</Id>
     <Code>8</Code>
-    <Area>North</Area>
+    <Area>Central</Area>
     <FirstStation>0</FirstStation>
-    <LastStation>92</LastStation>
+    <LastStation>83</LastStation>
   </Line>
   <Line>
     <Id>10</Id>
     <Code>9</Code>
-    <Area>Central</Area>
+    <Area>South</Area>
     <FirstStation>0</FirstStation>
-    <LastStation>65</LastStation>
-  </Line>
-  <Line>
-    <Id>11</Id>
-    <Code>45</Code>
-    <Area>Central</Area>
-    <FirstStation>0</FirstStation>
-    <LastStation>34</LastStation>
+    <LastStation>88</LastStation>
   </Line>
 </ArrayOfLine>

@@ -45,5 +45,9 @@ namespace BlApi
         void DeleteLineTrip(int id, TimeSpan StartTime);
         void UpdateStartTime(int Id,TimeSpan key, TimeSpan StartTime);
         #endregion
+        #region Travel Operator
+        void SetStationPanel(int station, Action<LineTiming> updateBus);
+
+        #endregion
     }
 }

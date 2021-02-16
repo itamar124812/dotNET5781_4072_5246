@@ -25,75 +25,89 @@ namespace DalXml
         string LinesTripPath = @".\LinesTrip.xml";
         string UsersPath = @".\Users.xml";
         string AdjacentStationsPath = @".\AdjacentStations.xml";
+        //XmlElement
+        string BusPath = @".\Bus.xml";
         #endregion
         #region AdjacentStations
         public void AddAdjacentStations(AdjacentStations adjacentStations)
         {
-            XElement AdjacentStationsList = XMLTools.LoadListFromXMLElement(AdjacentStationsPath);
-            XElement AS = (from aS in AdjacentStationsList.Elements()
-                           where int.Parse(aS.Element("Station1").Value) == adjacentStations.Station1 && int.Parse(aS.Element("Station2").Value) == adjacentStations.Station2
-                           select aS).FirstOrDefault();
-            if (AS != null)
-                throw new DalApi.DO.AdjacentStationsException(int.Parse(AS.Element("Station1").Value), int.Parse(AS.Element("Station2").Value), "Duplicate AdjacentStations");
-            XElement AddAdjacentStationsElement = new XElement("AddAdjacentStations", new XElement("Station1", adjacentStations.Station1),
-                new XElement("Station2", adjacentStations.Station2), new XElement("Distance", adjacentStations.Distance), new XElement("Time", adjacentStations.Time.ToString()));
-            AdjacentStationsList.Add(AddAdjacentStationsElement);
-            XMLTools.SaveListToXMLElement(AdjacentStationsList,AdjacentStationsPath);
+            List<AdjacentStations> listAS = XMLTools.LoadListFromXMLSerializer<AdjacentStations>(AdjacentStationsPath);
+            if (listAS.Find(a => a.Station1 == adjacentStations.Station1&& a.Station2==adjacentStations.Station2 ) != null) throw new DalApi.DO.AdjacentStationsException(adjacentStations.Station1,adjacentStations.Station2, "Duplicate AdjacentStations");
+            listAS.Add(adjacentStations);
+            XMLTools.SaveListToXMLSerializer<AdjacentStations>(listAS, AdjacentStationsPath);
+            //XElement AdjacentStationsList = XMLTools.LoadListFromXMLElement(AdjacentStationsPath);
+            //XElement AS = (from aS in AdjacentStationsList.Elements()
+            //               where int.Parse(aS.Element("Station1").Value) == adjacentStations.Station1 && int.Parse(aS.Element("Station2").Value) == adjacentStations.Station2
+            //               select aS).FirstOrDefault();
+            //if (AS != null)
+            //    throw new DalApi.DO.AdjacentStationsException(int.Parse(AS.Element("Station1").Value), int.Parse(AS.Element("Station2").Value), "Duplicate AdjacentStations");
+            //XElement AddAdjacentStationsElement = new XElement("AddAdjacentStations", new XElement("Station1", adjacentStations.Station1),
+            //    new XElement("Station2", adjacentStations.Station2), new XElement("Distance", adjacentStations.Distance), new XElement("Time", adjacentStations.Time.ToString()));
+            //AdjacentStationsList.Add(AddAdjacentStationsElement);
+            //XMLTools.SaveListToXMLElement(AdjacentStationsList,AdjacentStationsPath);
         }
         public void DeleteAdjacentStations(Station A, Station B)
         {
-            XElement AdjacentStationsList = XMLTools.LoadListFromXMLElement(AdjacentStationsPath);
-            XElement AS = (from aS in AdjacentStationsList.Elements()
-                           where int.Parse(aS.Element("Station1").Value) == A.Code && int.Parse(aS.Element("Station2").Value) == B.Code
-                           select aS).FirstOrDefault();
-            if (AS != null)
-                AS.Remove();
-            else throw new DalApi.DO.AdjacentStationsException(A.Code, B.Code, "The AdjacentStations does not exists");
-            XMLTools.SaveListToXMLElement(AdjacentStationsList, AdjacentStationsPath);
+            List<AdjacentStations> listAS = XMLTools.LoadListFromXMLSerializer<AdjacentStations>(AdjacentStationsPath);
+            AdjacentStations As = listAS.Find(a => a.Station1 == A.Code && a.Station2 == B.Code);
+            if (As == null) throw new AdjacentStationsException(A.Code, B.Code, "This station does not exsits.");
+            listAS.Remove(As);
+            XMLTools.SaveListToXMLSerializer<AdjacentStations>(listAS, AdjacentStationsPath);
         }
         public AdjacentStations GetAdjacentStations(Station A, Station B)
         {
-            XElement AdjacentStationsList = XMLTools.LoadListFromXMLElement(AdjacentStationsPath);
-            XElement AS = (from aS in AdjacentStationsList.Elements()
-                           where int.Parse(aS.Element("Station1").Value) == A.Code && int.Parse(aS.Element("Station2").Value) == B.Code
-                           select aS).FirstOrDefault();
-            if (AS == null) throw new DalApi.DO.AdjacentStationsException(A.Code, B.Code, "The AdjacentStations does not exists");
-            AdjacentStations stations = new AdjacentStations();
-            stations.Station1 = int.Parse(AS.Element("Station1").Value);
-            stations.Station2 = int.Parse(AS.Element("Station2").Value);
-            stations.Distance = int.Parse(AS.Element("Distance").Value);
-            stations.Time = TimeSpan.Parse(AS.Element("Time").Value);
-            return stations;           
+            List<AdjacentStations> listAS = XMLTools.LoadListFromXMLSerializer<AdjacentStations>(AdjacentStationsPath);
+            AdjacentStations As = listAS.Find(a => a.Station1 == A.Code && a.Station2 == B.Code);
+            if (As == null) throw new AdjacentStationsException(A.Code, B.Code, "This station does not exsits.");
+            return As;           
         }
         public IEnumerable<AdjacentStations> GetALLAdjacentStations()
         {
-            XElement AdjacentStationsList = XMLTools.LoadListFromXMLElement(AdjacentStationsPath);
-            return (from aS in AdjacentStationsList.Elements()
-                    select new AdjacentStations()
-                    {
-                        Station1 = int.Parse(aS.Element("Station1").Value),
-                        Station2 = int.Parse(aS.Element("Station2").Value),
-                        Distance = double.Parse(aS.Element("Distance").Value),
-                        Time = TimeSpan.Parse(aS.Element("Time").Value)
-                    });
+            List<AdjacentStations> listAS = XMLTools.LoadListFromXMLSerializer<AdjacentStations>(AdjacentStationsPath);
+            return from Astation in listAS
+                   select Astation;           
         }
         #endregion
         #region Buses
         public Bus GetBus(int LicenseNum)
         {
-            throw new NotImplementedException();
+            XElement BusesList = XMLTools.LoadListFromXMLElement(BusPath);
+            XElement Busi = (from Bus in BusesList.Elements()
+                             where int.Parse(Bus.Element("LicenseNum").Value) == LicenseNum
+                             select Bus).FirstOrDefault();
+            if (Busi == null)
+                throw new DalApi.DO.BadBusException(LicenseNum, "This bus does not exists.");
+            return new Bus() { FromDate = DateTime.Parse(Busi.Element("FromDate").Value),LicenseNum=int.Parse(Busi.Element("LicenseNumber").Value), FuelRemain=double.Parse(Busi.Element("FuelRemain").Value), Status =(BusStatus)int.Parse( Busi.Element("Status").Value), TotalTrip=double.Parse(Busi.Element("TotalTrip").Value) };
         }
         public void AddBus(Bus bus)
         {
-            throw new NotImplementedException();
+            XElement BusesList = XMLTools.LoadListFromXMLElement(BusPath);
+            XElement Busi = (from Bus in BusesList.Elements()
+                           where int.Parse(Bus.Element("LicenseNum").Value) == bus.LicenseNum 
+                           select Bus).FirstOrDefault();
+            if (Busi != null)
+                throw new DalApi.DO.BadBusException(bus.LicenseNum,"Dolpicate bus");
+            XElement AddBusElement = new XElement("Bus", new XElement("LicenseNumber", bus.LicenseNum),
+                new XElement("FromDate", bus.FromDate), new XElement("FuelRemain", bus.FuelRemain), new XElement("TotalTrip", bus.TotalTrip),new XElement("Status",(int) bus.Status));
+            BusesList.Add(AddBusElement);
+            XMLTools.SaveListToXMLElement(BusesList, BusPath);
         }
         public void DeleteBus(int LicenseNum)
         {
-            throw new NotImplementedException();
+            XElement BusesList = XMLTools.LoadListFromXMLElement(BusPath);
+            XElement Busi = (from Bus in BusesList.Elements()
+                             where int.Parse(Bus.Element("LicenseNumber").Value) == LicenseNum
+                             select Bus).FirstOrDefault();
+            if (Busi == null)
+                throw new DalApi.DO.BadBusException(LicenseNum, "Dolpicate bus");
+            Busi.Remove();
+            XMLTools.SaveListToXMLElement(BusesList, BusPath);
         }
         public IEnumerable<Bus> GetAllBuses()
         {
-            throw new NotImplementedException();
+            XElement BusesList = XMLTools.LoadListFromXMLElement(BusPath);
+            return from bus in BusesList.Elements()
+            select (GetBus(int.Parse(bus.Element("LicenseNumber").Value)));
         }
         #endregion 
         #region BusOnTrip

@@ -17,7 +17,7 @@ using BlApi;
 namespace PlGui
 {
    
-    /// <summary>
+    /// <summary> 
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
@@ -30,7 +30,7 @@ namespace PlGui
             InitializeComponent();
             //Simulation simulation = new Simulation();
             //simulation.Show();
-            //BootVariablesRandomly();
+           // BootVariablesRandomly();
         }
         void BootVariablesRandomly()
         {
@@ -54,19 +54,28 @@ namespace PlGui
             //LineStations
             for (int i = 1; i < 10; i++)
             {
-                for (int j = 1; j < Bl.GetsAllLines().Count()+1; j++)
+                for (int j = 1; j < Bl.GetsAllLines().Count() + 1; j++)
                 {
                     int stationnum = random.Next(0, 100);
-                    double distance= random.Next(0, 100000);
+                    double distance = random.Next(0, 100000);
                     int minute = random.Next(0, 60);
-                    int second= random.Next(0, 60);
-                    int hour= random.Next(0, 24);
+                    int second = random.Next(0, 60);
+                    int hour = random.Next(0, 24);
                     if (Bl.GetLine(j).PassingThrough.ToList().Find(s => s.Code == stationnum) == null)
-                        Bl.AddStationToLine(j, stationnum, i,distance,TimeSpan.Parse(string.Format("{0}:{1}:{2}",hour,minute,second)));
+                    {
+                        try
+                        {
+                            Bl.AddStationToLine(j, stationnum, i, distance, TimeSpan.Parse(string.Format("{0}:{1}:{2}", hour, minute, second)));
+                        }
+                        catch (Exception ex)
+                        {
+                            --i;
+                        }
+                        }
                     else --i;
                 }
-                
             }
+
         }
 
 
