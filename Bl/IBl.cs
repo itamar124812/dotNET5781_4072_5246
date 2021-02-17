@@ -37,7 +37,7 @@ namespace BlApi
         bool IsAdmin(string Name);
         #endregion
         #region Clock
-        void StartSimulator(TimeSpan startTime, int Rate, Action<TimeSpan> updateTime);
+        void StartSimulator( TimeSpan startTime, int Rate, Action<TimeSpan> updateTime);
         void StopSimulator();
         #endregion
         #region LinesTrips

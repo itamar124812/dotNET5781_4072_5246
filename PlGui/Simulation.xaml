@@ -6,47 +6,12 @@
         xmlns:local="clr-namespace:PlGui"
         mc:Ignorable="d"
         Title="Simulation" Height="450" Width="800">
+    <Window.Resources>
+        <local:ConverterFromTimeSpanToString x:Key="Convertor"/>
+    </Window.Resources>
     <Grid>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black" Offset="0.438"/>
-                <GradientStop Color="White" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-        <TextBox x:Name="HourTB" MaxLength="2" HorizontalAlignment="Left" Height="24" Margin="306,26,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.068,0.225" FontSize="16" FontWeight="Bold" Background="Black" Foreground="White"/>
-        <TextBox x:Name="MinutesTB" MaxLength="2" HorizontalAlignment="Left" Height="24" Margin="391,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="53" RenderTransformOrigin="1.374,0.385" Background="#FF1B1B1C" Foreground="White" FontWeight="Bold" FontSize="16"/>
-        <TextBox x:Name="SecondTB" MaxLength="2" HorizontalAlignment="Left" Height="24" Margin="467,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.56,0.518" FontSize="16" FontWeight="Bold" Foreground="White" BorderBrush="#FFC3C3C3" Background="#FF1B1B1C"/>
-        <TextBox x:Name="SpeedTB" HorizontalAlignment="Left" Height="23" Margin="402,59,0,0" TextWrapping="Wrap" MaxLength="6" VerticalAlignment="Top" Width="125" Foreground="Black" Background="#FFFFA000" FontSize="18" FontWeight="Bold"/>
-        <TextBlock x:Name="Commit" HorizontalAlignment="Left" Margin="370,82,0,0" TextWrapping="Wrap" Text="Each number you enter will be the seconds of a real clock" VerticalAlignment="Top" Height="27" Width="219" FontFamily="SimSun-ExtB" Background="Black" Foreground="White"/>
-        <TextBlock x:Name="TimeTextBlock" HorizontalAlignment="Left" Margin="236,27,0,0" TextWrapping="Wrap" Text="Clock:" VerticalAlignment="Top" Height="22" Width="65" Background="Black" Foreground="White" FontSize="16" FontWeight="Bold"/>
-        <TextBlock x:Name="speedTextBlock" HorizontalAlignment="Left" Margin="273,59,0,0" TextWrapping="Wrap" Text="speed Simolator:" VerticalAlignment="Top" Height="23" Width="129" Foreground="White" Background="Black" FontSize="16" FontWeight="Bold"/>
-        <Button x:Name="StartStopB" Content="Start" HorizontalAlignment="Left" Height="34" Margin="306,298,0,0" VerticalAlignment="Top" Width="179" Click="StartStopB_Click" FontWeight="Bold" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="370,27,0,0" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Width="16" Height="23" RenderTransformOrigin="7.025,0.478" FontWeight="Bold" FontSize="18" Background="Black" Foreground="#FFFBFCFC"/>
-        <TextBlock HorizontalAlignment="Left" Margin="449,26,0,0" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Width="18" Height="23" RenderTransformOrigin="-0.589,0.6" FontSize="18" FontWeight="Bold" Background="Black" Foreground="#FFFBFCFC"/>
-
-        <Button x:Name="ReturnToMainWinButton" Content="return to Menu" HorizontalAlignment="Left" Margin="0,336,0,0" VerticalAlignment="Top" Width="140" Height="34" Click="ReturnToMainWinButton_Click"/>
-        <ListView x:Name="SimulationLV"  HorizontalAlignment="Left" Height="239" Margin="85,59,0,0" VerticalAlignment="Top" Width="646" Foreground="Black">
-            <ListView.Background>
-                <ImageBrush ImageSource="/Images/sands-of-time1.jpg" Opacity="0.55"/>
-            </ListView.Background>
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn  Header="ID number" Width="70" DisplayMemberBinding="{Binding LineId }" />
-                    <GridViewColumn  Header="Time start line" Width="100" DisplayMemberBinding="{Binding StartAt }" />
-                    <GridViewColumn  Header="Next Staion At" Width="100" DisplayMemberBinding="{Binding NextStationTime }" />
-                    <GridViewColumn  Header="first Station" Width="70" DisplayMemberBinding="{Binding FirstStation }" />
-                    <GridViewColumn  Header="Next Staion" Width="100" DisplayMemberBinding="{Binding NextStation }" />
-                    <GridViewColumn  Header="last Station" Width="70" DisplayMemberBinding="{Binding LastStation }" />
-                    <GridViewColumn Header="Progress" Width="100"  >
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <ProgressBar Value="{Binding NowStation}" x:Name="LineProgressBar"  Minimum="{Binding StartStation}" Maximum="{Binding CountStation}" HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="80" Foreground="#FFFF0044" Background="#FF3E3E40"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <Button Content="Go to station info" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="654,336,-0.4,0" Height="34" Click="Button_Click"/>
+        <TextBox Name="Clock" Margin="50" FontSize="20" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Text="{ Binding Path=StartTime,  Mode=OneWay,Converter={StaticResource ResourceKey=Convertor},UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Name="Rate" Margin="170,50" FontSize="20" VerticalAlignment="Top" Width="30" TextAlignment="Center"  Text="1" HorizontalAlignment="Left" TextChanged="input_cheke"></TextBox>
+        <Button Content="Start" Width="50" Height="30"  Margin="250,50" VerticalAlignment="Top" Background="LightCyan" HorizontalAlignment="Left" Name="OnOffButton" Click="OnOffButton_Click"/>
     </Grid>
 </Window>

@@ -419,17 +419,18 @@ namespace Bl
         #endregion
         #region Clock
         internal volatile bool flag;
-        public void StartSimulator(TimeSpan startTime, int Rate, Action<TimeSpan> updateTime)
+        public void StartSimulator( TimeSpan startTime, int Rate, Action<TimeSpan> updateTime)
         {
             flag = true;
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Restart();
+            TimeSpan sclock = startTime;
             new Thread(() =>
             {
                 while (flag)
                 {
                     //Sclock = startTime.Add(new TimeSpan(stopwatch.ElapsedTicks * Rate));
-                    updateTime(startTime);
+                    updateTime(sclock);                  
                     Thread.Sleep(1000);
                 }
                 stopwatch.Stop();

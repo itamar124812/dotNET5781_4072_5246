@@ -16,30 +16,57 @@ using System.Windows.Shapes;
 
 namespace PlGui
 {
+    public class Tools:INotifyPropertyChanged
+    {
+        public event PropertyChangedEventHandler PropertyChanged;
+        private TimeSpan time;
+        public TimeSpan StartTime
+        {
+            get => time; 
+            set
+            {
+                time = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("StartTime"));
+            }
+        }
+    }
     /// <summary>
     /// Interaction logic for Simulation.xaml
     /// </summary>
-    public partial class Simulation : Window,INotifyPropertyChanged
+    public partial class Simulation : Window
     {
         public bool StartOrStop = true;
         private BackgroundWorker worker = new BackgroundWorker();
         IBl bl = BlFactory.GetBl();
-        TimeSpan StartTime;
+        Tools tool = new Tools();
         int rate = 0;
-
-        public event PropertyChangedEventHandler PropertyChanged;
+        
+      
 
         public Simulation()
         {
             InitializeComponent();
-            worker.DoWork += Worker_DoWork;         
-            TimeSimulation.DataContext = StartTime;
+            worker.DoWork += Worker_DoWork;
+            worker.WorkerSupportsCancellation = true;
+            worker.WorkerReportsProgress = true;
+            worker.ProgressChanged += Worker_ProgressChanged;
+            Clock.DataContext = tool;
+        }
+
+        private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+           
         }
 
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
-        {                                
-            bl.StartSimulator(StartTime, rate, T => { T += TimeSpan.FromSeconds(rate);PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("StartTime")); });
+        {
+ 
+            bl.StartSimulator(tool.StartTime, rate, UpdateTime);
             StartOrStop = false;
+        }
+        void UpdateTime(TimeSpan T)
+        {
+            tool.StartTime+=TimeSpan.FromSeconds(rate);
         }
 
         private void Try_Text(object sender, TextCompositionEventArgs e)
@@ -62,22 +89,26 @@ namespace PlGui
             {
                 OnOffButton.Content = "Stop";
                 Rate.IsReadOnly = true;
-                TimeSimulation.IsReadOnly = true;
-                TimeSpan.TryParse(TimeSimulation.Text, out StartTime);
+                Clock.IsReadOnly = true;
+                try
+                {
+                    tool.StartTime = TimeSpan.Parse(Clock.Text);
+                }
+                catch(Exception ex)
+                {
+                    tool.StartTime = TimeSpan.Zero;
+                }
                 rate = int.Parse(Rate.Text);
                 worker.RunWorkerAsync();              
             }
             else
             {
+                worker.CancelAsync();
                 bl.StopSimulator();
                 Rate.IsReadOnly = false;
-                TimeSimulation.IsReadOnly = false;
+                Clock.IsReadOnly = false;
                 OnOffButton.Content = "Start";
-                StartOrStop = true;
-
-
-
-                
+                StartOrStop = true;               
             }
         }
     }

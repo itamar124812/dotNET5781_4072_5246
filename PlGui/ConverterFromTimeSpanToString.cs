@@ -14,9 +14,9 @@ namespace PlGui
         {
             TimeSpan time = (TimeSpan)value;
             int seconds =(int) time.TotalSeconds % 60;
-            int Munits = (int)time.TotalSeconds % 3600;
-            int hours = (int)time.TotalSeconds % (3600 * 60);
-            return string.Format("{0}:{1}:{2}", seconds, Munits, hours);
+            int Munits = (int)time.TotalMinutes % 60;
+            int hours = (int)time.TotalHours % 24;
+            return string.Format("{0,2:#00}:{1,2:#00}:{2,2:#00}",hours, Munits, seconds);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
