@@ -21,6 +21,10 @@ namespace Bl
         BlImp() { }
         public static BlImp Instance { get => instance; }
         #endregion
+        #region Travel Operator
+        public void SetStationPanel(int station, Action<LineTiming> updateBus) { }
+
+        #endregion
         #region LineBus
         public void UpdateLineCode(int ID,int NewCode)
         {
@@ -109,22 +113,22 @@ namespace Bl
                         if (index > 0 && index < lineStations.Count)
                         {
                             linestation.PrevStation = lineStations[index - 1].Station;
-                            //AdjacentStations adjacentStations = new AdjacentStations();
-                            //adjacentStations.Station1 = lineStations[index - 1].Station;
-                            //adjacentStations.Station2 = linestation.Station;
-                            //adjacentStations.Distance = distanceFromLastStation;
-                            //adjacentStations.Time = timeFromLastStation;
-                            //Dl.AddAdjacentStations(adjacentStations);
+                            AdjacentStations adjacentStations = new AdjacentStations();
+                            adjacentStations.Station1 = lineStations[index - 1].Station;
+                            adjacentStations.Station2 = linestation.Station;
+                            adjacentStations.Distance = distanceFromLastStation;
+                            adjacentStations.Time = timeFromLastStation;
+                            Dl.AddAdjacentStations(adjacentStations);
                         }
                         if (index >= 0 && index < lineStations.Count-1)
                         {
                             linestation.NextStation = lineStations[index + 1].Station;
-                            //AdjacentStations adjacentStations = new AdjacentStations();
-                            //adjacentStations.Station1 = lineStations[index + 1].Station;
-                            //adjacentStations.Station2 = linestation.Station;
-                            //adjacentStations.Distance = distanceFromLastStation;
-                            //adjacentStations.Time = timeFromLastStation;
-                            //Dl.AddAdjacentStations(adjacentStations);
+                            AdjacentStations adjacentStations = new AdjacentStations();
+                            adjacentStations.Station1 = lineStations[index + 1].Station;
+                            adjacentStations.Station2 = linestation.Station;
+                            adjacentStations.Distance = distanceFromLastStation;
+                            adjacentStations.Time = timeFromLastStation;
+                            Dl.AddAdjacentStations(adjacentStations);
                         }
                             GetLine(Id).PassingThrough = GetStationsInLine(StationNum);
                     }

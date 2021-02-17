@@ -62,6 +62,7 @@
     <Compile Include="BlImp.cs" />
     <Compile Include="Bo.cs" />
     <Compile Include="BO\BusStation.cs" />
+    <Compile Include="BO\LineTiming.cs" />
     <Compile Include="BO\ExceptionsBO.cs" />
     <Compile Include="BO\LineStation.cs" />
     <Compile Include="BO\LineBus.cs" />
