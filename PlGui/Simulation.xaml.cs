@@ -34,7 +34,7 @@ namespace PlGui
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
            
-            bl.StartSimulator();
+           // bl.StartSimulator();
         }
 
         private void Try_Text(object sender, TextCompositionEventArgs e)
