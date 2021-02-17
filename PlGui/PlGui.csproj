@@ -76,6 +76,7 @@
     <Compile Include="ManagementPresntationWindow.xaml.cs">
       <DependentUpon>ManagementPresntationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PO.cs" />
     <Compile Include="Simulation.xaml.cs">
       <DependentUpon>Simulation.xaml</DependentUpon>
     </Compile>
