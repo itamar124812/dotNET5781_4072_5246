@@ -19,22 +19,27 @@ namespace PlGui
     /// <summary>
     /// Interaction logic for Simulation.xaml
     /// </summary>
-    public partial class Simulation : Window
+    public partial class Simulation : Window,INotifyPropertyChanged
     {
-        public bool StartOrStop;
+        public bool StartOrStop = true;
         private BackgroundWorker worker = new BackgroundWorker();
         IBl bl = BlFactory.GetBl();
+        TimeSpan StartTime;
+        int rate = 0;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public Simulation()
         {
             InitializeComponent();
-            worker.DoWork += Worker_DoWork;
-            
+            worker.DoWork += Worker_DoWork;         
+            TimeSimulation.DataContext = StartTime;
         }
 
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
-        {
-           
-           // bl.StartSimulator();
+        {                                
+            bl.StartSimulator(StartTime, rate, T => { T += TimeSpan.FromSeconds(rate);PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("StartTime")); });
+            StartOrStop = false;
         }
 
         private void Try_Text(object sender, TextCompositionEventArgs e)
@@ -54,20 +59,20 @@ namespace PlGui
         private void OnOffButton_Click(object sender, RoutedEventArgs e)
         {
             if (StartOrStop)
-            {                
-                
-                worker.RunWorkerAsync();
-                OnOffButton.Content = "Start";
-                Rate.IsReadOnly = false;
-                TimeSimulation.IsReadOnly = false;
-                StartOrStop = false;
+            {
+                OnOffButton.Content = "Stop";
+                Rate.IsReadOnly = true;
+                TimeSimulation.IsReadOnly = true;
+                TimeSpan.TryParse(TimeSimulation.Text, out StartTime);
+                rate = int.Parse(Rate.Text);
+                worker.RunWorkerAsync();              
             }
             else
             {
-                TimeSpan time = TimeSpan.Zero;
-                Rate.IsReadOnly = true;
-                TimeSimulation.IsReadOnly = true;
-                OnOffButton.Content = "Stop";
+                bl.StopSimulator();
+                Rate.IsReadOnly = false;
+                TimeSimulation.IsReadOnly = false;
+                OnOffButton.Content = "Start";
                 StartOrStop = true;
             }
         }
