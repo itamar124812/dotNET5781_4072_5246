@@ -42,5 +42,11 @@ namespace PlGui
             mainWindow.Show();
             this.Close();
         }
+
+        private void StartSim_Click(object sender, RoutedEventArgs e)
+        {
+            Simulation simulation = new Simulation();
+            simulation.Show();
+        }
     }
 }

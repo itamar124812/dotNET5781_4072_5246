@@ -110,7 +110,7 @@ namespace Bl
                         linestation.LineStationIndex = index;
                         linestation.Station = StationNum;
                         List<DalApi.DO.LineStation> lineStations = Dl.GetsAllStationInLine(Id).ToList();
-                        if (index > 0 && index < lineStations.Count)
+                        if (index > 0 && index < lineStations.Count+1)
                         {
                             linestation.PrevStation = lineStations[index - 1].Station;
                             AdjacentStations adjacentStations = new AdjacentStations();
@@ -120,7 +120,7 @@ namespace Bl
                             adjacentStations.Time = timeFromLastStation;
                             Dl.AddAdjacentStations(adjacentStations);
                         }
-                        if (index >= 0 && index < lineStations.Count-1)
+                        if (index >= 0 && index < lineStations.Count)
                         {
                             linestation.NextStation = lineStations[index + 1].Station;
                             AdjacentStations adjacentStations = new AdjacentStations();
@@ -418,26 +418,27 @@ namespace Bl
         }
         #endregion
         #region Clock
-        bool flag = true;
+        internal volatile bool flag;
         public void StartSimulator(TimeSpan startTime, int Rate, Action<TimeSpan> updateTime)
         {
+            flag = true;
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Restart();
-            TimeSpan Sclock = new TimeSpan();
             new Thread(() =>
             {
                 while (flag)
                 {
-                    Sclock = startTime.Add(new TimeSpan(stopwatch.ElapsedTicks * Rate));
-                    updateTime(Sclock);
-                    Thread.Sleep(1000 / Rate);
+                    //Sclock = startTime.Add(new TimeSpan(stopwatch.ElapsedTicks * Rate));
+                    updateTime(startTime);
+                    Thread.Sleep(1000);
                 }
+                stopwatch.Stop();
             }).Start();
-           // stopwatch.Elapsed = startTime;
         }
         public void StopSimulator()
         {
             flag = false;
+
         }
         #endregion
     }

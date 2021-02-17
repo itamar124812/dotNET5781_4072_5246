@@ -15,13 +15,16 @@
             <WrapPanel>
             <Label  Content="Station Id:" FontSize="20" />
              <Label Content="{Binding Path=StationNumber}" FontSize="20"  />
-            </WrapPanel>
+             <Button Name="DeleteStation" Content="Delete Station" TextElement.FontSize="20" Background="Yellow" Visibility="Visible"  Width="150" VerticalAlignment="Top" HorizontalAlignment="Right" Click="DeleteStation_Click"/>
+                </WrapPanel>
             </ContentControl>
         </DataTemplate>
     </Window.Resources>
     <Grid>
         <StackPanel>
             <ListBox ItemsSource="{Binding}" ItemTemplate="{StaticResource ResourceKey=12 }" HorizontalAlignment="Left" VerticalAlignment="Top" Width="350"/>
+            <Button Content="Add Station" TextElement.FontSize="20" Background="Yellow" Visibility="Visible"  Width="150" Margin="0,50,200,50" VerticalAlignment="Top" HorizontalAlignment="Right" Click="Button_Click"/>
+            
         </StackPanel>
     </Grid>
 </Window>

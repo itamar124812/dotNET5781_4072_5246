@@ -60,6 +60,7 @@
     <Compile Include="AddStation.xaml.cs">
       <DependentUpon>AddStation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ConverterFromTimeSpanToString.cs" />
     <Compile Include="LineForStation.xaml.cs">
       <DependentUpon>LineForStation.xaml</DependentUpon>
     </Compile>

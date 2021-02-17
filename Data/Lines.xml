@@ -5,69 +5,69 @@
     <Code>0</Code>
     <Area>North</Area>
     <FirstStation>0</FirstStation>
-    <LastStation>70</LastStation>
+    <LastStation>16</LastStation>
   </Line>
   <Line>
     <Id>2</Id>
     <Code>1</Code>
-    <Area>Central</Area>
+    <Area>North</Area>
     <FirstStation>0</FirstStation>
-    <LastStation>39</LastStation>
+    <LastStation>71</LastStation>
   </Line>
   <Line>
     <Id>3</Id>
     <Code>2</Code>
-    <Area>Central</Area>
+    <Area>South</Area>
     <FirstStation>0</FirstStation>
-    <LastStation>89</LastStation>
+    <LastStation>82</LastStation>
   </Line>
   <Line>
     <Id>4</Id>
     <Code>3</Code>
     <Area>Jerusalem</Area>
     <FirstStation>0</FirstStation>
-    <LastStation>54</LastStation>
+    <LastStation>77</LastStation>
   </Line>
   <Line>
     <Id>5</Id>
     <Code>4</Code>
-    <Area>South</Area>
+    <Area>North</Area>
     <FirstStation>0</FirstStation>
-    <LastStation>73</LastStation>
+    <LastStation>19</LastStation>
   </Line>
   <Line>
     <Id>6</Id>
     <Code>5</Code>
-    <Area>North</Area>
+    <Area>Jerusalem</Area>
     <FirstStation>0</FirstStation>
-    <LastStation>18</LastStation>
+    <LastStation>77</LastStation>
   </Line>
   <Line>
     <Id>7</Id>
     <Code>6</Code>
-    <Area>North</Area>
+    <Area>Jerusalem</Area>
     <FirstStation>0</FirstStation>
-    <LastStation>73</LastStation>
+    <LastStation>88</LastStation>
   </Line>
   <Line>
     <Id>8</Id>
     <Code>7</Code>
-    <Area>North</Area>
+    <Area>Central</Area>
     <FirstStation>0</FirstStation>
-    <LastStation>39</LastStation>
+    <LastStation>72</LastStation>
   </Line>
   <Line>
     <Id>9</Id>
     <Code>8</Code>
-    <Area>Central</Area>
+    <Area>North</Area>
     <FirstStation>0</FirstStation>
-    <LastStation>83</LastStation>
+    <LastStation>27</LastStation>
   </Line>
   <Line>
     <Id>10</Id>
     <Code>9</Code>
-    <Area>South</Area>
+    <Area>Central</Area>
     <FirstStation>0</FirstStation>
-    <LastStation>88</LastStation>
+    <LastStation>58</LastStation>
   </Line>
 </ArrayOfLine>
