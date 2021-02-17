@@ -2,602 +2,602 @@
 <ArrayOfStation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Station>
     <Code>0</Code>
-    <Name>Afula</Name>
-    <Longitude>34.359371008937885</Longitude>
-    <Latitude>32.605535870141132</Latitude>
+    <Name>Petah Tiqva</Name>
+    <Longitude>35.159033239101539</Longitude>
+    <Latitude>32.366631101661653</Latitude>
   </Station>
   <Station>
     <Code>1</Code>
     <Name>Jerusalem</Name>
-    <Longitude>34.495562794709372</Longitude>
-    <Latitude>31.301025073463574</Latitude>
+    <Longitude>35.195995935656128</Longitude>
+    <Latitude>32.329813901442016</Latitude>
   </Station>
   <Station>
     <Code>2</Code>
-    <Name>Rehovot</Name>
-    <Longitude>35.340619185678946</Longitude>
-    <Latitude>33.212584419414675</Latitude>
+    <Name>הרצליה-Herzliya</Name>
+    <Longitude>34.353911734024948</Longitude>
+    <Latitude>31.546216923485613</Latitude>
   </Station>
   <Station>
     <Code>3</Code>
-    <Name>Beer-Sheva</Name>
-    <Longitude>34.979119507912131</Longitude>
-    <Latitude>31.545406044947637</Latitude>
+    <Name>BnieBrak</Name>
+    <Longitude>34.578962187040112</Longitude>
+    <Latitude>32.76529925189228</Latitude>
   </Station>
   <Station>
     <Code>4</Code>
-    <Name>Acre</Name>
-    <Longitude>35.026563606190756</Longitude>
-    <Latitude>31.497386183961009</Latitude>
+    <Name>Rehovot</Name>
+    <Longitude>34.546099963898811</Longitude>
+    <Latitude>32.304499424576989</Latitude>
   </Station>
   <Station>
     <Code>5</Code>
-    <Name>הרצליה-Herzliya</Name>
-    <Longitude>34.883372193660293</Longitude>
-    <Latitude>31.862604086502735</Latitude>
+    <Name>Safed</Name>
+    <Longitude>34.905128119050119</Longitude>
+    <Latitude>31.29012582865084</Latitude>
   </Station>
   <Station>
     <Code>6</Code>
-    <Name>Eilat</Name>
-    <Longitude>35.367906767627176</Longitude>
-    <Latitude>32.331074398863628</Latitude>
+    <Name>Haifa</Name>
+    <Longitude>35.42090754356277</Longitude>
+    <Latitude>31.755491847803579</Latitude>
   </Station>
   <Station>
     <Code>7</Code>
-    <Name>Kfar Sava</Name>
-    <Longitude>35.464169123565853</Longitude>
-    <Latitude>31.926665196067962</Latitude>
+    <Name>Afula</Name>
+    <Longitude>34.661449368466364</Longitude>
+    <Latitude>32.871257767533535</Latitude>
   </Station>
   <Station>
     <Code>8</Code>
-    <Name>Ashdod</Name>
-    <Longitude>35.090933194379751</Longitude>
-    <Latitude>32.409383842213721</Latitude>
+    <Name>Petah Tiqva</Name>
+    <Longitude>35.212537337146948</Longitude>
+    <Latitude>32.560068163210559</Latitude>
   </Station>
   <Station>
     <Code>9</Code>
-    <Name>Petah Tiqva</Name>
-    <Longitude>34.567612060842855</Longitude>
-    <Latitude>33.014694627846914</Latitude>
+    <Name>Acre</Name>
+    <Longitude>34.774969828349988</Longitude>
+    <Latitude>32.112523395201436</Latitude>
   </Station>
   <Station>
     <Code>10</Code>
-    <Name>הרצליה-Herzliya</Name>
-    <Longitude>34.654598433316963</Longitude>
-    <Latitude>32.176436196210062</Latitude>
+    <Name>Safed</Name>
+    <Longitude>34.925372001074891</Longitude>
+    <Latitude>32.626023672160706</Latitude>
   </Station>
   <Station>
     <Code>11</Code>
-    <Name>Rishon le Zion</Name>
-    <Longitude>34.3573756164207</Longitude>
-    <Latitude>31.456069910645517</Latitude>
+    <Name>Petah Tiqva</Name>
+    <Longitude>35.431112212841917</Longitude>
+    <Latitude>32.191059169914134</Latitude>
   </Station>
   <Station>
     <Code>12</Code>
-    <Name>Eilat</Name>
-    <Longitude>35.4148053923225</Longitude>
-    <Latitude>32.871986815785981</Latitude>
+    <Name>Safed</Name>
+    <Longitude>35.442918882306159</Longitude>
+    <Latitude>32.2873145291057</Latitude>
   </Station>
   <Station>
     <Code>13</Code>
-    <Name>Bethlehem</Name>
-    <Longitude>35.471079007522704</Longitude>
-    <Latitude>31.733377212068707</Latitude>
+    <Name>Rehovot</Name>
+    <Longitude>34.701498271711863</Longitude>
+    <Latitude>32.364918807970788</Latitude>
   </Station>
   <Station>
     <Code>14</Code>
-    <Name>Beer-Sheva</Name>
-    <Longitude>34.3122353227866</Longitude>
-    <Latitude>31.356648977639455</Latitude>
+    <Name>BnieBrak</Name>
+    <Longitude>34.511746633710217</Longitude>
+    <Latitude>31.0457845952575</Latitude>
   </Station>
   <Station>
     <Code>15</Code>
-    <Name>Rosh Ha'ayin</Name>
-    <Longitude>34.497291097323078</Longitude>
-    <Latitude>32.877148828365442</Latitude>
+    <Name>Petah Tiqva</Name>
+    <Longitude>34.4087940857321</Longitude>
+    <Latitude>32.181743922262335</Latitude>
   </Station>
   <Station>
     <Code>16</Code>
-    <Name>Rosh Ha'ayin</Name>
-    <Longitude>34.34392319435436</Longitude>
-    <Latitude>32.830117024914415</Latitude>
+    <Name>הרצליה-Herzliya</Name>
+    <Longitude>34.64037564952875</Longitude>
+    <Latitude>31.244124998545331</Latitude>
   </Station>
   <Station>
     <Code>17</Code>
-    <Name>Safed</Name>
-    <Longitude>34.848039373824392</Longitude>
-    <Latitude>31.026015416172338</Latitude>
+    <Name>Haifa</Name>
+    <Longitude>35.442447433780153</Longitude>
+    <Latitude>31.486345433716824</Latitude>
   </Station>
   <Station>
     <Code>18</Code>
-    <Name>BnieBrak</Name>
-    <Longitude>34.654193395168605</Longitude>
-    <Latitude>32.355179227169224</Latitude>
+    <Name>Petah Tiqva</Name>
+    <Longitude>35.2367165221538</Longitude>
+    <Latitude>31.940522627551353</Latitude>
   </Station>
   <Station>
     <Code>19</Code>
-    <Name>הרצליה-Herzliya</Name>
-    <Longitude>34.921725859782526</Longitude>
-    <Latitude>32.225034107558912</Latitude>
+    <Name>Beer-Sheva</Name>
+    <Longitude>35.379867341685973</Longitude>
+    <Latitude>31.146202423864139</Latitude>
   </Station>
   <Station>
     <Code>20</Code>
     <Name>Rehovot</Name>
-    <Longitude>34.403246847774483</Longitude>
-    <Latitude>32.336877814837209</Latitude>
+    <Longitude>35.204535753887392</Longitude>
+    <Latitude>32.1200299701281</Latitude>
   </Station>
   <Station>
     <Code>21</Code>
-    <Name>Ashdod</Name>
-    <Longitude>35.170766877602212</Longitude>
-    <Latitude>31.521075613573693</Latitude>
+    <Name>Rosh Ha'ayin</Name>
+    <Longitude>34.37266551985995</Longitude>
+    <Latitude>31.727314039239339</Latitude>
   </Station>
   <Station>
     <Code>22</Code>
-    <Name>Rosh Pina</Name>
-    <Longitude>34.321556316512428</Longitude>
-    <Latitude>32.052682048246581</Latitude>
+    <Name>Eilat</Name>
+    <Longitude>34.359186219824096</Longitude>
+    <Latitude>31.607572686582603</Latitude>
   </Station>
   <Station>
     <Code>23</Code>
     <Name>Rosh Pina</Name>
-    <Longitude>34.973365532547867</Longitude>
-    <Latitude>32.682275199975017</Latitude>
+    <Longitude>34.979727634545284</Longitude>
+    <Latitude>31.629860657420878</Latitude>
   </Station>
   <Station>
     <Code>24</Code>
-    <Name>Haifa</Name>
-    <Longitude>34.6118420105017</Longitude>
-    <Latitude>31.672798180148376</Latitude>
+    <Name>Kfar Sava</Name>
+    <Longitude>35.182038107738848</Longitude>
+    <Latitude>31.05933480330712</Latitude>
   </Station>
   <Station>
     <Code>25</Code>
-    <Name>Beer-Sheva</Name>
-    <Longitude>34.597399766136611</Longitude>
-    <Latitude>32.082021475435248</Latitude>
+    <Name>Afula</Name>
+    <Longitude>35.252420785535321</Longitude>
+    <Latitude>31.595203508341314</Latitude>
   </Station>
   <Station>
     <Code>26</Code>
-    <Name>הרצליה-Herzliya</Name>
-    <Longitude>35.255948702877362</Longitude>
-    <Latitude>32.450159455579779</Latitude>
+    <Name>Rehovot</Name>
+    <Longitude>34.497386560494725</Longitude>
+    <Latitude>31.630731883705934</Latitude>
   </Station>
   <Station>
     <Code>27</Code>
-    <Name>Acre</Name>
-    <Longitude>34.396301358051737</Longitude>
-    <Latitude>32.344631050175352</Latitude>
+    <Name>Afula</Name>
+    <Longitude>34.753077424342308</Longitude>
+    <Latitude>33.2237620761263</Latitude>
   </Station>
   <Station>
     <Code>28</Code>
-    <Name>Safed</Name>
-    <Longitude>34.900219537410983</Longitude>
-    <Latitude>32.650264313421332</Latitude>
+    <Name>Rosh Pina</Name>
+    <Longitude>34.89461473310115</Longitude>
+    <Latitude>32.635369776997422</Latitude>
   </Station>
   <Station>
     <Code>29</Code>
-    <Name>Bethlehem</Name>
-    <Longitude>35.030899487031107</Longitude>
-    <Latitude>32.50215727905843</Latitude>
+    <Name>Acre</Name>
+    <Longitude>34.430714717754491</Longitude>
+    <Latitude>33.096275506865361</Latitude>
   </Station>
   <Station>
     <Code>30</Code>
-    <Name>Petah Tiqva</Name>
-    <Longitude>34.637540543422816</Longitude>
-    <Latitude>31.79945872556393</Latitude>
+    <Name>TelAviv</Name>
+    <Longitude>34.895362837517332</Longitude>
+    <Latitude>33.281437567007465</Latitude>
   </Station>
   <Station>
     <Code>31</Code>
-    <Name>Jerusalem</Name>
-    <Longitude>35.185130120294694</Longitude>
-    <Latitude>32.652317288169783</Latitude>
+    <Name>Kfar Sava</Name>
+    <Longitude>34.427768089309225</Longitude>
+    <Latitude>32.847573422057359</Latitude>
   </Station>
   <Station>
     <Code>32</Code>
-    <Name>Ashdod</Name>
-    <Longitude>35.414212189947349</Longitude>
-    <Latitude>31.254762997783146</Latitude>
+    <Name>Afula</Name>
+    <Longitude>35.144419420531214</Longitude>
+    <Latitude>31.032449208308222</Latitude>
   </Station>
   <Station>
     <Code>33</Code>
-    <Name>Afula</Name>
-    <Longitude>34.730156580931578</Longitude>
-    <Latitude>32.560091767441527</Latitude>
+    <Name>TelAviv</Name>
+    <Longitude>34.5995676012242</Longitude>
+    <Latitude>31.82148508560913</Latitude>
   </Station>
   <Station>
     <Code>34</Code>
-    <Name>הרצליה-Herzliya</Name>
-    <Longitude>34.377134865185774</Longitude>
-    <Latitude>31.351668091840889</Latitude>
+    <Name>Rosh Ha'ayin</Name>
+    <Longitude>35.298746612760581</Longitude>
+    <Latitude>31.345778736074351</Latitude>
   </Station>
   <Station>
     <Code>35</Code>
-    <Name>Acre</Name>
-    <Longitude>35.162548123142933</Longitude>
-    <Latitude>31.323560468351264</Latitude>
+    <Name>Eilat</Name>
+    <Longitude>34.522788154996363</Longitude>
+    <Latitude>33.173899313655632</Latitude>
   </Station>
   <Station>
     <Code>36</Code>
-    <Name>TelAviv</Name>
-    <Longitude>34.442517087861205</Longitude>
-    <Latitude>33.131898707212834</Latitude>
+    <Name>Beer-Sheva</Name>
+    <Longitude>34.480166496979145</Longitude>
+    <Latitude>31.726344505011266</Latitude>
   </Station>
   <Station>
     <Code>37</Code>
     <Name>Rosh Ha'ayin</Name>
-    <Longitude>35.382543296684759</Longitude>
-    <Latitude>31.274597162136153</Latitude>
+    <Longitude>35.2472020209521</Longitude>
+    <Latitude>31.666772177101471</Latitude>
   </Station>
   <Station>
     <Code>38</Code>
-    <Name>TelAviv</Name>
-    <Longitude>35.495954833736619</Longitude>
-    <Latitude>31.021059381273137</Latitude>
+    <Name>Petah Tiqva</Name>
+    <Longitude>34.924139770783547</Longitude>
+    <Latitude>31.727787748597464</Latitude>
   </Station>
   <Station>
     <Code>39</Code>
-    <Name>Eilat</Name>
-    <Longitude>34.9108580696447</Longitude>
-    <Latitude>32.052859995166237</Latitude>
+    <Name>Rosh Pina</Name>
+    <Longitude>35.02623178899578</Longitude>
+    <Latitude>32.234999809802979</Latitude>
   </Station>
   <Station>
     <Code>40</Code>
-    <Name>Petah Tiqva</Name>
-    <Longitude>35.265491183924247</Longitude>
-    <Latitude>31.992760528946651</Latitude>
+    <Name>Haifa</Name>
+    <Longitude>34.723285485069866</Longitude>
+    <Latitude>31.327109102451757</Latitude>
   </Station>
   <Station>
     <Code>41</Code>
-    <Name>Ashdod</Name>
-    <Longitude>34.760599899692735</Longitude>
-    <Latitude>32.8515110563261</Latitude>
+    <Name>BnieBrak</Name>
+    <Longitude>34.638307699346122</Longitude>
+    <Latitude>31.231134782373502</Latitude>
   </Station>
   <Station>
     <Code>42</Code>
-    <Name>הרצליה-Herzliya</Name>
-    <Longitude>34.988946552336657</Longitude>
-    <Latitude>31.336350598529144</Latitude>
+    <Name>Kfar Sava</Name>
+    <Longitude>34.567005938043351</Longitude>
+    <Latitude>32.148385584237232</Latitude>
   </Station>
   <Station>
     <Code>43</Code>
-    <Name>Afula</Name>
-    <Longitude>34.731613118775009</Longitude>
-    <Latitude>31.055574900682817</Latitude>
+    <Name>BnieBrak</Name>
+    <Longitude>34.593610939147695</Longitude>
+    <Latitude>31.043022945217334</Latitude>
   </Station>
   <Station>
     <Code>44</Code>
-    <Name>Rishon le Zion</Name>
-    <Longitude>35.442644011202567</Longitude>
-    <Latitude>32.553391931556817</Latitude>
+    <Name>Haifa</Name>
+    <Longitude>35.400476590311371</Longitude>
+    <Latitude>31.020358106736261</Latitude>
   </Station>
   <Station>
     <Code>45</Code>
-    <Name>TelAviv</Name>
-    <Longitude>34.818067630435365</Longitude>
-    <Latitude>31.800989022804885</Latitude>
+    <Name>Rosh Pina</Name>
+    <Longitude>35.279817394809712</Longitude>
+    <Latitude>32.445426155554792</Latitude>
   </Station>
   <Station>
     <Code>46</Code>
-    <Name>Bethlehem</Name>
-    <Longitude>34.992193310471336</Longitude>
-    <Latitude>32.635168142307165</Latitude>
+    <Name>Ashdod</Name>
+    <Longitude>35.219028067830493</Longitude>
+    <Latitude>31.9083968140224</Latitude>
   </Station>
   <Station>
     <Code>47</Code>
-    <Name>הרצליה-Herzliya</Name>
-    <Longitude>35.171439254875963</Longitude>
-    <Latitude>32.476526584325605</Latitude>
+    <Name>Beer-Sheva</Name>
+    <Longitude>35.014746609663007</Longitude>
+    <Latitude>31.809820879069072</Latitude>
   </Station>
   <Station>
     <Code>48</Code>
-    <Name>Petah Tiqva</Name>
-    <Longitude>34.573840815701445</Longitude>
-    <Latitude>32.62224480175518</Latitude>
+    <Name>Rosh Ha'ayin</Name>
+    <Longitude>35.142434116472693</Longitude>
+    <Latitude>31.402691578633473</Latitude>
   </Station>
   <Station>
     <Code>49</Code>
-    <Name>Bethlehem</Name>
-    <Longitude>35.151091081859121</Longitude>
-    <Latitude>32.585662886633379</Latitude>
+    <Name>Kfar Sava</Name>
+    <Longitude>34.884236003544288</Longitude>
+    <Latitude>31.729427288905452</Latitude>
   </Station>
   <Station>
     <Code>50</Code>
-    <Name>Petah Tiqva</Name>
-    <Longitude>35.083601566582729</Longitude>
-    <Latitude>33.033366117548837</Latitude>
+    <Name>BnieBrak</Name>
+    <Longitude>34.8725822948723</Longitude>
+    <Latitude>31.470549694202166</Latitude>
   </Station>
   <Station>
     <Code>51</Code>
-    <Name>Rosh Pina</Name>
-    <Longitude>34.5959989070408</Longitude>
-    <Latitude>31.135932117903572</Latitude>
+    <Name>Haifa</Name>
+    <Longitude>34.557935295560362</Longitude>
+    <Latitude>32.266974793591992</Latitude>
   </Station>
   <Station>
     <Code>52</Code>
-    <Name>Rehovot</Name>
-    <Longitude>34.717473235920757</Longitude>
-    <Latitude>32.696399406714548</Latitude>
+    <Name>Rosh Pina</Name>
+    <Longitude>34.359814236713483</Longitude>
+    <Latitude>31.23217803069026</Latitude>
   </Station>
   <Station>
     <Code>53</Code>
-    <Name>Afula</Name>
-    <Longitude>35.493326888602844</Longitude>
-    <Latitude>31.449904289306097</Latitude>
+    <Name>Beer-Sheva</Name>
+    <Longitude>34.835050641435686</Longitude>
+    <Latitude>32.487876167748063</Latitude>
   </Station>
   <Station>
     <Code>54</Code>
-    <Name>Bethlehem</Name>
-    <Longitude>35.383299377320007</Longitude>
-    <Latitude>32.551513823471737</Latitude>
+    <Name>Haifa</Name>
+    <Longitude>34.656515596414224</Longitude>
+    <Latitude>32.3534336729224</Latitude>
   </Station>
   <Station>
     <Code>55</Code>
-    <Name>Beer-Sheva</Name>
-    <Longitude>34.832802728997912</Longitude>
-    <Latitude>32.674411601281918</Latitude>
+    <Name>Jerusalem</Name>
+    <Longitude>34.637259514973152</Longitude>
+    <Latitude>33.062897545594211</Latitude>
   </Station>
   <Station>
     <Code>56</Code>
-    <Name>Rosh Pina</Name>
-    <Longitude>35.093080187026914</Longitude>
-    <Latitude>31.651637983672153</Latitude>
+    <Name>Rosh Ha'ayin</Name>
+    <Longitude>35.125579961587476</Longitude>
+    <Latitude>32.887268492014741</Latitude>
   </Station>
   <Station>
     <Code>57</Code>
-    <Name>Haifa</Name>
-    <Longitude>35.196187053665604</Longitude>
-    <Latitude>33.276576410642164</Latitude>
+    <Name>Safed</Name>
+    <Longitude>34.470401563015947</Longitude>
+    <Latitude>32.911161076096427</Latitude>
   </Station>
   <Station>
     <Code>58</Code>
-    <Name>BnieBrak</Name>
-    <Longitude>35.247600318932719</Longitude>
-    <Latitude>32.021345524686083</Latitude>
+    <Name>Bethlehem</Name>
+    <Longitude>35.248150377417048</Longitude>
+    <Latitude>31.586929733253516</Latitude>
   </Station>
   <Station>
     <Code>59</Code>
-    <Name>Afula</Name>
-    <Longitude>34.419617176297869</Longitude>
-    <Latitude>33.112692658096876</Latitude>
+    <Name>Kfar Sava</Name>
+    <Longitude>35.410492106299145</Longitude>
+    <Latitude>33.25768628914733</Latitude>
   </Station>
   <Station>
     <Code>60</Code>
-    <Name>Jerusalem</Name>
-    <Longitude>34.848184893163</Longitude>
-    <Latitude>33.071586506241744</Latitude>
+    <Name>Rosh Ha'ayin</Name>
+    <Longitude>34.518586936694838</Longitude>
+    <Latitude>31.836057629220214</Latitude>
   </Station>
   <Station>
     <Code>61</Code>
-    <Name>Rosh Ha'ayin</Name>
-    <Longitude>34.468108930330772</Longitude>
-    <Latitude>32.796945156993786</Latitude>
+    <Name>Bethlehem</Name>
+    <Longitude>35.276942565747042</Longitude>
+    <Latitude>31.097063258149223</Latitude>
   </Station>
   <Station>
     <Code>62</Code>
     <Name>Rosh Ha'ayin</Name>
-    <Longitude>35.039544250601686</Longitude>
-    <Latitude>33.069680790449347</Latitude>
+    <Longitude>34.8495912938144</Longitude>
+    <Latitude>33.280476322481633</Latitude>
   </Station>
   <Station>
     <Code>63</Code>
-    <Name>BnieBrak</Name>
-    <Longitude>35.032829364916694</Longitude>
-    <Latitude>33.033826222798709</Latitude>
+    <Name>Bethlehem</Name>
+    <Longitude>34.932999021668451</Longitude>
+    <Latitude>31.041278949306012</Latitude>
   </Station>
   <Station>
     <Code>64</Code>
-    <Name>Kfar Sava</Name>
-    <Longitude>34.918398532000552</Longitude>
-    <Latitude>31.771710427464782</Latitude>
+    <Name>Afula</Name>
+    <Longitude>35.197662945882257</Longitude>
+    <Latitude>33.2882928048206</Latitude>
   </Station>
   <Station>
     <Code>65</Code>
-    <Name>Safed</Name>
-    <Longitude>35.460876223054186</Longitude>
-    <Latitude>32.464467199968389</Latitude>
+    <Name>Ashdod</Name>
+    <Longitude>35.216375933641743</Longitude>
+    <Latitude>31.797418358874236</Latitude>
   </Station>
   <Station>
     <Code>66</Code>
-    <Name>Bethlehem</Name>
-    <Longitude>35.472782539377349</Longitude>
-    <Latitude>32.681833657660441</Latitude>
+    <Name>Petah Tiqva</Name>
+    <Longitude>34.633805582455267</Longitude>
+    <Latitude>31.1226526039758</Latitude>
   </Station>
   <Station>
     <Code>67</Code>
-    <Name>TelAviv</Name>
-    <Longitude>34.787317340675422</Longitude>
-    <Latitude>31.987271092407067</Latitude>
+    <Name>Safed</Name>
+    <Longitude>34.895908937508196</Longitude>
+    <Latitude>32.919417823021959</Latitude>
   </Station>
   <Station>
     <Code>68</Code>
-    <Name>Haifa</Name>
-    <Longitude>35.3731076731687</Longitude>
-    <Latitude>31.404968826242243</Latitude>
+    <Name>Afula</Name>
+    <Longitude>34.748376670316034</Longitude>
+    <Latitude>33.030336389891026</Latitude>
   </Station>
   <Station>
     <Code>69</Code>
     <Name>Rishon le Zion</Name>
-    <Longitude>35.038045179069989</Longitude>
-    <Latitude>32.120654608831117</Latitude>
+    <Longitude>34.654806118437463</Longitude>
+    <Latitude>31.596052494876112</Latitude>
   </Station>
   <Station>
     <Code>70</Code>
-    <Name>Eilat</Name>
-    <Longitude>35.282803521017918</Longitude>
-    <Latitude>32.093675813588163</Latitude>
+    <Name>Afula</Name>
+    <Longitude>34.443213082544133</Longitude>
+    <Latitude>31.321507878099339</Latitude>
   </Station>
   <Station>
     <Code>71</Code>
-    <Name>Rosh Pina</Name>
-    <Longitude>34.653904930294445</Longitude>
-    <Latitude>32.207070439545006</Latitude>
+    <Name>Ashdod</Name>
+    <Longitude>34.640079237492792</Longitude>
+    <Latitude>33.232083550203633</Latitude>
   </Station>
   <Station>
     <Code>72</Code>
-    <Name>Bethlehem</Name>
-    <Longitude>35.371948869466756</Longitude>
-    <Latitude>31.643513358963428</Latitude>
+    <Name>הרצליה-Herzliya</Name>
+    <Longitude>34.955497607707741</Longitude>
+    <Latitude>31.523273541370067</Latitude>
   </Station>
   <Station>
     <Code>73</Code>
     <Name>Safed</Name>
-    <Longitude>35.293772596956124</Longitude>
-    <Latitude>31.120543799046679</Latitude>
+    <Longitude>35.386480638145692</Longitude>
+    <Latitude>31.317259917649096</Latitude>
   </Station>
   <Station>
     <Code>74</Code>
-    <Name>TelAviv</Name>
-    <Longitude>34.778858310020922</Longitude>
-    <Latitude>31.562070514197494</Latitude>
+    <Name>Acre</Name>
+    <Longitude>35.263124978804548</Longitude>
+    <Latitude>31.391352927121964</Latitude>
   </Station>
   <Station>
     <Code>75</Code>
-    <Name>Eilat</Name>
-    <Longitude>35.08514746948385</Longitude>
-    <Latitude>32.106477883507722</Latitude>
+    <Name>Petah Tiqva</Name>
+    <Longitude>35.303235619796084</Longitude>
+    <Latitude>33.154945167598754</Latitude>
   </Station>
   <Station>
     <Code>76</Code>
-    <Name>Safed</Name>
-    <Longitude>35.2688060824614</Longitude>
-    <Latitude>31.804613479834334</Latitude>
+    <Name>TelAviv</Name>
+    <Longitude>35.390179847502232</Longitude>
+    <Latitude>32.194517064976743</Latitude>
   </Station>
   <Station>
     <Code>77</Code>
-    <Name>Afula</Name>
-    <Longitude>34.5247960002277</Longitude>
-    <Latitude>31.586331432026967</Latitude>
+    <Name>Rehovot</Name>
+    <Longitude>35.413930618350356</Longitude>
+    <Latitude>32.054756735802982</Latitude>
   </Station>
   <Station>
     <Code>78</Code>
-    <Name>TelAviv</Name>
-    <Longitude>34.86572978113113</Longitude>
-    <Latitude>31.854298578134877</Latitude>
+    <Name>Rosh Ha'ayin</Name>
+    <Longitude>34.93476859453822</Longitude>
+    <Latitude>31.365506380966636</Latitude>
   </Station>
   <Station>
     <Code>79</Code>
-    <Name>Eilat</Name>
-    <Longitude>35.026248520392109</Longitude>
-    <Latitude>32.878035436653548</Latitude>
+    <Name>Rishon le Zion</Name>
+    <Longitude>34.4913357573521</Longitude>
+    <Latitude>33.154551627372648</Latitude>
   </Station>
   <Station>
     <Code>80</Code>
-    <Name>TelAviv</Name>
-    <Longitude>34.795144094757333</Longitude>
-    <Latitude>32.841144325277369</Latitude>
+    <Name>Acre</Name>
+    <Longitude>35.178829823098532</Longitude>
+    <Latitude>31.99445849880318</Latitude>
   </Station>
   <Station>
     <Code>81</Code>
-    <Name>Safed</Name>
-    <Longitude>34.790513256979409</Longitude>
-    <Latitude>31.571639155769553</Latitude>
+    <Name>Petah Tiqva</Name>
+    <Longitude>35.3537936023687</Longitude>
+    <Latitude>31.63778305516475</Latitude>
   </Station>
   <Station>
     <Code>82</Code>
-    <Name>Eilat</Name>
-    <Longitude>35.272855645871182</Longitude>
-    <Latitude>32.921915141875814</Latitude>
+    <Name>Rishon le Zion</Name>
+    <Longitude>34.329326567626239</Longitude>
+    <Latitude>32.477138636390279</Latitude>
   </Station>
   <Station>
     <Code>83</Code>
-    <Name>BnieBrak</Name>
-    <Longitude>34.728323743133025</Longitude>
-    <Latitude>31.102971817321595</Latitude>
+    <Name>Eilat</Name>
+    <Longitude>34.443032078697826</Longitude>
+    <Latitude>31.129401299836765</Latitude>
   </Station>
   <Station>
     <Code>84</Code>
-    <Name>Afula</Name>
-    <Longitude>35.114586013189786</Longitude>
-    <Latitude>31.139819741919553</Latitude>
+    <Name>Petah Tiqva</Name>
+    <Longitude>35.398465749387846</Longitude>
+    <Latitude>32.8757611332814</Latitude>
   </Station>
   <Station>
     <Code>85</Code>
-    <Name>TelAviv</Name>
-    <Longitude>34.521843779935423</Longitude>
-    <Latitude>33.199910915922331</Latitude>
+    <Name>Rosh Ha'ayin</Name>
+    <Longitude>35.09725125003478</Longitude>
+    <Latitude>32.375220562319839</Latitude>
   </Station>
   <Station>
     <Code>86</Code>
-    <Name>Eilat</Name>
-    <Longitude>35.13399527447018</Longitude>
-    <Latitude>33.295706806050475</Latitude>
+    <Name>Rosh Pina</Name>
+    <Longitude>35.434986724674225</Longitude>
+    <Latitude>32.468310612239087</Latitude>
   </Station>
   <Station>
     <Code>87</Code>
-    <Name>Safed</Name>
-    <Longitude>34.464891023824407</Longitude>
-    <Latitude>32.551783149899812</Latitude>
+    <Name>Petah Tiqva</Name>
+    <Longitude>35.187757615599665</Longitude>
+    <Latitude>33.16476405321842</Latitude>
   </Station>
   <Station>
     <Code>88</Code>
-    <Name>Rehovot</Name>
-    <Longitude>34.564701416466711</Longitude>
-    <Latitude>32.459876110106649</Latitude>
+    <Name>Acre</Name>
+    <Longitude>35.1174353785894</Longitude>
+    <Latitude>31.916186742538674</Latitude>
   </Station>
   <Station>
     <Code>89</Code>
-    <Name>Safed</Name>
-    <Longitude>34.484054884213975</Longitude>
-    <Latitude>31.289457726846198</Latitude>
+    <Name>Bethlehem</Name>
+    <Longitude>35.273866349167122</Longitude>
+    <Latitude>32.097551579260056</Latitude>
   </Station>
   <Station>
     <Code>90</Code>
-    <Name>Ashdod</Name>
-    <Longitude>34.855901524683411</Longitude>
-    <Latitude>32.119859348991817</Latitude>
+    <Name>Petah Tiqva</Name>
+    <Longitude>34.648898389911693</Longitude>
+    <Latitude>32.329755935645551</Latitude>
   </Station>
   <Station>
     <Code>91</Code>
-    <Name>Petah Tiqva</Name>
-    <Longitude>34.602295377618766</Longitude>
-    <Latitude>32.188695947168718</Latitude>
+    <Name>Acre</Name>
+    <Longitude>35.146679001136995</Longitude>
+    <Latitude>31.097763675869331</Latitude>
   </Station>
   <Station>
     <Code>92</Code>
-    <Name>Beer-Sheva</Name>
-    <Longitude>35.495007665266748</Longitude>
-    <Latitude>32.900872196490354</Latitude>
+    <Name>Haifa</Name>
+    <Longitude>35.371427759282021</Longitude>
+    <Latitude>32.519692504415147</Latitude>
   </Station>
   <Station>
     <Code>93</Code>
-    <Name>Jerusalem</Name>
-    <Longitude>35.074554473894906</Longitude>
-    <Latitude>31.594597874905261</Latitude>
+    <Name>Safed</Name>
+    <Longitude>34.653638190195721</Longitude>
+    <Latitude>32.730357084856536</Latitude>
   </Station>
   <Station>
     <Code>94</Code>
-    <Name>Rishon le Zion</Name>
-    <Longitude>34.666073910876207</Longitude>
-    <Latitude>31.025481929921305</Latitude>
+    <Name>Bethlehem</Name>
+    <Longitude>34.855712573116506</Longitude>
+    <Latitude>33.137380241759764</Latitude>
   </Station>
   <Station>
     <Code>95</Code>
-    <Name>הרצליה-Herzliya</Name>
-    <Longitude>34.5329626209256</Longitude>
-    <Latitude>32.720777089391262</Latitude>
+    <Name>TelAviv</Name>
+    <Longitude>35.071649879576469</Longitude>
+    <Latitude>32.860884225862513</Latitude>
   </Station>
   <Station>
     <Code>96</Code>
-    <Name>Ashdod</Name>
-    <Longitude>34.797941388980455</Longitude>
-    <Latitude>33.238330664456974</Latitude>
+    <Name>Jerusalem</Name>
+    <Longitude>34.973192601033105</Longitude>
+    <Latitude>31.631276360774077</Latitude>
   </Station>
   <Station>
     <Code>97</Code>
-    <Name>Haifa</Name>
-    <Longitude>35.28208450292334</Longitude>
-    <Latitude>31.100449666846753</Latitude>
+    <Name>Eilat</Name>
+    <Longitude>34.658038790504463</Longitude>
+    <Latitude>33.280630244259086</Latitude>
   </Station>
   <Station>
     <Code>98</Code>
-    <Name>Ashdod</Name>
-    <Longitude>34.450971048023071</Longitude>
-    <Latitude>31.013495352498019</Latitude>
+    <Name>Beer-Sheva</Name>
+    <Longitude>34.889405797696391</Longitude>
+    <Latitude>33.076564286079517</Latitude>
   </Station>
   <Station>
     <Code>99</Code>
     <Name>Acre</Name>
-    <Longitude>35.036572023824121</Longitude>
-    <Latitude>31.445164951935954</Latitude>
+    <Longitude>35.354745902239692</Longitude>
+    <Latitude>32.7828045668466</Latitude>
   </Station>
 </ArrayOfStation>

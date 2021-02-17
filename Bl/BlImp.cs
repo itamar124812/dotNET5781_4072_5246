@@ -109,7 +109,7 @@ namespace Bl
                         linestation.LineStationIndex = index;
                         linestation.Station = StationNum;
                         List<DalApi.DO.LineStation> lineStations = Dl.GetsAllStationInLine(Id).ToList();
-                        if (index > 0 && index < lineStations.Count)
+                        if (index > 0 && index < lineStations.Count+1)
                         {
                             linestation.PrevStation = lineStations[index - 1].Station;
                             AdjacentStations adjacentStations = new AdjacentStations();
@@ -119,7 +119,7 @@ namespace Bl
                             adjacentStations.Time = timeFromLastStation;
                             Dl.AddAdjacentStations(adjacentStations);
                         }
-                        if (index >= 0 && index < lineStations.Count-1)
+                        if (index >= 0 && index < lineStations.Count)
                         {
                             linestation.NextStation = lineStations[index + 1].Station;
                             AdjacentStations adjacentStations = new AdjacentStations();

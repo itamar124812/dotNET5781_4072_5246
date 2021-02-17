@@ -40,5 +40,18 @@ namespace PlGui
             LineForStation lineForStation = new LineForStation((sender as ContentControl).DataContext as BusStation);
             lineForStation.Show();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void DeleteStation_Click(object sender, RoutedEventArgs e)
+        {
+            int stationCode = ((sender as Button).DataContext as BusStation).StationNumber;
+            Bl.DeleteStations(stationCode);
+            busStations.Remove(((sender as Button).DataContext as BusStation));
+           
+        }
     }
 }
