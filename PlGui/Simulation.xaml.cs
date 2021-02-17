@@ -74,6 +74,10 @@ namespace PlGui
                 TimeSimulation.IsReadOnly = false;
                 OnOffButton.Content = "Start";
                 StartOrStop = true;
+
+
+
+                
             }
         }
     }
