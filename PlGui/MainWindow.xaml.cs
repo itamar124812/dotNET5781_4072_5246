@@ -30,11 +30,19 @@ namespace PlGui
             InitializeComponent();
             //Simulation simulation = new Simulation();
             //simulation.Show();
-           // BootVariablesRandomly();
+            //BootVariablesRandomly();
         }
         void BootVariablesRandomly()
         {
             Random random = new Random(DateTime.Now.Millisecond);
+            //LineTrip
+            foreach (var item in Bl.GetsAllLines())
+            {
+                int fra=random.Next(30, 60);
+                TimeSpan StartAt = TimeSpan.Parse("05:00:00");
+                TimeSpan FinishAt = TimeSpan.Parse("23:59:59");
+                Bl.AddLineTrip(item.Id, StartAt, fra, FinishAt);
+            }
             //stations
             string[] names = { "TelAviv", "BnieBrak", "Afula", "Acre", "Eilat", "Ashdod", "Afula", "Petah Tiqva", "Rishon le Zion", "הרצליה-Herzliya", "Rosh Pina", "Kfar Sava", "Rehovot", "Rosh Ha'ayin", "Bethlehem", "Safed", "Jerusalem", "Haifa", "Beer-Sheva" };
             for (int i = 0; i < 100; i++)
@@ -71,7 +79,7 @@ namespace PlGui
                         {
                             --i;
                         }
-                        }
+                    }
                     else --i;
                 }
             }

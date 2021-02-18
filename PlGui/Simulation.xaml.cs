@@ -49,15 +49,8 @@ namespace PlGui
             worker.DoWork += Worker_DoWork;
             worker.WorkerSupportsCancellation = true;
             worker.WorkerReportsProgress = true;
-            worker.ProgressChanged += Worker_ProgressChanged;
             Clock.DataContext = tool;
         }
-
-        private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-           
-        }
-
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
  
@@ -67,6 +60,7 @@ namespace PlGui
         void UpdateTime(TimeSpan T)
         {
             tool.StartTime+=TimeSpan.FromSeconds(rate);
+            T = tool.StartTime;
         }
 
         private void Try_Text(object sender, TextCompositionEventArgs e)

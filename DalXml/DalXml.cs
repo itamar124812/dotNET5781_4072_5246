@@ -34,17 +34,7 @@ namespace DalXml
             List<AdjacentStations> listAS = XMLTools.LoadListFromXMLSerializer<AdjacentStations>(AdjacentStationsPath);
             if (listAS.Find(a => a.Station1 == adjacentStations.Station1&& a.Station2==adjacentStations.Station2 ) != null) throw new DalApi.DO.AdjacentStationsException(adjacentStations.Station1,adjacentStations.Station2, "Duplicate AdjacentStations");
             listAS.Add(adjacentStations);
-            XMLTools.SaveListToXMLSerializer<AdjacentStations>(listAS, AdjacentStationsPath);
-            //XElement AdjacentStationsList = XMLTools.LoadListFromXMLElement(AdjacentStationsPath);
-            //XElement AS = (from aS in AdjacentStationsList.Elements()
-            //               where int.Parse(aS.Element("Station1").Value) == adjacentStations.Station1 && int.Parse(aS.Element("Station2").Value) == adjacentStations.Station2
-            //               select aS).FirstOrDefault();
-            //if (AS != null)
-            //    throw new DalApi.DO.AdjacentStationsException(int.Parse(AS.Element("Station1").Value), int.Parse(AS.Element("Station2").Value), "Duplicate AdjacentStations");
-            //XElement AddAdjacentStationsElement = new XElement("AddAdjacentStations", new XElement("Station1", adjacentStations.Station1),
-            //    new XElement("Station2", adjacentStations.Station2), new XElement("Distance", adjacentStations.Distance), new XElement("Time", adjacentStations.Time.ToString()));
-            //AdjacentStationsList.Add(AddAdjacentStationsElement);
-            //XMLTools.SaveListToXMLElement(AdjacentStationsList,AdjacentStationsPath);
+            XMLTools.SaveListToXMLSerializer<AdjacentStations>(listAS, AdjacentStationsPath);        
         }
         public void DeleteAdjacentStations(Station A, Station B)
         {
@@ -216,6 +206,12 @@ namespace DalXml
         }
         #endregion
         #region LineTrip
+        public IEnumerable<LineTrip> GetAllLineTrips()
+        {
+            List<LineTrip> lineTrips = XMLTools.LoadListFromXMLSerializer<LineTrip>(LinesTripPath);
+            return from Lt in lineTrips
+                   select Lt;
+        }
         public void UpdateStartTime(int Id, TimeSpan key, TimeSpan time)
         {
             List<LineTrip> lineTrips = XMLTools.LoadListFromXMLSerializer<LineTrip>(LinesTripPath);

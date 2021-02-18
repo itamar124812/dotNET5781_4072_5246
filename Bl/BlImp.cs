@@ -22,7 +22,11 @@ namespace Bl
         public static BlImp Instance { get => instance; }
         #endregion
         #region Travel Operator
-        public void SetStationPanel(int station, Action<LineTiming> updateBus) { }
+        internal int Station;
+        public void SetStationPanel(int station, Action<LineTiming> updateBus) 
+        {
+            Station = station;
+        }
 
         #endregion
         #region LineBus
@@ -380,11 +384,13 @@ namespace Bl
         }
         #endregion
         #region LineTrips
-        public void AddLineTrip(int Id,TimeSpan StartTime)
+        public void AddLineTrip(int Id,TimeSpan StartTime,int f, TimeSpan FinshAt)
         {
             DalApi.DO.LineTrip trip = new LineTrip();
             trip.LindId = Id;
             trip.StartAt = StartTime;
+            trip.FinishAt = FinshAt;
+            trip.Frequency = f;
             try
             {
                 Dl.AddLineTrip(trip);
@@ -419,12 +425,15 @@ namespace Bl
         #endregion
         #region Clock
         internal volatile bool flag;
+        internal TimeSpan sclock;
+        internal int rate;
         public void StartSimulator( TimeSpan startTime, int Rate, Action<TimeSpan> updateTime)
         {
             flag = true;
+            rate = Rate;
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Restart();
-            TimeSpan sclock = startTime;
+            sclock = startTime;
             new Thread(() =>
             {
                 while (flag)

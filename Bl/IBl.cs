@@ -41,7 +41,7 @@ namespace BlApi
         void StopSimulator();
         #endregion
         #region LinesTrips
-        void AddLineTrip(int id, TimeSpan StartTime);
+        void AddLineTrip(int id, TimeSpan StartTime,int f,TimeSpan FinshAt);
         void DeleteLineTrip(int id, TimeSpan StartTime);
         void UpdateStartTime(int Id,TimeSpan key, TimeSpan StartTime);
         #endregion

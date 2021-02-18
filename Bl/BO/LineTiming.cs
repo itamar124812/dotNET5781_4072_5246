@@ -12,6 +12,6 @@ namespace Bl.BO
         public int LineNumber { get; set; }
         public TimeSpan ExitTime { get; set; }
         public string LastStation { get; set; }
-        public DateTime ArrivalTime { get; set; }
+        public TimeSpan ArrivalTime { get; set; }
     }
 }

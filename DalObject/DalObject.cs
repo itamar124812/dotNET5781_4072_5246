@@ -185,6 +185,11 @@ namespace DalObject
         }
         #endregion
         #region LineTrip
+        public IEnumerable<LineTrip> GetAllLineTrips()
+        {
+            return from Lt in DataSource.ListLineTrip
+                   select Lt;
+        }
         public void AddLineTrip(DalApi.DO.LineTrip lineTrip)
         {
             if(DataSource.ListLineTrip.Find(LT=>LT.LindId==lineTrip.LindId && LT.StartAt==lineTrip.StartAt )!=null)
