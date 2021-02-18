@@ -23,9 +23,10 @@ namespace Bl
         #endregion
         #region Travel Operator
         internal int Station;
-        public void SetStationPanel(int station, Action<LineTiming> updateBus) 
+        public IEnumerable<LineTiming> SetStationPanel(int station) 
         {
             Station = station;
+            return TravelOperator.Instance.lineTimings;
         }
 
         #endregion

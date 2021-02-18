@@ -50,6 +50,8 @@ namespace PlGui
             worker.WorkerSupportsCancellation = true;
             worker.WorkerReportsProgress = true;
             Clock.DataContext = tool;
+            Lines.DataContext = bl.GetsAllLines();
+            
         }
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -84,6 +86,9 @@ namespace PlGui
                 OnOffButton.Content = "Stop";
                 Rate.IsReadOnly = true;
                 Clock.IsReadOnly = true;
+                Lines.IsReadOnly = true;
+                Stations.IsReadOnly = true;
+                LineTIMings.DataContext = bl.SetStationPanel((Stations.SelectedItem as Bl.BO.LineStation).Code);
                 try
                 {
                     tool.StartTime = TimeSpan.Parse(Clock.Text);
@@ -101,8 +106,24 @@ namespace PlGui
                 bl.StopSimulator();
                 Rate.IsReadOnly = false;
                 Clock.IsReadOnly = false;
+                Lines.IsReadOnly = false;
+                Stations.IsReadOnly = false;
                 OnOffButton.Content = "Start";
                 StartOrStop = true;               
+            }
+        }
+
+        private void selectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Stations.DataContext = ((sender as ComboBox).SelectedItem as Bl.BO.LineBus).PassingThrough;
+            Stations.SelectedIndex = 0;
+        }
+
+        private void Stations_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (!StartOrStop)
+            {
+                
             }
         }
     }

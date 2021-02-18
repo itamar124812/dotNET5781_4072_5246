@@ -8,10 +8,27 @@
         Title="Simulation" Height="450" Width="800">
     <Window.Resources>
         <local:ConverterFromTimeSpanToString x:Key="Convertor"/>
+        <DataTemplate x:Key="1">
+            <TextBlock  Text="{Binding Path=Id}"></TextBlock>
+        </DataTemplate>
+        <DataTemplate x:Key="2">
+            <TextBlock  Text="{Binding Path=Code}"></TextBlock>
+        </DataTemplate>
+        <DataTemplate x:Key="3">
+            <WrapPanel>
+            <TextBlock Text="{Binding Path=Id}"/>
+            <TextBlock Text="{Binding Path= LineNumber}"/>
+            </WrapPanel>
+        </DataTemplate>
     </Window.Resources>
-    <Grid>
+    <Grid Background="LightYellow">
         <TextBox Name="Clock" Margin="50" FontSize="20" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Text="{ Binding Path=StartTime,  Mode=OneWay,Converter={StaticResource ResourceKey=Convertor},UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox Name="Rate" Margin="170,50" FontSize="20" VerticalAlignment="Top" Width="30" TextAlignment="Center"  Text="1" HorizontalAlignment="Left" TextChanged="input_cheke"></TextBox>
         <Button Content="Start" Width="50" Height="30"  Margin="250,50" VerticalAlignment="Top" Background="LightCyan" HorizontalAlignment="Left" Name="OnOffButton" Click="OnOffButton_Click"/>
+        <Label TextElement.FontSize="20" Content="Line Id:" Margin="305,52,0,0" Width="70" Height="40"  VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
+        <ComboBox  Name="Lines" ItemTemplate="{StaticResource ResourceKey=1}" ItemsSource="{Binding}" Margin="380,52,0,0" Width="60" Height="30" SelectedIndex="0" VerticalAlignment="Top" HorizontalAlignment="Left" RenderTransformOrigin="-0.393,1.248" SelectionChanged="selectionChanged"></ComboBox>
+        <Label TextElement.FontSize="20" Content="Station number:" Margin="450,52,0,0" Width="150" Height="40"  VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <ComboBox Name="Stations" ItemsSource="{Binding}" ItemTemplate="{StaticResource ResourceKey=2}" Margin="605,52,0,0" Width="60" Height="30" SelectedIndex="0" SelectionChanged="Stations_SelectionChanged" VerticalAlignment="Top" HorizontalAlignment="Left" RenderTransformOrigin="2.355,0.511"></ComboBox>
+        <ListBox Name="LineTIMings" ItemsSource="{Binding}" ItemTemplate="{StaticResource ResourceKey=3}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,100" Width="400" Height="300"></ListBox>
     </Grid>
 </Window>

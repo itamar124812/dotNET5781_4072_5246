@@ -46,7 +46,7 @@ namespace BlApi
         void UpdateStartTime(int Id,TimeSpan key, TimeSpan StartTime);
         #endregion
         #region Travel Operator
-        void SetStationPanel(int station, Action<LineTiming> updateBus);
+        IEnumerable<LineTiming> SetStationPanel(int station);
 
         #endregion
     }
