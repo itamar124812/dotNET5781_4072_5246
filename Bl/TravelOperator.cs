@@ -14,6 +14,7 @@ namespace Bl
     {
         public IBl Bl = BlFactory.GetBl();
         public IDal Dl = DalFactory.GetDL();
+        public List<LineTiming> lineTimings = new List<LineTiming>();
         #region Singelton
         private static TravelOperator instance
         {
@@ -42,14 +43,38 @@ namespace Bl
            }).Start();
     }
         #endregion
+
         private void startTravel(int id, int lineNumber, TimeSpan exitTime, string lastStation, TimeSpan arrivalTime)
         {
-            new Thread(() =>
-            {
-                LineTiming lineTiming = new LineTiming() { Id = id, ExitTime = exitTime, LastStation = lastStation, ArrivalTime = arrivalTime, LineNumber = lineNumber };
-                TimeBetweenStation(id);
+            bool flag = true;
+    
+                new Thread(() =>
+                {
+                    int i = 1;
+                    Random rnd = new Random();
+                    TimeSpan time = TimeBetweenStation(id);
+                    LineTiming lineTiming = new LineTiming() { Id = id, ExitTime = exitTime, LastStation = lastStation, ArrivalTime = arrivalTime, LineNumber = lineNumber };
+                    lineTimings.Add(lineTiming);
+                    while (BlImp.Instance.sclock - exitTime >= TimeBetweenStation(id, Bl.GetLine(id).PassingThrough.ElementAt(i).Code) && BlImp.Instance.flag &&flag) 
+                    {
+                        time -= TimeBetweenStation(id, Bl.GetLine(id).PassingThrough.ElementAt(i).Code);
+                        if (Bl.GetLine(id).PassingThrough.ElementAt(i).Code == BlImp.Instance.Station)
+                        {
 
-            }).Start();
+                        }
+                        ++i;
+                        double mul = rnd.NextDouble();
+                        mul = mul * 2.1 - 0.1;
+                        if (Bl.GetLine(id).PassingThrough.Count() >= i)
+                        {
+                            flag = false;
+                        }
+                        Thread.Sleep((int)Math.Abs(TimeBetweenStation(id, Bl.GetLine(id).PassingThrough.ElementAt(i).Code).TotalSeconds * mul));
+                    }
+
+                }).Start();
+            
+
         }
         private TimeSpan TimeBetweenStation(int id,int stationNum)
         {
