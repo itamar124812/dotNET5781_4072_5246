@@ -15,5 +15,9 @@ The structure of this layer is very similar to the one below which it also has a
 Our logic layer has two jobs:<br/>
 1. Operate while running the bus simulator as if they are really moving.<br/>
 2. Bridge between the data layer and the user interface layer.
+This layer is also use factory and singelton disgn pattern.
+<h2>Our User Intarface layer</h2>
+This layer is implement with WPF when the user who is the system manger can enter his user name and password and see the stations and lines that exisits in the system.
+he can also start and control the lines trips.
 
 
