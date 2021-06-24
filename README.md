@@ -17,7 +17,14 @@ Our logic layer has two jobs:<br/>
 2. Bridge between the data layer and the user interface layer.
 This layer is also use factory and singelton disgn pattern.
 <h2>Our User Intarface layer</h2>
-This layer is implement with WPF when the user who is the system manger can enter his user name and password and see the stations and lines that exisits in the system.
+This layer is implement with WPF and use: multi threading, event-oriented programming and implementaion of obsever disgn pattern.
+When the user who is the system manger can enter his user name and password and see the stations and lines that exisits in the system.
 he can also start and control the lines trips.
-
-
+In previous exercises(like dotnet_3B_4072_5246) we built a system to monitor the buses themselves and we plane to extands the system that will support in those actions.
+Another extension we are planning is to add a user interface for a user who wants to use this bus service.
+So far the presentation of the project. I will briefly describe here what each exercise we did on the way to the project contains:
+dotnet_00_4072_5246: Our first use in c# and our first joint work at github as well.
+dotnet_01_4072_5246: In this exercise we improved our skills in c # and wrote simple software that manages an array of buses between there exit trips and treatments.
+dotnet_02_4072_5246: If the previous exercise is about buses this exercise is about lines.
+dotnet_3A_4072_5246: Our first wpf work and all the rest is in the previous exercise.
+dotnet_3B_4072_5246: Our first use in events and multi threading programming. We bulit program that mange bus system and like in dotnet_01_4072_5246:(but much more complicated) we need to divide the trips between treatments and refueling so that each bus will undergo treatment after 20,000 kilometers or after a year and will refuel every 1000 km while refueling of course he can not make trips and while traveling he can only make one trip.
