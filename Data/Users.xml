@@ -6,13 +6,8 @@
     <Adnmin>true</Adnmin>
   </User>
   <User>
-    <UserName>Ariel</UserName>
-    <Password>Ariel</Password>
-    <Adnmin>false</Adnmin>
-  </User>
-  <User>
-    <UserName>ariel</UserName>
-    <Password>ariel</Password>
+    <UserName>1</UserName>
+    <Password>1</Password>
     <Adnmin>true</Adnmin>
   </User>
 </ArrayOfUser>

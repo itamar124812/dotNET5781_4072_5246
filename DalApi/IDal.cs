@@ -65,6 +65,7 @@ namespace DalApi
         void DeleteLineTrip(int LineNumber, TimeSpan startAt);
         LineTrip GetLineTrip(int LineNumber, TimeSpan startAt);
         IEnumerable<LineTrip> GetsAllTripsForLine(int LineNumber);
+        IEnumerable<LineTrip> getAllLineTripForLine(int id);
         #endregion
     }
 }

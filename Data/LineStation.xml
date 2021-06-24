@@ -861,4 +861,11 @@
     <PrevStation>0</PrevStation>
     <NextStation>9</NextStation>
   </LineStation>
+  <LineStation>
+    <LineId>6</LineId>
+    <Station>34</Station>
+    <LineStationIndex>14</LineStationIndex>
+    <PrevStation>46</PrevStation>
+    <NextStation>0</NextStation>
+  </LineStation>
 </ArrayOfLineStation>

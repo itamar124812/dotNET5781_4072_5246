@@ -1026,4 +1026,10 @@
     <Distance>57898</Distance>
     <Time>01:35:41</Time>
   </AdjacentStations>
+  <AdjacentStations>
+    <Station1>46</Station1>
+    <Station2>34</Station2>
+    <Distance>0</Distance>
+    <Time>00:00:00</Time>
+  </AdjacentStations>
 </ArrayOfAdjacentStations>

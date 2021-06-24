@@ -26,7 +26,7 @@ namespace Bl
         public IEnumerable<LineTiming> SetStationPanel(int station) 
         {
             Station = station;
-            return TravelOperator.Instance.lineTimings;
+            return null;// TravelOperator.Instance.lineTimings;
         }
 
         #endregion
@@ -385,6 +385,13 @@ namespace Bl
         }
         #endregion
         #region LineTrips
+        public LineTiming GetStartLineTrip(int id)
+        {
+            LineTrip firstTrip = Dl.getAllLineTripForLine(id).First();
+            LineTiming result = new LineTiming(id,firstTrip.StartAt, Dl.GetsAllStationInLine(id).First());
+            result.ExitTime = firstTrip.StartAt;
+            return result;
+        }
         public void AddLineTrip(int Id,TimeSpan StartTime,int f, TimeSpan FinshAt)
         {
             DalApi.DO.LineTrip trip = new LineTrip();

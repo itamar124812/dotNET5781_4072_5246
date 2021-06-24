@@ -222,6 +222,11 @@ namespace DalXml
             lineTrips.Add(lineTrip);
             XMLTools.SaveListToXMLSerializer<LineTrip>(lineTrips, LinesTripPath);
         }
+        public IEnumerable<LineTrip> getAllLineTripForLine(int id)
+        {
+            List<LineTrip> lineTrips = XMLTools.LoadListFromXMLSerializer<LineTrip>(LinesTripPath);
+            return lineTrips.AsEnumerable().OrderBy(lt=>lt.StartAt).Where(lt => lt.Equals(id)) != null ? lineTrips.AsEnumerable().Where(lt => lt.Equals(id)) : throw new DalApi.DO.LineTripException(id, "The Line Trip does not exist in the system.");
+        }
         public LineTrip GetLineTrip(int LineNumber, TimeSpan startAt)
         {
             List<LineTrip> lineTrips = XMLTools.LoadListFromXMLSerializer<LineTrip>(LinesTripPath);

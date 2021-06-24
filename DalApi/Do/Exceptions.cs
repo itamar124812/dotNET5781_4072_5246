@@ -108,9 +108,12 @@ namespace DalApi.DO
         int LineNum;
         TimeSpan StartAt;
         public LineTripException(int busNum,TimeSpan startAt,string message) : base(message) { LineNum= busNum;StartAt = startAt; }
+        public LineTripException(int busNum, string message) : base(message) { LineNum = busNum;  }
         public override string ToString()
         {
+            if(StartAt!=TimeSpan.Zero)
             return base.ToString() + string.Format("Bad Line Trip in Line Number:{0} who StartAt:{1}.",LineNum,StartAt);
+            else return base.ToString() + string.Format("Bad Line Trip in Line Number:{0}.", LineNum);
         }
     }
     #endregion

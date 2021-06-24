@@ -204,6 +204,10 @@ namespace DalObject
             if (LT != null) DataSource.ListLineTrip.Remove(LT);
             else throw new DalApi.DO.LineTripException(LineNum, startAT, "The Line Trip does not exist in the system.");
         }
+        public IEnumerable<LineTrip>  getAllLineTripForLine(int id)
+        {
+            return DataSource.ListLineTrip.AsEnumerable().Where(lt => lt.Equals(id))!=null? DataSource.ListLineTrip.AsEnumerable().OrderBy(lt => lt.StartAt).Where(lt => lt.Equals(id)):throw new  DalApi.DO.LineTripException(id, "The Line Trip does not exist in the system.");
+        }
         public LineTrip GetLineTrip(int LineNum, TimeSpan startAT)
         {
             LineTrip LT = DataSource.ListLineTrip.Find(lt => lt.LindId.Equals(LineNum) && lt.StartAt.Equals(startAT));
